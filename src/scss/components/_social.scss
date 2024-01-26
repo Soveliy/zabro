@@ -1,0 +1,16 @@
+.social{
+  &__list{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: -4px -8px;
+  }
+  &__item{
+    padding: 4px 8px;
+    box-sizing: border-box;
+  }
+  &__icon{
+    height: 28px;
+    width: 28px;
+  }
+}
