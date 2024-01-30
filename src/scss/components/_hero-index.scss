@@ -1,0 +1,106 @@
+.hero{
+  &--index{
+    position: relative;
+  }
+  padding: 48px 0 92px;
+  background-color: $lightBlock;
+  &__title{
+    margin: 0 0 36px 0;
+    color: $zag;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    span{
+      background: linear-gradient(90deg, #6A2CC7 3.3%, #A85DC8 26.34%, #E55962 51.37%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  &__desc{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 135%; /* 27px */
+    margin: 0 0 26px 0;
+  }
+  &__content{
+    max-width: 70%;
+  }
+  &__advantages-row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: -20px -15px;
+    max-width: 636px;
+
+  }
+  &__advantages-item-container{
+    width: 50%;
+    padding: 20px 15px;
+    box-sizing: border-box;
+  }
+
+  &__advantages-item{
+    &-head{
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 123px;
+      height: 48px;
+      margin-left: 20px;
+      border-radius: 10px;
+      color: $white;
+      // background: linear-gradient(222deg, #E87E51 4.29%, #6627B9 51.37%, #3D104D 100%);
+      background: url(../img/adv-bg.svg);
+      font-size: 30px;
+      font-weight: 800;
+      line-height: normal;
+      margin-bottom: -24px;
+    }
+    &-body{
+      padding: 34px 20px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 135%; /* 21.6px */
+      background-color: $white;
+      border-radius: 10px;
+    }
+  }
+  &__video{
+    position: absolute;
+    right: 0;
+    bottom: 102px;
+    width: 760px;
+    height: 480px;
+    video{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      border-radius: 10px 0px 0px 120px;
+    }
+  }
+  &__video-play{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 70px;
+    width: 70px;
+    z-index: 50;
+    svg{
+      height: 100%;
+      width: 100%;
+      display: block;
+      path{
+        fill: red;
+      }
+    }
+  }
+  &__btn{
+    margin-top: 44px;
+  }
+}

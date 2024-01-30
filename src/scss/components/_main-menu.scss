@@ -6,11 +6,51 @@
     margin: 0;
   }
   &__item{
+    position: relative;
     width: 100%;
+    &:not(:last-child){
+      .main-menu__link{
+        &:before{
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          background-color: $phiolText;
+          height: 14px;
+          width: 1px;
+
+        }
+
+      }
+    }
+    &:last-child{
+      .main-menu__link{
+        &:before{
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          background-color: $phiolText;
+          height: 14px;
+          width: 1px;
+
+        }
+
+      }
+    }
+    &:hover{
+      > .submenu{
+        display: block;
+      }
+    }
   }
   &__link{
+    position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 20px;
     box-sizing: border-box;
     color: $phiolText;
@@ -19,11 +59,86 @@
     font-weight: 500;
     line-height: 14px; /* 82.353% */
     border-radius: 10px;
+    &-icon{
+      width: 9px;
+      height: 6px;
+      flex-shrink: 0;
+      margin-left: 6px;
+      margin-top: 2px;
+      fill: $phiolText;
+      transition: $transtion;
+    }
     @include for-desktop(){
       transition: $transtion;
       &:hover{
         background-color: $phiolText;
         color: $white;
+        .main-menu__link-icon{
+          fill: $white;
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  &__submenu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    margin: 4px 0 0 0;
+  }
+}
+.submenu{
+  list-style: none;
+
+  width: max-content;
+  background-color: $lightDark;
+  border-radius: 10px;
+  padding: 12px 3px;
+  &:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -5px;
+    height: 5px;
+    width: 100%;
+  }
+  &--inside{
+    display: none;
+  }
+  &__link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 6px 27px;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px; /* 200% */
+    border-radius: 10px;
+    &-icon{
+      width: 9px;
+      height: 6px;
+      flex-shrink: 0;
+      margin-left: 6px;
+      margin-top: 2px;
+      fill: $phiolText;
+      transition: $transtion;
+    }
+    @include for-desktop(){
+      transition: $transtion;
+      &:hover{
+        background-color: $phiolText;
+        color: $white;
+        .submenu__link-icon{
+          transform: rotate(180deg);
+          fill: $white;
+        }
+        & + .submenu{
+          display: block;
+        }
+
       }
     }
   }
