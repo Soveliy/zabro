@@ -29,3 +29,8 @@
     @content;
   }
 }
+@mixin lit-mobile {
+  @media (max-width: (450px)) {
+    @content;
+  }
+}

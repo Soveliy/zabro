@@ -1,0 +1,45 @@
+.section-head{
+  &--lit-margin{
+    margin-bottom: 20px;
+  }
+  &--medium-margin{
+    margin-bottom: 40px;
+  }
+  &--big-margin{
+    margin-bottom: 45px;
+  }
+  &__title{
+    margin: 0;
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 54px;
+    color: $zag;
+    @include tablet(){
+      font-size: 36px;
+      line-height: 42px;
+    }
+    @include small-tablet(){
+      font-size: 32px;
+      line-height: 38px;
+    }
+    @include mobile(){
+      font-size: 26px;
+      line-height: 32px;
+    }
+    @include lit-mobile(){
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+  &__desc{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 135%;
+    color: $mainColor;
+    margin: 15px 0 0 0;
+    @include tablet(){
+      font-size: 18px;
+    }
+  }
+}

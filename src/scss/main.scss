@@ -4,12 +4,18 @@
 @import "settings";
 @import "ui";
 
+@import "./components/section";
 @import "./components/btns";
 @import "./components/social";
 @import "./components/auth";
 @import "./components/main-menu";
 @import "./components/header";
 @import "./components/hero-index";
+@import "./components/spheres";
+@import "./components/offer";
+@import "./components/convenience";
+@import "./components/any-type";
+@import "./components/how-it-work";
 @import "./components/footer";
 //<ШРИФТЫ>===============================================================================================
 
@@ -39,7 +45,9 @@ $fontWeight: 400;
 body {
 	color: $mainColor;
 	font-family: $fontFamily, sans-serif;
-
+  font-size: 16px;
+  line-height: 135%;
+  color: $mainColor;
 
 // Класс блокировки
 	&._lock {
@@ -173,6 +181,10 @@ body {
 
 .section {
 	padding: 50px 0;
+
+  &--light{
+    background-color: $lightBlock;
+  }
 }
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================

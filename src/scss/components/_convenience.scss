@@ -1,0 +1,57 @@
+.convenience{
+  &__row{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  &__item{
+    width: 39%;
+    img{
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  }
+  &__attention{
+    width: 386px;
+    margin-left: -130px;
+    img{
+      border-radius: 10px;
+    }
+  }
+}
+
+.attention{
+  &__wrap{
+    padding: 48px;
+    background: rgba(255, 255, 255, 0.83);
+    border: 1px solid rgba(222, 222, 222, 0.45);
+    box-shadow: inset 0px -4px 12px rgba(255, 255, 255, 0.14), inset 0px 4px 19px rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    border-radius: 10px;
+
+  }
+  &__row{
+    display: flex;
+    align-items: center;
+    gap: 21px;
+  }
+  &__title{
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+  }
+  &__btn{
+    margin-top: 24px;
+  }
+  &__right{
+    margin-right: -12px;
+  }
+  &__icon{
+    display: block;
+    margin-top: 12px;
+    width: 60px;
+    height: 57px;
+    margin-left: -2px;
+    fill: #D4CBE8;
+  }
+}

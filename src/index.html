@@ -4,7 +4,13 @@
 @include('partials/head.html')
 
 <body class="page__body">
-
+  <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+    <linearGradient id="tabs-active" x2="1" y2="1">
+      <stop stop-color="#EB5884"/>
+      <stop offset="0.491918" stop-color="#A05ED5"/>
+      <stop offset="1" stop-color="#6124C5"/>
+    </linearGradient>
+  </svg>
 	<div class="wrapper  site-container">
 		@include('partials/header.html')
 
@@ -73,6 +79,107 @@
               </a>
               <video src="video/about.mp4" autoplay muted></video>
             </div>
+        </div>
+      </div>
+      @include('partials/index/spheres.html')
+      @include('partials/index/offer.html')
+      @include('partials/index/convenience.html')
+      <div class="section section--light">
+        <section class="section any-type">
+          <div class="any-type__container container">
+            <div class="tabs any-type__tabs" data-tabs="tab">
+              <ul class="list-reset tabs__nav">
+                <li class="tabs__nav-item"><button class="btn-reset tabs__nav-btn" type="button">3D-визуализация</button></li>
+                <li class="tabs__nav-item"><button class="btn-reset tabs__nav-btn" type="button">Виртуальная примерка</button></li>
+                <li class="tabs__nav-item"><button class="btn-reset tabs__nav-btn" type="button">360-фото</button></li>
+                <li class="tabs__nav-item"><button class="btn-reset tabs__nav-btn" type="button">Видео</button></li>
+                <li class="tabs__nav-item"><button class="btn-reset tabs__nav-btn" type="button">Фото-рендеры</button></li>
+              </ul>
+              <div class="tabs__content">
+                <div class="tabs__panel any-type-item">
+                  <div class="any-type-item__row">
+                    <a class="any-type-item__image">
+                      <img src="img/prod.jpg" alt="">
+                    </a>
+                    <div class="any-type-item__content-block content-block">
+                      <h3>3D-визуализация</h3>
+                      <p> Это объёмное фотореалистичное изображение, выполненное в&nbsp;специальных графических редакторах.
+                      </p>
+                      <p>Оно отражает все нюансы будущего объекта: объём, положение в&nbsp;пространстве с&nbsp;разных ракурсов, детали оформления (цвета, материалы, текстуры).
+                      </p>
+                      <p>Это объёмное фотореалистичное изображение, выполненное.</p>
+
+                      <a href="#" class="btn btn--big btn--border any-type-item__btn">
+                        <span>Попробовать бесплатно</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="tabs__panel any-type-item"></div>
+                <div class="tabs__panel any-type-item"></div>
+                <div class="tabs__panel any-type-item"></div>
+                <div class="tabs__panel any-type-item"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section how-it-work">
+          <div class="container">
+            <div class="section-head section-head--medium-margin">
+              <h2 class="section-head__title section-head--medium">
+                Как это работает
+              </h2>
+            </div>
+            <div class="how-it-work__row">
+              <div class="how-it-work__item how-it-work__item--type-1">Фотографии товара</div>
+              <div class="how-it-work__item how-it-work__item--type-2">3D модели</div>
+              <div class="how-it-work__item how-it-work__item--type-3">
+                <div class="how-it-work__logo">
+                  <img src="img/logo.svg" alt="">
+                </div>
+              </div>
+              <div class="how-it-work__item how-it-work__item--type-4">Сервис Zarbo</div>
+              <div class="how-it-work__item how-it-work__item--type-4">
+                Виджеты
+                Для 3D-визуализации и виртуальной примерки на сайт
+              </div>
+              <div class="how-it-work__item how-it-work__item--type-4">
+                360-фото
+              </div>
+              <div class="how-it-work__item how-it-work__item--type-4">
+                Яндекс.Маркет
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="comfort section">
+        <div class="container">
+          <div class="section-head section-head--medium">
+            <h2 class="section-head__title">
+              С нами комфортно
+            </h2>
+          </div>
+          <div class="comfort__row">
+            <div class="comfort__item-container">
+              <div class="comfort-item">
+                <div class="comfort-item__top">
+                  <img src="img/comfort/1.svg" alt="" class="comfort-item">
+                  <div class="comfort-item__title">
+                    Сервис управления моделями
+                  </div>
+                  <div class="comfort-item__desc">
+                    Ваши модели хранятся в нашем удобном облачном сервисе, вы можете просмотреть и настроить их откуда угодно.
+                  </div>
+                </div>
+                <div class="comfort-item__footer">
+                  <a href="#" class="btn btn--big btn--border">
+                    <span>Связаться с нами</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

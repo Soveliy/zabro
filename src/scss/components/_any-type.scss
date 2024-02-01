@@ -1,0 +1,40 @@
+.any-type{
+  &__tabs{
+    padding: 80px 60px 90px;
+    background-color: $lightDark;
+    border-radius: 10px 10px 100px 10px;
+  }
+  .tabs__nav{
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px -8px 24px;
+  }
+  .tabs__nav-item{
+    padding: 8px;
+  }
+  .tabs__nav-btn{
+    padding: 16px 32px;
+    font-size: 16px;
+    line-height: 135%;
+    border: 1px solid $white;
+    transition: $transtion;
+    border-radius: 10px;
+
+  }
+}
+
+.any-type-item{
+  &__row{
+    display: flex;
+    gap: 44px;
+  }
+  &__image{
+    width: 52.6%;
+    flex-shrink: 0;
+  }
+  &__content-block{
+
+  }
+}
+
+

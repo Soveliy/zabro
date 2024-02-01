@@ -1,0 +1,62 @@
+.offer{
+
+  &__wrap{
+    position: relative;
+    padding: 40px 25% 50px 0;
+    &:after{
+      background: rgba(202, 185, 255, 0.35);
+      border: 1px solid rgba(222, 222, 222, 0.45);
+      box-shadow: inset 0px -4px 12px rgba(255, 255, 255, 0.14), inset 0px 4px 19px rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      border-radius: 0px 10px 100px 0px;
+      content: '';
+      position: absolute;
+      right: 0;
+      width: 1000em;
+      height: 100%;
+      top: 0;
+      z-index:-1;
+    }
+    &:before{
+      content: "";
+      position: absolute;
+      right:20%;
+      top: 100%;
+      margin-top: -45px;
+      height: 87px;
+      width: 87px;
+      background: url(../img/decor.svg) no-repeat center center;
+      background-size: contain;
+      z-index: -32;
+    }
+  }
+  &__title{
+    font-size: 28px;
+    line-height: 135%;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+  }
+  &__subtitle{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 27px;
+    line-height: 135%;
+  }
+  &__content{
+    font-size: 20px;
+    line-height: 135%;
+    > *:first-child{
+      margin-top: 0;
+    }
+    > *:last-child{
+      margin-bottom: 0;
+    }
+
+
+
+  }
+  &__btn{
+    margin-top: 36px;
+  }
+
+}

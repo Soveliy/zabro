@@ -3,12 +3,11 @@
   &:before{
     content: '';
     position: absolute;
-    left: 0;
+    left: 5%;
     top: -92px;
     height: 183px;
     width: 183px;
     background: url(../img/decor.svg);
-    right: 5%;
   }
   &:after{
     content: '';
