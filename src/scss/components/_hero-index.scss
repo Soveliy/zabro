@@ -1,6 +1,30 @@
 .hero{
   &--index{
     position: relative;
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 7%;
+
+      height: 59px;
+      width: 59px;
+      background: url(../img/decor.svg) center center no-repeat;
+      background-size: contain;
+      transform: rotate(35deg);
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      bottom:26%;
+      left:7%;
+
+      height: 39px;
+      width: 39px;
+      background: url(../img/decor.svg) center center no-repeat;
+      background-size: contain;
+      transform: rotate(-7deg);
+    }
   }
   padding: 48px 0 92px;
   background-color: $lightBlock;
@@ -30,13 +54,13 @@
   &__advantages-row{
     display: flex;
     flex-wrap: wrap;
-    margin: -20px -15px;
+    margin: -8px -15px;
     max-width: 636px;
 
   }
   &__advantages-item-container{
     width: 50%;
-    padding: 20px 15px;
+    padding: 8px 15px;
     box-sizing: border-box;
   }
 
@@ -58,6 +82,9 @@
       font-weight: 800;
       line-height: normal;
       margin-bottom: -24px;
+      &--big{
+        font-size: 50px;
+      }
     }
     &-body{
       padding: 34px 20px 16px;
@@ -72,15 +99,28 @@
     position: absolute;
     right: 0;
     bottom: 102px;
-    width: 760px;
-    height: 480px;
+    // width: 760px;
+    width: 39.6%;
+    height: 420px;
+    &::before{
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-bottom: -30px;
+      height: 59px;
+      width: 59px;
+      background: url(../img/decor.svg) center center no-repeat;
+      background-size: contain;
+      transform: rotate(35deg);
+    }
     video{
       position: absolute;
       top: 0;
       left: 0;
       height: 100%;
       width: 100%;
-      object-fit: contain;
+      object-fit: cover;
       border-radius: 10px 0px 0px 120px;
     }
   }

@@ -36,6 +36,7 @@ console.log(mobileCheck())
 // Реализация табов
 import GraphTabs from 'graph-tabs';
 const tabs = new GraphTabs('tab');
+const tabsSlider = new GraphTabs('spheres-tab');
 
 // Получение высоты шапки сайта (не забудьте вызвать функцию)
 // import { getHeaderHeight } from './functions/header-height';
@@ -50,7 +51,11 @@ const tabs = new GraphTabs('tab');
 // });
 
 // Подключение свайпера
+// import Swiper, {  } from 'swiper';
+// Swiper.use([ ]);
 import Swiper from 'swiper';
+import { Navigation, Pagination, Thumbs, Scrollbar } from 'swiper/modules';
+Swiper.use([Navigation, Pagination, Thumbs, Scrollbar]);
 
 const swiper = new Swiper('.gallery__swiper', {
   slidesPerView: 'auto',
@@ -63,19 +68,46 @@ const examples = new Swiper('.examples__swiper', {
 });
 
 
-var swiperThumbs = new Swiper(".spheres__thumbs-slider", {
-  spaceBetween: 8,
-  slidesPerView: 'auto',
-  freeMode: true,
-  watchSlidesProgress: true,
-});
+function TabsSliders() {
+  let swiperDetails = document.querySelectorAll(".spheres-item__frames")
+  let swiperPreviews = document.querySelectorAll(".spheres__thumbs-slider")
+  swiperDetails.forEach((swiperDetail,index) => {
+      let swiperPreview = new Swiper(swiperPreviews[index], {
+          spaceBetween: 8,
+          slidesPerView: 'auto',
+          freeMode: true,
+          watchSlidesProgress: true,
+      });
+      swiperDetail = new Swiper(swiperDetails[index], {
+      spaceBetween: 0,
+      // navigation: {
+      // nextEl: ".swiper-button-next",
+      // prevEl: ".swiper-button-prev",
+      // },
+      thumbs: {
+      swiper: swiperPreviews[index],
+      },
+  });
+  })
+}
+TabsSliders()
 
-var swiperMain = new Swiper(".spheres-item__frames", {
-  spaceBetween: 10,
-  thumbs: {
-    swiper: swiperThumbs,
-  },
-});
+
+// var swiperThumbs = new Swiper(".spheres__thumbs-slider", {
+//   spaceBetween: 8,
+//   slidesPerView: 'auto',
+//   freeMode: true,
+//   watchSlidesProgress: true,
+// });
+
+// var swiperMain = new Swiper(".spheres-item__frames", {
+//   spaceBetween: 10,
+//   thumbs: {
+//     swiper: swiperThumbs,
+
+//   },
+// });
+
 
 
 // Подключение анимаций по скроллу

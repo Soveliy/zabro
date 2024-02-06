@@ -38,6 +38,9 @@
     line-height: 135%;
     color: $mainColor;
     margin: 15px 0 0 0;
+    p{
+      margin: 0;
+    }
     @include tablet(){
       font-size: 18px;
     }

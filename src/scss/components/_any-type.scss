@@ -3,6 +3,7 @@
     padding: 80px 60px 90px;
     background-color: $lightDark;
     border-radius: 10px 10px 100px 10px;
+
   }
   .tabs__nav{
     display: flex;
@@ -13,12 +14,26 @@
     padding: 8px;
   }
   .tabs__nav-btn{
+    position: relative;
     padding: 16px 32px;
     font-size: 16px;
     line-height: 135%;
     border: 1px solid $white;
     transition: $transtion;
     border-radius: 10px;
+    &.tabs__nav-btn--active{
+      background-color: #fff;
+      &:after{
+        content: '';
+        position: absolute;
+        width: 18px;
+        height: 10px;
+        background: url(../img/bottom-tabs.svg) no-repeat center center;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
 
   }
 }

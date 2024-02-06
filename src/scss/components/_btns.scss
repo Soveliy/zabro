@@ -6,16 +6,32 @@
   font-weight: 600;
   line-height: 135%;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 10px;
   border: none;
   outline: none;
   cursor: pointer;
+   > span{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
   &--big{
-    padding: 19px 40px;
-    text-transform: uppercase;
+    &:not(.btn--border){
+      span{
+        padding: 19px 58px;
+        text-transform: uppercase;
+      }
+    }
 
+    &.btn--border{
+     > span{
+        padding: 17px 38px;
+      }
+    }
+  }
+  &--default{
+    padding: 17px;
   }
   &--gradient{
     color: $white;
@@ -30,7 +46,7 @@
       content: '';
       position: absolute;
       top: 0;
-      top: 0;
+      left: 0;
       height: 100%;
       width: 100%;
       border-radius: 10px;
@@ -42,7 +58,7 @@
     }
     &:after{
       background: linear-gradient(268deg, #5D1EC3 0%, #F86161 53.12%, #872BCF 100%);
-   }
+    }
 
     &:hover{
       &:before{
@@ -56,4 +72,159 @@
     }
 
   }
+  &--border{
+    padding: 2px;
+    background: linear-gradient(268deg, #F86161 0%, #872BCF 56.72%, #5D1EC3 100%);
+
+    &.btn--border--lignt{
+      .btn__text{
+        background-color: $lightDark;
+      }
+    }
+
+    &.btn--border--ligntBlocks{
+      .btn__text{
+        background-color: $lightBlock;
+      }
+    }
+
+
+    .btn__text{
+      position: relative;
+      z-index: 20;
+      border-radius: 9px;
+
+    }
+    .btn__text span{
+      position: relative;
+      z-index: 10;
+      background: linear-gradient(268deg, #F86161 0%, #872BCF 56.72%, #5D1EC3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
+      transition: $transtion;
+
+
+    }
+    &:before,&::after{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      opacity: 0;
+      transition: $transtion;
+    }
+    &:before{
+      background: linear-gradient(268deg, #5D1EC3 0%, #872BCF 40.62%, #F86161 100%);
+    }
+    &:after{
+      background: linear-gradient(268deg, #5D1EC3 0%, #F86161 53.12%, #872BCF 100%);
+    }
+
+    &:hover{
+      // background: transparent;
+      &:before{
+        opacity: 1;
+      }
+      .btn__text span{
+        background: linear-gradient(268deg, #5D1EC3 0%, #872BCF 40.62%, #F86161 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+      }
+    }
+    &:active{
+      &:after{
+        opacity: 1;
+      }
+      .btn__text span{
+        background: linear-gradient(268deg, #5D1EC3 0%, #F86161 53.12%, #872BCF 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+      }
+    }
+
+
+
+  }
+
 }
+
+// &--border{
+//   // background: linear-gradient(to right, #00FFA3, #DC1FFF);
+//   background:   linear-gradient(#E1D8FC, #E1D8FC) padding-box,
+//   linear-gradient(268deg, #F86161 0%, #872BCF 56.72%, #5D1EC3 100%) border-box;;
+//   // background: linear-gradient(268deg, #F86161 0%, #872BCF 56.72%, #5D1EC3 100%);
+
+//   border: 2px solid transparent;
+//   transition: .4s;
+//   span{
+//     position: relative;
+//     z-index: 10;
+//     background-color: $white;
+//     border-radius: 9px;
+//     background: linear-gradient(268deg, #F86161 0%, #872BCF 56.72%, #5D1EC3 100%);
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+//     -moz-background-clip: text;
+//     -moz-text-fill-color: transparent;
+//     transition: $transtion;
+//   }
+//   &:before,&::after{
+//     content: '';
+//     position: absolute;
+//     top: -2px;
+//     left: -2px;
+//     height: calc(100% + 4px);
+//     width: calc(100% + 4px);
+//     border-radius: 10px;
+//     opacity: 0;
+//     transition: $transtion;
+//   }
+//   &:before{
+//     background:   linear-gradient(#E1D8FC, #E1D8FC) padding-box,
+//     linear-gradient(268deg, #5D1EC3 0%, #872BCF 40.62%, #F86161 100%);
+//     border: 2px solid transparent;
+//   }
+//   &:after{
+//     background:   linear-gradient(#E1D8FC, #E1D8FC) padding-box,
+//     linear-gradient(268deg, #5D1EC3 0%, #F86161 53.12%, #872BCF 100%);
+//     border: 2px solid transparent;
+//   }
+
+//   &:hover{
+//     // background: transparent;
+//     &:before{
+//       opacity: 1;
+//     }
+//     span{
+//       background: linear-gradient(268deg, #5D1EC3 0%, #872BCF 40.62%, #F86161 100%);
+//       -webkit-background-clip: text;
+//       -webkit-text-fill-color: transparent;
+//       -moz-background-clip: text;
+//       -moz-text-fill-color: transparent;
+//     }
+//   }
+//   &:active{
+//     &:after{
+//       opacity: 1;
+//     }
+//     span{
+//       background: linear-gradient(268deg, #5D1EC3 0%, #F86161 53.12%, #872BCF 100%);
+//       -webkit-background-clip: text;
+//       -webkit-text-fill-color: transparent;
+//       -moz-background-clip: text;
+//       -moz-text-fill-color: transparent;
+//     }
+//   }
+
+
+
+// }
