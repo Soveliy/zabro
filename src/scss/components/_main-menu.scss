@@ -8,6 +8,9 @@
   &__item{
     position: relative;
     width: 100%;
+    & + &{
+      margin-left: -1px;
+    }
     &:not(:last-child){
       .main-menu__link{
         &:before{
@@ -40,9 +43,13 @@
 
       }
     }
-    &:hover{
-      > .submenu{
-        display: block;
+    @include for-desktop(){
+      &:hover{
+        .main-menu__link-icon{
+          fill: $white;
+          transform: rotate(180deg);
+        }
+
       }
     }
   }
@@ -81,19 +88,78 @@
     }
   }
   &__submenu{
-    display: none;
+    width: 292px;
+    // display: none;
     position: absolute;
     top: 100%;
     margin: 4px 0 0 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: $transtion;
   }
+  a[link-disabled]{
+    position: relative;
+    pointer-events: none;
+    &:after{
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(225, 216, 252) 75%);
+    }
+    span{
+      position: absolute;
+      right: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 6px;
+      padding: 3px 8px;
+      background-color: $lightBlock;
+      color: $phiolText;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 133%;
+      color: #734ca5;
+      z-index: 50;
+    }
+  }
+ @include for-desktop(){
+  li:hover{
+    > .submenu{
+     opacity: 1;
+     visibility: visible;
+     pointer-events: all;
+     height: auto;
+     padding-top: 12px;
+     padding-bottom: 12px;
+
+    }
+    > a:not([link-disabled]){
+     background-color: $phiolText;
+     color: $white;
+     .submenu__link-icon{
+       transform: rotate(180deg);
+       fill: $white;
+     }
+    }
+
+ }
+ }
 }
 .submenu{
   list-style: none;
 
-  width: max-content;
+
   background-color: $lightDark;
   border-radius: 10px;
-  padding: 12px 3px;
+  padding-left: 3px;
+  padding-bottom: 3px;
+  z-index: 50;
+
+
   &:before{
     content: '';
     position: absolute;
@@ -103,7 +169,12 @@
     width: 100%;
   }
   &--inside{
-    display: none;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:opacity $transtion, padding $transtion;
+
   }
   &__link{
     display: flex;
@@ -117,6 +188,7 @@
     font-weight: 500;
     line-height: 30px; /* 200% */
     border-radius: 10px;
+    transition: $transtion;
     &-icon{
       width: 9px;
       height: 6px;
@@ -126,20 +198,6 @@
       fill: $phiolText;
       transition: $transtion;
     }
-    @include for-desktop(){
-      transition: $transtion;
-      &:hover{
-        background-color: $phiolText;
-        color: $white;
-        .submenu__link-icon{
-          transform: rotate(180deg);
-          fill: $white;
-        }
-        & + .submenu{
-          display: block;
-        }
 
-      }
-    }
   }
 }

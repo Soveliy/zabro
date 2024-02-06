@@ -9,6 +9,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
   &--big{
     padding: 19px 40px;
     text-transform: uppercase;

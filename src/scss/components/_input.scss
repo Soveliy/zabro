@@ -1,0 +1,37 @@
+.input{
+  position: relative;
+  &__elem{
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    background-color: $lightBlock;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    outline: none;
+    height: 60px;
+    transition: $transtion;
+    padding: 0 30px;
+    color: $zag;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+
+    &:not(:placeholder-shown) ~ label, &:focus ~ label{
+      transform: translateY(-16px);
+      font-size: 12px;
+      color: $mainColor;
+    }
+    &:hover{
+      border-color: $lightDark;
+    }
+  }
+  &__label{
+    pointer-events: none;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    color: #aea5b9;
+    transition: $transtion;
+  }
+}

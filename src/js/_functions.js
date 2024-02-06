@@ -50,11 +50,33 @@ const tabs = new GraphTabs('tab');
 // });
 
 // Подключение свайпера
-// import Swiper, { Navigation, Pagination } from 'swiper';
-// Swiper.use([Navigation, Pagination]);
-// const swiper = new Swiper(el, {
-//   slidesPerView: 'auto',
-// });
+import Swiper from 'swiper';
+
+const swiper = new Swiper('.gallery__swiper', {
+  slidesPerView: 'auto',
+  spaceBetween: 30,
+});
+
+const examples = new Swiper('.examples__swiper', {
+  slidesPerView: 4,
+  spaceBetween: 30,
+});
+
+
+var swiperThumbs = new Swiper(".spheres__thumbs-slider", {
+  spaceBetween: 8,
+  slidesPerView: 'auto',
+  freeMode: true,
+  watchSlidesProgress: true,
+});
+
+var swiperMain = new Swiper(".spheres-item__frames", {
+  spaceBetween: 10,
+  thumbs: {
+    swiper: swiperThumbs,
+  },
+});
+
 
 // Подключение анимаций по скроллу
 // import AOS from 'aos';
@@ -76,15 +98,45 @@ const tabs = new GraphTabs('tab');
 //   console.log(e.detail.dir);
 // });
 
-// import { validateForms } from './functions/validate-forms';
-// const rules1 = [...];
+import { validateForms } from './functions/validate-forms';
+const rules1 = [
+  {
+    ruleSelector: '.input--name',
+    rules: [
+      {
+        rule: 'minLength',
+        value: 3
+      },
+      {
+        rule: 'required',
+        value: true,
+        errorMessage: 'Заполните имя!'
+      }
+    ]
+  },
+  {
+    ruleSelector: '.input--phone-email',
+    tel: false,
+    telError: 'Введите корректный телефон',
+    rules: [
+      {
+        rule: 'minLength',
+        value: 3
+      },
+      {
+        rule: 'required',
+        value: true,
+        errorMessage: 'Заполните имя!'
+      }
+    ]
+  },
+];
 
-// const afterForm = () => {
-//   console.log('Произошла отправка, тут можно писать любые действия');
-// };
+const afterForm = () => {
+  console.log('Произошла отправка, тут можно писать любые действия');
+};
 
-// validateForms('.form-1', rules1, afterForm);
-
+validateForms('.tell-project__form', rules1, afterForm);
 // Подключение библиотеки модальных окон Micromodal
 // import MicroModal from 'micromodal';
 // MicroModal.init();

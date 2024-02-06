@@ -1,0 +1,30 @@
+.tell-project{
+  padding: 60px 0 120px;
+  &__form{
+    display: flex;
+
+  }
+  &__inputs{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: -12px;
+  }
+  &__input-container{
+    width: 50%;
+    padding: 12px;
+    box-sizing: border-box;
+    &--w100{
+      width: 100%;
+    }
+  }
+  &__button-container{
+    width: 328px;
+    flex-shrink:0;
+    margin-left: 66px;
+  }
+  &__button{
+    width: 100%;
+    margin-bottom: 23px;
+  }
+}

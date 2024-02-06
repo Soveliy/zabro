@@ -1,0 +1,30 @@
+.examples{
+  &-item{
+    border-radius: 10px;
+    background-color: $lightBlock;
+    padding: 4px 4px 20px;
+    &__image{
+      img{
+        border-radius: 10px;
+      }
+    }
+    &__body{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 16px 0;
+    }
+    &__title{
+      font-size: 16px;
+      line-height: 135%;
+      font-weight: 600;
+    }
+    &__time{
+      font-size: 15px;
+      line-height: 135%;
+      margin-left: 14px;
+      flex-shrink: 0;
+    }
+  }
+
+}

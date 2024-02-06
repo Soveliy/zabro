@@ -1,0 +1,21 @@
+.confidence{
+  &__row{
+    display: flex;
+    // flex-wrap: wrap;
+    margin:0 -22px;
+    justify-content: space-between;
+  }
+  &__item-container{
+    padding: 0 22px;
+    box-sizing: border-box;
+  }
+  &-item{
+    img{
+      max-height: 38px;
+    }
+  }
+  &__btn-container{
+    text-align: center;
+    margin-top: 50px;
+  }
+}

@@ -1,0 +1,45 @@
+.comfort{
+  &__row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+  }
+  &__item-container{
+    padding: 15px;
+    width: 33.3%;
+    box-sizing: border-box;
+  }
+  &-item{
+    padding: 28px 0 32px;
+    background-color: $lightBlock;
+    border-radius: 10px;
+    &__top{
+      display: flex;
+    }
+    &__content{
+      width: 100%;
+      padding-right: 30px;
+      box-sizing: border-box;
+
+    }
+    &__image{
+      flex-shrink: 0;
+      max-width: 84px;
+      margin-right: 28px;
+    }
+    &__title{
+      font-size: 22px;
+      line-height: 120%;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+    }
+    &__desc{
+      font-size: 18px;
+      line-height: 135%;
+    }
+    &__footer{
+      padding: 0 30px;
+      margin-top: 22px;
+    }
+  }
+}
