@@ -15,6 +15,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    text-transform: uppercase;
   }
   &--big{
     &:not(.btn--border){
@@ -31,7 +32,9 @@
     }
   }
   &--default{
-    padding: 17px;
+    > span{
+      padding: 17px;
+    }
   }
   &--gradient{
     color: $white;
@@ -87,6 +90,12 @@
         background-color: $lightBlock;
       }
     }
+    &.btn--border--white{
+      .btn__text{
+        background-color: $white;
+      }
+    }
+
 
 
     .btn__text{

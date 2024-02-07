@@ -1,4 +1,5 @@
 .comfort{
+  padding: 120px 0 60px;
   &__row{
     display: flex;
     flex-wrap: wrap;
@@ -13,12 +14,13 @@
     padding: 28px 0 32px;
     background-color: $lightBlock;
     border-radius: 10px;
+    height: 100%;
     &__top{
       display: flex;
     }
     &__content{
       width: 100%;
-      padding-right: 30px;
+      padding-right: 15px;
       box-sizing: border-box;
 
     }
@@ -39,7 +41,9 @@
     }
     &__footer{
       padding: 0 30px;
-      margin-top: 22px;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
     }
   }
 }

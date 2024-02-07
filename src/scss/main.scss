@@ -7,6 +7,7 @@
 @import "./components/section";
 @import "./components/btns";
 @import "./components/input";
+@import "./components/content-block";
 @import "./components/social";
 @import "./components/auth";
 @import "./components/main-menu";
@@ -191,6 +192,7 @@ body {
 
 
   &--light{
+    padding-top: 366px;
     background-color: $lightBlock;
   }
 }

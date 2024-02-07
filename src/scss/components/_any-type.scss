@@ -1,6 +1,6 @@
 .any-type{
   &__tabs{
-    padding: 80px 60px 90px;
+    padding: 80px 60px 85px;
     background-color: $lightDark;
     border-radius: 10px 10px 100px 10px;
 
@@ -15,7 +15,7 @@
   }
   .tabs__nav-btn{
     position: relative;
-    padding: 16px 32px;
+    padding: 16px 24px;
     font-size: 16px;
     line-height: 135%;
     border: 1px solid $white;
@@ -36,6 +36,7 @@
     }
 
   }
+
 }
 
 .any-type-item{
@@ -46,9 +47,15 @@
   &__image{
     width: 52.6%;
     flex-shrink: 0;
+    img{
+      border-radius: 10px;
+    }
   }
   &__content-block{
 
+  }
+  &__btn{
+    margin-top: 26px;
   }
 }
 
