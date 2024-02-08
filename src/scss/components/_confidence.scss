@@ -1,5 +1,26 @@
 .confidence{
+  position: relative;
   padding: 60px 0;
+  &:before,&:after{
+    content: '';
+    position: absolute;
+    background: url(../img/decor.svg) no-repeat center center;
+    background-size: contain;
+  }
+  &:before{
+    height:87px;
+    width:87px;
+    top: 9px;
+    right: 4.8%;
+    transform: rotate(8deg);
+  }
+  &:after{
+    height: 63px;
+    width: 63px;
+    bottom: -32px;
+    left: 14.2%;
+    transform: rotate(45deg);
+  }
   &__row{
     display: flex;
     // flex-wrap: wrap;

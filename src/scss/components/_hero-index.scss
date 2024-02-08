@@ -12,6 +12,11 @@
       background: url(../img/decor.svg) center center no-repeat;
       background-size: contain;
       transform: rotate(35deg);
+      @include lit-desktop(){
+        right: 31%;
+        left: auto;
+        top: -11px;
+      }
     }
     &::after{
       content: '';
@@ -24,10 +29,18 @@
       background: url(../img/decor.svg) center center no-repeat;
       background-size: contain;
       transform: rotate(-7deg);
+      @include lit-desktop(){
+        left: auto;
+        right: 50%;
+        bottom: 18%;
+      }
     }
   }
   padding: 48px 0 92px;
   background-color: $lightBlock;
+  @include lit-desktop(){
+    padding: 19px 0 85px;
+  }
   &__title{
     margin: 0 0 36px 0;
     color: $zag;
@@ -35,6 +48,10 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    @include lit-desktop(){
+      font-size: 48px;
+      margin: 0 0 17px 0;
+    }
     span{
       background: linear-gradient(90deg, #6A2CC7 3.3%, #A85DC8 26.34%, #E55962 51.37%);
       background-clip: text;
@@ -47,6 +64,9 @@
     font-weight: 500;
     line-height: 135%; /* 27px */
     margin: 0 0 26px 0;
+    @include lit-desktop(){
+      font-size: 18px;
+    }
   }
   &__content{
     max-width: 70%;
@@ -56,6 +76,9 @@
     flex-wrap: wrap;
     margin: -8px -15px;
     max-width: 636px;
+    @include lit-desktop(){
+      max-width: 480px;
+    }
 
   }
   &__advantages-item-container{
@@ -77,13 +100,24 @@
       border-radius: 10px;
       color: $white;
       // background: linear-gradient(222deg, #E87E51 4.29%, #6627B9 51.37%, #3D104D 100%);
-      background: url(../img/adv-bg.svg);
+      background: url(../img/adv-bg.svg) no-repeat center center;
       font-size: 30px;
       font-weight: 800;
       line-height: normal;
       margin-bottom: -24px;
+      @include lit-desktop(){
+        font-size: 24px;
+        width: 94px;
+        height: 37px;
+        padding-right: 7px;
+        background-size: contain;
+        margin-bottom: -18px;
+      }
       &--big{
         font-size: 50px;
+        @include lit-desktop(){
+          font-size: 40px;
+        }
       }
     }
     &-body{
@@ -93,6 +127,10 @@
       line-height: 135%; /* 21.6px */
       background-color: $white;
       border-radius: 10px;
+      @include lit-desktop(){
+        font-size: 14px;
+        padding: 28px 20px 16px;
+      }
     }
   }
   &__video{
@@ -102,6 +140,12 @@
     // width: 760px;
     width: 39.6%;
     height: 420px;
+    @include lit-desktop(){
+
+      width: 447px;
+      height: 247px;
+      bottom: 170px;
+    }
     &::before{
       content: '';
       position: absolute;
@@ -113,6 +157,9 @@
       background: url(../img/decor.svg) center center no-repeat;
       background-size: contain;
       transform: rotate(35deg);
+      @include lit-desktop(){
+        left: 59%;
+      }
     }
     video{
       position: absolute;
@@ -142,5 +189,8 @@
   }
   &__btn{
     margin-top: 44px;
+    @include lit-desktop(){
+      margin-top: 31px;
+    }
   }
 }

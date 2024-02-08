@@ -1,7 +1,28 @@
 .faq{
+  position: relative;
   background-color: $lightBlock;
   padding: 120px 0;
   margin: 60px 0;
+  &:before,&:after{
+    content: '';
+    position: absolute;
+    background: url(../img/decor.svg) no-repeat center center;
+    background-size: contain;
+  }
+  &:before{
+    height: 93px;
+    width: 93px;
+    top: -44px;
+    right: 12.7%;
+    transform: rotate(26deg);
+  }
+  &:after{
+    height: 71px;
+    width: 71px;
+    bottom: 42%;
+    left: 7.5%;
+    transform: rotate(26deg);
+  }
 }
 .accordeon{
   &__head{

@@ -64,7 +64,7 @@ const swiper = new Swiper('.gallery__swiper', {
 
 const examples = new Swiper('.examples__swiper', {
   slidesPerView: 4,
-  spaceBetween: 30,
+  spaceBetween: 22,
 });
 
 

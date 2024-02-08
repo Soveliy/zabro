@@ -2,12 +2,18 @@
   position: relative;
   overflow: hidden;
   padding: 107px 0 60px;
+  @include lit-desktop(){
+    padding: 102px 0 60px
+  }
   &__section-head{
     max-width: 64%;
   }
   &__row{
     display: flex;
     align-items: flex-start;
+    @include lit-desktop(){
+      flex-direction: column;
+    }
   }
 
   &__list{
@@ -16,6 +22,12 @@
     list-style: none;
     margin: 0 30px 0 0;
     padding: 0;
+    @include lit-desktop(){
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-right: -18px;
+    }
   }
   &__item{
     position: relative;
@@ -31,6 +43,14 @@
     border-radius: 10px;
     cursor: pointer;
     transition: $transtion;
+    @include lit-desktop(){
+      width: 16.6%;
+      margin-right: 18px;
+      flex-direction: column-reverse;
+      padding: 16px 10px 16px 28px;
+      font-size: 14px;
+      align-items: flex-start;
+    }
     &::after{
       content: '';
       position: absolute;

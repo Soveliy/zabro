@@ -136,7 +136,9 @@ body {
 	max-width: $maxWidthContainer + px;
 	padding: 0 15px;
 	margin: 0 auto;
-
+  @include lit-desktop(){
+    padding: 0 47px;
+  }
 	// @media (max-width: $md1 + px) {
 	// 	max-width: 970px;
 	// }

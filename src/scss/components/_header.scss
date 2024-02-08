@@ -1,7 +1,12 @@
 .header{
   &__top{
-    padding: 10px 0 20px;
+    padding: 20px 0;
     background-color: $lightBlock;
+    @include lit-desktop(){
+      padding: 25px 0 19px;
+    }
+
+
   }
   &__row{
     display: flex;

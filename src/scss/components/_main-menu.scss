@@ -11,7 +11,7 @@
     & + &{
       margin-left: -1px;
     }
-    &:not(:last-child){
+    &{
       .main-menu__link{
         &:before{
           content: '';
@@ -29,7 +29,7 @@
     }
     &:last-child{
       .main-menu__link{
-        &:before{
+        &:after{
           content: '';
           position: absolute;
           top: 50%;

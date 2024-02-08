@@ -1,11 +1,32 @@
 .how-it-work{
   margin-top: 80px;
   padding-bottom: 123px;
+
   &__row{
     position: relative;
     display: flex;
     flex-wrap: wrap;
     gap: 103px 30px;
+
+    &:before,&:after{
+      content: '';
+      position: absolute;
+      background: url(../img/decor.svg) no-repeat center center;
+      background-size: contain;
+    }
+    &:before{
+      height: 71px;
+      width: 71px;
+      top: 127px;
+      left: 2.8%;
+      transform: rotate(23deg);
+    }
+    &:after{
+      height: 51px;
+      width: 51px;
+     bottom: 288px;
+    right: 21%;
+    }
     // &::before{
     //   content: '';
     //   position: absolute;

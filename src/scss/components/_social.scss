@@ -12,6 +12,10 @@
   &__icon{
     height: 28px;
     width: 28px;
+    &--big{
+      height: 36px;
+      width: 36px;
+    }
     path{
       fill: red;
     }

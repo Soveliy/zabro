@@ -1,6 +1,6 @@
 .input{
   position: relative;
-  &__elem{
+  &__elem,&__textarea{
     display: block;
     width: 100%;
     border-radius: 10px;
@@ -23,6 +23,11 @@
     &:hover{
       border-color: $lightDark;
     }
+  }
+  &__textarea{
+    height: 90px;
+    padding-top: 25px;
+    resize: none;
   }
   &__label{
     pointer-events: none;
