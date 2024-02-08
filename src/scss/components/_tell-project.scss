@@ -1,5 +1,8 @@
 .tell-project{
   padding: 60px 0 120px;
+  @include lit-desktop(){
+    padding: 60px 0 100px;
+  }
   &__form{
     display: flex;
 
@@ -22,6 +25,10 @@
     width: 328px;
     flex-shrink:0;
     margin-left: 66px;
+    @include lit-desktop(){
+      width: 290px;
+      margin-left: 30px;
+    }
   }
   &__button{
     width: 100%;

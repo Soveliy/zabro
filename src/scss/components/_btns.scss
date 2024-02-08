@@ -22,6 +22,9 @@
       span{
         padding: 19px 58px;
         text-transform: uppercase;
+        @include lit-desktop(){
+          padding: 19px 40px;
+        }
       }
     }
 

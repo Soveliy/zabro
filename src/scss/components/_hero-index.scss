@@ -17,6 +17,10 @@
         left: auto;
         top: -11px;
       }
+      @include tablet(){
+        right: 26.7%;
+        top: -15px
+      }
     }
     &::after{
       content: '';
@@ -34,12 +38,18 @@
         right: 50%;
         bottom: 18%;
       }
+      @include tablet(){
+        display: none;
+      }
     }
   }
   padding: 48px 0 92px;
   background-color: $lightBlock;
   @include lit-desktop(){
     padding: 19px 0 85px;
+  }
+  @include tablet(){
+    padding: 19px 0 69px;
   }
   &__title{
     margin: 0 0 36px 0;
@@ -51,6 +61,11 @@
     @include lit-desktop(){
       font-size: 48px;
       margin: 0 0 17px 0;
+    }
+    @include tablet(){
+      font-size: 36px;
+      margin: 0 0 14px 0;
+      max-width: 500px;
     }
     span{
       background: linear-gradient(90deg, #6A2CC7 3.3%, #A85DC8 26.34%, #E55962 51.37%);
@@ -64,12 +79,25 @@
     font-weight: 500;
     line-height: 135%; /* 27px */
     margin: 0 0 26px 0;
+    p{
+      margin: 0;
+    }
     @include lit-desktop(){
       font-size: 18px;
+    }
+    @include tablet(){
+      font-size: 16px;
+      line-height: 135%;
+      font-weight: 400;
+      max-width: 500px;
+      margin: 0 0 20px 0;
     }
   }
   &__content{
     max-width: 70%;
+    @include tablet(){
+      max-width: 100%;
+    }
   }
   &__advantages-row{
     display: flex;
@@ -79,12 +107,19 @@
     @include lit-desktop(){
       max-width: 480px;
     }
+    @include tablet(){
+      max-width: inherit;
+      margin: -6px -15px;
+    }
 
   }
   &__advantages-item-container{
     width: 50%;
     padding: 8px 15px;
     box-sizing: border-box;
+    @include tablet(){
+      padding: 6px 15px;
+    }
   }
 
   &__advantages-item{
@@ -113,9 +148,16 @@
         background-size: contain;
         margin-bottom: -18px;
       }
+      @include tablet(){
+        font-size: 24px;
+        margin-left: 16px;
+      }
       &--big{
         font-size: 50px;
         @include lit-desktop(){
+          font-size: 40px;
+        }
+        @include tablet(){
           font-size: 40px;
         }
       }
@@ -131,6 +173,9 @@
         font-size: 14px;
         padding: 28px 20px 16px;
       }
+      @include tablet(){
+        padding: 23px 20px 12px;
+      }
     }
   }
   &__video{
@@ -145,6 +190,11 @@
       width: 447px;
       height: 247px;
       bottom: 170px;
+    }
+    @include tablet(){
+      bottom: -119px;
+      width: 50%;
+      height: auto;
     }
     &::before{
       content: '';
@@ -169,6 +219,11 @@
       width: 100%;
       object-fit: cover;
       border-radius: 10px 0px 0px 120px;
+      @include tablet(){
+        position: static;
+        max-width: 100%;
+        height: auto;
+      }
     }
   }
   &__video-play{
@@ -191,6 +246,9 @@
     margin-top: 44px;
     @include lit-desktop(){
       margin-top: 31px;
+    }
+    @include tablet(){
+      margin-top: 37px;
     }
   }
 }

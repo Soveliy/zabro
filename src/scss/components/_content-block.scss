@@ -10,11 +10,18 @@
     font-size: 36px;
     line-height: 117%;
     margin: 25px 0;
+    @include lit-desktop(){
+      font-size: 28px;
+      line-height: 150%;
+    }
   }
   p{
     font-weight: 400;
     font-size: 18px;
     line-height: 135%;
     margin: 22px 0;
+    @include lit-desktop(){
+      font-size: 16px;
+    }
   }
 }

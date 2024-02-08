@@ -5,8 +5,14 @@
   @include lit-desktop(){
     padding: 102px 0 60px
   }
+  @include tablet(){
+    padding: 91px 0 60px;
+  }
   &__section-head{
     max-width: 64%;
+    @include tablet(){
+      max-width: 53%;
+    }
   }
   &__row{
     display: flex;
@@ -22,11 +28,30 @@
     list-style: none;
     margin: 0 30px 0 0;
     padding: 0;
+    overflow: visible;
+    flex-direction: column;
+    .swiper-slide{
+      @include lit-desktop(){
+        width: 140px;
+      }
+    }
+    .swiper-slide + .swiper-slide{
+      margin-top: 13px;
+      @include lit-desktop(){
+        margin-top: 0;
+      }
+    }
+    .swiper-slide{
+      @include lit-desktop(){
+        height: auto;
+      }
+    }
     @include lit-desktop(){
       width: 100%;
       display: flex;
       justify-content: space-between;
-      margin-right: -18px;
+      margin-right: 0;
+      margin-bottom: 30px;
     }
   }
   &__item{
@@ -41,15 +66,20 @@
     background-color: $lightBlock;
     color: $mainColor;
     border-radius: 10px;
+    box-sizing: border-box;
     cursor: pointer;
     transition: $transtion;
     @include lit-desktop(){
-      width: 16.6%;
-      margin-right: 18px;
+      // width: 16.6%;
+      height: 100%;
+
       flex-direction: column-reverse;
-      padding: 16px 10px 16px 28px;
+      padding: 16px 10px 15px 28px;
       font-size: 14px;
+      line-height: 110%;
       align-items: flex-start;
+      justify-content: flex-end;
+      hyphens: auto;
     }
     &::after{
       content: '';
@@ -62,6 +92,13 @@
       background: url(../img/right-tabs.svg);
       opacity: 0;
       transition: $transtion;
+
+      @include lit-desktop(){
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+
+      }
     }
     &:hover{
       .spheres__item-decor{
@@ -89,6 +126,11 @@
       path{
         transition: $transtion;
       }
+      @include lit-desktop(){
+        bottom: 10px;
+        transform: none;
+        top: auto;
+      }
     }
     &-icon{
       height: 70px;
@@ -99,6 +141,17 @@
       flex-shrink: 0;
       path{
         transition: $transtion;
+      }
+      @include lit-desktop(){
+        margin-left: 6px;
+        margin-bottom: 7px;
+      }
+    }
+    &-name{
+      @include lit-desktop(){
+        min-height: 33px;
+        display: flex;
+        align-items: center;
       }
     }
     & + &{
@@ -117,10 +170,13 @@
       height: 100%;
       top: 0;
       width: 100em;
+      @include lit-desktop(){
+        display: none;
+      }
     }
   }
   &-item{
-    border-radius: 10px 0px 10px 62px;
+    border-radius: 10px 0px 0 62px;
     background-color: $lightBlock;
     padding: 52px 0 52px 52px;
     position: absolute;
@@ -139,18 +195,28 @@
 
 
     }
+    @include lit-desktop(){
+      padding: 28px 28px 28px 28px;
+      border-radius: 10px 10px 62px 10px;
+    }
     &__row{
       display: flex;
       align-items: flex-start;
     }
     &__left{
       width: 63.5%;
+      @include lit-desktop(){
+        width: 56.6%;
+      }
     }
     &__frames{
       line-height: 0;
     }
     &__content{
       padding-left: 30px;
+      @include lit-desktop(){
+        padding-left: 32px;
+      }
       > *:first-child{
         margin-top: 0;
       }
@@ -162,13 +228,19 @@
         font-weight: 700;
         line-height: 42px; /* 116.667% */
         margin-bottom: 20px;
-        margin-left: -4px;
+        @include lit-desktop(){
+          font-size: 28px;
+          line-height: 129%;
+        }
       }
       p{
         font-size: 20px;
         font-weight: 600;
         line-height: 135%;
         margin: 0 0 20px 0;
+        @include lit-desktop(){
+
+        }
       }
       ul{
         padding: 0;
@@ -200,6 +272,9 @@
     &__btn{
       margin-top: 18px;
       width: 100%;
+      @include lit-desktop(){
+        max-width: 290px;
+      }
     }
     &__tabs{
       list-style: none;
@@ -230,6 +305,9 @@
             height: 10px;
             background: url(../img/top-tab.svg);
           }
+        }
+        @include lit-desktop(){
+          padding: 16px 25px;
         }
       }
     }

@@ -36,4 +36,7 @@ window.addEventListener('load', () => {
   //   swiperMain.slideTo(swiperThumbs.clickedIndex);
   //   swiperThumbs.slideTo(swiperThumbs.clickedIndex);
   // });
+
+
+
 })

@@ -4,10 +4,17 @@
     align-items: center;
     list-style: none;
     margin: -4px -8px;
+    padding: 0;
+    @include tablet(){
+      margin: -3px;
+    }
   }
   &__item{
     padding: 4px 8px;
     box-sizing: border-box;
+    @include tablet(){
+      padding: 3px;
+    }
   }
   &__icon{
     height: 28px;

@@ -3,6 +3,10 @@
   background-color: $lightBlock;
   padding: 120px 0;
   margin: 60px 0;
+  @include lit-desktop(){
+    margin: 50px 0 40px;
+    padding: 100px 0;
+  }
   &:before,&:after{
     content: '';
     position: absolute;
@@ -15,6 +19,9 @@
     top: -44px;
     right: 12.7%;
     transform: rotate(26deg);
+    @include lit-desktop(){
+      right: 6.7%;
+    }
   }
   &:after{
     height: 71px;
@@ -22,6 +29,10 @@
     bottom: 42%;
     left: 7.5%;
     transform: rotate(26deg);
+    @include lit-desktop(){
+      bottom: 2.5%;
+      left: -3.5%;
+    }
   }
 }
 .accordeon{
@@ -37,6 +48,9 @@
     background-color: $lightDark;
     cursor: pointer;
     z-index: 5;
+    @include lit-desktop(){
+      font-size: 20px;
+    }
     svg{
       width: 23px;
       height: 13px;

@@ -1,13 +1,23 @@
 .convenience{
   padding: 120px 0 60px;
   margin-bottom: -340px;
+  @include lit-desktop(){
+    padding: 100px 0 60px;
+  }
   &__row{
     display: flex;
     align-items: center;
     gap: 40px;
+    @include lit-desktop(){
+      gap: 20px;
+    }
   }
   &__item{
     width: 39%;
+    @include lit-desktop(){
+      width: 41%;
+      max-width: 341px;
+    }
     img{
       max-width: 100%;
       border-radius: 10px;
@@ -15,7 +25,11 @@
   }
   &__attention{
     width: 386px;
-    margin-left: -130px;
+    margin-left: -90px;
+    @include lit-desktop(){
+      width: 318px;
+      margin-left: -110px;
+    }
     img{
       border-radius: 10px;
     }
@@ -30,24 +44,40 @@
     box-shadow: inset 0px -4px 12px rgba(255, 255, 255, 0.14), inset 0px 4px 19px rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(12px);
     border-radius: 10px;
+    @include lit-desktop(){
+      padding: 20px;
+    }
 
   }
   &__row{
     display: flex;
     align-items: center;
     gap: 21px;
+    @include lit-desktop(){
+      gap: 12px;
+    }
   }
   &__title{
     font-size: 18px;
     line-height: 28px;
     font-weight: 500;
+    @include lit-desktop(){
+      font-size: 16px;
+      line-height: 175%;
+    }
   }
   &__btn{
     margin-top: 24px;
     width: 100%;
+    @include lit-desktop(){
+      margin-top: 16px;
+    }
   }
   &__right{
     margin-right: -12px;
+    @include lit-desktop{
+      padding-bottom: 24px;
+    }
   }
   &__icon{
     display: block;

@@ -19,5 +19,9 @@
     text-transform: uppercase;
     display: flex;
     align-items: center;
+    @include tablet(){
+        font-size: 12px;
+        letter-spacing: 0.02em;
+    }
   }
 }

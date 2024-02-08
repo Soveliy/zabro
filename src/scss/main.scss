@@ -3,7 +3,28 @@
 @import "fonts";
 @import "settings";
 @import "ui";
+.container {
+	max-width: $maxWidthContainer + px;
+	padding: 0 15px;
+	margin: 0 auto;
+  @include lit-desktop(){
+    padding: 0 47px;
+  }
+  @include tablet(){
+    padding: 0 39px;
+  }
+	// @media (max-width: $md1 + px) {
+	// 	max-width: 970px;
+	// }
+	// @media (max-width: $md2+px) {
+	// 	max-width: 750px;
+	// }
+	// @media (max-width: $md3+px) {
+	// 	max-width: none;
+	// 	padding: 0 10px;
+	// }
 
+}
 @import "./components/section";
 @import "./components/btns";
 @import "./components/input";
@@ -132,25 +153,7 @@ body {
 //</ОБОЛОЧКА>===========================================================================================================
 
 //<ОСНОВНАЯ СЕТКА>===========================================================================================================
-.container {
-	max-width: $maxWidthContainer + px;
-	padding: 0 15px;
-	margin: 0 auto;
-  @include lit-desktop(){
-    padding: 0 47px;
-  }
-	// @media (max-width: $md1 + px) {
-	// 	max-width: 970px;
-	// }
-	// @media (max-width: $md2+px) {
-	// 	max-width: 750px;
-	// }
-	// @media (max-width: $md3+px) {
-	// 	max-width: none;
-	// 	padding: 0 10px;
-	// }
 
-}
 
 //</ОСНОВНАЯ СЕТКА>===========================================================================================================
 
@@ -196,6 +199,9 @@ body {
   &--light{
     padding-top: 366px;
     background-color: $lightBlock;
+    @include lit-desktop(){
+     padding-top: 354px;
+    }
   }
 }
 

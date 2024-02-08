@@ -66,6 +66,10 @@
     font-weight: 500;
     line-height: 14px; /* 82.353% */
     border-radius: 10px;
+    @include tablet(){
+      font-size: 14px;
+      padding: 12px;
+    }
     &-icon{
       width: 9px;
       height: 6px;

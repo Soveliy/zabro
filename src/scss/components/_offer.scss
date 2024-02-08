@@ -3,6 +3,9 @@
   &__wrap{
     position: relative;
     padding: 40px 25% 50px 0;
+    @include lit-desktop(){
+      padding: 43px 50px 40px 18px;
+    }
     &:after{
       background: rgba(202, 185, 255, 0.35);
       border: 1px solid rgba(222, 222, 222, 0.45);
@@ -28,6 +31,9 @@
       background: url(../img/decor.svg) no-repeat center center;
       background-size: contain;
       z-index: -32;
+      @include lit-desktop(){
+        right: 20.6%;
+      }
     }
   }
   &__title{
@@ -35,16 +41,27 @@
     line-height: 135%;
     font-weight: 700;
     margin: 0 0 12px 0;
+    @include lit-desktop(){
+      font-size: 24px;
+      margin: 0 0 16px 0;
+    }
   }
   &__subtitle{
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 27px;
     line-height: 135%;
+    @include lit-desktop(){
+      font-size: 18px;
+      margin-bottom: 11px;
+    }
   }
   &__content{
     font-size: 20px;
     line-height: 135%;
+    @include lit-desktop(){
+      font-size: 18px;
+    }
     > *:first-child{
       margin-top: 0;
     }
@@ -57,6 +74,9 @@
   }
   &__btn{
     margin-top: 36px;
+    @include lit-desktop(){
+      margin-top: 32px;
+    }
   }
 
 }

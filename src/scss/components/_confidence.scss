@@ -1,6 +1,9 @@
 .confidence{
   position: relative;
   padding: 60px 0;
+  @include lit-desktop(){
+    padding: 40px 0;
+  }
   &:before,&:after{
     content: '';
     position: absolute;
@@ -13,6 +16,10 @@
     top: 9px;
     right: 4.8%;
     transform: rotate(8deg);
+    @include lit-desktop(){
+      top: -27px;
+      right: -1.2%;
+    }
   }
   &:after{
     height: 63px;
@@ -20,6 +27,10 @@
     bottom: -32px;
     left: 14.2%;
     transform: rotate(45deg);
+    @include lit-desktop(){
+      bottom: -23px;
+      left: 10px;
+    }
   }
   &__row{
     display: flex;
@@ -39,5 +50,13 @@
   &__btn-container{
     text-align: center;
     margin-top: 46px;
+    @include lit-desktop(){
+      margin-top: 24px;
+    }
+    .btn{
+      max-width: 242px;
+      display: block;
+      margin: 0 auto;
+    }
   }
 }

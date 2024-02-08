@@ -3,15 +3,29 @@
     padding: 80px 60px 85px;
     background-color: $lightDark;
     border-radius: 10px 10px 100px 10px;
+    @include lit-desktop(){
+      padding: 50px 30px;
+    }
 
+  }
+  &__container{
+    @include tablet(){
+      padding: 0;
+    }
   }
   .tabs__nav{
     display: flex;
     flex-wrap: wrap;
     margin: -8px -8px 24px;
+    @include lit-desktop(){
+      margin: -4px -4px 16px;
+    }
   }
   .tabs__nav-item{
     padding: 8px;
+    @include lit-desktop(){
+      padding: 4px;
+    }
   }
   .tabs__nav-btn{
     position: relative;
@@ -21,6 +35,9 @@
     border: 1px solid $white;
     transition: $transtion;
     border-radius: 10px;
+    @include lit-desktop(){
+      padding: 16px 23px;
+    }
     &.tabs__nav-btn--active{
       background-color: #fff;
       &:after{
@@ -32,6 +49,9 @@
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
+        @include tablet(){
+          display: none;
+        }
       }
     }
 
@@ -43,11 +63,20 @@
   &__row{
     display: flex;
     gap: 44px;
+    @include lit-desktop(){
+      gap: 28px;
+    }
   }
   &__image{
     width: 52.6%;
     flex-shrink: 0;
+    @include lit-desktop(){
+      width: 57.5%;
+    }
     img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
       border-radius: 10px;
     }
   }

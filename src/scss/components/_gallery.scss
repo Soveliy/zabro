@@ -1,12 +1,27 @@
 .gallery{
   padding: 30px 0 60px;
+  @include lit-desktop(){
+    padding: 20px 0 40px;
+  }
   a{
     display: block;
     line-height: 0;
   }
   &__swiper{
+    img{
+     @include lit-desktop(){
+      max-height: 181px;
+     }
+    }
     & + &{
       margin-top: 24px;
+
+     @include lit-desktop(){
+      margin-top: 15px;
+      img{
+        max-height: 224px;
+      }
+     }
     }
   }
   .swiper-slide{

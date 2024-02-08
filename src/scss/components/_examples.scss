@@ -5,7 +5,13 @@
     background-color: $lightBlock;
     padding: 4px 4px 20px;
     &__image{
+      display: block;
+      height: 160px;
       img{
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
         border-radius: 10px;
       }
     }
@@ -19,12 +25,28 @@
       font-size: 16px;
       line-height: 135%;
       font-weight: 600;
+      @include lit-desktop(){
+        font-size: 14px;
+      }
     }
     &__time{
       font-size: 15px;
       line-height: 135%;
       margin-left: 14px;
       flex-shrink: 0;
+
+    }
+  }
+  &__btn-container{
+    text-align: center;
+    margin-top: 46px;
+    @include lit-desktop(){
+      margin-top: 24px;
+    }
+    .btn{
+      max-width: 402px;
+      display: block;
+      margin: 0 auto;
     }
   }
 

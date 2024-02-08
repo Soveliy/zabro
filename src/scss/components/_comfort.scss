@@ -1,20 +1,33 @@
 .comfort{
   padding: 120px 0 60px;
+  @include lit-desktop(){
+    padding: 100px 0 60px;
+  }
   &__row{
     display: flex;
     flex-wrap: wrap;
     margin: -15px;
+    @include lit-desktop(){
+      margin: -10px;
+    }
   }
   &__item-container{
     padding: 15px;
     width: 33.3%;
     box-sizing: border-box;
+    @include lit-desktop(){
+      width: 100%;
+      padding: 10px;
+    }
   }
   &-item{
     padding: 28px 0 32px;
     background-color: $lightBlock;
     border-radius: 10px;
     height: 100%;
+    @include lit-desktop(){
+      padding: 33px 0 38px;
+    }
     &__top{
       display: flex;
     }
@@ -28,12 +41,18 @@
       flex-shrink: 0;
       max-width: 84px;
       margin-right: 28px;
+      @include lit-desktop(){
+        margin-top: -10px;
+      }
     }
     &__title{
       font-size: 22px;
       line-height: 120%;
       font-weight: 700;
       margin: 0 0 12px 0;
+      @include lit-desktop(){
+        font-size: 20px;
+      }
     }
     &__desc{
       font-size: 18px;
@@ -44,6 +63,14 @@
       margin-top: 16px;
       display: flex;
       flex-direction: column;
+      @include lit-desktop(){
+        flex-direction: row;
+        margin-top: -80px;
+        padding: 0 50px 0 115px;
+        .btn--default > span{
+          padding: 17px 54px;
+        }
+      }
     }
   }
 }

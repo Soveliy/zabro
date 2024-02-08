@@ -93,6 +93,48 @@ function TabsSliders() {
 TabsSliders()
 
 
+const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
+  let swiper;
+
+  breakpoint = window.matchMedia(breakpoint);
+
+  const enableSwiper = function(className, settings) {
+    swiper = new Swiper(className, settings);
+
+    if (callback) {
+      callback(swiper);
+    }
+  }
+
+  const checker = function() {
+    if (breakpoint.matches) {
+      return enableSwiper(swiperClass, swiperSettings);
+    } else {
+      if (swiper !== undefined) swiper.destroy(true, true);
+      return;
+    }
+  };
+
+  breakpoint.addEventListener('change', checker);
+  checker();
+}
+
+
+resizableSwiper(
+  '(max-width: 1250px)',
+  '.spheres__list ',
+  {
+    // loop: true,
+    spaceBetween: 18,
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  },
+
+);
+
 // var swiperThumbs = new Swiper(".spheres__thumbs-slider", {
 //   spaceBetween: 8,
 //   slidesPerView: 'auto',
