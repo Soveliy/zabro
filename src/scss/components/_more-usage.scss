@@ -1,7 +1,13 @@
 .more-usage{
   padding: 60px 0;
+  @include tablet(){
+    padding: 40px 0;
+  }
   &__section-head{
     max-width: 75%;
+    @include tablet(){
+      max-width: 95%;
+    }
   }
   &__row{
     display: flex;
@@ -12,6 +18,7 @@
     }
     @include tablet(){
       margin: -15px;
+      padding-top: 12px;
     }
   }
   &__item-container{
@@ -48,6 +55,7 @@
         margin-bottom: 0;
         margin-right: 16px;
         flex-shrink: 0;
+        margin-top: 8px;
       }
       img{
         max-width: 100%;

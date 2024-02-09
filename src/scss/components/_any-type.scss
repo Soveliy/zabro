@@ -1,10 +1,15 @@
 .any-type{
+
   &__tabs{
     padding: 80px 60px 85px;
     background-color: $lightDark;
     border-radius: 10px 10px 100px 10px;
     @include lit-desktop(){
       padding: 50px 30px;
+    }
+    @include tablet(){
+      padding:220px 39px 60px;
+      border-radius: 0;
     }
 
   }
@@ -19,6 +24,9 @@
     margin: -8px -8px 24px;
     @include lit-desktop(){
       margin: -4px -4px 16px;
+    }
+    @include tablet(){
+      margin: -4px -4px 22px;
     }
   }
   .tabs__nav-item{
@@ -66,12 +74,18 @@
     @include lit-desktop(){
       gap: 28px;
     }
+    @include tablet(){
+      gap: 24px;
+    }
   }
   &__image{
     width: 52.6%;
     flex-shrink: 0;
     @include lit-desktop(){
       width: 57.5%;
+    }
+    @include tablet(){
+      width: 52.2%;
     }
     img{
       height: 100%;
@@ -85,6 +99,9 @@
   }
   &__btn{
     margin-top: 26px;
+    @include tablet(){
+      margin-top: 8px;
+    }
   }
 }
 

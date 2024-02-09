@@ -61,6 +61,9 @@
     @include tablet(){
       padding-left: 17px;
     }
+    @include mobile(){
+      display: none;
+    }
     &:before{
       content: '';
       position: absolute;
@@ -79,3 +82,106 @@
   }
 }
 
+$size: 25px;
+$height: 20px;
+$width: 25px;
+$line-size: 2px;
+$line-color: $phiolText;
+$line-radius: $line-size;
+$to-translate: ($height - $line-size) / 2;
+$bounce: cubic-bezier(.87,-.50,.19,1.50);
+
+.menu{
+  position: relative;
+  height: 20px;
+  width: 25px;
+  cursor: pointer;
+  overflow: hidden;
+
+  &__icon {
+    position: absolute;
+    width: $width;
+    height: $height;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__line {
+    position: absolute;
+    left: 0;
+    background-color: $line-color;
+    height: $line-size;
+    width: 100%;
+    border-radius: $line-radius;
+    pointer-events: none;
+    &--1 {
+      top: 0;
+    }
+    &--2 {
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      left: auto;
+      width: 75%;
+      right: 0;
+    }
+    &--3 {
+      bottom: 0;
+    }
+
+
+
+  }
+
+  &--close5 &__line--4,
+  &--close5 &__line--5 {
+    opacity: 0;
+    top: $to-translate;
+    transition: opacity .2s ease-in-out,
+                transform .2s ease-in-out;
+  }
+  &--close5 &__line--1 {
+    transition: width .2s ease-in-out .4s;
+  }
+  &--close5 &__line--2 {
+    transition: width .2s ease-in-out .3s;
+  }
+  &--close5 &__line--3 {
+    transition: width .2s ease-in-out .2s;
+  }
+  &--close5 &__line--4 {
+    transform: rotate(45deg) translate3d(-$width,0,0);
+    transition: opacity .2s ease-in-out .2s,
+      transform .2s ease-in-out .2s;
+  }
+  &--close5 &__line--5 {
+    transform:  rotate(-45deg) translate3d($width,0,0);
+    transition: opacity .2s ease-in-out,
+                transform .2s ease-in-out;
+  }
+  // Open
+  &--close5.open &__line--1 {
+    width: 0;
+    transition: width .2s ease-in-out;
+  }
+  &--close5.open &__line--2 {
+    width: 0;
+    transition: width .2s ease-in-out .1s;
+  }
+  &--close5.open &__line--3 {
+    width: 0;
+    transition: width .2s ease-in-out .2s;
+  }
+  &--close5.open &__line--4 {
+    opacity: 1;
+    transform: rotate(45deg) translate3d(0,0,0);
+    transition: opacity .2s ease-in-out .2s,
+                transform .2s ease-in-out .2s;
+  }
+  &--close5.open &__line--5 {
+    opacity: 1;
+    transform:  rotate(-45deg) translate3d(0,0,0);
+    transition: opacity .2s ease-in-out .4s,
+                transform .2s ease-in-out .4s;
+  }
+}

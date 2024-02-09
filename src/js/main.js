@@ -28,7 +28,10 @@ window.addEventListener('load', () => {
   }
   accordeonInit()
 
-
+  const burger = document.querySelector('.burger');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open')
+  })
 
   // При необходимости можно добавить обработчик события клика на миниатюру для переключения
   // swiperThumbs.on('click', function () {

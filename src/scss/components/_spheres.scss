@@ -30,6 +30,12 @@
     padding: 0;
     overflow: visible;
     flex-direction: column;
+    .swiper-wrapper{
+      flex-direction: column;
+      @include lit-desktop(){
+        flex-direction: row;
+      }
+    }
     .swiper-slide{
       @include lit-desktop(){
         width: 140px;
@@ -162,6 +168,10 @@
     position: relative;
     width: 100%;
     min-width: 1px;
+    @include tablet(){
+      width: calc(100% + 78px);
+      margin: 0 -39px;
+    }
     &:after{
       content: '';
       background-color:  $lightBlock;
@@ -199,23 +209,58 @@
       padding: 28px 28px 28px 28px;
       border-radius: 10px 10px 62px 10px;
     }
+    @include tablet(){
+      border-radius: 0;
+      padding: 26px 39px 38px;
+    }
+    &__title{
+      margin-bottom: 12px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 150%;
+      color: $zag;
+      &--mob{
+        display: none;
+        @include tablet(){
+          display: block;
+        }
+      }
+    }
     &__row{
       display: flex;
       align-items: flex-start;
+      @include tablet(){
+        align-items: stretch;
+      }
     }
     &__left{
       width: 63.5%;
       @include lit-desktop(){
         width: 56.6%;
       }
+      @include tablet(){
+        width: 48.6%;
+      }
     }
     &__frames{
       line-height: 0;
+      img{
+        border-radius: 10px;
+      }
+      @include tablet(){
+        height: 100%;
+        img{
+          height: 100%;
+        }
+      }
     }
     &__content{
       padding-left: 30px;
       @include lit-desktop(){
         padding-left: 32px;
+      }
+      @include tablet(){
+        padding-left: 20px;
       }
       > *:first-child{
         margin-top: 0;
@@ -232,6 +277,9 @@
           font-size: 28px;
           line-height: 129%;
         }
+        @include tablet(){
+          display: none;
+        }
       }
       p{
         font-size: 20px;
@@ -241,17 +289,28 @@
         @include lit-desktop(){
 
         }
+        @include tablet(){
+          font-size: 18px;
+          line-height: 135%;
+          margin: 0 0 12px 0;
+        }
       }
       ul{
         padding: 0;
         margin: 0 0 20px 0;
         list-style: none;
+        @include tablet(){
+          margin-bottom: 0;
+        }
         li{
           position: relative;
           padding-left: 20px;
           font-size: 16px;
           font-weight: 400;
           line-height: 135%;
+          @include tablet(){
+            font-size: 15px;
+          }
           &:before{
             content: '';
             position: absolute;
@@ -266,6 +325,9 @@
         }
         li + li{
           margin-top: 18px;
+          @include tablet(){
+            margin-top: 12px;
+          }
         }
       }
     }
@@ -274,6 +336,10 @@
       width: 100%;
       @include lit-desktop(){
         max-width: 290px;
+      }
+      @include tablet(){
+        margin-top: 36px;
+        max-width: 304px;
       }
     }
     &__tabs{
@@ -309,12 +375,18 @@
         @include lit-desktop(){
           padding: 16px 25px;
         }
+        @include tablet(){
+          padding: 12px 6px;
+        }
       }
     }
 
   }
   &__thumbs{
     margin-top: 10px;
+    @include tablet(){
+      margin-top: 5px;
+    }
     &-slider{
       padding-top: 10px;
     }

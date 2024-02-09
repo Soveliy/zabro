@@ -3,6 +3,9 @@
   @include lit-desktop(){
     padding: 20px 0 40px;
   }
+  @include tablet(){
+    padding: 10px 0 40px;
+  }
   a{
     display: block;
     line-height: 0;
@@ -12,6 +15,9 @@
      @include lit-desktop(){
       max-height: 181px;
      }
+     @include tablet(){
+        max-height: 136px;
+     }
     }
     & + &{
       margin-top: 24px;
@@ -20,6 +26,12 @@
       margin-top: 15px;
       img{
         max-height: 224px;
+      }
+     }
+     @include tablet(){
+      margin-top: 11px;
+      img{
+        max-height: 168px;
       }
      }
     }

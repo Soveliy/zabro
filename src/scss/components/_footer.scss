@@ -90,10 +90,17 @@
 
   box-shadow: 0px 4px 19px 0px rgba(255, 255, 255, 0.02) inset, 0px -4px 12px 0px rgba(255, 255, 255, 0.14) inset;
   backdrop-filter: blur(12px);
+  @include tablet(){
+    padding: 28px 0;
+  }
   &__desc{
     font-size: 14px;
     line-height: 20px;
     font-weight: 500;
+    @include tablet(){
+      font-size: 12px;
+      line-height: 150%;
+    }
   }
   &__row{
     display: flex;
@@ -111,7 +118,10 @@
         width: 160px;
         margin-right: 20px;
       }
-
+      @include tablet(){
+        width: 150px;
+        height: 33px;
+      }
   }
   &__col{
     padding: 17.5px;
@@ -119,6 +129,13 @@
     width: 16.6%;
     @include lit-desktop(){
       width: auto;
+    }
+    @include tablet(){
+      width: 25%;
+      padding: 8px;
+    }
+    &:nth-child(5),&:nth-child(6){
+      display: none;
     }
 
   }
@@ -160,12 +177,20 @@
     padding-top: 32px;
     border-top: 1px solid #D2BCEE;
     box-sizing: border-box;
+    @include tablet(){
+      margin-top: 18px;
+      padding-top: 28px;
+    }
     &-row{
       display: flex;
       flex-wrap: wrap;
       margin: -17.5px;
       @include lit-desktop(){
         flex-wrap: nowrap;
+      }
+      @include tablet(){
+        white-space: inherit;
+        margin: -8px;
       }
     }
   }
@@ -190,6 +215,9 @@
     @include lit-desktop(){
       margin-right: 16px;
     }
+    @include tablet(){
+      margin-right: 25px;
+    }
   }
   &__info{
     display: flex;
@@ -205,10 +233,16 @@
     @include lit-desktop(){
       padding: 0;
     }
+    @include tablet(){
+      line-height: 157%;
+    }
     p{
       margin: 0 0 12px 0;
       @include lit-desktop(){
         margin: 0 0 4px 0;
+      }
+      @include tablet(){
+        margin: 0 0 8px 0;
       }
     }
     a{
@@ -228,14 +262,21 @@
   @include lit-desktop(){
     padding: 10px 28px;
   }
+  @include tablet(){
+    padding: 18px 13px;
+  }
   &__row{
     display: flex;
     align-items: center;
+
   }
   &__left{
     img{
       @include lit-desktop(){
         max-height: 44px;
+      }
+      @include tablet(){
+        max-height: 36px;
       }
     }
   }
@@ -252,7 +293,16 @@
       height: 66px;
       width: 1px;
       background: #D2BCEE;
+      @include tablet(){
+        height: 50px;
+      }
 
+    }
+    @include tablet(){
+      display: flex;
+      flex-direction: column;
+      padding-left: 12px;
+      margin-left: 12px;
     }
   }
   &__label{
@@ -266,16 +316,29 @@
       font-size: 15px;
       margin-bottom: 2px;
     }
+    @include tablet(){
+      font-size: 14px;
+      line-height: 200%;
+    }
   }
   &__logos{
     display: flex;
     align-items: flex-start;
+    @include tablet(){
+      flex-direction: column;
+    }
     a{
       @include lit-desktop(){
         line-height: 0;
         img{
           max-height: 40px;
         }
+
+      }
+      @include tablet(){
+       img{
+        max-height: 30px;
+       }
       }
     }
     a + a{
@@ -285,6 +348,13 @@
 
         img{
           max-height: 20px;
+        }
+      }
+      @include tablet(){
+        margin-left: 0;
+        margin-top: 2px;
+        img{
+          max-height: 15px;
         }
       }
     }

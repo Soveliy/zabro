@@ -7,6 +7,10 @@
     margin: 50px 0 40px;
     padding: 100px 0;
   }
+  @include tablet(){
+    margin: 40px 0 40px;
+    padding: 80px 0;
+  }
   &:before,&:after{
     content: '';
     position: absolute;
@@ -33,6 +37,13 @@
       bottom: 2.5%;
       left: -3.5%;
     }
+    @include tablet(){
+      bottom: 7.5%;
+      left: -6.5%;
+    }
+  }
+  &__accordeon{
+    padding-top: 8px;
   }
 }
 .accordeon{
@@ -46,10 +57,15 @@
     font-size: 22px;
     line-height: 135%;
     background-color: $lightDark;
+    font-weight: 500;
     cursor: pointer;
     z-index: 5;
     @include lit-desktop(){
       font-size: 20px;
+    }
+    @include tablet(){
+      font-size: 18px;
+      padding: 20px 24px
     }
     svg{
       width: 23px;
@@ -73,6 +89,11 @@
     overflow: hidden;
     visibility: hidden;
     transition: $transtion;
+    font-weight: 500;
+    @include lit-desktop(){
+      font-size: 18px;
+      line-height: 150%;
+    }
 
   }
   &__item{

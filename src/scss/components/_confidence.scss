@@ -20,6 +20,10 @@
       top: -27px;
       right: -1.2%;
     }
+    @include tablet(){
+      top: -15px;
+      right: -5.2%;
+    }
   }
   &:after{
     height: 63px;
@@ -31,20 +35,53 @@
       bottom: -23px;
       left: 10px;
     }
+    @include tablet(){
+      bottom: -4px;
+      left: 30px;
+    }
   }
   &__row{
     display: flex;
     // flex-wrap: wrap;
     margin:0 -22px;
     justify-content: space-between;
+    @include tablet(){
+      margin: -15px;
+      flex-wrap: wrap;
+      padding-top: 17px;
+    }
   }
   &__item-container{
     padding: 0 22px;
     box-sizing: border-box;
+    @include tablet(){
+      width: 33.3%;
+      padding: 15px;
+    }
+    &:nth-child(3n - 1){
+      @include tablet(){
+        .confidence-item{
+          display: flex;
+          justify-content: center;
+        }
+
+      }
+    }
+    &:nth-child(3n){
+      @include tablet(){
+        .confidence-item{
+          display: flex;
+          justify-content: flex-end;
+        }
+
+      }
+    }
   }
   &-item{
+
     img{
       max-height: 38px;
+
     }
   }
   &__btn-container{
@@ -52,6 +89,9 @@
     margin-top: 46px;
     @include lit-desktop(){
       margin-top: 24px;
+    }
+    @include tablet(){
+      margin-top: 42px;
     }
     .btn{
       max-width: 242px;

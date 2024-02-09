@@ -7,11 +7,17 @@
     @include lit-desktop(){
       margin-bottom: 29px;
     }
+    @include tablet(){
+      margin-bottom: 20px;
+    }
   }
   &--big-margin{
     margin-bottom: 45px;
     @include lit-desktop(){
       margin-bottom: 35px;
+    }
+    @include tablet(){
+      margin-bottom: 25px;
     }
   }
   &__title{

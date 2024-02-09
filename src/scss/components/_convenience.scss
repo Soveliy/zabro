@@ -4,6 +4,10 @@
   @include lit-desktop(){
     padding: 100px 0 60px;
   }
+  @include tablet(){
+    padding: 80px 0 60px;
+    margin-bottom: -220px;
+  }
   &__row{
     display: flex;
     align-items: center;
@@ -11,16 +15,33 @@
     @include lit-desktop(){
       gap: 20px;
     }
+    @include tablet(){
+      gap: 0;
+      align-items: flex-start;
+    }
   }
   &__item{
     width: 39%;
+    line-height: 0;
     @include lit-desktop(){
       width: 41%;
       max-width: 341px;
     }
+    @include tablet(){
+      max-width: 270px;
+      height: 304px;
+    }
+    & + &{
+      margin-top: 37px;
+      margin-left: -60px;
+    }
     img{
       max-width: 100%;
       border-radius: 10px;
+      @include tablet(){
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
   &__attention{
@@ -30,6 +51,11 @@
       width: 318px;
       margin-left: -110px;
     }
+    @include tablet(){
+      width: 265px;
+      margin-top: 37px;
+      margin-left: -55px;
+    }
     img{
       border-radius: 10px;
     }
@@ -37,6 +63,7 @@
 }
 
 .attention{
+
   &__wrap{
     padding: 48px;
     background: rgba(255, 255, 255, 0.83);
@@ -47,6 +74,9 @@
     @include lit-desktop(){
       padding: 20px;
     }
+    @include tablet(){
+      padding: 20px 20px 22px;
+    }
 
   }
   &__row{
@@ -55,6 +85,10 @@
     gap: 21px;
     @include lit-desktop(){
       gap: 12px;
+    }
+    @include tablet(){
+      gap: 0;
+      flex-direction: column;
     }
   }
   &__title{
@@ -72,11 +106,19 @@
     @include lit-desktop(){
       margin-top: 16px;
     }
+    @include tablet(){
+      margin-top: 12px;
+    }
   }
   &__right{
     margin-right: -12px;
     @include lit-desktop{
       padding-bottom: 24px;
+    }
+    @include tablet(){
+      position: relative;
+      padding-bottom: 0;
+      margin-right: 0;
     }
   }
   &__icon{
@@ -86,5 +128,20 @@
     height: 57px;
     margin-left: -2px;
     fill: #D4CBE8;
+    @include tablet(){
+      position: absolute;
+      bottom: 100%;
+      left: -45px;
+      transform: rotate(130deg);
+      margin-bottom: -4px;
+
+    }
+  }
+  &__image{
+    @include tablet(){
+      height: 163px;
+      margin-left: auto;
+      margin-bottom: 2px;
+    }
   }
 }

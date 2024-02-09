@@ -63,8 +63,29 @@ const swiper = new Swiper('.gallery__swiper', {
 });
 
 const examples = new Swiper('.examples__swiper', {
-  slidesPerView: 4,
-  spaceBetween: 22,
+  slidesPerView: 'auto',
+  spaceBetween: 20,
+  breakpoints: {
+    450: {
+
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    577: {
+      slidesPerView: 3,
+      spaceBetween: 22,
+
+    },
+
+    769: {
+      slidesPerView: 4,
+      spaceBetween: 22,
+
+    },
+
+
+  },
+
 });
 
 
@@ -73,10 +94,17 @@ function TabsSliders() {
   let swiperPreviews = document.querySelectorAll(".spheres__thumbs-slider")
   swiperDetails.forEach((swiperDetail,index) => {
       let swiperPreview = new Swiper(swiperPreviews[index], {
-          spaceBetween: 8,
+          spaceBetween: 6,
           slidesPerView: 'auto',
           freeMode: true,
           watchSlidesProgress: true,
+          breakpoints: {
+
+            769: {
+              spaceBetween: 8,
+            },
+
+          },
       });
       swiperDetail = new Swiper(swiperDetails[index], {
       spaceBetween: 0,

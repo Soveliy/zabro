@@ -13,6 +13,9 @@
   @include tablet(){
     padding: 0 39px;
   }
+  @include mobile(){
+    padding: 0 33px
+  }
 	// @media (max-width: $md1 + px) {
 	// 	max-width: 970px;
 	// }
@@ -201,6 +204,9 @@ body {
     background-color: $lightBlock;
     @include lit-desktop(){
      padding-top: 354px;
+    }
+    @include tablet(){
+      padding-top: 0;
     }
   }
 }

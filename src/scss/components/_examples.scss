@@ -1,5 +1,8 @@
 .examples{
   padding: 60px 0;
+  @include tablet(){
+    padding: 40px 0;
+  }
   &-item{
     border-radius: 10px;
     background-color: $lightBlock;
@@ -37,11 +40,17 @@
 
     }
   }
+  &__swiper{
+    padding-top: 13px;
+  }
   &__btn-container{
     text-align: center;
     margin-top: 46px;
     @include lit-desktop(){
       margin-top: 24px;
+    }
+    @include tablet(){
+      margin-top: 33px;
     }
     .btn{
       max-width: 402px;
