@@ -21,6 +21,9 @@
         right: 26.7%;
         top: -15px
       }
+      @include mobile(){
+        display: none;
+      }
     }
     &::after{
       content: '';
@@ -51,6 +54,12 @@
   @include tablet(){
     padding: 19px 0 69px;
   }
+  @include mobile(){
+    padding: 0;
+  }
+  @include lit-mobile(){
+    padding: 0 0 50px;
+  }
   &__title{
     margin: 0 0 36px 0;
     color: $zag;
@@ -66,6 +75,13 @@
       font-size: 36px;
       margin: 0 0 14px 0;
       max-width: 500px;
+    }
+    @include mobile(){
+      font-size: 28px;
+    }
+    @include lit-mobile(){
+      font-size: 24px;
+      line-height: 133%;
     }
     span{
       background: linear-gradient(90deg, #6A2CC7 3.3%, #A85DC8 26.34%, #E55962 51.37%);
@@ -92,6 +108,15 @@
       max-width: 500px;
       margin: 0 0 20px 0;
     }
+    @include mobile(){
+      font-size: 15px;
+      margin: 0 0 16px 0;
+    }
+    @include lit-mobile(){
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 135%;
+    }
   }
   &__content{
     max-width: 70%;
@@ -111,6 +136,9 @@
       max-width: inherit;
       margin: -6px -15px;
     }
+    @include lit-mobile(){
+      margin: -10px;
+    }
 
   }
   &__advantages-item-container{
@@ -119,6 +147,10 @@
     box-sizing: border-box;
     @include tablet(){
       padding: 6px 15px;
+    }
+    @include lit-mobile(){
+      padding: 10px;
+      width: 100%;
     }
   }
 
@@ -176,6 +208,9 @@
       @include tablet(){
         padding: 23px 20px 12px;
       }
+      @include mobile(){
+        padding: 25px 5px 12px 20px;
+      }
     }
   }
   &__video{
@@ -196,6 +231,22 @@
       width: 50%;
       height: auto;
     }
+    @include mobile(){
+      position: relative;
+      margin-left: auto;
+      margin-right: -33px;
+      max-width: 454px;
+      width: 100%;
+      margin-top: -75px;
+      bottom: -120px;
+
+    }
+    @include lit-mobile(){
+      bottom: auto;
+      width: calc(100% + 15px);
+      margin-right: -15px;
+      margin-top: 32px;
+    }
     &::before{
       content: '';
       position: absolute;
@@ -209,6 +260,10 @@
       transform: rotate(35deg);
       @include lit-desktop(){
         left: 59%;
+      }
+      @include mobile(){
+        left: 56%;
+        margin-bottom: -7px;
       }
     }
     video{
@@ -224,6 +279,9 @@
         max-width: 100%;
         height: auto;
       }
+      @include mobile(){
+        border-radius: 10px 0 0 117px;
+      }
     }
   }
   &__video-play{
@@ -233,6 +291,14 @@
     height: 70px;
     width: 70px;
     z-index: 50;
+    @include mobile(){
+      height: 54px;
+      width: 54px;
+      bottom: 40px;
+    }
+    @include lit-mobile(){
+      bottom: 0;
+    }
     svg{
       height: 100%;
       width: 100%;
@@ -249,6 +315,9 @@
     }
     @include tablet(){
       margin-top: 37px;
+    }
+    @include lit-mobile(){
+      margin-top: 28px;
     }
   }
 }

@@ -3,7 +3,7 @@ import vars from './_vars';
 import './_functions';
 import './_components';
 import Swiper from 'swiper';
-
+import { isMobile, isTablet, isDesktop } from './functions/check-viewport';
 window.addEventListener('load', () => {
   const accordeonInit = function(){
     const accordeon = document.querySelector('.accordeon')
@@ -29,9 +29,32 @@ window.addEventListener('load', () => {
   accordeonInit()
 
   const burger = document.querySelector('.burger');
+  const mobileMenu = document.querySelector('.mobile-menu')
   burger.addEventListener('click', () => {
     burger.classList.toggle('open')
+    mobileMenu.classList.toggle('js-active')
+    document.body.classList.toggle('js-hidden')
   })
+  const shadowBtn = document.querySelector('.mobile-menu__shadow')
+  if (shadowBtn){
+    shadowBtn.addEventListener('click', () => {
+      burger.classList.remove('open')
+      mobileMenu.classList.remove('js-active')
+      document.body.classList.remove('js-hidden')
+    })
+  }
+  // Определение ширины экрана
+
+
+  const mobileMenuItems = mobileMenu.querySelectorAll('.main-menu__item--parent > a,.submenu__item--is-parent > a')
+  console.log(mobileMenuItems)
+  mobileMenuItems.forEach(mobileMenuItem  => {
+    mobileMenuItem.addEventListener('click', (e) => {
+      e.preventDefault();
+      mobileMenuItem.parentElement.classList.toggle('is-open')
+    })
+  })
+window.addEventListener('resize', isMobile);
 
   // При необходимости можно добавить обработчик события клика на миниатюру для переключения
   // swiperThumbs.on('click', function () {

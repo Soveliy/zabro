@@ -4,6 +4,9 @@
   @include lit-desktop(){
     padding: 40px 0;
   }
+  @include mobile(){
+    padding: 20px 0;
+  }
   &:before,&:after{
     content: '';
     position: absolute;
@@ -39,6 +42,9 @@
       bottom: -4px;
       left: 30px;
     }
+    @include mobile(){
+      bottom: -24px;
+    }
   }
   &__row{
     display: flex;
@@ -50,6 +56,11 @@
       flex-wrap: wrap;
       padding-top: 17px;
     }
+    @include mobile(){
+      padding-top: 0;
+      margin: -12px;
+    }
+
   }
   &__item-container{
     padding: 0 22px;
@@ -57,6 +68,9 @@
     @include tablet(){
       width: 33.3%;
       padding: 15px;
+    }
+    @include mobile(){
+      padding: 12px;
     }
     &:nth-child(3n - 1){
       @include tablet(){
@@ -81,7 +95,9 @@
 
     img{
       max-height: 38px;
-
+      @include mobile(){
+        max-height: 28px;
+      }
     }
   }
   &__btn-container{
@@ -92,6 +108,9 @@
     }
     @include tablet(){
       margin-top: 42px;
+    }
+    @include mobile(){
+      margin-top:40px;
     }
     .btn{
       max-width: 242px;

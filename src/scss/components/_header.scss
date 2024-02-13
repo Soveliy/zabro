@@ -1,6 +1,6 @@
 .header{
   position: relative;
-  z-index: 50;
+  z-index: 5000;
   backdrop-filter: blur(12px);
   &__top{
     padding: 20px 0;
@@ -11,12 +11,31 @@
     @include tablet(){
       padding: 19px 0;
     }
+    @include mobile(){
+      padding: 17px 0;
+    }
+    @include lit-mobile(){
+      padding: 15px 0;
+    }
 
   }
+  // &__burger{
+  //   margin-left: 41px;
+  //   flex-shrink: 0;
+
+  // }
   &__logo{
     @include tablet(){
       width: 150px;
       height: 32px;
+    }
+    @include mobile(){
+      width: 100px;
+      height: 21px;
+    }
+    @include lit-mobile(){
+      width: 120px;
+      height: 25px;
     }
   }
   &__row{
@@ -37,6 +56,9 @@
     @include tablet(){
       font-size: 14px;
     }
+    @include lit-mobile(){
+      display: none;
+    }
     &-icon{
       height: 24px;
       width: 24px;
@@ -53,7 +75,24 @@
     @include tablet(){
       margin: 0 17px;
     }
-
+    @include mobile(){
+      position: relative;
+      margin: 0 20px 0 24px;
+      padding-right: 20px;
+      &:after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        height: 30px;
+        width: 1px;
+        background-color: $white;
+      }
+    }
+    @include lit-mobile(){
+      display: none;
+    }
   }
   &__auth{
     position: relative;
@@ -79,24 +118,28 @@
   &__main-menu{
     padding: 2px 0;
     background-color: rgba($white, .5);
+    @include mobile(){
+      display: none;
+    }
   }
 }
 
 $size: 25px;
 $height: 20px;
 $width: 25px;
-$line-size: 2px;
+$line-size: 3px;
 $line-color: $phiolText;
 $line-radius: $line-size;
-$to-translate: ($height - $line-size) / 2;
+$to-translate: 10px;
 $bounce: cubic-bezier(.87,-.50,.19,1.50);
 
-.menu{
+.burger{
   position: relative;
   height: 20px;
   width: 25px;
   cursor: pointer;
   overflow: hidden;
+  z-index: 6000;
 
   &__icon {
     position: absolute;
@@ -131,6 +174,11 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
 
 
 
+  }
+  &.open{
+    .burger__line  {
+      background-color: $white;
+    }
   }
 
   &--close5 &__line--4,
@@ -183,5 +231,87 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
     transform:  rotate(-45deg) translate3d(0,0,0);
     transition: opacity .2s ease-in-out .4s,
                 transform .2s ease-in-out .4s;
+  }
+}
+.mobile-menu{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5000;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: $transtion;
+  &.js-active{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    .mobile-menu__content{
+      transform: none;
+    }
+  }
+  &__content{
+    position: relative;
+    z-index: 500;
+    width: 260px;
+    margin-left: auto;
+    padding: 71px 30px 30px;
+    box-sizing: border-box;
+    background-color: $phiolText;
+    border-radius: 0 0 0 39px;
+    transition: $transtion;
+    transform: translateX(100%);
+    max-height: 100dvh;
+    overflow-y: auto;
+    @include lit-mobile(){
+      padding: 50px 30px 32px;
+    }
+  }
+  &__auth{
+    padding-top: 16px;
+    margin-top: 16px;
+    border-top: 1px solid $white;
+    @include lit-mobile(){
+      border-bottom: 1px solid $white;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+    }
+  }
+  &__mail{
+    display: none;
+    @include lit-mobile(){
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 200%;
+      color: #fff;
+      svg{
+        height: 24px;
+        width: 24px;
+        fill: $white;
+        margin-right: 12px;
+      }
+    }
+  }
+  &__social{
+    display: none;
+    @include lit-mobile(){
+      display: block;
+      margin-top: 15px;
+    }
+  }
+  &__shadow{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height:100dvh;
+    width: 100dvh;
+    background-color: rgba(0,0,0,.33);
+  }
+  &.js-active{
+    display: block;
   }
 }

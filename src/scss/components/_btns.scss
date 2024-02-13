@@ -10,6 +10,7 @@
   border: none;
   outline: none;
   cursor: pointer;
+  background: transparent;
    > span{
     display: inline-flex;
     align-items: center;
@@ -24,6 +25,9 @@
         text-transform: uppercase;
         @include lit-desktop(){
           padding: 19px 40px;
+        }
+        @include lit-mobile(){
+          padding: 19px;
         }
       }
     }

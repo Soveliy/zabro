@@ -4,12 +4,19 @@
     list-style: none;
     padding: 0;
     margin: 0 auto;
+    @include mobile(){
+      flex-direction: column;
+    }
   }
   &__item{
     position: relative;
     width: 100%;
     & + &{
       margin-left: -1px;
+      @include mobile(){
+        margin-left: 0;
+        margin-top: 4px;
+      }
     }
     &{
       .main-menu__link{
@@ -22,7 +29,9 @@
           background-color: $phiolText;
           height: 14px;
           width: 1px;
-
+          @include mobile(){
+            display: none;
+          }
         }
 
       }
@@ -52,6 +61,18 @@
 
       }
     }
+    &.is-open{
+      > ul{
+        visibility: visible;
+        opacity: 1;
+        max-height: 500px;
+        pointer-events: all;
+        padding: 8px 0;
+        margin-top: 8px;
+        margin-bottom: 8px;
+
+      }
+    }
   }
   &__link{
     position: relative;
@@ -66,9 +87,18 @@
     font-weight: 500;
     line-height: 14px; /* 82.353% */
     border-radius: 10px;
+
     @include tablet(){
       font-size: 14px;
       padding: 12px;
+    }
+    @include mobile(){
+      color: $white;
+      font-size: 15px;
+      line-height: 34px;
+      padding: 0;
+      display: block;
+
     }
     &-icon{
       width: 9px;
@@ -78,8 +108,13 @@
       margin-top: 2px;
       fill: $phiolText;
       transition: $transtion;
+      @include mobile(){
+        fill: $white;
+        margin-left: 1px;
+        margin-top: 1px;
+      }
     }
-    @include for-desktop(){
+
       transition: $transtion;
       &:hover{
         background-color: $phiolText;
@@ -89,7 +124,7 @@
           transform: rotate(180deg);
         }
       }
-    }
+
   }
   &__submenu{
     width: 292px;
@@ -101,6 +136,16 @@
     visibility: hidden;
     pointer-events: none;
     transition: $transtion;
+
+    @include mobile(){
+      position: static;
+      width: auto;
+      max-height: 0;
+      margin: 0 -24px;
+      border-radius: 10px;
+      background-color: #48296F;
+
+    }
   }
   a[link-disabled]{
     position: relative;
@@ -113,6 +158,9 @@
       height: 100%;
       width: 100%;
       background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(225, 216, 252) 75%);
+      @include mobile(){
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(72, 41, 111) 75%);
+      }
     }
     span{
       position: absolute;
@@ -128,6 +176,13 @@
       line-height: 133%;
       color: #734ca5;
       z-index: 50;
+      @include mobile(){
+        right: 6px;
+        background-color: $phiolText;
+        font-size: 13px;
+        line-height: 154%;
+        color: #e1d8fc;
+      }
     }
   }
  @include for-desktop(){
@@ -163,7 +218,14 @@
   padding-bottom: 3px;
   z-index: 50;
 
+  @include mobile(){
+    padding: 0;
 
+      background-color: #48296F;
+      &.submenu--inside{
+        margin: 0 4px;
+      }
+  }
   &:before{
     content: '';
     position: absolute;
@@ -178,7 +240,36 @@
     visibility: hidden;
     pointer-events: none;
     transition:opacity $transtion, padding $transtion;
+    @include mobile(){
+      max-height: 0;
+      height: auto;
+      transition: $transtion;
+      background: #e1d8fc;
+      border-radius: 10px;
 
+
+
+      .submenu__link{
+        color: $phiolText;
+      }
+    }
+
+  }
+  &__item + &__item{
+    margin-top: 4px;
+  }
+  li{
+    &.is-open{
+      .submenu {
+        height: auto;
+        visibility: visible;
+        pointer-events: all;
+        opacity: 1;
+        max-height: 500px;
+        padding: 9px 0;
+      }
+
+    }
   }
   &__link{
     display: flex;
@@ -193,6 +284,13 @@
     line-height: 30px; /* 200% */
     border-radius: 10px;
     transition: $transtion;
+    @include mobile(){
+      color: $white;
+      font-size: 13px;
+      line-height: 231%;
+      padding: 4px 10px 4px 20px;
+      justify-content: flex-start;
+    }
     &-icon{
       width: 9px;
       height: 6px;
@@ -201,6 +299,9 @@
       margin-top: 2px;
       fill: $phiolText;
       transition: $transtion;
+      @include mobile(){
+        fill: $white;
+      }
     }
 
   }

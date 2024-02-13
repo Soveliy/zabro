@@ -9,6 +9,10 @@
     fill: $phiolText;
     margin-right: 8px;
     flex-shrink: 0;
+    @include mobile(){
+      fill: $white;
+    }
+
   }
   &__link{
     color: $phiolText;
@@ -22,6 +26,13 @@
     @include tablet(){
         font-size: 12px;
         letter-spacing: 0.02em;
+    }
+    @include mobile(){
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: $white;
     }
   }
 }

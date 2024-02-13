@@ -11,6 +11,9 @@
       padding:220px 39px 60px;
       border-radius: 0;
     }
+    @include mobile(){
+      padding: 135px 33px 40px;
+    }
 
   }
   &__container{
@@ -27,6 +30,9 @@
     }
     @include tablet(){
       margin: -4px -4px 22px;
+    }
+    @include mobile(){
+      margin: -4px -4px 14px;
     }
   }
   .tabs__nav-item{
@@ -46,6 +52,10 @@
     @include lit-desktop(){
       padding: 16px 23px;
     }
+    @include mobile(){
+      padding: 16px 34px;
+    }
+
     &.tabs__nav-btn--active{
       background-color: #fff;
       &:after{
@@ -77,6 +87,10 @@
     @include tablet(){
       gap: 24px;
     }
+    @include mobile(){
+      flex-direction: column;
+      gap: 20px;
+    }
   }
   &__image{
     width: 52.6%;
@@ -86,6 +100,9 @@
     }
     @include tablet(){
       width: 52.2%;
+    }
+    @include mobile(){
+      width: 100%;
     }
     img{
       height: 100%;

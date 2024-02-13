@@ -14,7 +14,10 @@
     color: $zag;
     font-size: 16px;
     letter-spacing: 0.02em;
-
+    @include mobile(){
+      font-size: 14px;
+      padding: 0 16px;
+    }
     &:not(:placeholder-shown) ~ label, &:focus ~ label{
       transform: translateY(-16px);
       font-size: 12px;
@@ -38,5 +41,11 @@
     letter-spacing: 0.02em;
     color: #aea5b9;
     transition: $transtion;
+    @include mobile(){
+      font-size: 14px;
+      line-height: 157%;
+      left: 16px;
+    }
   }
+
 }

@@ -18,6 +18,9 @@
      @include tablet(){
         max-height: 136px;
      }
+     @include mobile(){
+      max-height: 102px;
+     }
     }
     & + &{
       margin-top: 24px;

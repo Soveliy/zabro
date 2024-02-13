@@ -6,6 +6,9 @@
   @include tablet(){
     padding: 80px 0 40px;
   }
+  @include mobile(){
+    padding: 60px 0 40px;
+  }
   &__row{
     display: flex;
     flex-wrap: wrap;
@@ -87,6 +90,16 @@
         padding: 0 50px 0 115px;
         .btn--default > span{
           padding: 17px 54px;
+        }
+      }
+      @include mobile(){
+        margin-top: -60px;
+        padding: 0 35px 0 115px;
+        .btn{
+          width: 100%;
+        }
+        .btn--default > span{
+          padding: 17px;
         }
       }
 

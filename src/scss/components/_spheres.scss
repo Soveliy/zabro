@@ -8,10 +8,22 @@
   @include tablet(){
     padding: 91px 0 60px;
   }
+  @include mobile(){
+    padding: 141px 0 40px;
+  }
+  @include lit-mobile(){
+    padding: 50px 0;
+  }
   &__section-head{
     max-width: 64%;
     @include tablet(){
       max-width: 53%;
+    }
+    @include mobile(){
+      max-width: 63%;
+    }
+    @include lit-mobile(){
+      max-width: 100%;
     }
   }
   &__row{
@@ -59,6 +71,12 @@
       margin-right: 0;
       margin-bottom: 30px;
     }
+    @include mobile(){
+      margin-bottom: 20px;
+    }
+    @include lit-mobile(){
+      display: none;
+    }
   }
   &__item{
     position: relative;
@@ -75,6 +93,12 @@
     box-sizing: border-box;
     cursor: pointer;
     transition: $transtion;
+    &--mobile{
+      display: none;
+      @include lit-mobile(){
+        display: flex;
+      }
+    }
     @include lit-desktop(){
       // width: 16.6%;
       height: 100%;
@@ -86,6 +110,13 @@
       align-items: flex-start;
       justify-content: flex-end;
       hyphens: auto;
+    }
+    @include lit-mobile(){
+      flex-direction: row;
+      align-items: center;
+      padding: 5px 16px 5px 36px;
+      justify-content: space-between;
+      margin-bottom: 20px;
     }
     &::after{
       content: '';
@@ -137,6 +168,10 @@
         transform: none;
         top: auto;
       }
+      @include lit-mobile(){
+        top: 50%;
+        transform: translateY(-50%);
+      }
     }
     &-icon{
       height: 70px;
@@ -152,12 +187,20 @@
         margin-left: 6px;
         margin-bottom: 7px;
       }
+      @include lit-mobile(){
+        margin-bottom: 0;
+      }
     }
     &-name{
       @include lit-desktop(){
         min-height: 33px;
         display: flex;
         align-items: center;
+      }
+      @include lit-mobile(){
+        font-size: 16px;
+        line-height: 135%;
+        font-weight: 700;
       }
     }
     & + &{
@@ -171,6 +214,14 @@
     @include tablet(){
       width: calc(100% + 78px);
       margin: 0 -39px;
+    }
+    @include mobile(){
+      width: calc(100% + 66px);
+      margin: 0 -33px;
+    }
+    @include lit-mobile(){
+      margin: 0;
+      width: 100%;
     }
     &:after{
       content: '';
@@ -213,6 +264,12 @@
       border-radius: 0;
       padding: 26px 39px 38px;
     }
+    @include mobile(){
+      padding: 12px 33px 40px;
+    }
+    @include lit-mobile(){
+      padding: 16px 16px 20px;
+    }
     &__title{
       margin-bottom: 12px;
       font-weight: 700;
@@ -225,12 +282,24 @@
           display: block;
         }
       }
+      @include mobile(){
+        font-size: 20px;
+        line-height: 180%;
+        padding-left: 6px;
+      }
+      @include lit-mobile(){
+        display: none;
+      }
     }
     &__row{
       display: flex;
       align-items: flex-start;
       @include tablet(){
         align-items: stretch;
+      }
+      @include mobile(){
+        position: relative;
+        flex-direction: column;
       }
     }
     &__left{
@@ -240,6 +309,9 @@
       }
       @include tablet(){
         width: 48.6%;
+      }
+      @include mobile(){
+        width: 100%;
       }
     }
     &__frames{
@@ -253,6 +325,21 @@
           height: 100%;
         }
       }
+      @include mobile(){
+        height: 368px;
+        background-color: $white;
+        border-radius: 10px;
+        border: 1px solid #f0f0f0;
+        margin-bottom: 88px;
+        .swiper-slide{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+
+        }
+      }
     }
     &__content{
       padding-left: 30px;
@@ -261,6 +348,9 @@
       }
       @include tablet(){
         padding-left: 20px;
+      }
+      @include mobile(){
+        padding-left: 0;
       }
       > *:first-child{
         margin-top: 0;
@@ -328,6 +418,9 @@
           @include tablet(){
             margin-top: 12px;
           }
+          @include mobile(){
+            margin-top: 15px;
+          }
         }
       }
     }
@@ -340,6 +433,10 @@
       @include tablet(){
         margin-top: 36px;
         max-width: 304px;
+      }
+      @include mobile(){
+        margin-top: 24px;
+        max-width: 298px;
       }
     }
     &__tabs{
@@ -378,6 +475,15 @@
         @include tablet(){
           padding: 12px 6px;
         }
+        @include mobile(){
+          padding: 12px 28px;
+        }
+
+      }
+    }
+    &__inner{
+      @include mobile(){
+        position: relative;
       }
     }
 
@@ -386,6 +492,12 @@
     margin-top: 10px;
     @include tablet(){
       margin-top: 5px;
+    }
+    @include mobile(){
+      position: absolute;
+      top: 367px;
+      left: 0;
+      width: 100%;
     }
     &-slider{
       padding-top: 10px;

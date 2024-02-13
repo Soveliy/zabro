@@ -45,13 +45,13 @@
             </a>
         </div>
       </div>
-      <div class="menu menu--close5 burger">
-        <div class="menu__icon">
-          <div class="menu__line menu__line--1"></div>
-          <div class="menu__line menu__line--2"></div>
-          <div class="menu__line menu__line--3"></div>
-          <div class="menu__line menu__line--4"></div>
-          <div class="menu__line menu__line--5"></div>
+      <div class="header__burger burger burger--close5 ">
+        <div class="burger__icon">
+          <div class="burger__line burger__line--1"></div>
+          <div class="burger__line burger__line--2"></div>
+          <div class="burger__line burger__line--3"></div>
+          <div class="burger__line burger__line--4"></div>
+          <div class="burger__line burger__line--5"></div>
         </div>
       </div>
 
@@ -61,7 +61,7 @@
  <nav class="header__main-menu main-menu">
   <ul class="main-menu__list container">
     <li class="main-menu__item"><a href="#" class="main-menu__link">Платформа</a></li>
-    <li class="main-menu__item">
+    <li class="main-menu__item main-menu__item--parent">
       <a href="#" class="main-menu__link">
         Решения
         <svg class="main-menu__link-icon">
@@ -101,47 +101,86 @@
   </ul>
  </nav>
  <div class="mobile-menu">
-  <nav class="mobile-menu__main-menu main-menu">
-    <ul class="main-menu__list container">
-      <li class="main-menu__item"><a href="#" class="main-menu__link">Платформа</a></li>
-      <li class="main-menu__item">
-        <a href="#" class="main-menu__link">
-          Решения
-          <svg class="main-menu__link-icon">
-            <use xlink:href="img/sprite.svg#arrow_down"></use>
+  <div class="mobile-menu__shadow"></div>
+  <div class="mobile-menu__content">
+    <nav class="mobile-menu__main-menu main-menu">
+      <ul class="main-menu__list container">
+        <li class="main-menu__item"><a href="#" class="main-menu__link">Платформа</a></li>
+        <li class="main-menu__item  main-menu__item--parent">
+          <a href="#" class="main-menu__link">
+            Решения
+            <svg class="main-menu__link-icon">
+              <use xlink:href="img/sprite.svg#arrow_down"></use>
+            </svg>
+          </a>
+          <ul class="main-menu__submenu submenu">
+            <li class="submenu__item"><a href="#" class="submenu__link">3D-моделирование</a></li>
+            <li class="submenu__item"><a href="#" class="submenu__link">Цифровая фотостудия</a></li>
+            <li class="submenu__item"><a href="#" class="submenu__link" link-disabled>Анимация, моушен-графика  <span>Скоро</span></a></li>
+            <li class="submenu__item submenu__item--is-parent">
+              <a href="#" class="submenu__link">
+                Для бизнеса
+                <svg class="submenu__link-icon">
+                  <use xlink:href="img/sprite.svg#arrow_down"></use>
+                </svg>
+              </a>
+              <ul class="submenu submenu--inside">
+                <li class="submenu__item"><a href="#" class="submenu__link">3D-моделирование</a></li>
+                <li class="submenu__item"><a href="#" class="submenu__link">Цифровая фотостудия</a></li>
+                <li class="submenu__item"><a href="#" class="submenu__link">Анимация, моушен-графика</a></li>
+                <li class="submenu__item">
+                  <a href="#" class="submenu__link">
+                    Для бизнеса
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="main-menu__item"><a href="#" class="main-menu__link">Цены</a></li>
+        <li class="main-menu__item"><a href="#" class="main-menu__link">Галерея</a></li>
+        <li class="main-menu__item"><a href="#" class="main-menu__link">Информация</a></li>
+      </ul>
+     </nav>
+     <div class="mobile-menu__auth auth">
+      <a data-modal="#" href="#" class="auth__link">
+        <svg class="auth__icon">
+          <use xlink:href="img/sprite.svg#auth"></use>
+        </svg>
+        Вход | Регистрация
+      </a>
+    </div>
+    <a href="mailto:info@zarbo.tech" class="mobile-menu__mail">
+      <svg class="header__mail-icon">
+        <use xlink:href="img/sprite.svg#mail"></use>
+      </svg>
+      info@zarbo.tech
+    </a>
+    <div class="mobile-menu__social social">
+      <ul class="social__list">
+        <li class="social__item"><a href="" class="social__link">
+          <svg class="social__icon">
+            <use xlink:href="img/sprite.svg#WA"></use>
           </svg>
-        </a>
-        <ul class="main-menu__submenu submenu">
-          <li class="submenu__item"><a href="#" class="submenu__link">3D-моделирование</a></li>
-          <li class="submenu__item"><a href="#" class="submenu__link">Цифровая фотостудия</a></li>
-          <li class="submenu__item"><a href="#" class="submenu__link" link-disabled>Анимация, моушен-графика  <span>Скоро</span></a></li>
-          <li class="submenu__item">
-            <a href="#" class="submenu__link">
-              Для бизнеса
-              <svg class="submenu__link-icon">
-                <use xlink:href="img/sprite.svg#arrow_down"></use>
-              </svg>
-            </a>
-            <ul class="submenu submenu--inside">
-              <li class="submenu__item"><a href="#" class="submenu__link">3D-моделирование</a></li>
-              <li class="submenu__item"><a href="#" class="submenu__link">Цифровая фотостудия</a></li>
-              <li class="submenu__item"><a href="#" class="submenu__link">Анимация, моушен-графика</a></li>
-              <li class="submenu__item">
-                <a href="#" class="submenu__link">
-                  Для бизнеса
-                  <svg class="submenu__link-icon">
-                    <use xlink:href="img/sprite.svg#arrow_down"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="main-menu__item"><a href="#" class="main-menu__link">Цены</a></li>
-      <li class="main-menu__item"><a href="#" class="main-menu__link">Галерея</a></li>
-      <li class="main-menu__item"><a href="#" class="main-menu__link">Информация</a></li>
-    </ul>
-   </nav>
+        </a></li>
+        <li class="social__item"><a href="" class="social__link">
+          <svg class="social__icon">
+            <use xlink:href="img/sprite.svg#TG"></use>
+          </svg>
+        </a></li>
+        <li class="social__item"><a href="" class="social__link">
+          <svg class="social__icon">
+            <use xlink:href="img/sprite.svg#YA"></use>
+          </svg>
+        </a></li>
+        <li class="social__item"><a href="" class="social__link">
+          <svg class="social__icon">
+            <use xlink:href="img/sprite.svg#YT"></use>
+          </svg>
+        </a></li>
+      </ul>
+    </div>
+  </div>
+
  </div>
 </header>

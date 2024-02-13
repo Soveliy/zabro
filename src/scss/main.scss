@@ -16,6 +16,9 @@
   @include mobile(){
     padding: 0 33px
   }
+  @include lit-mobile(){
+    padding: 0 15px
+  }
 	// @media (max-width: $md1 + px) {
 	// 	max-width: 970px;
 	// }
@@ -83,7 +86,7 @@ body {
   color: $mainColor;
 
 // Класс блокировки
-	&._lock {
+	&.js-hidden {
 		overflow: hidden;
 		touch-action: none;
 	}
