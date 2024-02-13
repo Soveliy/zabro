@@ -9,6 +9,9 @@
   @include mobile(){
     padding: 60px 0 40px;
   }
+  @include lit-mobile(){
+    padding: 50px 0 40px;
+  }
   &__row{
     display: flex;
     flex-wrap: wrap;
@@ -18,6 +21,9 @@
     }
     @include tablet(){
       padding-top: 12px
+    }
+    @include lit-mobile(){
+      padding-top: 8px;
     }
   }
   &__item-container{
@@ -40,6 +46,9 @@
     @include tablet(){
         padding: 29px 0 31px;
     }
+    @include lit-mobile(){
+      padding: 25px 0 16px;
+    }
     &__top{
       display: flex;
     }
@@ -58,6 +67,9 @@
       }
       @include tablet(){
         margin-top: -20px;
+      }
+      @include lit-mobile(){
+        margin-right: 20px;
       }
     }
     &__title{
@@ -101,6 +113,10 @@
         .btn--default > span{
           padding: 17px;
         }
+      }
+      @include lit-mobile(){
+        padding: 0 25px 0 16px;
+        margin-top: 17px;
       }
 
     }

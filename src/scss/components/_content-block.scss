@@ -24,6 +24,9 @@
       line-height: 180%;
       margin: 16px 0;
     }
+    @include lit-mobile(){
+      margin: 12px 0;
+    }
   }
   p{
     font-weight: 400;
@@ -43,6 +46,9 @@
       line-height: 135%;
       margin: 18px 0;
 
+    }
+    @include lit-mobile(){
+      margin: 16px 0;
     }
   }
 }

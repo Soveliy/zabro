@@ -14,6 +14,9 @@
     @include mobile(){
       padding: 135px 33px 40px;
     }
+    @include lit-mobile(){
+      padding: 130px 15px 40px;
+    }
 
   }
   &__container{
@@ -34,11 +37,22 @@
     @include mobile(){
       margin: -4px -4px 14px;
     }
+    @include lit-mobile(){
+      margin: -4px -4px 20px;
+    }
   }
   .tabs__nav-item{
     padding: 8px;
     @include lit-desktop(){
       padding: 4px;
+    }
+    @include lit-mobile(){
+      &:not(.tabs__nav-item--lit){
+        width: 100%;
+      }
+      &.tabs__nav-item--lit{
+        width: 50%;
+      }
     }
   }
   .tabs__nav-btn{
@@ -54,6 +68,9 @@
     }
     @include mobile(){
       padding: 16px 34px;
+    }
+    @include lit-mobile(){
+      width: 100%;
     }
 
     &.tabs__nav-btn--active{
@@ -103,6 +120,10 @@
     }
     @include mobile(){
       width: 100%;
+
+    }
+    @include lit-mobile(){
+      height: 350px;
     }
     img{
       height: 100%;
@@ -118,6 +139,10 @@
     margin-top: 26px;
     @include tablet(){
       margin-top: 8px;
+    }
+    @include lit-mobile(){
+      margin-top: 12px;
+      width: 100%;
     }
   }
 }

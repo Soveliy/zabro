@@ -26,6 +26,10 @@
     &--big{
       height: 36px;
       width: 36px;
+      @include mobile(){
+        height: 28px;
+        width: 28px;
+      }
     }
     path{
       fill: red;

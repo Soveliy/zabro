@@ -12,6 +12,10 @@
     padding: 60px 0;
     margin-bottom: -150px;
   }
+  @include lit-mobile(){
+    padding: 50px 0;
+    margin-bottom: -138px;
+  }
   &__row{
     display: flex;
     align-items: center;
@@ -54,6 +58,8 @@
       @include lit-mobile(){
         width: 226px;
         height: 253px;
+        margin-top: 181px;
+       margin-left: -86px;
       }
     }
     img{
@@ -80,6 +86,11 @@
     @include mobile(){
       margin: -17px 11% 0 auto;
       max-width: 330px;
+      width: 100%;
+    }
+    @include lit-mobile(){
+      margin: 35px auto 0;
+      max-width: 360px;
       width: 100%;
     }
     img{

@@ -12,6 +12,10 @@
     margin-top: 40px;
     padding-bottom: 60px;
   }
+  @include lit-mobile(){
+    padding-bottom: 50px;
+  }
+
 
   &__row{
     position: relative;
@@ -29,6 +33,9 @@
       padding-top: 20px;
       gap: 53px 0;
       justify-content: space-between;
+    }
+    @include lit-mobile{
+      padding-top: 7px;
     }
 
     &:before,&:after{
@@ -64,6 +71,9 @@
       @include tablet(){
         bottom: 297px;
         right: 4.1%;
+      }
+      @include mobile(){
+        display: none;
       }
     }
     // &::before{
@@ -108,6 +118,10 @@
           padding: 36px 16px;
           width: 240px;
         }
+        @include lit-mobile(){
+          width: calc(50% - 10px);
+          padding: 24px 12px;
+        }
       }
       &-2{
         position: relative;
@@ -132,6 +146,11 @@
           padding: 36px 16px;
           width: 210px;
           margin-right: 5.8%;
+        }
+        @include lit-mobile(){
+          width: calc(50% - 10px);
+          padding: 24px 12px;
+          margin-right: 0;
         }
       }
       &-3{
@@ -183,11 +202,12 @@
             width: 572px;
           }
           @include mobile(){
-            width: 203px;
-            height: 283px;
+            width: 212px;
+            height: 290px;
             background: url(../img/how-to-work_bot_mobile.svg) no-repeat center center;
             background-size: contain;
           }
+
         }
       }
       &-4{
@@ -213,6 +233,10 @@
             margin-top: -22px;
           }
         }
+        @include lit-mobile(){
+          flex-direction: column;
+          padding: 12px;
+        }
       }
     }
   }
@@ -225,6 +249,9 @@
     }
     @include mobile(){
       margin-right: 16px;
+    }
+    @include lit-mobile(){
+      margin-bottom: 8px;
     }
   }
   &__desc{
@@ -280,6 +307,16 @@
       right: -30px;
       border-radius: 10px 10px 46px 10px;
     }
+    @include lit-mobile(){
+      left: 0;
+      top: 100%;
+      width: 100%;
+      padding: 4px 9px 13px;
+
+      border-radius: 10px;
+      font-size: 14px;
+      margin-top: -8px;
+    }
     span{
       border-bottom: 1px dashed rgba(138, 126, 149, 0.5)
     }
@@ -301,6 +338,9 @@
           margin-bottom: 4px;
           margin-right: 0;
         }
+        @include lit-mobile(){
+          display: none;
+        }
     }
   }
   &__title{
@@ -315,6 +355,10 @@
     }
     @include mobile(){
       font-size: 15px;
+    }
+    @include lit-mobile(){
+      font-size: 14px;
+      line-height: 135%;
     }
   }
   &__logo{

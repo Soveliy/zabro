@@ -3,6 +3,9 @@
   @include tablet(){
     padding: 40px 0;
   }
+  @include mobile(){
+    padding: 40px 0 20px;
+  }
   &__section-head{
     max-width: 75%;
     @include tablet(){

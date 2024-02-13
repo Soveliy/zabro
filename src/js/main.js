@@ -54,7 +54,16 @@ window.addEventListener('load', () => {
       mobileMenuItem.parentElement.classList.toggle('is-open')
     })
   })
-window.addEventListener('resize', isMobile);
+  window.addEventListener('resize', isMobile);
+
+  const anyTabsItems = document.querySelectorAll('.any-type .tabs__nav-btn')
+  if (anyTabsItems.length > 0){
+    anyTabsItems.forEach(anyTabsItem => {
+      if (anyTabsItem.innerText.length < 9){
+        anyTabsItem.parentNode.classList.add('tabs__nav-item--lit')
+      }
+    })
+  }
 
   // При необходимости можно добавить обработчик события клика на миниатюру для переключения
   // swiperThumbs.on('click', function () {

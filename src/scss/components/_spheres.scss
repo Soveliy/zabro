@@ -384,6 +384,9 @@
           line-height: 135%;
           margin: 0 0 12px 0;
         }
+        @include lit-mobile(){
+          margin: 0 0 16px 0;
+        }
       }
       ul{
         padding: 0;
@@ -438,6 +441,9 @@
         margin-top: 24px;
         max-width: 298px;
       }
+      @include lit-mobile(){
+        margin-top: 18px;
+      }
     }
     &__tabs{
       list-style: none;
@@ -478,6 +484,9 @@
         @include mobile(){
           padding: 12px 28px;
         }
+        @include lit-mobile(){
+          padding: 12px 4px;
+        }
 
       }
     }
@@ -498,6 +507,9 @@
       top: 367px;
       left: 0;
       width: 100%;
+    }
+    @include lit-mobile(){
+      margin-top: 8px;
     }
     &-slider{
       padding-top: 10px;

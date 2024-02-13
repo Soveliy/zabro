@@ -55,7 +55,13 @@ Swiper.use([Navigation, Pagination, Thumbs, Scrollbar]);
 
 const swiper = new Swiper('.gallery__swiper', {
   slidesPerView: 'auto',
-  spaceBetween: 30,
+  spaceBetween: 8,
+  breakpoints:{
+    577: {
+
+      spaceBetween: 30,
+    },
+  }
 });
 
 const examples = new Swiper('.examples__swiper', {
