@@ -35,6 +35,9 @@
     &.btn--border{
      > span{
         padding: 17px 38px;
+        @include mobile(){
+          padding: 17px 5px;
+        }
       }
     }
   }

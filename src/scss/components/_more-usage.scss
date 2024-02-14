@@ -45,6 +45,9 @@
     @include mobile(){
       padding: 10px;
     }
+    @include lit-mobile(){
+      width: 100%;
+    }
   }
   &-item{
     height: 100%;
@@ -64,6 +67,10 @@
       flex-direction: column;
       padding: 20px;
     }
+    @include lit-mobile(){
+      padding: 25px 20px;
+      flex-direction: row;
+    }
     &__image{
       height: 90px;
       width: 90px;
@@ -76,6 +83,10 @@
       }
       @include mobile(){
         margin: 0 0 16px 0;
+      }
+      @include lit-mobile(){
+        margin: 0 16px 0 0;
+
       }
       img{
         max-width: 100%;

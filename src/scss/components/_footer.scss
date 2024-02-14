@@ -111,6 +111,7 @@
   }
 
   &__desc{
+
     font-size: 14px;
     line-height: 20px;
     font-weight: 500;
@@ -118,14 +119,27 @@
       font-size: 12px;
       line-height: 150%;
     }
+    @include lit-mobile(){
+      white-space: nowrap;
+      br{
+        display: none;
+      }
+    }
   }
   &__row{
     display: flex;
     justify-content: space-between;
+    @include lit-mobile(){
+      align-items: flex-start;
+    }
   }
   &__left{
     display: flex;
     align-items: center;
+    @include lit-mobile(){
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
   &__logo{
     margin-right: 16px;
@@ -143,6 +157,10 @@
         width: 120px;
         height: 26px;
         margin-right: 12px;
+      }
+      @include lit-mobile(){
+        margin-bottom: 12px;
+        margin-right: 0;
       }
   }
   &__col{
