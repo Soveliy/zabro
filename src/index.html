@@ -35,6 +35,17 @@
                       <div class="hero__advantages-item-head">
                         <!-- Здесь для ∞ стоит доп класс hero__advantages-item-head--big -->
                         +1-3%
+                        <div class="hero__advantages-item-tooltip tooltip">
+                          <div class="tooltip__wrap">
+                            <svg class="tooltip__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <rect width="24" height="24" rx="12" fill="#734CA5" />
+                              <path d="M13.1947 9.10593V18.6663H10.8161V9.10593H13.1947ZM10.668 6.61421C10.668 6.2431 10.7887 5.93679 11.0301 5.69528C11.2715 5.45376 11.5953 5.33301 12.0013 5.33301C12.4019 5.33301 12.7228 5.45376 12.9643 5.69528C13.2112 5.93679 13.3346 6.2431 13.3346 6.61421C13.3346 6.98532 13.2112 7.29163 12.9643 7.53314C12.7228 7.77465 12.4019 7.89541 12.0013 7.89541C11.5953 7.89541 11.2715 7.77465 11.0301 7.53314C10.7887 7.29163 10.668 6.98532 10.668 6.61421Z" fill="white" />
+                            </svg>
+                            <div class="tooltip__body">
+                              Зависит от сегмента и товарной группы. В некоторых случаях рост составляет более 45%.
+                            </div>
+                          </div>
+                        </div>
                       </div>
                       <div class="hero__advantages-item-body">
                         К конверсии посетителей сайта в покупателей
@@ -75,10 +86,12 @@
               </a>
             </div>
             <div class="hero__video">
-              <a  data-fslightbox="gallery" href="https://www.youtube.com/watch?v=H5vgsIygMrs&ab_channel=Zarbo" class="hero__video-play" href="">
-                <svg class="hero__video-icon">
-                  <use xlink:href="img/sprite.svg#play"></use>
+              <a  data-fslightbox="gallery" href="https://www.youtube.com/watch?v=H5vgsIygMrs&ab_channel=Zarbo" class="hero__video-play" >
+                <svg class="hero__video-icon" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="hero__video-iconBg" d="M0 35C0 15.67 15.67 0 35 0H60C65.5229 0 70 4.47715 70 10V35C70 54.33 54.33 70 35 70C15.67 70 0 54.33 0 35Z" />
+                  <path class="hero__video-iconElem" d="M48 35.5L28 47L28 24L48 35.5Z"  />
                 </svg>
+
               </a>
               <video src="video/about.mp4" autoplay muted loop></video>
             </div>
@@ -454,90 +467,104 @@
               Десятки живых примеров применения
             </h2>
           </div>
-          <div class="swiper examples__swiper">
-           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="examples-item">
-                <a href="https://youtu.be/d9NhAsFg6Y0" class="examples-item__image" data-fslightbox="example">
-                  <img src="img/examples/1.jpg" alt="">
-                </a>
-                <div class="examples-item__body">
-                  <div class="examples-item__title">
-                    Виртуальная примерка двух чайников
-                  </div>
-                  <div class="examples-item__time">
-                    1:13
-                  </div>
+          <div class="examples__slider-container">
+            <div class="swiper examples__swiper">
+              <div class="swiper-wrapper">
+               <div class="swiper-slide">
+                 <div class="examples-item">
+                   <a href="https://youtu.be/d9NhAsFg6Y0" class="examples-item__image" data-fslightbox="example">
+                     <img src="img/examples/1.jpg" alt="">
+                   </a>
+                   <div class="examples-item__body">
+                     <div class="examples-item__title">
+                       Виртуальная примерка двух чайников
+                     </div>
+                     <div class="examples-item__time">
+                       1:13
+                     </div>
 
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="examples-item">
-                <a href="https://youtu.be/d9NhAsFg6Y0" class="examples-item__image" data-fslightbox="example">
-                  <img src="img/examples/1.jpg" alt="">
-                </a>
-                <div class="examples-item__body">
-                  <div class="examples-item__title">
-                    Виртуальная примерка двух чайников
-                  </div>
-                  <div class="examples-item__time">
-                    1:13
-                  </div>
+                   </div>
+                 </div>
+               </div>
+               <div class="swiper-slide">
+                 <div class="examples-item">
+                   <a href="https://youtu.be/d9NhAsFg6Y0" class="examples-item__image" data-fslightbox="example">
+                     <img src="img/examples/1.jpg" alt="">
+                   </a>
+                   <div class="examples-item__body">
+                     <div class="examples-item__title">
+                       Виртуальная примерка двух чайников
+                     </div>
+                     <div class="examples-item__time">
+                       1:13
+                     </div>
 
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="examples-item">
-                <a href="https://youtu.be/d9NhAsFg6Y0" class="examples-item__image" data-fslightbox="example">
-                  <img src="img/examples/1.jpg" alt="">
-                </a>
-                <div class="examples-item__body">
-                  <div class="examples-item__title">
-                    Виртуальная примерка двух чайников
-                  </div>
-                  <div class="examples-item__time">
-                    1:13
-                  </div>
+                   </div>
+                 </div>
+               </div>
+               <div class="swiper-slide">
+                 <div class="examples-item">
+                   <a href="https://youtu.be/d9NhAsFg6Y0" class="examples-item__image" data-fslightbox="example">
+                     <img src="img/examples/1.jpg" alt="">
+                   </a>
+                   <div class="examples-item__body">
+                     <div class="examples-item__title">
+                       Виртуальная примерка двух чайников
+                     </div>
+                     <div class="examples-item__time">
+                       1:13
+                     </div>
 
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="examples-item">
-                <a href="https://youtu.be/d9NhAsFg6Y0" class="examples-item__image" data-fslightbox="example">
-                  <img src="img/examples/1.jpg" alt="">
-                </a>
-                <div class="examples-item__body">
-                  <div class="examples-item__title">
-                    Виртуальная примерка двух чайников
-                  </div>
-                  <div class="examples-item__time">
-                    1:13
-                  </div>
+                   </div>
+                 </div>
+               </div>
+               <div class="swiper-slide">
+                 <div class="examples-item">
+                   <a href="https://youtu.be/d9NhAsFg6Y0" class="examples-item__image" data-fslightbox="example">
+                     <img src="img/examples/1.jpg" alt="">
+                   </a>
+                   <div class="examples-item__body">
+                     <div class="examples-item__title">
+                       Виртуальная примерка двух чайников
+                     </div>
+                     <div class="examples-item__time">
+                       1:13
+                     </div>
 
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="examples-item">
-                <a href="https://youtu.be/d9NhAsFg6Y0" class="examples-item__image" data-fslightbox="example">
-                  <img src="img/examples/1.jpg" alt="">
-                </a>
-                <div class="examples-item__body">
-                  <div class="examples-item__title">
-                    Виртуальная примерка двух чайников
-                  </div>
-                  <div class="examples-item__time">
-                    1:13
-                  </div>
+                   </div>
+                 </div>
+               </div>
+               <div class="swiper-slide">
+                 <div class="examples-item">
+                   <a href="https://youtu.be/d9NhAsFg6Y0" class="examples-item__image" data-fslightbox="example">
+                     <img src="img/examples/1.jpg" alt="">
+                   </a>
+                   <div class="examples-item__body">
+                     <div class="examples-item__title">
+                       Виртуальная примерка двух чайников
+                     </div>
+                     <div class="examples-item__time">
+                       1:13
+                     </div>
 
-                </div>
+                   </div>
+                 </div>
+               </div>
               </div>
+
+             </div>
+             <div class="swiper-arrow swiper-button-next examples__arrow--next">
+              <svg class="">
+                <use xlink:href="img/sprite.svg#slider-arrow"></use>
+              </svg>
             </div>
-           </div>
+            <div class="swiper-arrow swiper-button-prev examples__arrow--prev">
+              <svg class="">
+                <use xlink:href="img/sprite.svg#slider-arrow"></use>
+              </svg>
+            </div>
           </div>
+
           <div class="examples__btn-container">
             <a href="#" class="btn btn--big btn--border btn--border--white confidence__btn">
              <span class="btn__text">

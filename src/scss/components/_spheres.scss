@@ -514,5 +514,14 @@
     &-slider{
       padding-top: 10px;
     }
+    .swiper-arrow{
+      @include mobile(){
+        display: none;
+      }
+    }
+    .swiper-scrollbar{
+      position: relative;
+      margin-top: 12px;
+    }
   }
 }

@@ -19,11 +19,13 @@
     }
 
   }
-  // &__burger{
-  //   margin-left: 41px;
-  //   flex-shrink: 0;
+  &__burger{
+   display: none;
+   @include mobile(){
+    display: block;
+   }
 
-  // }
+  }
   &__logo{
     @include tablet(){
       width: 150px;

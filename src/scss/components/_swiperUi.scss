@@ -1,0 +1,61 @@
+.swiper-arrow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  width: 38px;
+  border: 2px solid #734ca5;
+  border-radius: 25px;
+  width: 38px;
+  height: 38px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: $transtion;
+  @include for-desktop(){
+    &:hover{
+      background-color: $phiolText;
+      svg{
+        fill: $white;
+      }
+    }
+  }
+  &:active{
+    background-color: $phiolText;
+    svg{
+      fill: $lightBlock;
+    }
+  }
+  &::after{
+    display: none;
+  }
+  &.swiper-button-disabled{
+    opacity: 0;
+    pointer-events: none;
+  }
+  &.swiper-button-prev{
+    left: 0;
+    svg{
+      transform: rotate(180deg);
+    }
+  }
+  &.swiper-button-next{
+    right: 0;
+    padding-left: 2px;
+  }
+  svg{
+    fill: $phiolText;
+    height: 10px;
+    width: 7px;
+    transition: $transtion;
+  }
+}
+.swiper-horizontal > .swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal{
+  height: 8px;
+  border-radius: 4px;
+  background: #e1d8fc;
+  .swiper-scrollbar-drag{
+    background: #ccc2ea;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}

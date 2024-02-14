@@ -1,0 +1,37 @@
+.tooltip{
+  z-index: 50;
+  &__icon{
+    cursor: pointer;
+  }
+  &__wrap{
+    position: relative;
+    line-height: 0;
+    &:hover{
+      .tooltip__body{
+        opacity: 1;
+        max-height: 350px;
+        pointer-events: all;
+      }
+    }
+  }
+
+  &__body{
+    position: absolute;
+    top: 100%;
+    left: 12px;
+    border-radius: 10px;
+    padding: 15px;
+    width: 301px;
+    // height: 96px;
+    box-sizing: border-box;
+    background: #e1d8fc;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    color: #464547;
+    opacity: 0;
+    pointer-events: none;
+    transition: $transtion;
+  }
+
+}

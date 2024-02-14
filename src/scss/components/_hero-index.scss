@@ -126,6 +126,8 @@
     }
   }
   &__advantages-row{
+    position: relative;
+    z-index: 10;
     display: flex;
     flex-wrap: wrap;
     margin: -8px -15px;
@@ -173,6 +175,13 @@
       font-weight: 800;
       line-height: normal;
       margin-bottom: -24px;
+
+
+      &:hover{
+        z-index: 50;
+
+
+      }
       @include lit-desktop(){
         font-size: 24px;
         width: 94px;
@@ -212,6 +221,12 @@
       @include mobile(){
         padding: 24px 5px 11px 20px;
       }
+    }
+    &-tooltip{
+      position: absolute;
+      left: 100%;
+      margin-left: 4px;
+      z-index: 2000;
     }
   }
   &__video{
@@ -295,6 +310,24 @@
     height: 70px;
     width: 70px;
     z-index: 50;
+    @include for-desktop(){
+      &:hover{
+        .hero__video-iconBg{
+          fill: $phiolText;
+        }
+        .hero__video-iconElem{
+          fill: $white;
+        }
+      }
+    }
+    &:active{
+      .hero__video-iconBg{
+        fill: $phiolText;
+      }
+      .hero__video-iconElem{
+        fill: #E1D8FC;
+      }
+    }
     @include mobile(){
       height: 54px;
       width: 54px;
@@ -303,14 +336,8 @@
     @include lit-mobile(){
       bottom: 0;
     }
-    svg{
-      height: 100%;
-      width: 100%;
-      display: block;
-      path{
-        fill: red;
-      }
-    }
+
+
   }
   &__btn{
     margin-top: 44px;
@@ -323,6 +350,17 @@
     @include lit-mobile(){
       margin-top: 28px;
       width: 100%;
+    }
+  }
+  &__video-icon{
+    path{
+      transition: $transtion
+    }
+    &Bg{
+      fill:$white
+    }
+    &Elem{
+      fill: $phiolText;
     }
   }
 }

@@ -67,6 +67,10 @@ const swiper = new Swiper('.gallery__swiper', {
 const examples = new Swiper('.examples__swiper', {
   slidesPerView: 'auto',
   spaceBetween: 20,
+  navigation: {
+    nextEl: '.examples__arrow--next',
+    prevEl: '.examples__arrow--prev',
+  },
   breakpoints: {
     450: {
 
@@ -95,11 +99,23 @@ function TabsSliders() {
   let swiperDetails = document.querySelectorAll(".spheres-item__frames")
   let swiperPreviews = document.querySelectorAll(".spheres__thumbs-slider")
   swiperDetails.forEach((swiperDetail,index) => {
+      let arrowNext = swiperPreviews[index].querySelector('.swiper-button-next')
+      let arrowPrev = swiperPreviews[index].querySelector('.swiper-button-prev')
+      let scrollBarElem = swiperPreviews[index].querySelector('.swiper-scrollbar')
       let swiperPreview = new Swiper(swiperPreviews[index], {
           spaceBetween: 6,
           slidesPerView: 'auto',
           freeMode: true,
           watchSlidesProgress: true,
+          navigation: {
+            nextEl: arrowNext,
+            prevEl: arrowPrev,
+          },
+          scrollbar: {
+            el: scrollBarElem,
+            hide: false,
+            draggable:true,
+          },
           breakpoints: {
 
             769: {
@@ -214,14 +230,14 @@ const rules1 = [
       {
         rule: 'required',
         value: true,
-        errorMessage: 'Заполните имя!'
+        errorMessage: 'Это обязательное поле'
       }
     ]
   },
   {
     ruleSelector: '.input--phone-email',
     tel: false,
-    telError: 'Введите корректный телефон',
+    telError: 'Это обязательное поле',
     rules: [
       {
         rule: 'minLength',
@@ -230,7 +246,7 @@ const rules1 = [
       {
         rule: 'required',
         value: true,
-        errorMessage: 'Заполните имя!'
+        errorMessage: 'Это обязательное поле'
       }
     ]
   },

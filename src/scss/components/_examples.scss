@@ -40,10 +40,35 @@
 
     }
   }
+  .swiper-slide{
+    @include lit-mobile(){
+      width: 270px;
+    }
+  }
   &__swiper{
     padding-top: 13px;
     @include mobile(){
       padding-top: 7px;
+    }
+  }
+  &__slider-container{
+    position: relative;
+    .swiper-arrow{
+      height: 50px;
+      width: 50px;
+      @include lit-mobile(){
+        display: none;
+      }
+      svg{
+        height: 14px;
+        width: 10px;
+      }
+      &.swiper-button-next{
+        right: -25px;
+      }
+      &.swiper-button-prev{
+        left: -25px;
+      }
     }
   }
   &__btn-container{

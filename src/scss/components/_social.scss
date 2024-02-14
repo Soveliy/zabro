@@ -19,6 +19,34 @@
   &__icon{
     height: 28px;
     width: 28px;
+    --color1:#fff;
+    --color2:#734CA5;
+    &Bg{
+      fill: $white;
+    }
+    &Elem{
+      fill: $phiolText;
+    }
+    transition: $transtion;
+    @include for-desktop(){
+      &:hover{
+      .social__iconBg{
+        fill: $phiolText;
+      }
+      .social__iconElem{
+        fill: $white;
+      }
+      }
+    }
+    &:active{
+
+      .social__iconBg{
+        fill: $phiolText;
+      }
+      .social__iconElem{
+        fill: #E1D8FC;
+      }
+    }
     @include mobile(){
       height: 24px;
       width: 24px;
@@ -32,7 +60,8 @@
       }
     }
     path{
-      fill: red;
+      transition: $transtion;
     }
+
   }
 }

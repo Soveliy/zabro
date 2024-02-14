@@ -49,8 +49,10 @@
       height: 213px;
     }
     & + &{
-      margin-top: 37px;
-      margin-left: -60px;
+      @include tablet(){
+        margin-top: 37px;
+        margin-left: -60px;
+      }
       @include mobile(){
         margin-top: 103px;
         margin-left: -30px;
