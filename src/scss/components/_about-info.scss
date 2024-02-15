@@ -1,0 +1,36 @@
+.about-info{
+  &__grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.6fr 1.6fr;
+    gap: 22px;
+  }
+  &-item{
+    background-color: $lightDark;
+    border-radius: 10px;
+    padding: 32px 24px 24px 30px;
+    &__logos{
+      height: 90px;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 20px;
+    }
+    &__desc{
+      position: relative;
+      font-size: 16px;
+      line-height: 135%;
+      &::before{
+        content: '';
+        position: absolute;
+        left: -30px;
+        top: -12px;
+        width: 20px;
+        height: 45px;
+        background: url(../img/left-decor.svg) left center;
+        background-size: contain;
+      }
+      b{
+        font-weight: 700;
+      }
+    }
+  }
+}

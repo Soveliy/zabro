@@ -7,24 +7,23 @@ import { isMobile, isTablet, isDesktop } from './functions/check-viewport';
 window.addEventListener('load', () => {
   const accordeonInit = function(){
     const accordeon = document.querySelector('.accordeon')
-    const buttons = accordeon.querySelectorAll('.accordeon__head')
-    buttons.forEach(button => {
+    if (accordeon){
+      const buttons = accordeon.querySelectorAll('.accordeon__head')
+      buttons.forEach(button => {
 
-      button.addEventListener('click', () => {
+        button.addEventListener('click', () => {
 
-        // buttons.forEach(otherButton => {
-        //   if (otherButton !== button) {
-        //     otherButton.parentElement.classList.remove('js-active');
-        //   }
-        // });
+          buttons.forEach(otherButton => {
+            if (otherButton !== button) {
+              otherButton.parentElement.classList.remove('js-active');
+            }
+          });
+          button.parentElement.classList.toggle('js-active')
 
-        // if (!button.parentElement.classList.contains('js-active')){
-
-        // }
-        button.parentElement.classList.toggle('js-active')
-
+        })
       })
-    })
+    }
+
   }
   accordeonInit()
 
@@ -47,13 +46,16 @@ window.addEventListener('load', () => {
 
 
   const mobileMenuItems = mobileMenu.querySelectorAll('.main-menu__item--parent > a,.submenu__item--is-parent > a')
-  console.log(mobileMenuItems)
-  mobileMenuItems.forEach(mobileMenuItem  => {
-    mobileMenuItem.addEventListener('click', (e) => {
-      e.preventDefault();
-      mobileMenuItem.parentElement.classList.toggle('is-open')
+
+  if(mobileMenuItems.length > 0){
+    mobileMenuItems.forEach(mobileMenuItem  => {
+      mobileMenuItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        mobileMenuItem.parentElement.classList.toggle('is-open')
+      })
     })
-  })
+  }
+
   window.addEventListener('resize', isMobile);
 
   const anyTabsItems = document.querySelectorAll('.any-type .tabs__nav-btn')

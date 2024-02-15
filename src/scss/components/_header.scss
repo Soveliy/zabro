@@ -119,6 +119,12 @@
   }
   &__main-menu{
     padding: 2px 0;
+    @include lit-desktop(){
+      padding: 2px 47px;
+    }
+    @include tablet(){
+      padding: 0 39px;
+    }
     background-color: rgba($white, .5);
     @include mobile(){
       display: none;

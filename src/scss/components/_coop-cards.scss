@@ -1,23 +1,115 @@
 .coop-cards{
-  padding: 110px 0 120px;
+  padding: 110px 0 180px;
   @include lit-desktop(){
-    padding: 100px 0;
+    padding: 100px 0 230px
+  }
+  @include tablet(){
+    padding: 80px 0 150px;
+  }
+  @include mobile(){
+    padding: 60px 0 86px;
+  }
+  @include lit-mobile(){
+    padding: 50px 0;
   }
 }
 .coop-card{
   position: relative;
-  padding: 50px 0 110px 50px;
-  box-sizing: border-box;
-  backdrop-filter: blur(24px);
-  box-shadow: inset 0 4px 19px 0 rgba(255, 255, 255, 0.02), inset 0 -4px 12px 0 rgba(255, 255, 255, 0.14);
-  background: rgba(202, 185, 255, 0.35);
-  border: 1px solid rgba(222, 222, 222, 0.45);
-  border-radius: 10px 100px 10px 10px;
-  @include lit-mobile(){
-    padding: 40px 0 110px 40px;
+
+  &:nth-child(2n){
+    &::before,&::after{
+      content: '';
+      background: url(../img/decor.svg) no-repeat center center;
+      background-size: contain;
+      position: absolute;
+    }
+    &:before{
+      top: -41px;
+      right: -2px;
+      height: 87px;
+      width: 87px;
+      transform: rotate(9deg);
+      @include lit-desktop(){
+        top: -35px;
+      }
+      @include lit-mobile(){
+        height: 66px;
+        width: 66px;
+      }
+    }
+    &::after{
+      content: "";
+      right: 100%;
+      height: 51px;
+      width: 51px;
+      margin-right: 127px;
+      bottom: -131px;
+      @include lit-desktop(){
+        bottom: -170px;
+        left: 0;
+        margin-right: 0;
+      }
+      @include tablet(){
+          bottom: -130px;
+          height: 38px;
+          width: 38px;
+      }
+      @include mobile(){
+        bottom: -75px;
+        left: -20px;
+      }
+      @include lit-mobile(){
+        display: none;
+      }
+    }
+  }
+  &__inner{
+    padding: 50px 0 110px 50px;
+    box-sizing: border-box;
+    backdrop-filter: blur(24px);
+    box-shadow: inset 0 4px 19px 0 rgba(255, 255, 255, 0.02), inset 0 -4px 12px 0 rgba(255, 255, 255, 0.14);
+    background: rgba(202, 185, 255, 0.35);
+    border: 1px solid rgba(222, 222, 222, 0.45);
+    border-radius: 10px 100px 10px 10px;
+    @include lit-desktop(){
+      padding: 40px 0 110px 40px;
+    }
+    @include tablet(){
+      padding: 35px 0 110px 29px;
+    }
+    @include mobile(){
+      padding: 14px 24px 73px;
+    }
+    @include lit-mobile(){
+      padding: 28px 20px 20px;
+      border-radius: 10px 50px 10px 10px;
+    }
   }
   & + &{
     margin-top: 190px;
+    @include lit-desktop(){
+      margin-top: 204px;
+    }
+    @include tablet(){
+      margin-top: 167px;
+    }
+    @include mobile(){
+      margin-top: 86px;
+    }
+    @include lit-mobile(){
+      margin-top: 50px;
+    }
+  }
+  &__head{
+    @include mobile(){
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+    @include lit-mobile(){
+      margin-bottom: 22px;
+    }
   }
   &__title{
     font-weight: 700;
@@ -28,7 +120,20 @@
     @include lit-desktop(){
       font-size: 36px;
       line-height: 117%;
-      margin: 0 0 24px 0;
+      margin: 0 0 22px 0;
+    }
+    @include tablet(){
+      font-size: 32px;
+      line-height: 119%;
+    }
+    @include mobile(){
+      font-size: 26px;
+      line-height: 123%;
+      margin-bottom: 0;
+    }
+    @include lit-mobile(){
+      font-size: 24px;
+      line-height: 117%;
     }
   }
   &__desc{
@@ -36,6 +141,21 @@
     font-size: 20px;
     line-height: 150%;
     padding-right: 32%;
+    @include lit-desktop(){
+      font-size: 18px;
+      line-height: 150%;
+      padding-right: 40%;
+    }
+    @include tablet(){
+      font-size: 16px;
+      line-height: 150%;
+      padding-right: 310px;
+    }
+    @include mobile(){
+      padding-right: 0;
+      font-size: 14px;
+      line-height: 150%;
+    }
     > *:first-child{
       margin-top: 0;
     }
@@ -44,6 +164,12 @@
     }
     p{
       margin: 30px 0;
+      @include tablet(){
+        margin: 23px 0;
+      }
+      @include mobile(){
+        margin: 21px 0;
+      }
     }
   }
   &__image-container{
@@ -53,12 +179,52 @@
     transform: translateY(-50%);
     width: 21.3%;
     margin-top: 45px;
+    flex-shrink: 0;
+    @include lit-desktop(){
+      width: 29.3%;
+      margin-top: 25px;
+      right: 36px;
+    }
+    @include tablet(){
+      width: 264px;
+      right: 32px;
+      margin-top: 0;
+    }
+    @include mobile(){
+      position: static;
+      height: 100px;
+      width: 100px;
+      transform: none;
+      margin-right: 24px;
+    }
+    @include lit-mobile(){
+      height: 60px;
+      width: 60px;
+      margin-right: 16px;
+    }
   }
   &__footer{
     display: flex;
     align-items: flex-end;
     margin-top: 45px;
     margin-bottom: -180px;
+    @include lit-desktop(){
+      margin-top: 38px;
+      margin-bottom: -215px;
+    }
+    @include tablet(){
+      margin-top: 34px;
+      margin-bottom: -200px
+    }
+    @include mobile(){
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 23px;
+      margin-bottom: -103px;
+    }
+    @include lit-mobile(){
+      margin-bottom: 0;
+    }
   }
   &__why{
     border-radius: 10px 10px 10px 40px;
@@ -71,12 +237,33 @@
     align-items: center;
     min-height: 140px;
     padding: 15px 28px 15px 30px;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 135%;
-    margin-right: 28px;
     max-width: 606px;
-
+    margin: 0 28px 0 0;
+    @include lit-desktop(){
+      min-height: 170px;
+      font-size: 20px;
+      line-height: 135%;
+      max-width: 416px;
+      margin: 0 24px 0 9px;
+    }
+    @include tablet(){
+      margin: 0 24px 0 0;
+      min-height: inherit;
+      padding: 44px 30px 40px;
+      font-size: 18px;
+      max-width: 390px;
+    }
+    @include mobile(){
+      padding: 32px 24px;
+      font-size: 16px;
+      line-height: 135%;
+      max-width: 100%;
+      width: 100%;
+      margin-right: 0;
+    }
+    @include lit-mobile(){
+      background-color: $white;
+    }
     &:before{
       content: '';
       position: absolute;
@@ -86,17 +273,39 @@
       height: 31px;
       background: url(../img/link.svg) no-repeat center top;
       background-size: contain;
+      @include mobile(){
+        right: 23px;
+      }
     }
   }
   &__connection{
     display: flex;
     align-content: center;
+    @include lit-desktop(){
+      flex-direction: column;
+    }
+    @include mobile(){
+     margin-top: 18px;
+    }
+    @include lit-mobile(){
+      width: 100%;
+    }
+
   }
   &__label{
     font-weight: 700;
     font-size: 18px;
     line-height: 133%;
     margin-right: 16px;
+    @include lit-desktop(){
+      margin-right: 0;
+      margin-bottom: 6px;
+    }
+    @include mobile(){
+      font-size: 16px;
+      line-height: 150%;
+      margin-bottom: 8px;
+    }
   }
   &__messengers{
     display: flex;
@@ -104,10 +313,34 @@
     padding: 0;
     list-style: none;
     margin: 0;
+    @include tablet(){
+      flex-direction: column;
+    }
+    @include mobile(){
+      flex-direction: row;
+    }
+    @include lit-mobile(){
+      flex-direction: column;
+    }
   }
   &__item{
+    @include tablet(){
+      width: 100%;
+    }
     & + &{
       margin-left: 12px;
+      @include tablet(){
+        margin-left: 0;
+        margin-top: 8px;
+      }
+      @include mobile(){
+        margin-top: 0;
+        margin-left: 12px;
+      }
+      @include lit-mobile(){
+        margin-left: 0;
+        margin-top: 8px;
+      }
     }
   }
   &__messenger{
@@ -121,6 +354,32 @@
     line-height: 133%;
     color: $mainColor;
     border-radius: 10px;
+    transition: $transtion;
+    &:hover{
+      @include for-desktop(){
+        background-color: $phiolText;
+        color: $white;
+      }
+    }
+    @include lit-desktop(){
+      padding: 14px;
+    }
+    @include tablet(){
+      font-size: 16px;
+      line-height: 150%;
+      justify-content: flex-start;
+      padding: 14px 20px;
+    }
+    @include mobile(){
+      font-size: 14px;
+      line-height: 171%;
+      padding: 13px 20px;
+    }
+    @include lit-mobile(){
+      width: 100%;
+      background-color: $white;
+      padding: 12px 16px;
+    }
     svg{
       flex-shrink: 0;
       height: 26px;

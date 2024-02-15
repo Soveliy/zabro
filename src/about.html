@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+    <linearGradient id="tabs-active" x2="1" y2="1">
+      <stop stop-color="#EB5884"/>
+      <stop offset="0.491918" stop-color="#A05ED5"/>
+      <stop offset="1" stop-color="#6124C5"/>
+    </linearGradient>
+  </svg>
+	<div class="wrapper  site-container">
+		@include('partials/header.html')
+
+		<main class="page main">
+        <div class="inside-hero">
+          <div class="container">
+          <div class="inside-hero__top-row">
+           <div class="inside-hero__left">
+            <h1 class="inside-hero__title">
+              О компании
+            </h1>
+            <div class="inside-hero__desc inside-hero__desc--big">
+              Проектирование, разработка, 3D-моделирование и визуализация.
+            </div>
+           </div>
+           <img src="img/zarbo.png" alt="">
+          </div>
+           <div class="inside-hero__about-info about-info">
+            <div class="about-info__grid">
+              <div class="about-info-item">
+                <div class="about-info-item__logos">
+                  <img src="img/about-info/1.svg" alt="">
+                </div>
+                <div class="about-info-item__desc">
+                  <b>Аккредитованная</b> ИТ-компания, стартап.
+                </div>
+              </div>
+              <div class="about-info-item">
+                <div class="about-info-item__logos">
+                  <img src="img/about-info/2.svg" alt="">
+                </div>
+                <div class="about-info-item__desc">
+                  Участники <b>фонда ФАСИЕ</b> в 2022 году.
+                </div>
+              </div>
+              <div class="about-info-item">
+                <div class="about-info-item__logos">
+                  <img src="img/about-info/3.svg" alt="">
+                </div>
+                <div class="about-info-item__desc">
+                  Успешно прошли акселератор <b>«Спринт» от ФРИИ и Минцифры</b> в 2023 году.
+                </div>
+              </div>
+              <div class="about-info-item">
+                <div class="about-info-item__logos">
+                  <img src="img/about-info/4.svg" alt="">
+                </div>
+                <div class="about-info-item__desc">
+                  Сотрудничаем с <b>крупными производителями</b> бытовой техники, мебели, спортивного инвентаря.
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+
+        </div>
+        <section class="section about-prod">
+          <div class="container">
+            <div class="about-prod__row">
+              <div class="about-prod__section-head section-head">
+                <h2 class="section-head__title">
+                  Флагманский продукт
+                </h2>
+                <h3 class="section-head__subtitle">
+                  Веб-платформа Zarbo
+                </h3>
+                <div class="section-head__desc">
+                  Решение для ECOM, позволяющее показывать товар в 3D на сайте и размещать его в интерьере с помощью технологии дополненной реальности, инструмент для создания и трансляции медиа контента в карточки товара на маркетплейсах.
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+		</main>
+
+		@include('partials/footer.html')
+
+	</div>
+
+	<!-- @include('partials/popup.html') -->
+</body>
+
+</html>
