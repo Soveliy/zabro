@@ -1,0 +1,57 @@
+.our-clients{
+  padding: 120px 0;
+  @include lit-desktop(){
+    padding: 100px 0 93px;
+  }
+  @include tablet(){
+    padding: 80px 0 93px;
+  }
+  &__section-head{
+    max-width: 924px;
+  }
+  &__row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: -25px -20px;
+    @include tablet(){
+      justify-content: center;
+      margin: -16px;
+    }
+  }
+  &__item-container{
+    width: 16.6%;
+    padding: 25px 20px;
+
+    @include tablet(){
+      width: 33.3%;
+      padding: 16px;
+    }
+    &:nth-child(n + 7){
+      width: 20%;
+      @include tablet(){
+          width: 33.3%;
+      }
+    }
+    &:nth-child(3),&:nth-child(6),&:nth-child(9){
+      display: flex;
+      justify-content: flex-end;
+    }
+    &:nth-child(2),&:nth-child(5),&:nth-child(8){
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &-item{
+    line-height: 0;
+    img{
+      max-height: 38px;
+      max-width: 100%;
+      @include lit-desktop(){
+        max-height: 30px;
+      }
+      @include tablet(){
+        max-height: 38px;
+      }
+    }
+  }
+}

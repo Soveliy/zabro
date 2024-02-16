@@ -31,8 +31,13 @@ console.log(mobileCheck())
 
 // Реализация табов
 import GraphTabs from 'graph-tabs';
-const tabs = new GraphTabs('tab');
-const tabsSlider = new GraphTabs('spheres-tab');
+if (document.querySelector('[data-tabs="tab"]')){
+  const tabs = new GraphTabs('tab');
+}
+if (document.querySelector('[data-tabs="spheres-tab"]')){
+  const tabsSlider = new GraphTabs('spheres-tab');
+
+}
 
 // Получение высоты шапки сайта (не забудьте вызвать функцию)
 // import { getHeaderHeight } from './functions/header-height';
@@ -255,8 +260,10 @@ const rules1 = [
 const afterForm = () => {
   console.log('Произошла отправка, тут можно писать любые действия');
 };
+if (document.querySelector('.tell-project__form')){
+  validateForms('.tell-project__form', rules1, afterForm);
+}
 
-validateForms('.tell-project__form', rules1, afterForm);
 // Подключение библиотеки модальных окон Micromodal
 // import MicroModal from 'micromodal';
 // MicroModal.init();

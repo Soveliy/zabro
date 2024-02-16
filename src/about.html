@@ -15,7 +15,7 @@
 		@include('partials/header.html')
 
 		<main class="page main">
-        <div class="inside-hero">
+        <div class="inside-hero inside-hero--big">
           <div class="container">
           <div class="inside-hero__top-row">
            <div class="inside-hero__left">
@@ -26,13 +26,15 @@
               Проектирование, разработка, 3D-моделирование и визуализация.
             </div>
            </div>
-           <img src="img/zarbo.png" alt="">
+           <div class="inside-hero__right">
+            <img loading='lazy'  src="img/zarbo.png" alt="">
+           </div>
           </div>
            <div class="inside-hero__about-info about-info">
             <div class="about-info__grid">
               <div class="about-info-item">
                 <div class="about-info-item__logos">
-                  <img src="img/about-info/1.svg" alt="">
+                  <img loading='lazy'  src="img/about-info/1.svg" alt="">
                 </div>
                 <div class="about-info-item__desc">
                   <b>Аккредитованная</b> ИТ-компания, стартап.
@@ -40,7 +42,7 @@
               </div>
               <div class="about-info-item">
                 <div class="about-info-item__logos">
-                  <img src="img/about-info/2.svg" alt="">
+                  <img loading='lazy'  src="img/about-info/2.svg" alt="">
                 </div>
                 <div class="about-info-item__desc">
                   Участники <b>фонда ФАСИЕ</b> в 2022 году.
@@ -48,7 +50,7 @@
               </div>
               <div class="about-info-item">
                 <div class="about-info-item__logos">
-                  <img src="img/about-info/3.svg" alt="">
+                  <img loading='lazy'  src="img/about-info/3.svg" alt="">
                 </div>
                 <div class="about-info-item__desc">
                   Успешно прошли акселератор <b>«Спринт» от ФРИИ и Минцифры</b> в 2023 году.
@@ -56,7 +58,7 @@
               </div>
               <div class="about-info-item">
                 <div class="about-info-item__logos">
-                  <img src="img/about-info/4.svg" alt="">
+                  <img loading='lazy'  src="img/about-info/4.svg" alt="">
                 </div>
                 <div class="about-info-item__desc">
                   Сотрудничаем с <b>крупными производителями</b> бытовой техники, мебели, спортивного инвентаря.
@@ -67,22 +69,163 @@
           </div>
 
         </div>
-        <section class="section about-prod">
+        <section class="section flag-prod">
           <div class="container">
-            <div class="about-prod__row">
-              <div class="about-prod__section-head section-head">
-                <h2 class="section-head__title">
+            <div class="flag-prod__row">
+              <div class="flag-prod__section-head section-head flag-prod__item">
+                <h2 class="section-head__title section-head__title--lit">
                   Флагманский продукт
                 </h2>
                 <h3 class="section-head__subtitle">
                   Веб-платформа Zarbo
                 </h3>
-                <div class="section-head__desc">
+                <div class="flag-prod__desc">
                   Решение для ECOM, позволяющее показывать товар в 3D на сайте и размещать его в интерьере с помощью технологии дополненной реальности, инструмент для создания и трансляции медиа контента в карточки товара на маркетплейсах.
                 </div>
 
               </div>
+              <div class="flag-prod__item">
+                <img loading='lazy'  src="img/pc.png" alt="">
+                <img class="flag-prod__decor" src="img/arrow-type-2.svg" alt="">
+              </div>
             </div>
+          </div>
+        </section>
+        <section class="section what-we-do">
+          <div class="container">
+            <div class="what-we-do__section-head section-head section-head--medium-margin">
+              <h2 class="section-head__title section-head__title--lit">
+                Что делаем
+              </h2>
+            </div>
+            <div class="what-we-do__grid">
+              <div class="what-we-do-item">
+                <div class="what-we-do-item__icon">
+                  <img loading='lazy'  src="img/doing/1.svg" alt="">
+                </div>
+                <div class="what-we-do-item__title">
+                  Zarbo
+                </div>
+                <div class="what-we-do-item__desc">
+                  Предоставляем самый о*******й сервис управления 3D моделями Zarbo.
+                </div>
+              </div>
+              <div class="what-we-do-item">
+                <div class="what-we-do-item__icon">
+                  <img loading='lazy'  src="img/doing/2.svg" alt="">
+                </div>
+                <div class="what-we-do-item__title">
+                  3D-моделирование
+                </div>
+                <div class="what-we-do-item__desc">
+                  Создаем 3D модели объектов реального мира по фото и чертежам.
+                </div>
+              </div>
+              <div class="what-we-do-item">
+                <div class="what-we-do-item__icon">
+                  <img loading='lazy'  src="img/doing/3.svg" alt="">
+                </div>
+                <div class="what-we-do-item__title">
+                  Создание контента
+                </div>
+                <div class="what-we-do-item__desc">
+                  Создаем графический контент для карточки товара (360 фото, видео, фоторендеры и д.р.)
+                </div>
+              </div>
+              <div class="what-we-do-item">
+                <div class="what-we-do-item__icon">
+                  <img loading='lazy'  src="img/doing/4.svg" alt="">
+                </div>
+                <div class="what-we-do-item__title">
+                  Разработка
+                </div>
+                <div class="what-we-do-item__desc">
+                  Разрабатываем частные программные решения под нужды бизнеса.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="our-clients">
+          <div class="container">
+            <div class="our-clients__section-head section-head section-head--medium-margin">
+              <h2 class="section-head__title section-head__title--lit">
+                Наши клиенты
+              </h2>
+              <div class="section-head__desc section-head__desc--lit">
+                Бренды и товаропроизводители, ресейлеры и авторизованные представители, частные производства - все, кто продает и презентует товар online.
+              </div>
+            </div>
+            <div class="our-clients__row">
+              <div class="our-clients__item-container">
+                <div class="our-clients-item"><img loading='lazy'  src="img/clients/1.svg" alt=""></div>
+              </div>
+              <div class="our-clients__item-container">
+                <div class="our-clients-item"><img loading='lazy'  src="img/clients/2.svg" alt=""></div>
+              </div>
+              <div class="our-clients__item-container">
+                <div class="our-clients-item"><img loading='lazy'  src="img/clients/3.svg" alt=""></div>
+              </div>
+              <div class="our-clients__item-container">
+                <div class="our-clients-item"><img loading='lazy'  src="img/clients/4.svg" alt=""></div>
+              </div>
+              <div class="our-clients__item-container">
+                <div class="our-clients-item"><img loading='lazy'  src="img/clients/5.svg" alt=""></div>
+              </div>
+              <div class="our-clients__item-container">
+                <div class="our-clients-item"><img loading='lazy'  src="img/clients/6.svg" alt=""></div>
+              </div>
+              <div class="our-clients__item-container">
+                <div class="our-clients-item"><img loading='lazy'  src="img/clients/7.svg" alt=""></div>
+              </div>
+              <div class="our-clients__item-container">
+                <div class="our-clients-item"><img loading='lazy'  src="img/clients/8.svg" alt=""></div>
+              </div>
+              <div class="our-clients__item-container">
+                <div class="our-clients-item"><img loading='lazy'  src="img/clients/9.svg" alt=""></div>
+              </div>
+              <div class="our-clients__item-container">
+                <div class="our-clients-item"><img loading='lazy'  src="img/clients/10.svg" alt=""></div>
+              </div>
+              <div class="our-clients__item-container">
+                <div class="our-clients-item"><img loading='lazy'  src="img/clients/11.svg" alt=""></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="mission">
+          <div class="container">
+            <div class="mission__wrap">
+              <div class="mission__row">
+                <div class="mission__left">
+                  <h2 class="mission__title section-head__title--lit">
+                    Миссия
+                  </h2>
+                  <h3 class="mission__subtitle">
+                    Дополнять реальность, не подменяя ее.
+                  </h3>
+                  <div class="mission__desc">
+                    Мечтаем о телепортации, о возможности перемещения любого объекта к себе домой или себя в любую точку мира мира. Пока наука не позволяет решить задачи “физики невозможного“, мы перемещаем не материальные объекты, а их образы - реалистичные 3D модели, и встраиваем их в реальность с помощью технологий AR/VR визуализации.
+                  </div>
+                </div>
+                <div class="mission__frame">
+                  <iframe loading="lazy" src="https://embed.zarbo.tech/5f59a0eb-588c-4e30-b62b-123541004455/592/"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="team">
+          <div class="container">
+            <div class="section-head section-head--medium-margin">
+              <div class="section-head__title section-head__title--lit">
+                Команда
+              </div>
+              <div class="section-head__desc">
+                Квалифицированные специалисты с опытом практической работы в своей специальности/роли. Мы не раздроблены на департаменты/подразделения, а профилируемся по направлениям.
+              </div>
+            </div>
+            <img loading="lazy" src="img/team.jpg" alt="">
           </div>
         </section>
 

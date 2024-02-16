@@ -1,0 +1,67 @@
+.what-we-do{
+  margin-top: -25px;
+  @include lit-desktop(){
+    margin-top: -5px;
+  }
+  @include tablet(){
+    margin-top: 35px;
+  }
+  &__grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  &-item{
+    position: relative;
+    background-color: $lightBlock;
+    padding: 32px 28px;
+    box-sizing: border-box;
+    border-radius: 10px 10px 78px 10px;
+    @include tablet(){
+      padding: 28px 20px 28px 24px;
+    }
+    &__title{
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 135%;
+      margin-bottom: 8px;
+      @include lit-desktop(){
+        font-size: 20px;
+        line-height: 135%;
+        margin-bottom: 12px;
+      }
+      @include tablet(){
+        font-size: 18px;
+        line-height: 135%;
+      }
+    }
+    &__desc{
+      font-size: 20px;
+      line-height: 135%;
+      @include lit-desktop(){
+        font-size: 18px;
+        line-height: 135%;
+      }
+      @include tablet(){
+        font-size: 16px;
+        line-height: 135%;
+      }
+    }
+    &__icon{
+      position: absolute;
+      top: 0;
+      right: 28px;
+      width: 100px;
+      height: 44px;
+      background: url(../img/decor-top.svg) no-repeat center top;
+      background-size: contain;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img{
+
+        max-width: 24px;
+      }
+    }
+  }
+}

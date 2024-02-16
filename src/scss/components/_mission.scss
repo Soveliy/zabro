@@ -1,0 +1,108 @@
+.mission{
+  &__wrap{
+    position: relative;
+    padding: 80px 70px 80px 0;
+    @include lit-desktop(){
+      padding: 60px 40px 80px 0;
+    }
+    @include tablet(){
+      padding: 60px 20px 60px 0;
+    }
+    &:after{
+      background: rgba(202, 185, 255, 0.35);
+      border: 1px solid rgba(222, 222, 222, 0.45);
+      box-shadow: inset 0px -4px 12px rgba(255, 255, 255, 0.14), inset 0px 4px 19px rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      border-radius: 0px 10px 100px 0px;
+      @include lit-mobile(){
+        border-radius: 0 10px 48px 0;
+      }
+      content: '';
+      position: absolute;
+      right: 0;
+      width: 1000em;
+      height: 100%;
+      top: 0;
+      z-index:-1;
+    }
+  }
+  &__row{
+    display: flex;
+    // align-items: center;
+    justify-content: space-between;
+    @include tablet(){
+      flex-direction: column;
+    }
+  }
+  &__left{
+    width: 50%;
+    @include lit-desktop(){
+      width: 55%;
+    }
+    @include tablet(){
+      width: 100%;
+    }
+  }
+  &__title{
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 117%;
+    margin: 0 0 32px 0;
+    @include lit-desktop(){
+      font-size: 36px;
+      line-height: 117%;
+      margin: 0 0 28px 0;
+    }
+    @include tablet(){
+      font-size: 32px;
+      line-height: 119%;
+    }
+  }
+  &__subtitle{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 135%;
+    margin: 0 0 24px 0;
+    @include lit-desktop(){
+      font-size: 22px;
+      line-height: 135%;
+      margin: 0 0 16px 0;
+    }
+    @include tablet(){
+      font-size: 20px;
+      line-height: 135%;
+    }
+  }
+  &__desc{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    @include lit-desktop(){
+      font-size: 18px;
+      line-height: 150%;
+    }
+  }
+  &__frame{
+    max-width: 510px;
+    height: 500px;
+    margin: -70px 0 -70px 20px;
+    @include lit-desktop(){
+      max-width: 362px;
+      height: 362px;
+      margin: -60px 0 -60px 10px;
+    }
+    @include tablet(){
+      width: 100%;
+      max-width: 100%;
+      height: 151px;
+      margin: 40px 0 0 0;
+    }
+    iframe{
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border: none;
+    }
+  }
+}
