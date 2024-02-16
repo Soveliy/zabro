@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+    <linearGradient id="tabs-active" x2="1" y2="1">
+      <stop stop-color="#EB5884"/>
+      <stop offset="0.491918" stop-color="#A05ED5"/>
+      <stop offset="1" stop-color="#6124C5"/>
+    </linearGradient>
+  </svg>
+	<div class="wrapper  site-container">
+		@include('partials/header.html')
+
+		<main class="page main">
+      <div class="hero-price">
+        <div class="container">
+          <div class="hero-price__head">
+            <h1 class="hero-price__title">
+              Платформа Zarbo
+            </h1>
+            <div class="hero-price__checkboxes">
+
+            </div>
+          </div>
+          <div class="hero-price__slider slider">
+            <div class="slider__head">
+              <div class="slider__label">
+                Количество продуктов
+              </div>
+              <input type="text" class="slider__input">
+            </div>
+            <div class="slider__range"></div>
+          </div>
+        </div>
+      </div>
+		</main>
+
+		@include('partials/footer.html')
+
+	</div>
+
+	<!-- @include('partials/popup.html') -->
+</body>
+
+</html>

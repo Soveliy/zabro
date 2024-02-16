@@ -4,10 +4,47 @@
 // Определение операционной системы на мобильных
 import { mobileCheck } from "./functions/mobile-check";
 console.log(mobileCheck())
+import noUiSlider from 'nouislider';
 
 
 
-// Троттлинг функции (для ресайза, ввода в инпут, скролла и т.д.)
+const rangeSliderInit = () => { // создаем функцию инициализации слайдера
+  const range = document.querySelector('.slider__range'); // Ищем слайдер
+  const input = document.querySelector('.slider__input'); // Ищем input с меньшим значнием
+
+  if (!range || !input) return // если этих элементов нет, прекращаем выполнение функции, чтобы не было ошибок
+
+  const inputs = [input]; // создаем массив из меньшего и большего значения
+
+  noUiSlider.create(range, { // инициализируем слайдер
+      start: [20, 80], // устанавливаем начальные значения
+      connect: true, // указываем что нужно показывать выбранный диапазон
+      range: { // устанавливаем минимальное и максимальное значения
+        'min': 0,
+        'max': 100
+      },
+      step: 1, // шаг изменения значений
+    }
+  )
+
+  range.noUiSlider.on('update', function (values, handle) { // при изменений положения элементов управления слайдера изменяем соответствующие значения
+    inputs[handle].value = parseInt(values[handle]);
+  });
+
+  inputMin.addEventListener('change', function () { // при изменении меньшего значения в input - меняем положение соответствующего элемента управления
+    range.noUiSlider.set([this.value, null]);
+  });
+
+
+}
+
+const init = () => {
+  rangeSliderInit() // запускаем функцию инициализации слайдера
+}
+
+window.addEventListener('DOMContentLoaded', init) // запускаем функцию init, когда документ будет загружен и готов к взаимодействию
+
+// Троттлинг функции (для ресайза, ввода в инпут, скролла и т.д.)м
 // import { throttle } from './functions/throttle';
 // let yourFunc = () => { console.log('throttle') };
 // let func = throttle(yourFunc);
