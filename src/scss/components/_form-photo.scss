@@ -1,0 +1,55 @@
+.photo-offer{
+  margin-top: 60px;
+  &__wrap{
+    position: relative;
+    padding: 40px 25% 50px 0;
+    @include lit-desktop(){
+      padding: 43px 50px 40px 18px;
+    }
+    @include tablet(){
+      padding: 45px 10px 45px 0;
+    }
+    @include mobile(){
+      padding: 33px 38px 46px 0;
+    }
+    @include lit-mobile(){
+        padding:25px 21px 37px 0;
+    }
+    &:after{
+      background: rgba(202, 185, 255, 0.35);
+      border: 1px solid rgba(222, 222, 222, 0.45);
+      box-shadow: inset 0px -4px 12px rgba(255, 255, 255, 0.14), inset 0px 4px 19px rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      border-radius: 0px 10px 100px 0px;
+      @include lit-mobile(){
+        border-radius: 0 10px 48px 0;
+      }
+      content: '';
+      position: absolute;
+      right: 0;
+      width: 1000em;
+      height: 100%;
+      top: 0;
+      z-index:-1;
+    }
+    &:before{
+      content: "";
+      position: absolute;
+      right: 23.6%;
+      top: 100%;
+      margin-top: -45px;
+      height: 87px;
+      width: 87px;
+      background: url(../img/decor.svg) no-repeat center center;
+      background-size: contain;
+      z-index: -32;
+      @include lit-desktop(){
+        right: 20.6%;
+      }
+      @include mobile(){
+        right: 6.6%;
+        margin-top: -64px;
+      }
+    }
+  }
+}

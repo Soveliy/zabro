@@ -569,17 +569,7 @@
     fill: $phiolText;
     transition: $transtion;
   }
-  &:after{
-    content: '';
-    position: absolute;
-    top: 50%;
-    background: $lightBlock;
-    width: 80px;
-    height: 39px;
-    left: 50%;
-    transform: translateX(-50%);
 
-  }
   &__icon{
     position: relative;
     z-index: 50;

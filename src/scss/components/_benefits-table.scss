@@ -6,11 +6,77 @@
   @include tablet(){
     padding: 206px 0 80px;
   }
+  @include mobile(){
+    padding: 70px 0;
+  }
+  @include lit-mobile(){
+    padding: 190px 0 60px;
+  }
+  &__inner{
+    position: relative;
+    &:before{
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 20%;
+      background-color: $lightBlock;
+      z-index: -1;
+      transition: $transtion;
+      left: 41%;
+      @include lit-mobile(){
+        display: none;
+      }
+
+    }
+    &--1{
+      &:before{
+        left: 40%;
+      }
+      @include lit-mobile(){
+        .benefits-table__col{
+          &:nth-child(2){
+            background-color: $lightBlock;
+          }
+        }
+      }
+    }
+    &--2{
+      &:before{
+        left: 60%;
+      }
+      @include lit-mobile(){
+        .benefits-table__col{
+          &:nth-child(3){
+            background-color: $lightBlock;
+          }
+        }
+      }
+    }
+    &--3{
+      &:before{
+        left: 80%;
+      }
+      @include lit-mobile(){
+        .benefits-table__col{
+          &:nth-child(4){
+            background-color: $lightBlock;
+          }
+        }
+      }
+    }
+  }
   &__section-head{
     margin-bottom: 48px;
     @include tablet(){
       margin-bottom: 24px;
     }
+    @include mobile(){
+      margin-bottom: 20px;
+    }
+    @include lit-mobile(){
+      margin-bottom: 28px;
+    }
+
   }
   .section-head__title{
     @include lit-desktop(){
@@ -21,6 +87,10 @@
       font-size: 32px;
       line-height: 119%;
     }
+    @include lit-mobile(){
+      font-size: 24px;
+      line-height: 117%;
+    }
   }
   &__row{
     display: flex;
@@ -30,6 +100,17 @@
     padding: 19.5px 0;
     @include tablet(){
       padding: 24px 0;
+    }
+    @include lit-mobile(){
+      flex-wrap: wrap;
+      padding: 0;
+      align-items: stretch;
+    }
+
+    & + &{
+      @include lit-mobile(){
+        margin-top: 20px;
+      }
     }
   }
   &__head{
@@ -48,6 +129,9 @@
       @include tablet(){
           font-size: 24px;
       }
+      @include mobile(){
+        font-size: 20px;
+      }
 
 
     }
@@ -55,17 +139,21 @@
       font-size: 18px;
       line-height: 135%;
       color: #8a7e95;
-      max-width: 500px;
+      max-width: 40%;
       margin-bottom: 30px;
+
       @include tablet(){
         font-size: 16px;
         margin-bottom: 24px;
         max-width: 300px;
       }
+      @include mobile(){
+        font-size: 14px;
+      }
     }
   }
   &__left{
-    width: 41%;
+    width: 40%;
 
     box-sizing: border-box;
     font-weight: 500;
@@ -75,15 +163,23 @@
     padding-right:8%;
     box-sizing: border-box;
     @include lit-desktop(){
-      width: 44%;
-      padding-right: 5%;
+
+      padding-right: 2%;
     }
     @include tablet(){
       font-size: 16px;
     }
+    @include lit-mobile(){
+      width: 100%;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
     &--lit{
       font-size: 16px;
       padding-right: 2%;
+      @include lit-mobile(){
+        font-size: 14px;
+      }
     }
     &-title{
       font-weight: 500;
@@ -92,6 +188,9 @@
       color: #464547;
       @include tablet(){
         font-size: 16px;
+      }
+      @include lit-mobile(){
+        font-size: 15px;
       }
 
 
@@ -102,11 +201,19 @@
   }
   &__col{
     box-sizing: border-box;
-    width: 19.6%;
+    width: 20%;
     font-weight: 500;
     font-size: 16px;
     line-height: 135%;
     color: #464547;
+    padding: 0 16px;
+    @include mobile(){
+      font-size: 14px;
+    }
+    @include lit-mobile(){
+      width: 33.3%;
+      padding: 12px 6px;
+    }
     &--title{
       font-weight: 600;
       font-size: 18px;
@@ -114,6 +221,9 @@
       color: #1d1c1e;
       @include tablet(){
         font-size: 16px;
+      }
+      @include mobile(){
+        font-size: 15px;
       }
     }
     svg{
