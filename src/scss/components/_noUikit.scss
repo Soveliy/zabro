@@ -85,24 +85,19 @@
    height: 18px;
  }
  .noUi-horizontal .noUi-handle {
-   width: 34px;
-   height: 28px;
-   right: -17px;
-   top: -6px;
+   width: 20px;
+   height: 20px;
+   right: -10px;
+   top: -8px;
+   background: linear-gradient(223deg, #eb5884 0%, #a05ed4 49.19%, #6124c5 100%);
+   border-radius: 4px;
+   cursor: pointer;
  }
+
  .noUi-vertical {
    width: 18px;
  }
- .noUi-vertical .noUi-handle {
-   width: 28px;
-   height: 34px;
-   right: -6px;
-   bottom: -17px;
- }
- .noUi-txt-dir-rtl.noUi-horizontal .noUi-handle {
-   left: -17px;
-   right: auto;
- }
+
  /* Styling;
   * Giving the connect element a border radius causes issues with using transform: scale
   */
@@ -126,29 +121,10 @@
  .noUi-vertical .noUi-draggable {
    cursor: ns-resize;
  }
- .noUi-handle {
-   border: 1px solid #D9D9D9;
-   border-radius: 3px;
-   background: #FFF;
-   cursor: default;
-   box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB;
- }
- .noUi-active {
-   box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #DDD, 0 3px 6px -3px #BBB;
- }
+
  /* Handle stripes;
   */
- .noUi-handle:before,
- .noUi-handle:after {
-   content: "";
-   display: block;
-   position: absolute;
-   height: 14px;
-   width: 1px;
-   background: #E8E7E6;
-   left: 14px;
-   top: 6px;
- }
+
  .noUi-handle:after {
    left: 17px;
  }
@@ -213,15 +189,22 @@
   *
   */
  .noUi-pips-horizontal {
-   padding: 10px 0;
-   height: 80px;
-   top: 100%;
+   height: 19px;
+   bottom: 100%;
    left: 0;
    width: 100%;
  }
  .noUi-value-horizontal {
    -webkit-transform: translate(-50%, 50%);
    transform: translate(-50%, 50%);
+   margin-top: -17px;
+   font-size: 14px;
+   line-height: 135%;
+   text-align: center;
+   color: #8d8398;
+   @include mobile(){
+    font-size: 13px;
+   }
  }
  .noUi-rtl .noUi-value-horizontal {
    -webkit-transform: translate(50%, 50%);
@@ -236,7 +219,28 @@
    height: 10px;
  }
  .noUi-marker-horizontal.noUi-marker-large {
-   height: 15px;
+   height: 7px;
+   width: 4px;
+   border-radius: 4px 4px 0 0;
+   background-color: $white;
+   margin-top: 12px;
+   margin-left: -2px;
+ }
+
+ .noUi-marker:nth-last-child(2){
+  margin-left: -12px;
+ }
+ .noUi-value:nth-last-child(1){
+  margin-left: -20px;
+ }
+  .noUi-marker:nth-child(1){
+  margin-left: 6px;
+ }
+ .noUi-value:nth-child(2){
+  margin-left: 8px;
+ }
+ .noUi-value:nth-child(2), .noUi-value:nth-child(6), .noUi-value:nth-child(10), .noUi-value:nth-child(14), .noUi-value:nth-child(18),.noUi-value:nth-child(22){
+  font-weight: 700;
  }
  /* Vertical layout;
   *
@@ -304,11 +308,26 @@
  }
 
 .slider{
+  position: relative;
   border-radius: 10px;
   padding: 24px 36px 40px;
   background-color: $lightDark;
+  @include tablet(){
+    padding: 22px 30px 32px;
+  }
   &__range{
     position: relative;
+  }
+  &:after{
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 13px;
+      width: 42px;
+      background: url(../img/slider_bottom.svg) no-repeat center top;
+      background-size: contain;
   }
 }
 .noUi-connect{
@@ -318,14 +337,12 @@
   height: 8px;
   background-color: $white;
 }
-.noUi-handle{
-  position: absolute;
-  margin-top: -10px;
-  height: 20px;
-  width: 20px;
-  background: linear-gradient(223deg, #eb5884 0%, #a05ed4 49.19%, #6124c5 100%);
-  border-radius: 4px;
-}
+// .noUi-handle{
+//   height: 20px;
+//   width: 20px;
+//   background: linear-gradient(223deg, #eb5884 0%, #a05ed4 49.19%, #6124c5 100%);
+//   border-radius: 4px;
+// }
 
 .noUi-connect, .noUi-origin {
   will-change: transform;
@@ -340,4 +357,38 @@
   -webkit-transform-style: preserve-3d;
   transform-origin: 0 0;
   transform-style: flat;
+}
+
+.slider{
+  &__head{
+    display: flex;
+    align-items: center;
+    margin-bottom: 41px;
+  }
+
+  &__label{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 135%;
+    margin-right: 12px;
+    @include tablet(){
+      font-size: 18px;
+      line-height: 135%;
+    }
+  }
+  &__input{
+    border-radius: 10px;
+    width: 60px;
+    height: 36px;
+    background-color: $white;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #734ca5;
+  }
+
 }

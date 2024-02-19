@@ -1,0 +1,128 @@
+.benefits-table{
+  padding: 242px 0 120px;
+  @include lit-desktop(){
+    padding: 222px 0 100px;
+  }
+  @include tablet(){
+    padding: 206px 0 80px;
+  }
+  &__section-head{
+    margin-bottom: 48px;
+    @include tablet(){
+      margin-bottom: 24px;
+    }
+  }
+  .section-head__title{
+    @include lit-desktop(){
+      font-size: 36px;
+      line-height: 117%;
+    }
+    @include tablet(){
+      font-size: 32px;
+      line-height: 119%;
+    }
+  }
+  &__row{
+    display: flex;
+    border-bottom: 1px solid #eae1f0;
+    // min-height: 64px;
+    align-items: center;
+    padding: 19.5px 0;
+    @include tablet(){
+      padding: 24px 0;
+    }
+  }
+  &__head{
+    &-title{
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 135%;
+      color: #1d1c1e;
+      margin: 42px 0 0;
+      & + .benefits-table__row{
+        margin-top: 30px;
+        @include tablet(){
+          margin-top: 24px;
+        }
+      }
+      @include tablet(){
+          font-size: 24px;
+      }
+
+
+    }
+    &-desc{
+      font-size: 18px;
+      line-height: 135%;
+      color: #8a7e95;
+      max-width: 500px;
+      margin-bottom: 30px;
+      @include tablet(){
+        font-size: 16px;
+        margin-bottom: 24px;
+        max-width: 300px;
+      }
+    }
+  }
+  &__left{
+    width: 41%;
+
+    box-sizing: border-box;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 135%;
+    color: #464547;
+    padding-right:8%;
+    box-sizing: border-box;
+    @include lit-desktop(){
+      width: 44%;
+      padding-right: 5%;
+    }
+    @include tablet(){
+      font-size: 16px;
+    }
+    &--lit{
+      font-size: 16px;
+      padding-right: 2%;
+    }
+    &-title{
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 135%;
+      color: #464547;
+      @include tablet(){
+        font-size: 16px;
+      }
+
+
+    }
+    &--soon{
+      color: #8a7e95;
+    }
+  }
+  &__col{
+    box-sizing: border-box;
+    width: 19.6%;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 135%;
+    color: #464547;
+    &--title{
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 135%;
+      color: #1d1c1e;
+      @include tablet(){
+        font-size: 16px;
+      }
+    }
+    svg{
+      height: 16px;
+      width: 16px;
+      fill: #C2B2D8;
+      &.active{
+        fill: url(#tabs-active);
+      }
+    }
+  }
+}
