@@ -35,7 +35,7 @@
   }
 }
 @mixin lit-mobile {
-  @media (max-width: (450px)) {
+  @media (max-width: (500px)) {
     @content;
   }
 }

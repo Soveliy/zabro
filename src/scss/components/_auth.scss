@@ -23,6 +23,25 @@
     text-transform: uppercase;
     display: flex;
     align-items: center;
+   position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: calc(100% - 32px);
+      border-bottom: 1px dashed rgba(#734ca5,.5);
+      transition: $transtion;
+      opacity: 0;
+    }
+    @include for-desktop(){
+      transition: $transtion;
+      &:hover{
+        &:after{
+          opacity: 1;
+        }
+      }
+    }
     @include tablet(){
         font-size: 12px;
         letter-spacing: 0.02em;

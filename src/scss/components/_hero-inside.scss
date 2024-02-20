@@ -2,6 +2,74 @@
   position: relative;
   padding: 45px 0 100px;
   background-color: $lightBlock;
+  &:before{
+    content: '';
+    position: absolute;
+
+    top: -20px;
+    height: 59px;
+    width: 59px;
+    background: url(../img/decor.svg) no-repeat center;
+    background-size: contain;
+    left: 10%;
+    transform: rotate(45deg);
+    @include lit-desktop(){
+      left: 57%;
+    }
+    @include mobile(){
+      display: none;
+    }
+  }
+  &::after{
+    content: '';
+    position: absolute;
+
+    bottom: 63px;
+    height: 39px;
+    width: 39px;
+    background: url(../img/decor.svg) no-repeat center;
+    background-size: contain;
+    left: 10%;
+    // transform: rotate(45deg);
+    // @include lit-desktop(){
+    //   left: 57%;
+    // }
+    // @include mobile(){
+    //   display: none;
+    // }
+    @include lit-desktop(){
+      display: none;
+    }
+  }
+  .container{
+    position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+
+      bottom: 50%;
+      height: 39px;
+      width: 39px;
+      background: url(../img/decor.svg) no-repeat center;
+      background-size: contain;
+      right: 10%;
+      // transform: rotate(45deg);
+      // @include lit-desktop(){
+      //   left: 57%;
+      // }
+      // @include mobile(){
+      //   display: none;
+      // }
+      @include lit-desktop(){
+        display: none;
+      }
+      @include lit-mobile(){
+        display: block;
+        top: 100px;
+      }
+    }
+
+  }
   &--big{
     padding: 60px 0 1px;
     @include lit-desktop(){
@@ -28,6 +96,10 @@
     @include mobile(){
       align-items: flex-end;
     }
+    @include lit-mobile(){
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
   }
   &__left{
@@ -42,6 +114,9 @@
     padding-top: 35px;
     @include lit-desktop(){
       padding-top: 0;
+    }
+    @include lit-mobile(){
+      margin-top: 20px;
     }
   }
   &__title{

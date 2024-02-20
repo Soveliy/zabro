@@ -1,6 +1,46 @@
 .hero-price{
   padding-top: 57px;
   background-color: $lightBlock;
+  position: relative;
+  &:before{
+    content: '';
+    position: absolute;
+
+    top: -20px;
+    height: 59px;
+    width: 59px;
+    background: url(../img/decor.svg) no-repeat center;
+    background-size: contain;
+    left: 10%;
+    transform: rotate(45deg);
+    @include lit-desktop(){
+      left: 57%;
+    }
+    @include mobile(){
+      display: none;
+    }
+  }
+  &::after{
+    content: '';
+    position: absolute;
+
+    top: 30%;
+    height: 39px;
+    width: 39px;
+    background: url(../img/decor.svg) no-repeat center;
+    background-size: contain;
+    left: 10%;
+    // transform: rotate(45deg);
+    // @include lit-desktop(){
+    //   left: 57%;
+    // }
+    // @include mobile(){
+    //   display: none;
+    // }
+    @include lit-desktop(){
+      display: none;
+    }
+  }
   @include tablet(){
     padding-top: 40px;
   }
@@ -153,7 +193,13 @@
 }
 
 .main-tarifs{
-
+  &:not(.main-tarifs--year){
+    .main-tarifs-item__price-year{
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
   &__row{
     display: flex;
     flex-wrap: wrap;
@@ -241,6 +287,7 @@
       font-size: 18px;
       color: #734ca5;
       line-height: 135%;
+      transition: $transtion;
       @include lit-desktop(){
         top: 10px;
         font-size: 16px;
@@ -347,6 +394,19 @@
         font-size: 16px;
         line-height: 135%;
         color: #464547;
+        cursor: pointer;
+        &.is-open{
+          .main-tarifs-item__icon{
+            transform: rotate(180deg);
+          }
+          & + .main-tarifs-item__info-body{
+            max-height: 500px;
+            opacity: 1;
+            pointer-events: all;
+            visibility: visible;
+            padding: 12px;
+          }
+        }
         @include lit-desktop(){
           font-size: 14px;
           line-height: 135%;
@@ -365,9 +425,14 @@
         }
       }
       &-body{
-        padding: 12px;
+        padding: 0 12px;
 
-        display: none;
+        opacity: 0;
+        max-height: 0;
+        box-sizing: border-box;
+        visibility: hidden;
+        pointer-events: none;
+        transition: $transtion;
       }
     }
     &__icon{
@@ -376,6 +441,7 @@
       fill: #464547;
       flex-shrink: 0;
       margin-right: 6px;
+      transition: $transtion;
       @include tablet(){
         margin-top: 8px;
       }

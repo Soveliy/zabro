@@ -1,27 +1,144 @@
 <!-- Модальное окно Micromodal -->
-<div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+<div class="modal micromodal-slide" id="callback" aria-hidden="true">
 	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
 		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-			<header class="modal__header">
-				<h2 class="modal__title" id="modal-1-title">
-					Заголовок модального окна
-				</h2>
-				<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
-			</header>
-			<main class="modal__content" id="modal-1-content">
-				<p>
-					Подзаголовок модального окна
-				</p>
-			</main>
-			<footer class="modal__footer">
-				<button class="modal__btn modal__btn-primary">Continue</button>
-				<button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
-			</footer>
+        <form class="modal__wrap modal-form">
+          <div class="modal__title modal__title--big">
+            Связаться с нами
+          </div>
+          <div class="modal__row">
+            <div class="modal__item-container modal__item-container--w50">
+              <div class="modal__input input">
+                <input type="text" name="name" class="input__elem input--name" placeholder=" ">
+                <label class="input__label">Имя </label>
+              </div>
+            </div>
+            <div class="modal__item-container modal__item-container--w50">
+              <div class="form__input input">
+                <input type="text" name="phone" class="input__elem input--phone-email" placeholder=" ">
+                <label class="input__label">Телефон или эл. почта *</label>
+              </div>
+            </div>
+            <div class="modal__item-container modal__item-container--w100">
+              <div class="modal__input input">
+                <textarea class="input__textarea" placeholder=" "></textarea>
+                <label class="input__label">Оставьте поле пустым или напишите о&nbsp;вашем проекте</label>
+              </div>
+            </div>
+          </div>
+            <button class="modal__close" aria-label="Close modal" data-micromodal-close>
+              <svg class="">
+                <use xlink:href="img/sprite.svg#close-modal"></use>
+              </svg>
+            </button>
+            <div class="modal__footer">
+              <button  class="btn btn--big btn--gradient modal__btn">
+                <span>Отправить</span>
+              </button>
+              <div class="modal__policy">
+                Нажимая на кнопку «Отправить», Вы даете согласие на обработку своих персональных данных
+              </div>
+            </div>
+          </form>
 		</div>
 	</div>
 </div>
 
-<!-- Кнопка вызова. Для вызова определенного окна, прописываем дата-атрибут data-micromodal-trigger="modal-1". В модальном окне, 
+
+<div class="modal micromodal-slide" id="rate-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="rate-modal-title">
+        <form class="modal__wrap modal-form">
+          <div class="modal__title">
+            Введите данные компании
+          </div>
+            <div class="rate-info modal__rate-info">
+              <div class="rate-info__row">
+                <div class="rate-info__left">
+                  Вы выбрали тариф <span data-rate>«Бизнес»</span> <br>
+                  <span data-rate-value>140</span>
+
+                 <span class="rate-info__select">
+                  <span class="rate-info__label">Подписка на</span>&nbsp;<select  id="a-select">
+                    <option value="">1 месяц</option>
+                    <option value="">3 месяца</option>
+                    <option value="">6 месяцев</option>
+                  </select>
+                 </span>
+                </div>
+                <div class="rate-info__price">
+                  5 400 ₽
+                </div>
+              </div>
+
+
+            </div>
+          <div class="modal__row">
+            <div class="modal__item-container modal__item-container--w100">
+              <div class="modal__desc">
+                После получения данных мы свяжемся с вами, чтобы обсудить детали и составить договор.
+              </div>
+            </div>
+            <div class="modal__item-container modal__item-container--w50">
+              <div class="modal__input input">
+                <input type="text" name="name" class="input__elem input--name" placeholder=" ">
+                <label class="input__label">Имя </label>
+              </div>
+            </div>
+            <div class="modal__item-container modal__item-container--w50">
+              <div class="form__input input">
+                <input type="text" name="phone" class="input__elem input--phone-email" placeholder=" ">
+                <label class="input__label">Телефон или эл. почта *</label>
+              </div>
+            </div>
+            <div class="modal__item-container modal__item-container--w100">
+              <div class="modal__input input">
+                <input type="text" name="company-name" class="input__elem input--company-name" placeholder=" ">
+                <label class="input__label">Название компании </label>
+              </div>
+            </div>
+            <div class="modal__item-container modal__item-container--w100">
+              <label class="file-input">
+                <input class="file-input__elem" type="file"   accept=".jpg,.jpeg,.png,.zip">
+                <span class="file-input__wrap">
+                  <span class="file-input__icon">
+
+                  </span>
+                  <span class="file-input__right">
+                    <b>Карточка предприятия (реквизиты компании)</b> <br>
+                    <span data-fortam>PDF, DOCX, XLSX.</span>
+                    <span data-max-size>Максимум 5Мб</span>
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div class="modal__item-container modal__item-container--w100">
+              <div class="modal__input input">
+                <textarea class="input__textarea" placeholder=" "></textarea>
+                <label class="input__label">Оставьте поле пустым или напишите о&nbsp;вашем проекте</label>
+              </div>
+            </div>
+
+          </div>
+            <button class="modal__close" aria-label="Close modal" data-micromodal-close>
+              <svg class="">
+                <use xlink:href="img/sprite.svg#close-modal"></use>
+              </svg>
+            </button>
+            <div class="modal__footer">
+              <button  class="btn btn--big btn--gradient modal__btn">
+                <span>Отправить</span>
+              </button>
+              <div class="modal__policy">
+                Нажимая на кнопку «Отправить», Вы даете согласие на обработку своих персональных данных
+              </div>
+            </div>
+          </form>
+		</div>
+	</div>
+</div>
+
+<!-- Кнопка вызова. Для вызова определенного окна, прописываем дата-атрибут data-micromodal-trigger="modal-1". В модальном окне,
 указываем id относительбно атрибута в кнопке.  -->
 <!-- <button type="button" data-micromodal-trigger="modal-1">Модальное окно</button> -->
 <!-- Модальное окно Micromodal End -->

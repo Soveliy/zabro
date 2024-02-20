@@ -46,6 +46,9 @@
     @include mobile(){
       max-width: 50%;
     }
+    @include lit-mobile(){
+      max-width: 100%;
+    }
   }
   &__wrap{
     position: relative;
@@ -63,7 +66,7 @@
       padding: 30px 38px 33px 0;
     }
     @include lit-mobile(){
-        padding:25px 21px 37px 0;
+        padding:30px 21px 37px 0;
     }
     &:after{
       background: rgba(202, 185, 255, 0.35);
@@ -116,6 +119,9 @@
     @include mobile(){
       padding-top: 16px;
     }
+    @include lit-mobile(){
+      padding-top: 0;
+    }
   }
   &__image{
     position: absolute;
@@ -138,6 +144,12 @@
       top: 66px;
       right: 32px;
     }
+    @include lit-mobile(){
+      position: static;
+      max-width: 100%;
+      display: block;
+      margin: 12px auto 24px;
+    }
   }
   &__item-container{
     padding: 10px;
@@ -153,6 +165,14 @@
       @include lit-desktop(){
         width: 50%;
       }
+      @include lit-mobile(){
+        width: 100%;
+      }
+      &:nth-child(3){
+       @include lit-mobile(){
+        order: -1;
+       }
+      }
     }
     &--file{
       @include tablet(){
@@ -161,6 +181,15 @@
       @include mobile(){
         width: 53%;
       }
+      @include lit-mobile(){
+        width: 100%;
+        order: -2;
+      }
+    }
+  }
+  .input--name{
+    @include lit-mobile(){
+      height: 90px;
     }
   }
   &__button{

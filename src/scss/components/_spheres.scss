@@ -97,6 +97,7 @@
       display: none;
       @include lit-mobile(){
         display: flex;
+
       }
     }
     @include lit-desktop(){
@@ -116,7 +117,8 @@
       align-items: center;
       padding: 5px 16px 5px 36px;
       justify-content: space-between;
-      margin-bottom: 20px;
+
+      margin-bottom: 8px;
     }
     &::after{
       content: '';
@@ -253,7 +255,10 @@
      opacity: 1;
      visibility: visible;
      pointer-events: all;
-
+      @include lit-mobile(){
+        margin-top: 20px;
+        margin-bottom: 8px;
+      }
 
     }
     @include lit-desktop(){

@@ -61,6 +61,7 @@
     "inputmask": "^5.0.8",
     "just-validate": "^4.3.0",
     "micromodal": "^0.4.10",
+    "nice-select2": "^2.1.0",
     "nouislider": "^15.7.1",
     "rellax": "^1.12.1",
     "simplebar": "^6.2.5",

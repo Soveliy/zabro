@@ -122,3 +122,27 @@
     }
   }
 }
+
+.ya-label{
+  display: flex;
+  align-items: center;
+  padding: 6px 18px 6px 6px;
+  background-color: $white;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 135%;
+  color: #464547;
+  @include lit-mobile(){
+    font-size: 15px;
+  }
+  &__tooltip{
+    margin-left: 10px;
+  }
+  .tooltip__body{
+    left: auto;
+    right: 12px;
+  }
+  img{
+    margin-right: 22px;
+  }
+}

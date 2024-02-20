@@ -10,6 +10,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
+    @include lit-mobile(){
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
   }
   &-item{
     position: relative;

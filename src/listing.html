@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+    <linearGradient id="tabs-active" x2="1" y2="1">
+      <stop stop-color="#EB5884"/>
+      <stop offset="0.491918" stop-color="#A05ED5"/>
+      <stop offset="1" stop-color="#6124C5"/>
+    </linearGradient>
+  </svg>
+	<div class="wrapper  site-container">
+		@include('partials/header.html')
+
+		<main class="page main">
+       <div class="container">
+          <ol>
+            <li><a target="_blank" href="index.html">Главная</a></li>
+            <li><a target="_blank" href="price1.html">Цены. Платформа Zarbo</a></li>
+            <li><a target="_blank" href="price2.html">Цены. Моделирование и графика</a></li>
+            <li><a target="_blank" href="about.html">О компании</a></li>
+            <li><a target="_blank" href="сooperation.html">Сотрудничество</a></li>
+          </ol>
+       </div>
+		</main>
+
+		@include('partials/footer.html')
+
+	</div>
+
+	<!-- @include('partials/popup.html') -->
+</body>
+
+</html>

@@ -1,13 +1,17 @@
 .tell-project{
   padding: 60px 0 120px;
+  margin-top: 60px;
   @include lit-desktop(){
     padding: 60px 0 100px;
+    margin-top: 40px;
   }
   @include tablet(){
     padding: 40px 0 80px;
+    margin-top: 40px;
   }
   @include mobile(){
     padding: 40px 0 60px;
+    margin-top: 20px;
   }
   &__form{
     display: flex;

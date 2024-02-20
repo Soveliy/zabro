@@ -3,7 +3,9 @@
   @include lit-desktop(){
     padding: 44px 0 0 0;
   }
-
+  @include lit-mobile(){
+    padding: 37px 0 0 0;
+  }
   .section-head__desc{
     @include lit-desktop(){
       font-size: 18px;
@@ -14,6 +16,9 @@
     }
     @include mobile(){
       font-size: 14px;
+    }
+    @include lit-mobile(){
+      margin: 11px 0 0 0;
     }
   }
   &__grid{
@@ -27,6 +32,9 @@
       grid-template-columns: 1fr;
       gap: 20px;
       padding-top: 0;
+    }
+    @include lit-mobile(){
+      padding-top: 12px;
     }
   }
   &-item{
@@ -106,6 +114,9 @@
       @include tablet(){
         font-size: 20px;
       }
+      @include lit-mobile(){
+        font-size: 18px;
+      }
     }
     &__for{
 
@@ -121,6 +132,9 @@
       flex-shrink: 0;
       @include tablet(){
         font-size: 16px;
+      }
+      @include lit-mobile(){
+        font-size: 14px;
       }
     }
     &__list{
@@ -139,6 +153,9 @@
       @include mobile(){
         padding: 20px 0;
       }
+      @include lit-mobile(){
+        padding: 23px 0;
+      }
       & + &{
         border-top: 1px solid #e1d8fc;
       }
@@ -155,6 +172,9 @@
       @include tablet(){
         font-size: 16px;
       }
+      @include lit-mobile(){
+        font-size: 15px;
+      }
     }
     &__price{
       font-weight: 700;
@@ -165,10 +185,19 @@
       @include tablet(){
         font-size: 24px;
       }
+      @include lit-mobile(){
+        font-size: 20px;
+      }
       &--no-count{
         color: #a79ab5;
       }
 
+    }
+  }
+  .section-head{
+    @include lit-mobile(){
+      padding-left: 10px;
+      margin-bottom: 11px;
     }
   }
 }
@@ -190,6 +219,9 @@
     }
     @include tablet(){
       padding: 24px;
+    }
+    @include lit-mobile(){
+      padding: 24px 16px;
     }
   }
   &__head{
@@ -220,6 +252,10 @@
     @include mobile(){
       font-size: 24px;
     }
+    @include lit-mobile(){
+      font-size: 20px;
+      line-height: 135%;
+    }
   }
   &__jaw{
     display: flex;
@@ -236,10 +272,19 @@
     @include tablet(){
       font-size: 16px;
     }
+    @include lit-mobile(){
+      font-size: 14px;
+      padding: 6.5px 10px;
+    }
     svg{
       height: 20px;
       width: 20px;
       margin-left: 8px;
+      @include lit-mobile(){
+        margin-left: 4px;
+        height: 18px;
+        width: 18px;
+      }
     }
   }
   &__label{
@@ -263,6 +308,9 @@
     @include tablet(){
       font-size: 20px;
       padding: 28px 24px;
+    }
+    @include lit-mobile(){
+      font-size: 18px;
     }
   }
   &__list{
@@ -298,8 +346,12 @@
     font-size: 30px;
     line-height: 135%;
     color: #734ca5;
+    flex-shrink: 0;
     @include tablet(){
       font-size: 24px;
+    }
+    @include lit-mobile(){
+      font-size: 20px;
     }
     &--low{
       color: #a79ab5;
@@ -332,6 +384,9 @@
   }
   @include mobile(){
     padding: 20px 0 30px;
+  }
+  @include lit-mobile(){
+    padding: 10px 0 30px;
   }
   .section-head{
     @include tablet(){
@@ -372,6 +427,10 @@
     @include tablet(){
       padding: 28px 24px;
     }
+    @include lit-mobile(){
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
   &__title{
     font-weight: 700;
@@ -380,6 +439,10 @@
     color: #1d1c1e;
     @include tablet(){
       font-size: 20px;
+    }
+    @include lit-mobile(){
+      font-size: 18px;
+      margin-bottom: 6px;
     }
   }
   &__link{
@@ -397,6 +460,9 @@
     margin-left: 12px;
     @include mobile(){
       font-size: 14px;
+    }
+    @include lit-mobile(){
+      margin-left: 0;
     }
     svg{
       width: 12px;
@@ -442,8 +508,13 @@
     font-size: 30px;
     line-height: 135%;
     color: #734ca5;
+    flex-shrink: 0;
+    margin-left: 10px;
     @include tablet(){
       font-size: 24px;
+    }
+    @include lit-mobile(){
+      font-size: 20px;
     }
   }
 }

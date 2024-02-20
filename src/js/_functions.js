@@ -520,5 +520,15 @@ if (document.querySelector('.photo-offer__form')){
   validateForms('.photo-offer__form', rules2, afterForm);
 }
 // Подключение библиотеки модальных окон Micromodal
-// import MicroModal from 'micromodal';
-// MicroModal.init();
+import MicroModal from 'micromodal';
+MicroModal.init({
+  disableScroll: true,
+  disableFocus:true,
+});
+
+
+import NiceSelect from "nice-select2";
+if (document.getElementById("a-select")){
+  new NiceSelect(document.getElementById("a-select"), {});
+}
+

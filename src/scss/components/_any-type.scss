@@ -95,6 +95,17 @@
 }
 
 .any-type-item{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:opacity $transtion;
+  position: absolute;
+  &.tabs__panel--active{
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
   &__row{
     display: flex;
     gap: 44px;

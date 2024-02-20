@@ -5,13 +5,19 @@
   }
   &__row{
     display: flex;
-    align-items: flex-start;
+    align-items:stretch;
+    @include lit-mobile(){
+      flex-direction: column;
+    }
   }
   &__item{
     position: relative;
     width: 50%;
     @include tablet(){
       width: 53%;
+    }
+    @include lit-mobile(){
+      width: 100%;
     }
     &:first-child{
       padding-top: 25px;
@@ -21,6 +27,9 @@
       @include tablet(){
         width: 45%;
       }
+      @include lit-mobile(){
+        width: 100%;
+      }
     }
     & + &{
       margin-left: 30px;
@@ -29,6 +38,11 @@
         padding-top: 40px;
       }
 
+      @include lit-mobile(){
+        margin-left: 0;
+        padding-top: 0;
+        margin-top: 28px;
+      }
     }
   }
   &__desc{
@@ -55,6 +69,23 @@
     @include tablet(){
       margin-right: 0;
       top: 100%;
+      margin-top: -20px;
+    }
+    @include mobile(){
+      width: 79px;
+      transform: scaleX(-1);
+      height: 60px;
+      left: auto;
+      right: 0;
+      margin-top: 0;
+      object-fit: contain;
+    }
+    @include lit-mobile(){
+      left: auto;
+      right: 0;
+      height: 60px;
+      width: 46px;
+      transform: scaleX(-1);
     }
   }
 

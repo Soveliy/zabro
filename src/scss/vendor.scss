@@ -4,8 +4,8 @@
 // @import "../../node_modules/graph-modal/dist/graph-modal.min";
 
 // стили для модального окна библиотеки micromodal
-// @import "./vendor/micromodal";
-
+@import "./vendor/micromodal";
+@import "../../node_modules/nice-select2/dist/css/nice-select2";
 // стили для табов
 // @import "../../node_modules/graph-tabs/dist/graph-tabs.min";
 

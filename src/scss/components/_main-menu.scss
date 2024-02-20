@@ -2,10 +2,11 @@
   &__list{
     display: flex;
     list-style: none;
-    padding: 0;
+    padding: 0 15px;
     margin: 0 auto;
     @include mobile(){
       flex-direction: column;
+      padding: 0;
     }
   }
   &__item{
@@ -136,7 +137,7 @@
     visibility: hidden;
     pointer-events: none;
     transition: $transtion;
-
+    background-color: #f1ecff;
     @include mobile(){
       position: static;
       width: auto;
@@ -240,6 +241,8 @@
     visibility: hidden;
     pointer-events: none;
     transition:opacity $transtion, padding $transtion;
+    background-color: #f1ecff;
+    margin-top: -10px;
     @include mobile(){
       max-height: 0;
       height: auto;
@@ -260,6 +263,7 @@
   }
   li{
     &.is-open{
+
       .submenu {
         height: auto;
         visibility: visible;
@@ -272,6 +276,8 @@
     }
   }
   &__link{
+    position: relative;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -283,6 +289,7 @@
     font-weight: 500;
     line-height: 30px; /* 200% */
     border-radius: 10px;
+    color: $phiolText;
     transition: $transtion;
     @include mobile(){
       color: $white;
@@ -305,4 +312,8 @@
     }
 
   }
+}
+
+li.is-open  > a svg{
+  transform: rotate(180deg);
 }

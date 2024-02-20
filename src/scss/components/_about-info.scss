@@ -10,6 +10,10 @@
     @include tablet(){
       gap: 20px;
     }
+    @include lit-mobile(){
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
   }
   &-item{
     background-color: $lightDark;
@@ -25,6 +29,9 @@
     &:nth-child(n + 3){
      @include mobile(){
       grid-column: span 2;
+     }
+     @include lit-mobile(){
+      grid-column: inherit;
      }
     }
     &__logos{

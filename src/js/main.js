@@ -4,6 +4,7 @@ import './_functions';
 import './_components';
 import Swiper from 'swiper';
 import { isMobile, isTablet, isDesktop } from './functions/check-viewport';
+
 window.addEventListener('load', () => {
   const accordeonInit = function(){
     const accordeon = document.querySelector('.accordeon')
@@ -27,6 +28,34 @@ window.addEventListener('load', () => {
   }
   accordeonInit()
 
+  const spheresMob = function(){
+    const accordeon = document.querySelector('.spheres')
+    if (accordeon){
+      const buttons = accordeon.querySelectorAll('.spheres__item--mobile')
+      buttons.forEach(button => {
+
+        button.addEventListener('click', () => {
+
+          buttons.forEach(otherButton => {
+            if (otherButton !== button) {
+              otherButton.classList.remove('tabs__nav-btn--active');
+              otherButton.nextElementSibling.classList.remove('tabs__panel--active');
+            }
+          });
+          button.classList.toggle('tabs__nav-btn--active')
+          button.nextElementSibling.classList.toggle('tabs__panel--active')
+
+
+
+
+        })
+      })
+    }
+
+  }
+  spheresMob()
+
+
   const burger = document.querySelector('.burger');
   const mobileMenu = document.querySelector('.mobile-menu')
   burger.addEventListener('click', () => {
@@ -44,7 +73,18 @@ window.addEventListener('load', () => {
   }
   // Определение ширины экрана
 
-
+  const radios = document.querySelectorAll('.hero-price__radio input')
+  if(radios.length > 0){
+    radios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        if(radio.dataset.year){
+          document.querySelector('.main-tarifs').classList.add('main-tarifs--year')
+        } else {
+          document.querySelector('.main-tarifs').classList.remove('main-tarifs--year')
+        }
+      })
+    })
+  }
   const mobileMenuItems = mobileMenu.querySelectorAll('.main-menu__item--parent > a,.submenu__item--is-parent > a')
 
   if(mobileMenuItems.length > 0){
@@ -56,6 +96,15 @@ window.addEventListener('load', () => {
     })
   }
 
+
+  const tarifsBtns = document.querySelectorAll('.main-tarifs-item__info-head')
+  if (tarifsBtns.length > 0) {
+    tarifsBtns.forEach(tarifsBtn  => {
+      tarifsBtn.addEventListener('click', () => {
+        tarifsBtn.classList.toggle('is-open')
+      })
+    })
+  }
   window.addEventListener('resize', isMobile);
 
   const anyTabsItems = document.querySelectorAll('.any-type .tabs__nav-btn')
@@ -91,11 +140,11 @@ window.addEventListener('load', () => {
 
   function goTop() {
     // пока не вернулись в начало страницы
-    if (window.pageYOffset > 0) {
-      // скроллим наверх
-      window.scrollBy(0, -75); // второй аргумент - скорость
-      setTimeout(goTop, 0); // входим в рекурсию
-    }
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
 

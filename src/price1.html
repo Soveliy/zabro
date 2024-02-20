@@ -23,7 +23,7 @@
             </h1>
             <div class="hero-price__radios">
               <label class="hero-price__radio">
-                <input type="radio" name="radio1" checked>
+                <input type="radio" data-year='true' name="radio1" checked>
                 <span class="hero-price__radio-wrap">
                   Годовая подписка
                   <span class="hero-price__radio-percent">
@@ -49,7 +49,7 @@
             </div>
             <div class="slider__range"></div>
           </div>
-          <div class="main-tarifs">
+          <div class="main-tarifs main-tarifs--year">
             <div class="main-tarifs__row">
               <div class="main-tarifs__item-container main-tarifs__item-container--w33">
                 <div class="main-tarifs-item">
@@ -87,7 +87,7 @@
                     </li>
                   </ul>
 
-                  <button class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
+                  <button data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
                     <span class="btn__text"> <span>Подключить</span></span>
                   </button>
 
@@ -159,7 +159,7 @@
                     </li>
                   </ul>
 
-                  <button class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
+                  <button data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
                     <span class="btn__text"> <span>Подключить</span></span>
                   </button>
 
@@ -249,7 +249,7 @@
 
                   </ul>
 
-                  <button class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
+                  <button data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
                     <span class="btn__text"> <span>Подключить</span></span>
                   </button>
 
@@ -270,7 +270,7 @@
                         Свяжитесь с нами если не смогли выбрать тариф, есть вопросы, необходима скидка или пилотный проект
                       </div>
                     </div>
-                    <button class="btn btn--default btn--border btn--border--lignt   main-tarifs-custom-price__btn">
+                    <button data-micromodal-trigger="callback" class="btn btn--default btn--border btn--border--lignt   main-tarifs-custom-price__btn">
                       <span class="btn__text"> <span>Связаться с нами</span></span>
                     </button>
                   </div>
@@ -396,7 +396,7 @@
 
 	</div>
 
-	<!-- @include('partials/popup.html') -->
+	@include('partials/popup.html')
 </body>
 
 </html>
