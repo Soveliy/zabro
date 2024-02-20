@@ -24,6 +24,16 @@
     border-radius: 10px;
     padding: 24px 50px;
     transition: $transtion;
+    b{
+      font-weight: 600;
+    }
+    @include tablet(){
+      padding: 20px;
+      font-size: 14px;
+      line-height: 143%;
+      letter-spacing: 0.02em;
+      color: #8a7e95;
+    }
     &:before{
       content: '';
       position: absolute;

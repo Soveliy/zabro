@@ -1,0 +1,449 @@
+.catalog{
+  padding: 60px 0 0;
+  @include lit-desktop(){
+    padding: 44px 0 0 0;
+  }
+
+  .section-head__desc{
+    @include lit-desktop(){
+      font-size: 18px;
+      margin: 10px 0 0 0;
+    }
+    @include tablet(){
+      margin: 16px 0 0 0;
+    }
+    @include mobile(){
+      font-size: 14px;
+    }
+  }
+  &__grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    @include tablet(){
+      padding-top: 20px;
+    }
+    @include mobile(){
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding-top: 0;
+    }
+  }
+  &-item{
+    border-radius: 10px;
+    border: 1px solid $lightDark;
+    &__top{
+      padding: 28px 28px 36px;
+      background-color: $lightDark;
+      border-radius: 10px 10px 0 0;
+      @include tablet(){
+        padding: 24px 24px 28px;
+      }
+    }
+    &__body{
+      padding: 12px 50px;
+      border-radius: 0 0 10px 10px;
+      @include tablet(){
+        padding: 12px 24px;
+      }
+    }
+    &__frame{
+      position: relative;
+      margin-bottom: 32px;
+      height: 350px;
+      background-color: $white;
+      border-radius: 10px;
+      @include lit-desktop(){
+        height: 250px;
+      }
+      @include tablet(){
+        margin-bottom: 24px;
+      }
+      iframe,img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        border: none;
+        border-radius: 10px;
+      }
+    }
+    &__play{
+      position: absolute;
+      z-index: 10;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      height: 70px;
+      width: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e1d8fc;
+      border-radius: 50%;
+      padding-left: 4px;
+      box-sizing: border-box;
+      svg{
+        width: 23px;
+        height: 20px;
+        fill: $phiolText;
+      }
+    }
+    &__line{
+      display: flex;
+      justify-content: space-between;
+      padding: 0 22px;
+      box-sizing: border-box;
+      align-items: center;
+      @include tablet(){
+        padding: 0;
+      }
+    }
+    &__title{
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 135%;
+      color: $zag;
+      @include tablet(){
+        font-size: 20px;
+      }
+    }
+    &__for{
+
+      border-radius: 10px;
+      padding: 6px 16px;
+      background-color: $white;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 135%;
+      text-align: center;
+      color: #464547;
+      margin-left: 12px;
+      flex-shrink: 0;
+      @include tablet(){
+        font-size: 16px;
+      }
+    }
+    &__list{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    &__item{
+      display: flex;
+      justify-content: space-between;
+      padding: 21px 0;
+      align-items: center;
+      @include tablet(){
+          padding: 24px 0;
+      }
+      @include mobile(){
+        padding: 20px 0;
+      }
+      & + &{
+        border-top: 1px solid #e1d8fc;
+      }
+      a{
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        color: $phiolText;
+      }
+    }
+    &__label{
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 120%;
+      @include tablet(){
+        font-size: 16px;
+      }
+    }
+    &__price{
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 135%;
+      color: $phiolText;
+      flex-shrink: 0;
+      @include tablet(){
+        font-size: 24px;
+      }
+      &--no-count{
+        color: #a79ab5;
+      }
+
+    }
+  }
+}
+
+.benefit{
+  padding: 40px 0 60px;
+  @include lit-desktop(){
+    padding: 40px 0 50px;
+  }
+  @include mobile(){
+    padding: 30px 0 40px;
+  }
+  &__inner{
+    background: #f1ecff;
+    border-radius: 10px;
+    padding: 50px;
+    @include lit-desktop(){
+      padding: 40px 50px;
+    }
+    @include tablet(){
+      padding: 24px;
+    }
+  }
+  &__head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    @include tablet(){
+      margin-bottom: 24px;
+    }
+    @include mobile(){
+      margin-bottom: 16px;
+    }
+  }
+  &__title{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 117%;
+    color: #1d1c1e;
+    margin: 0;
+    @include lit-desktop(){
+      font-size: 32px;
+      line-height: 131%;
+    }
+    @include tablet(){
+      font-size: 28px;
+    }
+    @include mobile(){
+      font-size: 24px;
+    }
+  }
+  &__jaw{
+    display: flex;
+    align-items: center;
+    background: linear-gradient(223deg, #eb5884 0%, #a05ed4 49.19%, #6124c5 100%);
+    border-radius: 10px;
+    padding: 8px 16px;
+    color: #fff;
+    margin-left: 12px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 135%;
+    color: #fff;
+    @include tablet(){
+      font-size: 16px;
+    }
+    svg{
+      height: 20px;
+      width: 20px;
+      margin-left: 8px;
+    }
+  }
+  &__label{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: #464547;
+    @include tablet(){
+      font-size: 16px;
+    }
+  }
+  &__subtitle{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 135%;
+    color: #1d1c1e;
+    padding: 35px 50px;
+    box-sizing: border-box;
+    background: #e1d8fc;
+    border-radius: 10px 10px 0 0;
+    @include tablet(){
+      font-size: 20px;
+      padding: 28px 24px;
+    }
+  }
+  &__list{
+    padding: 12px 50px;
+    margin: 0;
+    list-style: none;
+    background-color: $white;
+    border-radius: 0 0 10px 10px;
+    @include tablet(){
+      padding: 12px 24px;
+    }
+    &-item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      & + *{
+        border-top: 1px solid #e1d8fc;
+      }
+      a{
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        color: #734ca5;
+      }
+    }
+
+
+
+  }
+
+  &__price{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 135%;
+    color: #734ca5;
+    @include tablet(){
+      font-size: 24px;
+    }
+    &--low{
+      color: #a79ab5;
+    }
+  }
+  &__item{
+    border-radius: 10px;
+    border: 1px solid #e1d8fc;
+  }
+  &__item + &__item{
+    margin-top: 40px;
+    @include lit-desktop(){
+      margin-top: 30px;
+    }
+    @include mobile(){
+      margin-top: 20px;
+    }
+  }
+
+
+}
+.other-items{
+  padding: 60px 0;
+  @include lit-desktop(){
+    padding: 20px 0 40px;
+  }
+
+  @include tablet(){
+    padding: 30px 0 40px;
+  }
+  @include mobile(){
+    padding: 20px 0 30px;
+  }
+  .section-head{
+    @include tablet(){
+      margin-bottom: 35px;
+    }
+    @include mobile(){
+      margin-bottom: 24px;
+    }
+  }
+  .section-head__desc{
+    font-size: 18px;
+    line-height: 135%;
+    @include mobile(){
+      font-size: 14px;
+      line-height: 135%;
+      margin-top: 12px;
+    }
+  }
+
+}
+
+.other-item{
+  background-color: $lightBlock;
+  border-radius: 10px;
+  & + &{
+    margin-top: 30px;
+    @include mobile(){
+      margin-top: 20px;
+    }
+  }
+  &__head{
+    display: flex;
+    align-items: center;
+    padding: 40px 50px;
+    border-radius: 10px;
+    background-color:  #e1d8fc;
+    justify-content: space-between;
+    @include tablet(){
+      padding: 28px 24px;
+    }
+  }
+  &__title{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 135%;
+    color: #1d1c1e;
+    @include tablet(){
+      font-size: 20px;
+    }
+  }
+  &__link{
+    border: 1px solid #734ca5;
+    border-radius: 10px;
+    padding: 6px 13px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 135%;
+    color: #734ca5;
+
+    flex-shrink: 0;
+    margin-left: 12px;
+    @include mobile(){
+      font-size: 14px;
+    }
+    svg{
+      width: 12px;
+      height: 10px;
+      fill:  #734ca5;
+      margin-left: 8px;
+    }
+  }
+  &__list{
+    padding: 2px 50px 12px;
+    list-style: none;
+    margin: 0;
+    @include tablet(){
+      padding: 2px 24px 10px;
+    }
+
+  }
+  &__desc{
+    @include tablet(){
+      font-size: 15px;
+    }
+  }
+  &__value{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 21px 0;
+    & + &{
+      border-top: 1px solid #e1d8fc;
+    }
+  }
+  &__label{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: #464547;
+    @include tablet(){
+      font-size: 16px;
+    }
+  }
+  &__price{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 135%;
+    color: #734ca5;
+    @include tablet(){
+      font-size: 24px;
+    }
+  }
+}

@@ -69,6 +69,7 @@
 @import "./components/hero-other";
 @import "./components/form-photo";
 @import './components/input-file';
+@import './components/catalog';
 //<ШРИФТЫ>===============================================================================================
 
 //<Подключаем шрифты>=======================================================================================
@@ -111,7 +112,7 @@ body {
 }
 
 .just-validate-error-label{
-  position: relative;
+  position: absolute;
   margin-left: 30px;
   padding-left: 14px;
   color: #ff5c5c !important;

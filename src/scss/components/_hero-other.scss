@@ -1,19 +1,70 @@
 .hero-other{
-  padding: 35px 0 120px;
+  padding: 60px 0 120px;
   background-color: $lightBlock;
   position: relative;
   z-index: 50;
+  margin-bottom: 60px;
+  @include lit-desktop(){
+    padding: 60px 0 100px;
+    margin-bottom: 50px;
+  }
+  @include tablet(){
+    padding: 48px 0 80px;
+    margin-bottom: 36px;
+  }
+  @include mobile(){
+    padding: 0 0 60px;
+    margin-bottom: 15px;
+  }
   &__title{
     font-weight: 700;
     font-size: 56px;
     color: #1d1c1e;
-    margin: 0 0 40px 0
+    margin: 0 0 60px 0;
+    line-height: 1;
+    @include lit-desktop(){
+      font-size: 48px;
+      margin: 0 0 40px 0;
+    }
+    @include tablet(){
+      font-size: 36px;
+      margin: 0 0 30px 0;
+    }
+    @include mobile(){
+      font-size: 28px;
+      margin: 0 0 12px 0;
+      line-height: normal;
+    }
+    @include lit-mobile(){
+      font-size: 24px;
+      line-height: 133%;
+      margin: 0 0 24px 0;
+    }
   }
   &__subtitle{
     font-weight: 700;
     font-size: 46px;
     line-height: 117%;
     color: #1d1c1e;
+    margin-bottom: 20px;
+    @include lit-desktop(){
+      font-size: 36px;
+      line-height: 117%;
+    }
+    @include tablet(){
+      font-size: 32px;
+      line-height: 119%;
+      margin-bottom: 16px;
+    }
+    @include mobile(){
+      font-size: 26px;
+      line-height: 123%;
+      margin-bottom: 12px;
+    }
+    @include lit-mobile(){
+      font-size: 24px;
+      line-height: 133%;
+    }
   }
   &__desc{
     font-weight: 600;
@@ -22,30 +73,76 @@
     color: #464547;
     max-width: 60%;
     margin-bottom: 40px;
+    @include lit-desktop(){
+      max-width: 100%;
+    }
+    @include tablet(){
+      font-size: 16px;
+
+    }
+    @include mobile(){
+      font-size: 14px;
+      margin-bottom: 27px;
+    }
   }
   &__grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
+    @include mobile(){
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
   }
 }
 .hero-other-item{
   padding: 36px;
   border-radius: 10px;
   background-color: $white;
+  @include tablet(){
+    padding: 20px 16px;
+  }
+  @include mobile(){
+    padding: 20px 44px;
+    display: flex;
+
+  }
+  @include lit-mobile(){
+    flex-direction: column;
+    padding: 20px 16px;
+  }
   .swiper-arrow.swiper-button-prev{
     display: none;
   }
   .swiper-slide{
     height: 200px;
+    @include tablet(){
+      height: 178px;
+    }
+    @include mobile(){
+      height: 150px;
+    }
+    @include lit-mobile(){
+      height: 200px;
+    }
     img{
       max-width: 100%;
+      max-height: 100%;
     }
   }
   .swiper-pagination-bullets.swiper-pagination-horizontal{
     position: static;
     margin-top: 20px;
     display: flex;
+    @include tablet(){
+      margin-top: 16px;
+    }
+    @include mobile(){
+      margin-top: 8px;
+    }
+    @include lit-mobile(){
+      margin-top: 15px;
+    }
     .swiper-pagination-bullet{
       width: 100%;
       background: #e1d8fc;
@@ -60,9 +157,32 @@
       }
     }
   }
-
+  &__slider{
+    width: 150px;
+    flex-shrink: 0;
+    margin-right: 42px;
+    @include lit-mobile(){
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  }
   &__body{
     margin-top: 20px;
+    @include tablet(){
+      margin-top: 16px;
+    }
+    @include mobile(){
+      margin-top: 0;
+      width: 100%;
+      padding-top: 0;
+    }
+  }
+  .swiper-arrow{
+    margin-top: -32px;
+    @include tablet(){
+      margin-top: -20px;
+    }
   }
   &__title{
     font-weight: 700;
@@ -70,8 +190,23 @@
     line-height: 135%;
     color: #1d1c1e;
     margin-bottom: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 26px;
     position: relative;
+    @include tablet(){
+      font-size: 20px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+    }
+    @include mobile(){
+      margin-bottom: 28px;
+      padding-bottom: 19px;
+    }
+    @include lit-mobile(){
+      font-size: 18px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+
+    }
     &::after{
       content: '';
       position: absolute;
@@ -88,9 +223,19 @@
     font-size: 16px;
     line-height: 135%;
     color: #734ca5;
+    @include tablet(){
+      font-size: 14px;
+    }
     span{
-      margin: 0 -5px 0 0;
+      margin: 0 -2px 0 3px;
       font-size: 30px;
+      @include tablet(){
+        font-size: 24px;
+        margin: 0 -3px 0 3px;
+      }
+      @include lit-mobile(){
+        font-size: 20px;
+      }
     }
   }
 
