@@ -190,6 +190,7 @@
       margin-top: 12px;
     }
   }
+
 }
 
 .main-tarifs{
@@ -534,6 +535,10 @@
     &__btn{
       margin-top: auto;
       width: 100%;
+      &:disabled{
+        opacity: .5;
+        pointer-events: none;
+      }
     }
   }
 }

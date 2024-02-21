@@ -156,5 +156,39 @@ window.addEventListener('load', () => {
   // });
 
 
+  // Функионал модалки с тарифами
+  const tariffBtns = document.querySelectorAll('[data-micromodal-trigger="rate-modal"]')
+  tariffBtns.forEach(tariffBtn => {
+    tariffBtn.addEventListener('click', () => {
+      const tariffItem =  tariffBtn.closest('.main-tarifs-item');
+      tariffBtn.closest('.main-tarifs-item')
+      const radioBtn = document.querySelector('[data-year]')
+      let price;
+      const countItems = document.querySelector('.slider__input').value
+      const name = tariffItem.querySelector('.main-tarifs-item__title')
+      const modal = document.querySelector('#rate-modal')
+      const modalPrice = modal.querySelector('.rate-info__price')
+      const modalTariffName =  modal.querySelector('[data-rate]')
+      const modalTariffCount =  modal.querySelector('[data-rate-value]')
+
+      const modalSelect = modal.querySelector('.rate-info__select--mounth')
+      const modalYear = modal.querySelector('.rate-info__select--year')
+      if (radioBtn.checked){
+        price = tariffItem.querySelector('.main-tarifs-item__price-year')
+        modalSelect.classList.add('is-hidden')
+        modalYear.classList.remove('is-hidden')
+      } else {
+        price = tariffItem.querySelector('.main-tarifs-item__price')
+        modalSelect.classList.remove('is-hidden')
+        modalYear.classList.add('is-hidden')
+      }
+
+
+      modalTariffName.innerHTML = `«${name.dataset.tariffName}»`;
+      modalPrice.innerHTML = `${price.dataset.tariffPrice}`;
+      modalTariffCount.innerHTML = `${countItems}`;
+    })
+  })
+
 
 })

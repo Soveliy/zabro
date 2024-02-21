@@ -62,21 +62,24 @@ const getActiveTariff = () => {
   const inputValue = document.querySelector('.slider__input').value; // Ищем input с меньшим значнием
   const TariffItems = document.querySelectorAll('.main-tarifs-item')
   const tableTariff = document.querySelector('.benefits-table__inner')
+  const TariffsBtns = document.querySelectorAll('[data-micromodal-trigger="rate-modal"]')
   tableTariff.className = 'benefits-table__inner';
   TariffItems.forEach(TariffItem => {
     TariffItem.classList.remove('js-active')
   })
   if (inputValue <= 3){
-
+    TariffsBtns[0].removeAttribute('disabled', '')
     TariffItems[0].classList.add('js-active')
     tableTariff.classList.add('benefits-table__inner--1')
 
-  } else if (inputValue > 3 && inputValue <= 40){
-
+  } else if (inputValue > 3 && inputValue <= 50){
+    TariffsBtns[0].setAttribute('disabled', '')
+    TariffsBtns[1].removeAttribute('disabled', '')
     TariffItems[1].classList.add('js-active')
     tableTariff.classList.add('benefits-table__inner--2')
   } else {
-
+    TariffsBtns[0].setAttribute('disabled', '')
+    TariffsBtns[1].setAttribute('disabled', '')
     TariffItems[2].classList.add('js-active')
     tableTariff.classList.add('benefits-table__inner--3')
   }
