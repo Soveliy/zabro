@@ -161,20 +161,33 @@
                   </div>
                   <div class="photo-offer__row">
                     <div class="photo-offer__item-container photo-offer__item-container--file">
-                      <label class="file-input">
-                        <input class="file-input__elem" type="file"   accept=".jpg,.jpeg,.png,.zip">
-                        <span class="file-input__wrap">
-                          <span class="file-input__icon">
 
-                          </span>
-                          <span class="file-input__right">
-                            <b>Фото продукта.</b>
-                            Перетащите в эту область или нажмите на нее <br>
-                            JPEG, PNG, ZIP.
-                            Максимум 50 Мб
-                          </span>
-                        </span>
-                      </label>
+                        <div class="file-input">
+                          <label class="file-input__label" for="file">  </label>
+                          <input class="file-input__elem" type="file" name="file" id="file"   accept="jpg,jpeg,png,zip">
+
+
+                          <div class="file-input__wrap">
+                            <span class="file-input__icon">
+
+                            </span>
+                            <span class="file-input__right">
+                              <span class="file-input__desc file-input__desc--default">
+                                <b>Фото продукта.</b>
+                                Перетащите в эту область или нажмите на нее <br>
+                                JPEG, PNG, ZIP.
+                                Максимум 50 Мб
+                              </span>
+                              <span class="file-input__success">
+                                <b>Файл загружен</b>
+                                <span class="file-input__name"></span>
+                              </span>
+                            </span>
+                          </div>
+
+                        </div>
+
+
                     </div>
                     <div class="photo-offer__item-container photo-offer__item-container--w100">
                       <div class="photo-offer__input input">

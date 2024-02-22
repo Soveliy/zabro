@@ -1,25 +1,19 @@
 .hero{
   &--index{
     position: relative;
-    &::before{
+    &:before{
       content: '';
       position: absolute;
-      top: 0;
-      left: 7%;
 
+      top: -20px;
       height: 59px;
       width: 59px;
-      background: url(../img/decor.svg) center center no-repeat;
+      background: url(../img/decor.svg) no-repeat center;
       background-size: contain;
-      transform: rotate(35deg);
+      left: 10%;
+      transform: rotate(45deg);
       @include lit-desktop(){
-        right: 31%;
-        left: auto;
-        top: -11px;
-      }
-      @include tablet(){
-        right: 26.7%;
-        top: -15px
+        left: 57%;
       }
       @include mobile(){
         display: none;
@@ -294,6 +288,8 @@
       object-fit: cover;
       border-radius: 10px 0px 0px 120px;
       @include tablet(){
+        border: 1px solid #f1ecff;
+        box-sizing: border-box;
         position: static;
         max-width: 100%;
         height: auto;
@@ -357,7 +353,7 @@
       transition: $transtion
     }
     &Bg{
-      fill:$white
+      fill:$lightDark
     }
     &Elem{
       fill: $phiolText;

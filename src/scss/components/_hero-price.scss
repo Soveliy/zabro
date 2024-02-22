@@ -243,13 +243,39 @@
     flex-direction: column;
     padding: 28px 36px 36px 36px;
     background-color: $white;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     box-sizing: border-box;
     border-radius: 10px;
-    height: 100%;
-    transition: $transtion;
+    transition:border-color $transtion;
+    width: 100%;
+    z-index: 50;
+    min-height: 473px;
+    @include lit-desktop(){
+      min-height: 440px;
+    }
+    @include tablet(){
+      min-height: 480px;
+    }
+    @include mobile(){
+      min-height: 423px;
+    }
+    @include lit-mobile(){
+      min-height: auto;
+    }
     &.js-active{
       border-color: $phiolText;
+    }
+    &.is-abs{
+      position: absolute;
+    }
+    @include lit-mobile(){
+      position: static;
+    }
+
+    &__inner{
+      height: 100%;
+      position: relative;
+
     }
     @include lit-desktop(){
       padding: 24px 20px 18px;
@@ -280,7 +306,7 @@
     &__price-year{
       position: absolute;
       top: 16px;
-      right: 0;
+      right: -1px;
       border-radius: 10px 0 0 10px;
       padding: 7px 24px 7px 12px;
       background-color: $lightDark;
@@ -298,7 +324,7 @@
       @include tablet(){
         display: inline-table;
         position: static;
-        margin-left: -20px;
+        margin-left: -21px;
         border-radius: 0 10px 10px 0;
         padding: 5px 23px 5px 20px;
         margin-top: 3px;
@@ -383,7 +409,7 @@
       margin: 0 -12px;
       border-radius: 10px;
       @include lit-mobile(){
-        margin: 0 -4px
+        margin: 0 -4px 20px;
       }
       &-head{
         background: #f1ecff;
@@ -504,6 +530,21 @@
       list-style: none;
       padding: 0;
       margin: 12px 0 28px;
+      @include lit-mobile(){
+        margin: -8px 0 12px 0;
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition: $transtion;
+        &.js-active{
+          visibility: visible;
+          max-height: 200px;
+          opacity: 1;
+          pointer-events: all;
+        }
+      }
       &-value{
         position: relative;
         padding-left: 24px;
@@ -538,6 +579,38 @@
       &:disabled{
         opacity: .5;
         pointer-events: none;
+      }
+      @include lit-mobile(){
+        display: none;
+      }
+    }
+    &__bottom-btn{
+      display: none;
+      @include lit-mobile(){
+        display: flex;
+        align-items: center;
+        background-color: $lightDark;
+        border-radius: 0 0 10px 10px;
+        padding: 20px;
+        box-sizing: border-box;
+        margin: 0 -12px -20px;
+
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 135%;
+        color: #734ca5;
+        justify-content: space-between;
+        &-icon{
+          width: 13px;
+          height: 7px;
+          fill: $phiolText;
+          transition: $transtion;
+        }
+        &.js-active{
+          .main-tarifs-item__bottom-btn-icon{
+            transform: rotate(180deg);
+          }
+        }
       }
     }
   }

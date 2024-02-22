@@ -61,27 +61,22 @@ const init = () => {
 const getActiveTariff = () => {
   const inputValue = document.querySelector('.slider__input').value; // Ищем input с меньшим значнием
   const TariffItems = document.querySelectorAll('.main-tarifs-item')
-  const tableTariff = document.querySelector('.benefits-table__inner')
   const TariffsBtns = document.querySelectorAll('[data-micromodal-trigger="rate-modal"]')
-  tableTariff.className = 'benefits-table__inner';
   TariffItems.forEach(TariffItem => {
     TariffItem.classList.remove('js-active')
   })
   if (inputValue <= 3){
     TariffsBtns[0].removeAttribute('disabled', '')
     TariffItems[0].classList.add('js-active')
-    tableTariff.classList.add('benefits-table__inner--1')
 
   } else if (inputValue > 3 && inputValue <= 50){
     TariffsBtns[0].setAttribute('disabled', '')
     TariffsBtns[1].removeAttribute('disabled', '')
     TariffItems[1].classList.add('js-active')
-    tableTariff.classList.add('benefits-table__inner--2')
   } else {
     TariffsBtns[0].setAttribute('disabled', '')
     TariffsBtns[1].setAttribute('disabled', '')
     TariffItems[2].classList.add('js-active')
-    tableTariff.classList.add('benefits-table__inner--3')
   }
 }
 window.addEventListener('DOMContentLoaded', init) // запускаем функцию init, когда документ будет загружен и готов к взаимодействию
@@ -386,131 +381,7 @@ const rules2= [
 ];
 
 
-const dragDrop = () => {
 
-  const jsDrags = document.querySelectorAll('.form-box__window');
-  if (!jsDrags?.length) return;
-
-  jsDrags.forEach((jsDrag) => {
-     if (jsDrag.classList.contains('form-box-drag-js--order')) {
-        console.log(jsDrag)
-        /* getElementById */
-        function $class(classElem) {
-           return jsDrag.querySelector(classElem);
-        }
-
-        /* вывод сообщений */
-        function Output(msg) {
-           let m = $class(".messagesCst");
-           m.innerHTML = msg
-        }
-
-        /* проверка поддержки API */
-        if (window.File && window.FileList && window.FileReader) {
-           Init();
-        }
-        /* инициализация */
-        function Init() {
-           let fileselect = $class(".fileselect"),
-               filedrag = $class(".filedrag");
-               fileBtn = $class(".drag-drop__custom")
-
-
-
-                 /* выбор файла */
-                 fileselect.addEventListener("change", FileSelectHandler, false);
-
-                 /* проверка поддержки XHR2 */
-                 let xhr = new XMLHttpRequest();
-                 if (xhr.upload) {
-                    /* сброс файла */
-                    filedrag.addEventListener("dragover", FileDragHover, false);
-                    filedrag.addEventListener("dragleave", FileDragHover, false);
-                    filedrag.addEventListener("drop", FileSelectHandler, false);
-                    // filedrag.style.display = "block";
-
-
-
-                 }
-        }
-
-        // Файл над нужной областью
-        function FileDragHover(e) {
-           e.stopPropagation();
-           e.preventDefault();
-           // e.currentTarget.classList.add("isHover")
-           console.log(filedrag)
-           if (e.type == "dragover"){
-              e.currentTarget.classList.add("isHover")
-           } else{
-              e.currentTarget.classList.remove("isHover")
-           }
-
-        }
-        function clearInputValue(e){
-           e.target.value = null;
-           if (e.target.files){
-              e.target.files = null;
-           }
-           if (e.dataTransfer?.files){
-              e.dataTransfer.clearData();
-              // e.dataTransfer.files = null;
-           }
-        }
-
-        // выбор файла
-        function FileSelectHandler(e) {
-
-           $(e.currentTarget).closest(".filedrag").removeClass("isError")
-           FileDragHover(e);
-           console.log(e.currentTarget.value)
-           let files = e.target.files || e.dataTransfer.files;
-           console.log(files)
-           if (files.length > 1){
-              const filesDataTransfer = new DataTransfer();
-              filesDataTransfer.items.add(files[0]);
-              e.target.files = filesDataTransfer.files;
-              files = e.target.files;
-           }
-
-
-           if (files[0].size > 10485760){
-              $(e.currentTarget).closest(".filedrag").addClass("isError")
-              Output(
-                 "<div class='fileDrop__error'>Файл слишком большой</div>"
-              )
-
-              clearInputValue(e);
-              return
-
-           }
-
-           // парсим все объекты типа File
-           for (const file of files) {
-
-
-              ParseFile(file);
-
-           }
-          $(e.currentTarget).closest(".filedrag").addClass("isLoaded")
-        }
-
-        function ParseFile(file) {
-
-
-
-           Output(
-              "<div class='fileDrop__msg'>" + file.name +"</div>"
-           );
-        }
-
-
-     }
-  })
-
-
-};
-dragDrop()
 const afterForm = () => {
   console.log('Произошла отправка, тут можно писать любые действия');
 };

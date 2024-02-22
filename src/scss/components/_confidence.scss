@@ -12,6 +12,9 @@
     position: absolute;
     background: url(../img/decor.svg) no-repeat center center;
     background-size: contain;
+    @include lit-mobile(){
+      display: none;
+    }
   }
   &:before{
     height:87px;
@@ -72,13 +75,21 @@
     @include mobile(){
       padding: 12px;
     }
+    @include lit-mobile(){
+      width: 50%;
+    }
     &:nth-child(3n - 1){
       @include tablet(){
         .confidence-item{
           display: flex;
           justify-content: center;
         }
-
+        @include lit-mobile(){
+          .confidence-item{
+            display: flex;
+            justify-content: flex-start;
+          }
+        }
       }
     }
     &:nth-child(3n){
@@ -89,12 +100,19 @@
         }
 
       }
+      @include lit-mobile(){
+        .confidence-item{
+          display: flex;
+          justify-content: flex-start;
+        }
+      }
     }
   }
   &-item{
 
     img{
       max-height: 38px;
+      opacity: .7;
       @include mobile(){
         max-height: 28px;
       }

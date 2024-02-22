@@ -122,6 +122,12 @@
 
   }
   &__inner-image{
+    width: 162px;
+    flex-shrink: 0;
+    @include tablet(){
+      margin-left: auto;
+      width: 133px;
+    }
     @include mobile(){
       display: none;
     }

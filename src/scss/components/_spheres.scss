@@ -273,6 +273,7 @@
       padding: 12px 33px 40px;
     }
     @include lit-mobile(){
+      border-radius: 10px;
       padding: 16px 16px 20px;
     }
     &__title{

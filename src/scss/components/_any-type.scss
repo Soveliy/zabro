@@ -63,6 +63,11 @@
     border: 1px solid $white;
     transition: $transtion;
     border-radius: 10px;
+    &:hover{
+      @include for-desktop(){
+        background-color: $white;
+      }
+    }
     @include lit-desktop(){
       padding: 16px 23px;
     }
@@ -75,6 +80,7 @@
 
     &.tabs__nav-btn--active{
       background-color: #fff;
+      color: $phiolText;
       &:after{
         content: '';
         position: absolute;
@@ -150,6 +156,15 @@
     margin-top: 26px;
     @include tablet(){
       margin-top: 8px;
+    }
+    @include mobile(){
+      &.btn--border.btn--border--lignt {
+        > span{
+          padding-left: 36px;
+          padding-right: 36px;
+        }
+      }
+
     }
     @include lit-mobile(){
       margin-top: 12px;

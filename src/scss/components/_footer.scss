@@ -251,11 +251,13 @@
     }
   }
   &__menu-title{
-    color: $minorText;
+   a{
+    color: #8A7E95;
     font-size: 15px;
     font-style: normal;
     font-weight: 600;
     line-height: 22px; /* 146.667% */
+   }
     @include lit-mobile(){
       display: none;
     }
