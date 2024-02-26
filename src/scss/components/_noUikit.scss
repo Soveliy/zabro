@@ -334,16 +334,33 @@
   &__range{
     position: relative;
   }
+  &--1{
+   &::after{
+    left: 17%;
+   }
+  }
+  &--2{
+    &:after{
+      left: 50%;
+    }
+  }
+  &--3{
+    &::after{
+      left: 84%;
+    }
+  }
   &:after{
       content: '';
       position: absolute;
       top: 100%;
-      left: 50%;
+
       transform: translateX(-50%);
       height: 13px;
       width: 42px;
       background: url(../img/slider_bottom.svg) no-repeat center top;
       background-size: contain;
+      transition: $transtion;
+
       @include mobile(){
         display: none;
       }

@@ -534,7 +534,10 @@
   opacity: 0;
   pointer-events: none;
   transition: .4s;
-
+  @include mobile(){
+    right: 20px;
+    bottom: 20px;
+  }
   &--show{
     pointer-events: all;
     opacity: 1;
