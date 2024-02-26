@@ -1,12 +1,60 @@
 .team{
+  position: relative;
   padding: 120px 0;
+  .container{
+    position: relative;
+    &:before{
+      content: '';
+      position: absolute;
+
+      top: -80px;
+      height: 63px;
+      width: 63px;
+      background: url(../img/decor.svg) no-repeat center;
+      background-size: contain;
+      right: 22%;
+      transform: rotate(45deg);
+      @include tablet(){
+        right: 120px;
+        top: -60px;
+      }
+      @include mobile(){
+        right: 33px;
+        top: -25px;
+      }
+      @include lit-mobile(){
+        display: none;
+      }
+      // @include lit-desktop(){
+      //   left: 80px;
+      //   top: -80px;
+      // }
+      // @include tablet(){
+      //   display: none;
+      // }
+    }
+  }
   @include lit-desktop(){
     padding: 100px 0;
   }
   @include tablet(){
     padding: 80px 0;
   }
+  @include mobile(){
+    padding: 60px 0;
+  }
+  @include lit-mobile(){
+    padding: 50px 0;
+  }
   img{
     border-radius: 10px;
+    @include mobile(){
+      width: 100%;
+    }
+  }
+  .section-head__title{
+    @include mobile(){
+      margin-bottom: 12px;
+    }
   }
 }

@@ -70,19 +70,19 @@ const getActiveTariff = () => {
   if (inputValue <= 3){
     TariffsBtns[0].removeAttribute('disabled', '')
     TariffItems[0].classList.add('js-active')
-    slider.className = "slider slider--1"
+    slider.className = "hero-price__slider slider slider--1"
 
 
   } else if (inputValue > 3 && inputValue <= 50){
     TariffsBtns[0].setAttribute('disabled', '')
     TariffsBtns[1].removeAttribute('disabled', '')
     TariffItems[1].classList.add('js-active')
-    slider.className = "slider slider--2"
+    slider.className = "hero-price__slider slider slider--2"
   } else {
     TariffsBtns[0].setAttribute('disabled', '')
     TariffsBtns[1].setAttribute('disabled', '')
     TariffItems[2].classList.add('js-active')
-    slider.className = "slider slider--3"
+    slider.className = "hero-price__slider slider slider--3"
   }
 }
 window.addEventListener('DOMContentLoaded', init) // запускаем функцию init, когда документ будет загружен и готов к взаимодействию

@@ -42,7 +42,10 @@
     }
     &--2{
       &:before{
-        left: 56%;
+        left: 60%;
+        @include mobile(){
+          letter-spacing: 56%;
+        }
       }
       @include lit-mobile(){
         .benefits-table__col{

@@ -1,35 +1,55 @@
 .flag-prod{
   padding: 200px 0 0;
+  position: relative;
   @include lit-desktop(){
     padding: 167px 0 0;
   }
+
   &__row{
     display: flex;
     align-items:stretch;
-    @include lit-mobile(){
+
+    @include mobile(){
       flex-direction: column;
+      position: relative;
+      &::before{
+        content: '';
+        position: absolute;
+
+        top: -10px;
+        height: 63px;
+        width: 63px;
+        background: url(../img/decor.svg) no-repeat center;
+        background-size: contain;
+        right: 0;
+        transform: rotate(45deg);
+      }
     }
   }
   &__item{
     position: relative;
     width: 50%;
-    @include tablet(){
-      width: 53%;
+    img{
+      @include mobile(){
+        max-width: 420px;
+      }
+      @include lit-mobile(){
+        max-width: 100%;
+      }
     }
-    @include lit-mobile(){
+    @include tablet(){
       width: 100%;
     }
+
     &:first-child{
       padding-top: 25px;
       @include lit-desktop(){
         padding-top: 10px;
       }
       @include tablet(){
-        width: 45%;
-      }
-      @include lit-mobile(){
         width: 100%;
       }
+
     }
     & + &{
       margin-left: 30px;
@@ -38,7 +58,7 @@
         padding-top: 40px;
       }
 
-      @include lit-mobile(){
+      @include mobile(){
         margin-left: 0;
         padding-top: 0;
         margin-top: 28px;

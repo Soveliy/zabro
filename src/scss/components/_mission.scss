@@ -8,6 +8,9 @@
     @include tablet(){
       padding: 60px 20px 60px 0;
     }
+    @include mobile(){
+      padding: 50px 20px 50px 0;
+    }
     &:after{
       background: rgba(202, 185, 255, 0.35);
       border: 1px solid rgba(222, 222, 222, 0.45);
