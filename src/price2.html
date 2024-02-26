@@ -15,7 +15,7 @@
 		@include('partials/header.html')
 
 		<main class="page main">
-      <div class="hero-other">
+      <div id="price" class="scroll-section hero-other">
         <div class="container">
           <h1 class="hero-other__title">
             Цены на дополнительные услуги
@@ -168,21 +168,29 @@
 
 
                           <div class="file-input__wrap">
-                            <span class="file-input__icon">
+                            <div class="file-input__row">
+                              <span class="file-input__icon">
 
-                            </span>
-                            <span class="file-input__right">
-                              <span class="file-input__desc file-input__desc--default">
-                                <b>Фото продукта.</b>
-                                Перетащите в эту область или нажмите на нее <br>
-                                JPEG, PNG, ZIP.
-                                Максимум 50 Мб
                               </span>
-                              <span class="file-input__success">
-                                <b>Файл загружен</b>
-                                <span class="file-input__name"></span>
+                              <span class="file-input__right">
+                                <span class="file-input__desc file-input__desc--default file-input__desc--desk">
+                                  <b>Фото продукта.</b>
+                                 <span class="file-input__desk-and-tablet"> Перетащите в эту область или нажмите на нее</span> <br>
+                                  <span class="file-input__desk-and-mob">
+                                    JPEG, PNG, ZIP.
+                                   <span class="file-input__max-size"> Максимум 50 Мб</span>
+                                  </span>
+                                </span>
+                                <span class="file-input__success">
+                                  <b>Файл загружен</b>
+                                  <span class="file-input__name"></span>
+                                </span>
                               </span>
-                            </span>
+                            </div>
+                            <div class="file-input__desc file-input__desc--tablet">
+                              JPEG, PNG, ZIP. Максимум 50 Мб
+                            </div>
+
                           </div>
 
                         </div>
@@ -216,7 +224,17 @@
 
         </div>
       </div>
-      <section class="catalog">
+      <div class="fixed-menu">
+        <div class="container">
+          <ul class="fixed-menu__list">
+            <li class="fixed-menu__item">Цены</li>
+            <li class="fixed-menu__item"><a href="#price" class="fixed-menu__link">Создание 3D-моделей</a></li>
+            <li class="fixed-menu__item"><a href="#photo-and-video" class="fixed-menu__link">360-фото и видео</a></li>
+            <li class="fixed-menu__item"><a href="#motion" class="fixed-menu__link">Motion-графика</a></li>
+          </ul>
+        </div>
+      </div>
+      <section class="catalog scroll-section" id="photo-and-video">
         <div class="container">
           <div class="section-head section-head--medium-margin">
             <h2 class="section-head__title section-head__title--lit">
@@ -340,7 +358,7 @@
           </div>
         </div>
       </section>
-      <div class="section other-items">
+      <div class="section scroll-section other-items" id="motion">
         <div class="container">
             <div class="section-head section-head--medium-margin other-items__section-head">
               <h2 class="section-head__title section-head__title--lit">

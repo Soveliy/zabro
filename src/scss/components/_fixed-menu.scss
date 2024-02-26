@@ -1,0 +1,96 @@
+.fixed-menu{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 60px;
+  z-index: 500;
+  @include tablet(){
+    bottom: 30px;
+  }
+  @include mobile(){
+    bottom: 20px;
+  }
+  &__list{
+    max-width: 1030px;
+    width: 100%;
+    display: flex;
+    box-shadow: 0 3px 0 0 #45286a;
+    background: #734ca5;
+    padding: 7px 35px;
+    margin: 0 auto;
+    list-style: none;
+    border-radius: 10px;
+    align-items: center;
+    @include lit-desktop(){
+      max-width: 100%;
+    }
+    @include tablet(){
+      padding: 5px 5px 5px 30px;
+    }
+    @include mobile(){
+      padding: 4px;
+    }
+  }
+  &__item{
+    &:first-child{
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 135%;
+      color: #fff;
+      margin-right: 27px;
+      @include lit-desktop(){
+        font-size: 16px;
+      }
+      @include tablet(){
+        font-size: 15px;
+        margin-right: 10px;
+      }
+      @include mobile(){
+        display: none;
+      }
+    }
+  }
+  &__item:not(:first-child){
+    width: 100%;
+    @include mobile(){
+      width: auto;
+    }
+    & + &{
+      margin-left: 2px;
+    }
+  }
+  &__link{
+    display: block;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    color: $white;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 135%;
+    color: #fff;
+    text-align: center;
+    padding: 14px 7px;
+    box-sizing: border-box;
+    transition: $transtion;
+    @include lit-desktop(){
+      font-size: 16px;
+    }
+    @include tablet(){
+      font-size: 15px;
+      padding: 12px 5px;
+      font-weight: 400;
+    }
+    @include mobile(){
+      font-size: 14px;
+    }
+    &.js-active{
+      border-color: #e1d8fc;
+      text-shadow: 0px 0px 1px $white;
+    }
+    @include for-desktop(){
+      &:not(.js-active):hover{
+        border-color: #e1d8fc;
+      }
+    }
+  }
+}

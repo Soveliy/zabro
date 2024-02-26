@@ -213,12 +213,35 @@ window.addEventListener('load', () => {
 
 
       modalTariffName.innerHTML = `«${name.dataset.tariffName}»`;
-      modalPrice.innerHTML = `${price.dataset.tariffPrice}`;
+      if (price) {
+        modalPrice.innerHTML = `${price.dataset.tariffPrice}`;
+      } else {
+        modalPrice.innerHTML = '0 ₽'
+      }
+
       modalTariffCount.innerHTML = `${countItems}`;
     })
   })
 
+  const observer = new IntersectionObserver((entries) => {
+    console.log(entries);
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.fixed-menu__link').forEach((link) => {
+          let id = link.getAttribute('href').replace('#', '');
+          if (id === entry.target.id) {
+            link.classList.add('js-active');
+          } else {
+            link.classList.remove('js-active');
+          }
+        });
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
 
+  document.querySelectorAll('.scroll-section').forEach(section => { observer.observe(section)} );
 
   // const dragDrop = () => {
 
