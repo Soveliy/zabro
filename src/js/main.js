@@ -125,9 +125,9 @@ window.addEventListener('load', () => {
         tarifsMobileBtn.previousElementSibling.classList.toggle('js-active')
         tarifsMobileBtn.classList.toggle('js-active')
         if(tarifsMobileBtn.classList.contains('js-active')){
-          tarifsMobileBtn.innerText = `${tarifsMobileBtn.dataset.openText.value}`
+          tarifsMobileBtn.querySelector('span').innerText = `${tarifsMobileBtn.dataset.openText}`
         } else {
-          tarifsMobileBtn.innerText = `${tarifsMobileBtn.dataset.closeText.value}`
+          tarifsMobileBtn.querySelector('span').innerText = `${tarifsMobileBtn.dataset.closeText}`
         }
       })
 

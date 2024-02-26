@@ -42,7 +42,7 @@
     }
     &--2{
       &:before{
-        left: 60%;
+        left: 56%;
       }
       @include lit-mobile(){
         .benefits-table__col{
@@ -169,6 +169,9 @@
     @include tablet(){
       font-size: 16px;
     }
+    @include mobile(){
+      width: 34%;
+    }
     @include lit-mobile(){
       width: 100%;
       margin-bottom: 12px;
@@ -209,6 +212,8 @@
     padding: 0 16px;
     @include mobile(){
       font-size: 14px;
+      padding: 0 8px;
+      width: 22%;
     }
     @include lit-mobile(){
       width: 33.3%;
@@ -223,7 +228,7 @@
         font-size: 16px;
       }
       @include mobile(){
-        font-size: 15px;
+        font-size: 14px;
       }
     }
     svg{

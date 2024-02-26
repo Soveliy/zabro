@@ -250,6 +250,7 @@
     width: 100%;
     z-index: 50;
     min-height: 473px;
+
     @include lit-desktop(){
       min-height: 440px;
     }
@@ -261,9 +262,30 @@
     }
     @include lit-mobile(){
       min-height: auto;
+      border: none;
+      &:before{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        border: 2px solid $phiolText;
+        border-radius: 10px;
+        opacity: 0;
+        transition: $transtion;
+        pointer-events: none;
+      }
     }
     &.js-active{
       border-color: $phiolText;
+      @include lit-mobile(){
+        // border: 2px solid $phiolText;
+        &::before{
+          opacity: 1;
+        }
+      }
+
     }
     &.is-abs{
       position: absolute;
