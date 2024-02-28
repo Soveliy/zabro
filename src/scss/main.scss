@@ -136,6 +136,7 @@ body {
   }
   @include tablet(){
     margin-left: 0;
+    position: relative;
   }
 }
 

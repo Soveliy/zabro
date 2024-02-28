@@ -352,39 +352,7 @@ const rules1 = [
   },
 ];
 
-const rules2= [
-  {
-    ruleSelector:".file-input__elem",
-    rules:[
-      {
-        rule: 'files',
-        value: {
-          files: {
-            extensions: ['jpeg', 'jpg', 'png', 'zip'],
-            maxSize: 50000,
-            types: ['image/jpeg', 'image/jpg', 'image/png'],
-          },
-        }
-      }
-    ]
-  },
-  {
-    ruleSelector: '.input--phone-email',
-    tel: false,
-    telError: 'Это обязательное поле',
-    rules: [
-      {
-        rule: 'minLength',
-        value: 3
-      },
-      {
-        rule: 'required',
-        value: true,
-        errorMessage: 'Это обязательное поле'
-      }
-    ]
-  },
-];
+
 
 
 
@@ -397,7 +365,7 @@ if (document.querySelector('.tell-project__form')){
 
 
 if (document.querySelector('.photo-offer__form')){
-  validateForms('.photo-offer__form', rules2, afterForm);
+  validateForms('.photo-offer__form', rules1, afterForm);
 }
 // Подключение библиотеки модальных окон Micromodal
 import MicroModal from 'micromodal';

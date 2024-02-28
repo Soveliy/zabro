@@ -44,7 +44,8 @@ export const validateForms = (selector, rules, afterSend) => {
     let formData = new FormData(ev.target);
 
     let xhr = new XMLHttpRequest();
-
+    MicroModal.close();
+    MicroModal.show('thanks-modal');
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {

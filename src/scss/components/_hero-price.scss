@@ -609,7 +609,20 @@
         pointer-events: none;
       }
       @include lit-mobile(){
-        display: none;
+        max-height: 0;
+        overflow: hidden;
+        pointer-events: none;
+        opacity: 0;
+        transition: $transtion;
+
+        &.js-active{
+          opacity: 1;
+          max-height: 100px;
+          pointer-events: all;
+          margin-bottom: 12px;
+          overflow: visible;
+
+        }
       }
     }
     &__bottom-btn{
@@ -628,6 +641,7 @@
         line-height: 135%;
         color: #734ca5;
         justify-content: space-between;
+        order: 1;
         &-icon{
           width: 13px;
           height: 7px;

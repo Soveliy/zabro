@@ -165,8 +165,47 @@
     line-height: 146%;
     color: #8b868f;
   }
+  &__thanks{
+    padding: 32px 30px 40px;
+    box-sizing: border-box;
+    max-width: 390px;
+    width: 96%;
+    border-radius: 10px;
+    background: #e1d8fc;
+    .modal__close svg{
+      fill: $phiolText;
+    }
+  }
 }
+.thanks{
+  &__title{
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: #734ca5;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  &__icon{
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
+    stroke: $phiolText;
+    fill: none;
+    margin-top: -5px;
+  }
+  &__desc{
+    text-align: center;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #464547;
+  }
 
+
+}
 .rate-info{
   margin-bottom: 28px;
   @include tablet(){

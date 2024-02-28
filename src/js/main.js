@@ -1,11 +1,11 @@
 import './_vendor';
-import vars from './_vars';
 import './_functions';
 import './_components';
-import Swiper from 'swiper';
 import { isMobile, isTablet, isDesktop } from './functions/check-viewport';
 
 window.addEventListener('load', () => {
+
+  /* Скрипт для блока FAQ */
   const accordeonInit = function(){
     const accordeon = document.querySelector('.accordeon')
     if (accordeon){
@@ -27,6 +27,8 @@ window.addEventListener('load', () => {
 
   }
   accordeonInit()
+
+  /* фунционал с табами для блока Дайте вашим клиентам больше причин для покупки */
 
   const spheresMob = function(){
     const accordeon = document.querySelector('.spheres')
@@ -124,6 +126,7 @@ window.addEventListener('load', () => {
       tarifsMobileBtn.addEventListener('click', () => {
         tarifsMobileBtn.previousElementSibling.classList.toggle('js-active')
         tarifsMobileBtn.classList.toggle('js-active')
+        tarifsMobileBtn.nextElementSibling.classList.toggle('js-active')
         if(tarifsMobileBtn.classList.contains('js-active')){
           tarifsMobileBtn.querySelector('span').innerText = `${tarifsMobileBtn.dataset.openText}`
         } else {
@@ -362,4 +365,7 @@ window.addEventListener('load', () => {
 
   // };
   // dragDrop()
+
+
+
 })
