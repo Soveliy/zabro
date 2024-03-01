@@ -210,16 +210,23 @@
       padding-top: 25px;
       margin: -12px -4.5px;
     }
+    @include mobile(){
+      margin: -5px;
+    }
   }
   &__item-container{
     padding: 12px 7.5px;
     @include tablet(){
       padding: 12px 4.5px;
     }
+    @include mobile(){
+      padding: 5px;
+    }
     &--w33{
       width: 33.3%;
       @include mobile(){
         width: 50%;
+
       }
       @include lit-mobile(){
         width: 100%;
@@ -243,12 +250,13 @@
     flex-direction: column;
     padding: 28px 36px 36px 36px;
     background-color: $white;
-    border: 2px solid transparent;
+    border: 2px solid #F1ECFF;
     box-sizing: border-box;
     border-radius: 10px;
     transition:border-color $transtion;
     width: 100%;
     z-index: 50;
+    height: 100%;
     min-height: 473px;
 
     @include lit-desktop(){
@@ -275,10 +283,12 @@
         opacity: 0;
         transition: $transtion;
         pointer-events: none;
+        z-index: 10;
       }
     }
     &.js-active{
       border-color: $phiolText;
+
       @include lit-mobile(){
         // border: 2px solid $phiolText;
         &::before{
@@ -289,6 +299,8 @@
     }
     &.is-abs{
       position: absolute;
+      height: auto;
+      z-index: 5000;
     }
     @include lit-mobile(){
       position: static;
@@ -307,6 +319,14 @@
     }
     @include lit-mobile(){
       padding: 20px 12px;
+    }
+    &__head{
+      @include mobile(){
+        min-height: 67px;
+      }
+      @include lit-mobile(){
+        min-height: inherit;
+      }
     }
     &__title{
       font-weight: 700;
@@ -328,7 +348,7 @@
     &__price-year{
       position: absolute;
       top: 16px;
-      right: -2px;
+      right: 0;
       border-radius: 10px 0 0 10px;
       padding: 7px 24px 7px 12px;
       background-color: $lightDark;
@@ -604,9 +624,16 @@
     &__btn{
       margin-top: auto;
       width: 100%;
-      &:disabled{
+      &:disabled,&.js-active:disabled{
         opacity: .5;
         pointer-events: none;
+
+
+      }
+      &:disabled:not(.js-active){
+       @include lit-mobile(){
+        opacity: 0;
+       }
       }
       @include lit-mobile(){
         max-height: 0;
@@ -818,10 +845,12 @@
       top: 30px;
     }
     @include mobile(){
-      position: static;
+      position: relative;
       margin-left: 0;
       width: 100%;
       margin-top: auto;
+      top: auto;
+      right: auto;
     }
     @include lit-mobile(){
       margin-top: 28px;

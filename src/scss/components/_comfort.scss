@@ -104,6 +104,12 @@
           padding: 17px 54px;
         }
       }
+      @include tablet(){
+        .btn,.ya-label{
+          max-width: 362px;
+          width: 100%;
+        }
+      }
       @include mobile(){
         margin-top: -60px;
         padding: 0 35px 0 115px;
@@ -137,6 +143,12 @@
   }
   &__tooltip{
     margin-left: 10px;
+    @include tablet(){
+      margin-left: 20px;
+    }
+    @include lit-mobile(){
+      margin-left: 10px;
+    }
   }
   .tooltip__body{
     left: auto;
@@ -144,5 +156,8 @@
   }
   img{
     margin-right: 22px;
+    @include lit-mobile(){
+      margin-right: 12px;
+    }
   }
 }

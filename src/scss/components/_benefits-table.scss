@@ -44,7 +44,7 @@
       &:before{
         left: 60%;
         @include mobile(){
-          letter-spacing: 56%;
+          left: 56%;
         }
       }
       @include lit-mobile(){
@@ -152,6 +152,10 @@
       }
       @include mobile(){
         font-size: 14px;
+        max-width: 180px;
+      }
+      @include lit-mobile(){
+        max-width: 100%;
       }
     }
   }

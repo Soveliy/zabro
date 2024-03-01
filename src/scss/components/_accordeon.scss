@@ -45,6 +45,7 @@
       left: -3.5%;
     }
     @include tablet(){
+      display: none;
       bottom: 7.5%;
       left: -6.5%;
     }
@@ -109,9 +110,10 @@
     visibility: hidden;
     transition: $transtion;
     font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
     @include lit-desktop(){
-      font-size: 18px;
-      line-height: 150%;
+
     }
     @include tablet(){
       padding-left: 20px;

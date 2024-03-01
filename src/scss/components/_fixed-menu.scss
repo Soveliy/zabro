@@ -60,11 +60,12 @@
     }
   }
   &__link{
+    position: relative;
     display: block;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     border-radius: 10px;
     color: $white;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 16px;
     line-height: 135%;
     color: #fff;
@@ -72,6 +73,21 @@
     padding: 14px 7px;
     box-sizing: border-box;
     transition: $transtion;
+    &::before{
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      height: calc(100% + 2px);
+      width: calc(100% + 2px);
+      z-index: -1;
+      border: 2px solid #e1d8fc;
+      z-index: 1;
+      border-radius: 10px;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: $transtion;
+    }
     @include lit-desktop(){
       font-size: 16px;
     }
@@ -81,15 +97,19 @@
       font-weight: 400;
     }
     @include mobile(){
+      text-align: left;
       font-size: 14px;
     }
     &.js-active{
-      border-color: #e1d8fc;
+      // border-color: #e1d8fc;
       text-shadow: 0px 0px 1px $white;
+      &::before{
+        opacity: 1;
+      }
     }
     @include for-desktop(){
       &:not(.js-active):hover{
-        border-color: #e1d8fc;
+        border-color: rgba(#E1D8FC, .5);
       }
     }
   }

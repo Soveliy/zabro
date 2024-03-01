@@ -23,7 +23,14 @@
         background-size: contain;
         right: 0;
         transform: rotate(45deg);
+
       }
+
+    }
+    @include lit-mobile(){
+     &:before{
+      display: none;
+     }
     }
   }
   &__item{

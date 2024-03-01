@@ -134,6 +134,9 @@
       max-width: 242px;
       display: block;
       margin: 0 auto;
+      @include lit-mobile(){
+        max-width: 100%;
+      }
     }
   }
 }
