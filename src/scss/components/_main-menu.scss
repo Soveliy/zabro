@@ -89,7 +89,11 @@
     line-height: 14px; /* 82.353% */
     border-radius: 10px;
     &.is-current{
+      z-index: 500;
       background-color: $lightDark;
+      &::before{
+        opacity: 0;
+      }
     }
     @include tablet(){
       font-size: 14px;
@@ -120,12 +124,14 @@
 
       transition: $transtion;
       &:hover{
+      @include for-desktop(){
         background-color: $phiolText;
         color: $white;
         .main-menu__link-icon{
           fill: $white;
           transform: rotate(180deg);
         }
+      }
       }
 
   }
