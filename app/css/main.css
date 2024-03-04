@@ -6438,13 +6438,13 @@ li.is-open > a svg {
   transition: 0.4s;
 }
 @media (max-width: 992px) {
-  .button-up--type-2 {
+  .button-up.button-up--type-2 {
     bottom: 100px;
   }
 }
 @media (max-width: 700px) {
-  .button-up--type-2 {
-    bottom: 100px;
+  .button-up.button-up--type-2 {
+    bottom: 80px;
   }
 }
 @media (max-width: 700px) {
