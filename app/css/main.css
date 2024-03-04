@@ -6444,7 +6444,7 @@ li.is-open > a svg {
 }
 @media (max-width: 700px) {
   .button-up.button-up--type-2 {
-    bottom: 80px;
+    bottom: 90px;
   }
 }
 @media (max-width: 700px) {
