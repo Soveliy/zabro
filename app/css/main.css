@@ -2032,6 +2032,11 @@ li.is-open > a svg {
     left: 57%;
   }
 }
+@media (max-width: 992px) {
+  .hero--index:before {
+    left: 68%;
+  }
+}
 @media (max-width: 700px) {
   .hero--index:before {
     display: none;
@@ -3780,6 +3785,9 @@ li.is-open > a svg {
   -webkit-transition: opacity 0.4s;
   transition: opacity 0.4s;
   position: absolute;
+}
+.any-type-item:not(.tabs__panel--active) .any-type-item__btn {
+  display: none;
 }
 .any-type-item.tabs__panel--active {
   position: static;
@@ -5687,7 +5695,6 @@ li.is-open > a svg {
 .tell-project__desc {
   padding-right: 15px;
   font-style: italic;
-  font-weight: 500;
   font-size: 14px;
   line-height: 146%;
   color: #8B868F;
@@ -6430,11 +6437,20 @@ li.is-open > a svg {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
+@media (max-width: 992px) {
+  .button-up--type-2 {
+    bottom: 100px;
+  }
+}
+@media (max-width: 700px) {
+  .button-up--type-2 {
+    bottom: 100px;
+  }
+}
 @media (max-width: 700px) {
   .button-up {
     right: 20px;
     bottom: 20px;
-    display: none;
   }
 }
 .button-up--show {
@@ -11756,7 +11772,6 @@ li.is-open > a svg {
 }
 .modal__policy {
   font-style: italic;
-  font-weight: 500;
   font-size: 14px;
   line-height: 146%;
   color: #8b868f;
@@ -12014,6 +12029,9 @@ li.is-open > a svg {
 @media (max-width: 700px) {
   .fixed-menu__list {
     padding: 4px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 .fixed-menu__item:first-child {
@@ -12056,7 +12074,7 @@ li.is-open > a svg {
   border: 1px solid transparent;
   border-radius: 10px;
   color: #FFF;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 16px;
   line-height: 135%;
   color: #fff;
@@ -12098,12 +12116,19 @@ li.is-open > a svg {
 }
 @media (max-width: 700px) {
   .fixed-menu__link {
+    padding: 12px;
     text-align: left;
     font-size: 14px;
   }
 }
+@media (max-width: 500px) {
+  .fixed-menu__link {
+    padding: 12px 4px;
+  }
+}
 .fixed-menu__link.js-active {
   text-shadow: 0px 0px 1px #FFF;
+  font-weight: 500;
 }
 .fixed-menu__link.js-active::before {
   opacity: 1;

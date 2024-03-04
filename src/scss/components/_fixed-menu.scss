@@ -29,6 +29,7 @@
     }
     @include mobile(){
       padding: 4px;
+      justify-content: center;
     }
   }
   &__item{
@@ -65,7 +66,7 @@
     border: 1px solid transparent;
     border-radius: 10px;
     color: $white;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 16px;
     line-height: 135%;
     color: #fff;
@@ -97,12 +98,17 @@
       font-weight: 400;
     }
     @include mobile(){
+      padding: 12px;
       text-align: left;
       font-size: 14px;
+    }
+    @include lit-mobile(){
+      padding: 12px 4px;
     }
     &.js-active{
       // border-color: #e1d8fc;
       text-shadow: 0px 0px 1px $white;
+      font-weight: 500;
       &::before{
         opacity: 1;
       }

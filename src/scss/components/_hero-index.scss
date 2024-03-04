@@ -15,6 +15,9 @@
       @include lit-desktop(){
         left: 57%;
       }
+      @include tablet(){
+        left: 68%;
+      }
       @include mobile(){
         display: none;
       }

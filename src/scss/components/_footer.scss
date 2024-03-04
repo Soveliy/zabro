@@ -538,10 +538,18 @@
   opacity: 0;
   pointer-events: none;
   transition: .4s;
+  &--type-2{
+    @include tablet(){
+      bottom: 100px;
+    }
+    @include mobile(){
+      bottom: 100px;
+    }
+  }
   @include mobile(){
     right: 20px;
     bottom: 20px;
-    display: none;
+    // display: none;
   }
   &--show{
     pointer-events: all;
