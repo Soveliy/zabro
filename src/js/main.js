@@ -58,6 +58,19 @@ window.addEventListener('load', () => {
   spheresMob()
 
 
+
+  // Нам доверяют, кнопка раскрытия всех логотипов
+  const confidenceBtn = document.querySelector('.js-confidence__btn');
+  if (confidenceBtn) {
+    const confidenceItems = document.querySelectorAll('.our-clients__item-container:nth-child(n +7)')
+    const toggleVisibleItems = () => {
+      confidenceItems.forEach(confidenceItem => {
+        confidenceItem.classList.toggle('our-clients__item-container--js-active')
+      })
+      confidenceBtn.classList.toggle('js-hidden')
+    }
+    confidenceBtn.addEventListener('click', toggleVisibleItems)
+  }
   const burger = document.querySelector('.burger');
   const mobileMenu = document.querySelector('.mobile-menu')
   burger.addEventListener('click', () => {
@@ -227,21 +240,25 @@ window.addEventListener('load', () => {
   })
 
   const observer = new IntersectionObserver((entries) => {
-    console.log(entries);
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         document.querySelectorAll('.fixed-menu__link').forEach((link) => {
           let id = link.getAttribute('href').replace('#', '');
+          console.log(id)
           if (id === entry.target.id) {
             link.classList.add('js-active');
           } else {
             link.classList.remove('js-active');
           }
         });
+      } else {
+          document.querySelectorAll('.fixed-menu__link').forEach((link) => {
+          link.classList.remove('js-active');
+        })
       }
     });
   }, {
-    threshold: 0.1
+    threshold: 0.35
   });
 
   document.querySelectorAll('.scroll-section').forEach(section => { observer.observe(section)} );

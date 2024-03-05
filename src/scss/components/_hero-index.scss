@@ -293,9 +293,10 @@
       @include tablet(){
         border: 1px solid #f1ecff;
         box-sizing: border-box;
-        position: static;
+        position: relative;
         max-width: 100%;
         height: auto;
+        z-index: 50;
       }
       @include mobile(){
         border-radius: 10px 0 0 117px;
@@ -308,7 +309,7 @@
     left: 0;
     height: 70px;
     width: 70px;
-    z-index: 50;
+    z-index: 100;
     @include for-desktop(){
       &:hover{
         .hero__video-iconBg{
@@ -339,6 +340,7 @@
 
   }
   &__btn{
+
     margin-top: 44px;
     @include lit-desktop(){
       margin-top: 31px;

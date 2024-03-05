@@ -57,12 +57,13 @@
 
     background: #fff;
     max-width: 818px;
-    width:96%;
+    width:100%;
     padding: 50px;
     box-sizing: border-box;
     margin: 0 auto;
     @include lit-desktop(){
       max-width: 717px;
+      width: 96%;
     }
     @include tablet(){
       max-width: 690px;
@@ -176,6 +177,26 @@
     }
   }
 }
+#rate-modal .modal__wrap:after{
+  right: 82px;
+  @include tablet(){
+    right: 62px;
+  }
+  @include mobile(){
+    display: none;
+  }
+}
+#rate-modal .modal__title{
+  @include tablet(){
+    font-size: 30px;
+  }
+  @include mobile(){
+    font-size: 26px;
+  }
+  @include lit-mobile(){
+    font-size: 24px;
+  }
+}
 .thanks{
   &__title{
     display: flex;
@@ -274,7 +295,7 @@
     border-radius: 10px;
     background-color: transparent;
 
-    min-width: 115px;
+    min-width: 100px;
     font-size: 18px;
     padding-left: 8px;
     color: $phiolText;

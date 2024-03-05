@@ -1,6 +1,23 @@
 .confidence{
   position: relative;
   padding: 60px 0;
+  .our-clients__item-container:nth-child(n + 7){
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    pointer-events: none;
+    transition: $transtion;
+    &:not(.our-clients__item-container--js-active){
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    &.our-clients__item-container--js-active{
+      opacity: 1;
+      max-height: 200px;
+      pointer-events: all;
+    }
+  }
   @include lit-desktop(){
     padding: 40px 0;
   }
@@ -131,12 +148,18 @@
       margin-top:40px;
     }
     .btn{
+
       max-width: 242px;
       display: block;
       margin: 0 auto;
       @include lit-mobile(){
         max-width: 100%;
       }
+    }
+  }
+  &__btn{
+    &.js-hidden{
+      display: none;
     }
   }
 }
