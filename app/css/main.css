@@ -4899,6 +4899,12 @@ li.is-open > a svg {
     max-width: 100%;
   }
 }
+@media (max-width: 700px) {
+  .confidence__btn.btn--big.btn--border > span {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}
 .confidence__btn.js-hidden {
   display: none;
 }
@@ -11810,6 +11816,17 @@ li.is-open > a svg {
 }
 .modal__thanks .modal__close svg {
   fill: #734CA5;
+}
+@media (max-width: 700px) {
+  .modal .input__textarea:not(:-moz-placeholder-shown) ~ label {
+    opacity: 0;
+  }
+  .modal .input__textarea:not(:-ms-input-placeholder) ~ label {
+    opacity: 0;
+  }
+  .modal .input__textarea:not(:placeholder-shown) ~ label, .modal .input__textarea:focus ~ label {
+    opacity: 0;
+  }
 }
 
 #rate-modal .modal__wrap:after {

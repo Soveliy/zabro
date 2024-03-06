@@ -158,6 +158,15 @@
     }
   }
   &__btn{
+    &.btn--big.btn--border{
+      > span{
+        @include mobile(){
+          padding-right: 25px;
+          padding-left: 25px;
+        }
+      }
+    }
+
     &.js-hidden{
       display: none;
     }

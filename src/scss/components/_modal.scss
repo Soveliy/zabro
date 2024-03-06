@@ -176,6 +176,11 @@
       fill: $phiolText;
     }
   }
+ .input__textarea:not(:placeholder-shown) ~ label, .input__textarea:focus ~ label{
+    @include mobile(){
+      opacity: 0;
+    }
+  }
 }
 #rate-modal .modal__wrap:after{
   right: 82px;
