@@ -154,6 +154,7 @@
       margin: 0 auto;
       @include lit-mobile(){
         max-width: 100%;
+        width: 100%;
       }
     }
   }

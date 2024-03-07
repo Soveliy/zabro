@@ -4617,7 +4617,7 @@ li.is-open > a svg {
     padding: 17px 54px;
   }
 }
-@media (max-width: 992px) {
+@media (max-width: 1250px) {
   .comfort-item__footer .btn, .comfort-item__footer .ya-label {
     max-width: 362px;
     width: 100%;
@@ -4637,7 +4637,7 @@ li.is-open > a svg {
 }
 @media (max-width: 500px) {
   .comfort-item__footer {
-    padding: 0 25px 0 16px;
+    padding: 0 16px;
     margin-top: 17px;
   }
 }
@@ -4897,6 +4897,7 @@ li.is-open > a svg {
 @media (max-width: 500px) {
   .confidence__btn-container .btn {
     max-width: 100%;
+    width: 100%;
   }
 }
 @media (max-width: 700px) {
@@ -10810,6 +10811,7 @@ li.is-open > a svg {
 @media (max-width: 992px) {
   .file-input__desc--tablet {
     display: block;
+    margin-top: 5px;
   }
 }
 @media (max-width: 700px) {
@@ -10821,6 +10823,16 @@ li.is-open > a svg {
   .file-input__desc {
     font-size: 14px;
     line-height: 135%;
+  }
+}
+@media (max-width: 992px) {
+  .file-input__desk-and-mob {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .file-input__desk-and-mob {
+    display: block;
   }
 }
 .file-input__row {

@@ -66,15 +66,25 @@
       display: none;
       @include tablet(){
         display: block;
+        margin-top: 5px;
       }
       @include mobile(){
         display: none;
       }
     }
+
     @include tablet(){
       font-size: 14px;
       line-height: 135%;
 
+    }
+  }
+  &__desk-and-mob{
+    @include tablet(){
+      display: none;
+    }
+    @include mobile(){
+      display: block;
     }
   }
   &__row{
