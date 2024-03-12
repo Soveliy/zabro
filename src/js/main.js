@@ -277,12 +277,19 @@ window.addEventListener('load', () => {
           let height = sec.offsetHeight;
 
           let id = sec.getAttribute('id');
-          if(top >= offset && top < offset + height) {
+          if (id){
+            if(top >= offset && top < offset + height) {
               navLinks.forEach(links => {
                   links.classList.remove('js-active');
                   document.querySelector('.fixed-menu__link[href*=' + id + ']').classList.add('js-active');
               });
+            } else {
+              navLinks.forEach(links => {
+                links.classList.remove('js-active');
+            });
+            }
           }
+
       });
   };
   }
