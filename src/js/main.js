@@ -239,29 +239,53 @@ window.addEventListener('load', () => {
     })
   })
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        document.querySelectorAll('.fixed-menu__link').forEach((link) => {
-          let id = link.getAttribute('href').replace('#', '');
-          console.log(id)
-          if (id === entry.target.id) {
-            link.classList.add('js-active');
-          } else {
-            link.classList.remove('js-active');
-          }
-        });
-      } else {
-          document.querySelectorAll('.fixed-menu__link').forEach((link) => {
-          link.classList.remove('js-active');
-        })
-      }
-    });
-  }, {
-    threshold: 0.35
-  });
+  // const observer = new IntersectionObserver((entries) => {
+  //   entries.forEach((entry) => {
+  //     if (entry.isIntersecting) {
+  //       document.querySelectorAll('.fixed-menu__link').forEach((link) => {
+  //         let id = link.getAttribute('href').replace('#', '');
+  //         console.log(id)
+  //         if (id === entry.target.id) {
+  //           link.classList.add('js-active');
+  //         } else {
+  //           link.classList.remove('js-active');
+  //         }
+  //       });
+  //     } else {
+  //         document.querySelectorAll('.fixed-menu__link').forEach((link) => {
+  //         link.classList.remove('js-active');
+  //       })
+  //     }
+  //   });
+  // }, {
+  //   threshold: 0.45
+  // });
 
-  document.querySelectorAll('.scroll-section').forEach(section => { observer.observe(section)} );
+  // document.querySelectorAll('.scroll-section').forEach(section => { observer.observe(section)} );
+
+
+
+  const sections = document.querySelectorAll('.scroll-section');
+  const navLinks = document.querySelectorAll('.fixed-menu__link');
+  // const lastSection = sections[length]
+  // console.log(lastSection)
+  if (navLinks.length && sections.length){
+    window.onscroll = () => {
+      sections.forEach(sec => {
+          let top = window.scrollY;
+          let offset = sec.offsetTop - 500;
+          let height = sec.offsetHeight;
+
+          let id = sec.getAttribute('id');
+          if(top >= offset && top < offset + height) {
+              navLinks.forEach(links => {
+                  links.classList.remove('js-active');
+                  document.querySelector('.fixed-menu__link[href*=' + id + ']').classList.add('js-active');
+              });
+          }
+      });
+  };
+  }
 
   // const dragDrop = () => {
 

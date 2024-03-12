@@ -4906,6 +4906,12 @@ li.is-open > a svg {
     padding-left: 25px;
   }
 }
+@media (max-width: 500px) {
+  .confidence__btn.btn--big.btn--border > span {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
 .confidence__btn.js-hidden {
   display: none;
 }
