@@ -269,31 +269,47 @@ window.addEventListener('load', () => {
   const navLinks = document.querySelectorAll('.fixed-menu__link');
   // const lastSection = sections[length]
   // console.log(lastSection)
-  if (navLinks.length && sections.length){
-    window.onscroll = () => {
-      sections.forEach(sec => {
-          let top = window.scrollY;
-          let offset = sec.offsetTop - 500;
-          let height = sec.offsetHeight;
-
-          let id = sec.getAttribute('id');
-          if (id){
-            if(top >= offset && top < offset + height) {
-              navLinks.forEach(links => {
-                  links.classList.remove('js-active');
-                  document.querySelector('.fixed-menu__link[href*=' + id + ']').classList.add('js-active');
-              });
-            } else {
-              navLinks.forEach(links => {
-                links.classList.remove('js-active');
-            });
-            }
-          }
-
-      });
-  };
+  function activateMenuLink(id) {
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === '#' + id) {
+        link.classList.add('js-active');
+      } else {
+        link.classList.remove('js-active');
+      }
+    });
   }
 
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2
+    );
+  }
+
+  function handleScroll() {
+    let activeSectionId = null;
+
+    sections.forEach(sec => {
+      const id = sec.getAttribute('id');
+      if (isInViewport(sec)) {
+        activeSectionId = id;
+      }
+    });
+
+    if (activeSectionId) {
+      activateMenuLink(activeSectionId);
+    } else {
+      // Если ни одна секция не видна, то удаляем активный класс у всех ссылок меню
+      navLinks.forEach(link => {
+        link.classList.remove('js-active');
+      });
+    }
+  }
+
+  if (navLinks.length && sections.length) {
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('DOMContentLoaded', handleScroll);
+  }
   // const dragDrop = () => {
 
   //   const jsDrags = document.querySelectorAll('.file-input');
