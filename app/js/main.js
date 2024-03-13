@@ -15,360 +15,12 @@ console.log('components');
 /*!******************************!*\
   !*** ./src/js/_functions.js ***!
   \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _functions_mobile_check__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions/mobile-check */ "./src/js/functions/mobile-check.js");
-/* harmony import */ var nouislider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! nouislider */ "./node_modules/nouislider/dist/nouislider.mjs");
-/* harmony import */ var graph_tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graph-tabs */ "./node_modules/graph-tabs/src/graph-tabs.js");
-/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.mjs");
-/* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
-/* harmony import */ var _functions_validate_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./functions/validate-forms */ "./src/js/functions/validate-forms.js");
-/* harmony import */ var micromodal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! micromodal */ "./node_modules/micromodal/dist/micromodal.es.js");
-/* harmony import */ var nice_select2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! nice-select2 */ "./node_modules/nice-select2/src/js/nice-select2.js");
 // Данный файл - лишь собрание подключений готовых компонентов.
 // Рекомендуется создавать отдельный файл в папке components и подключать все там
 
 // Определение операционной системы на мобильных
-
-console.log((0,_functions_mobile_check__WEBPACK_IMPORTED_MODULE_0__.mobileCheck)());
-
-const rangeSliderInit = () => {
-  // создаем функцию инициализации слайдера
-  const range = document.querySelector('.slider__range'); // Ищем слайдер
-  const input = document.querySelector('.slider__input'); // Ищем input с меньшим значнием
-
-  if (!range || !input) return; // если этих элементов нет, прекращаем выполнение функции, чтобы не было ошибок
-
-  const inputs = [input]; // создаем массив из меньшего и большего значения
-
-  nouislider__WEBPACK_IMPORTED_MODULE_1__["default"].create(range, {
-    // инициализируем слайдер
-    start: [0],
-    // устанавливаем начальные значения
-
-    // tooltips: true,
-    connect: [true, false],
-    range: {
-      'min': 0,
-      '10%': 100,
-      '20%': 200,
-      '30%': 300,
-      '40%': 400,
-      '50%': 500,
-      '60%': 600,
-      '70%': 700,
-      '80%': 800,
-      '90%': 900,
-      'max': 1000
-    },
-    pips: {
-      mode: 'steps',
-      density: 10,
-      values: 10
-    }
-  });
-  range.noUiSlider.on('update', function (values, handle) {
-    // при изменений положения элементов управления слайдера изменяем соответствующие значения
-    inputs[handle].value = parseInt(values[handle]);
-    getActiveTariff();
-  });
-  input.addEventListener('change', function () {
-    // при изменении меньшего значения в input - меняем положение соответствующего элемента управления
-    range.noUiSlider.set([this.value, null]);
-    getActiveTariff();
-  });
-};
-const init = () => {
-  rangeSliderInit(); // запускаем функцию инициализации слайдера
-};
-const getActiveTariff = () => {
-  const slider = document.querySelector('.slider');
-  const inputValue = document.querySelector('.slider__input').value; // Ищем input с меньшим значнием
-  const TariffItems = document.querySelectorAll('.main-tarifs-item');
-  const TariffsBtns = document.querySelectorAll('[data-micromodal-trigger="rate-modal"]');
-  TariffItems.forEach(TariffItem => {
-    TariffItem.classList.remove('js-active');
-  });
-  if (inputValue <= 3) {
-    TariffsBtns[0].removeAttribute('disabled', '');
-    TariffItems[0].classList.add('js-active');
-    slider.className = "hero-price__slider slider slider--1";
-  } else if (inputValue > 3 && inputValue <= 50) {
-    TariffsBtns[0].setAttribute('disabled', '');
-    TariffsBtns[1].removeAttribute('disabled', '');
-    TariffItems[1].classList.add('js-active');
-    slider.className = "hero-price__slider slider slider--2";
-  } else {
-    TariffsBtns[0].setAttribute('disabled', '');
-    TariffsBtns[1].setAttribute('disabled', '');
-    TariffItems[2].classList.add('js-active');
-    slider.className = "hero-price__slider slider slider--3";
-  }
-};
-window.addEventListener('DOMContentLoaded', init); // запускаем функцию init, когда документ будет загружен и готов к взаимодействию
-
-// Троттлинг функции (для ресайза, ввода в инпут, скролла и т.д.)м
-// import { throttle } from './functions/throttle';
-// let yourFunc = () => { console.log('throttle') };
-// let func = throttle(yourFunc);
-// window.addEventListener('resize', func);
-
-// Фикс фулскрин-блоков
-// import './functions/fix-fullheight';
-
-// Реализация бургер-меню
-// import { burger } from './functions/burger';
-
-// Реализация остановки скролла (не забудьте вызвать функцию)
-// import { disableScroll } from './functions/disable-scroll';
-
-// Реализация включения скролла (не забудьте вызвать функцию)
-// import { enableScroll } from './functions/enable-scroll';
-
-// Реализация модального окна
-// import GraphModal from 'graph-modal';
-// const modal = new GraphModal();
-
-// Реализация табов
-
-if (document.querySelector('[data-tabs="tab"]')) {
-  const tabs = new graph_tabs__WEBPACK_IMPORTED_MODULE_2__["default"]('tab');
-}
-if (document.querySelector('[data-tabs="spheres-tab"]')) {
-  const tabsSlider = new graph_tabs__WEBPACK_IMPORTED_MODULE_2__["default"]('spheres-tab');
-}
-
-// Получение высоты шапки сайта (не забудьте вызвать функцию)
-// import { getHeaderHeight } from './functions/header-height';
-
-// Подключение плагина кастом-скролла
-// import 'simplebar';
-
-// Подключение плагина для позиционирования тултипов
-// import { createPopper, right} from '@popperjs/core';
-// createPopper(el, tooltip, {
-//   placement: 'right'
-// });
-
-// Подключение свайпера
-// import Swiper, {  } from 'swiper';
-// Swiper.use([ ]);
-
-
-swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper_modules__WEBPACK_IMPORTED_MODULE_4__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_4__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_4__.Thumbs, swiper_modules__WEBPACK_IMPORTED_MODULE_4__.Scrollbar]);
-const swiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.gallery__swiper', {
-  slidesPerView: 'auto',
-  spaceBetween: 8,
-  breakpoints: {
-    577: {
-      spaceBetween: 30
-    }
-  }
-});
-const examples = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.examples__swiper', {
-  slidesPerView: 'auto',
-  spaceBetween: 20,
-  navigation: {
-    nextEl: '.examples__arrow--next',
-    prevEl: '.examples__arrow--prev'
-  },
-  breakpoints: {
-    450: {
-      slidesPerView: 2,
-      spaceBetween: 20
-    },
-    577: {
-      slidesPerView: 3,
-      spaceBetween: 22
-    },
-    769: {
-      slidesPerView: 4,
-      spaceBetween: 22
-    }
-  }
-});
-const otherItems = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.hero-other-item__slider-js', {
-  slidesPerView: 'auto',
-  spaceBetween: 20,
-  navigation: {
-    nextEl: '.hero-other-item--next',
-    prevEl: '.hero-other-item--prev'
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true
-  }
-});
-function TabsSliders() {
-  let swiperDetails = document.querySelectorAll(".spheres-item__frames");
-  let swiperPreviews = document.querySelectorAll(".spheres__thumbs-slider");
-  swiperDetails.forEach((swiperDetail, index) => {
-    let arrowNext = swiperPreviews[index].querySelector('.swiper-button-next');
-    let arrowPrev = swiperPreviews[index].querySelector('.swiper-button-prev');
-    let scrollBarElem = swiperPreviews[index].querySelector('.swiper-scrollbar');
-    let swiperPreview = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](swiperPreviews[index], {
-      spaceBetween: 6,
-      slidesPerView: 'auto',
-      freeMode: true,
-      watchSlidesProgress: true,
-      navigation: {
-        nextEl: arrowNext,
-        prevEl: arrowPrev
-      },
-      scrollbar: {
-        el: scrollBarElem,
-        hide: false,
-        draggable: true
-      },
-      breakpoints: {
-        769: {
-          spaceBetween: 8
-        }
-      }
-    });
-    swiperDetail = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](swiperDetails[index], {
-      spaceBetween: 0,
-      // navigation: {
-      // nextEl: ".swiper-button-next",
-      // prevEl: ".swiper-button-prev",
-      // },
-      thumbs: {
-        swiper: swiperPreviews[index]
-      }
-    });
-  });
-}
-TabsSliders();
-const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
-  let swiper;
-  breakpoint = window.matchMedia(breakpoint);
-  const enableSwiper = function (className, settings) {
-    swiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](className, settings);
-    if (callback) {
-      callback(swiper);
-    }
-  };
-  const checker = function () {
-    if (breakpoint.matches) {
-      return enableSwiper(swiperClass, swiperSettings);
-    } else {
-      if (swiper !== undefined) swiper.destroy(true, true);
-      return;
-    }
-  };
-  breakpoint.addEventListener('change', checker);
-  checker();
-};
-resizableSwiper('(max-width: 1250px)', '.spheres__list ', {
-  // loop: true,
-  spaceBetween: 18,
-  slidesPerView: 'auto',
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true
-  }
-});
-
-// var swiperThumbs = new Swiper(".spheres__thumbs-slider", {
-//   spaceBetween: 8,
-//   slidesPerView: 'auto',
-//   freeMode: true,
-//   watchSlidesProgress: true,
-// });
-
-// var swiperMain = new Swiper(".spheres-item__frames", {
-//   spaceBetween: 10,
-//   thumbs: {
-//     swiper: swiperThumbs,
-
-//   },
-// });
-
-// Подключение анимаций по скроллу
-// import AOS from 'aos';
-// AOS.init();
-
-// Подключение параллакса блоков при скролле
-// import Rellax from 'rellax';
-// const rellax = new Rellax('.rellax');
-
-// Подключение плавной прокрутки к якорям
-// import SmoothScroll from 'smooth-scroll';
-// const scroll = new SmoothScroll('a[href*="#"]');
-
-// Подключение событий свайпа на мобильных
-// import 'swiped-events';
-// document.addEventListener('swiped', function(e) {
-//   console.log(e.target);
-//   console.log(e.detail);
-//   console.log(e.detail.dir);
-// });
-
-
-const rules1 = [{
-  ruleSelector: '.input--name',
-  rules: [{
-    rule: 'minLength',
-    value: 3
-  }, {
-    rule: 'required',
-    value: true,
-    errorMessage: 'Это обязательное поле'
-  }]
-}, {
-  ruleSelector: '.input--phone-email',
-  tel: false,
-  telError: 'Это обязательное поле',
-  rules: [{
-    rule: 'minLength',
-    value: 3
-  }, {
-    rule: 'required',
-    value: true,
-    errorMessage: 'Это обязательное поле'
-  }]
-}];
-const afterForm = () => {
-  console.log('Произошла отправка, тут можно писать любые действия');
-};
-if (document.querySelector('.tell-project__form')) {
-  (0,_functions_validate_forms__WEBPACK_IMPORTED_MODULE_5__.validateForms)('.tell-project__form', rules1, afterForm);
-}
-if (document.querySelector('.photo-offer__form')) {
-  (0,_functions_validate_forms__WEBPACK_IMPORTED_MODULE_5__.validateForms)('.photo-offer__form', rules1, afterForm);
-}
-// Подключение библиотеки модальных окон Micromodal
-
-micromodal__WEBPACK_IMPORTED_MODULE_6__["default"].init({
-  disableScroll: true,
-  disableFocus: true
-});
-
-if (document.getElementById("a-select")) {
-  new nice_select2__WEBPACK_IMPORTED_MODULE_7__["default"](document.getElementById("a-select"), {});
-}
-
-/***/ }),
-
-/***/ "./src/js/_vars.js":
-/*!*************************!*\
-  !*** ./src/js/_vars.js ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  windowEl: window,
-  documentEl: document,
-  htmlEl: document.documentElement,
-  bodyEl: document.body
-});
 
 /***/ }),
 
@@ -419,34 +71,6 @@ const isDesktop = () => {
     return true;
   }
   return false;
-};
-
-/***/ }),
-
-/***/ "./src/js/functions/mobile-check.js":
-/*!******************************************!*\
-  !*** ./src/js/functions/mobile-check.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   mobileCheck: () => (/* binding */ mobileCheck)
-/* harmony export */ });
-/* harmony import */ var _vars__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_vars */ "./src/js/_vars.js");
-
-const mobileCheck = () => {
-  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-  if (/android/i.test(userAgent)) {
-    _vars__WEBPACK_IMPORTED_MODULE_0__["default"].htmlEl.classList.add('page--android');
-    return "Android";
-  }
-  if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-    _vars__WEBPACK_IMPORTED_MODULE_0__["default"].htmlEl.classList.add('page--ios');
-    return "iOS";
-  }
-  return "unknown";
 };
 
 /***/ }),
@@ -19948,32 +19572,47 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _vendor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_vendor */ "./src/js/_vendor.js");
 /* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_functions */ "./src/js/_functions.js");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_functions__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_components */ "./src/js/_components.js");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _functions_check_viewport__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./functions/check-viewport */ "./src/js/functions/check-viewport.js");
+/* harmony import */ var nouislider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! nouislider */ "./node_modules/nouislider/dist/nouislider.mjs");
+/* harmony import */ var graph_tabs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! graph-tabs */ "./node_modules/graph-tabs/src/graph-tabs.js");
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.mjs");
+/* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
+/* harmony import */ var _functions_validate_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./functions/validate-forms */ "./src/js/functions/validate-forms.js");
+/* harmony import */ var micromodal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! micromodal */ "./node_modules/micromodal/dist/micromodal.es.js");
+/* harmony import */ var nice_select2__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! nice-select2 */ "./node_modules/nice-select2/src/js/nice-select2.js");
 
+
+
+
+
+
+
+
+swiper__WEBPACK_IMPORTED_MODULE_6__["default"].use([swiper_modules__WEBPACK_IMPORTED_MODULE_7__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_7__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_7__.Thumbs, swiper_modules__WEBPACK_IMPORTED_MODULE_7__.Scrollbar]);
 
 
 
 window.addEventListener('load', () => {
-  /* Скрипт для блока FAQ */
-  const accordeonInit = function () {
-    const accordeon = document.querySelector('.accordeon');
-    if (accordeon) {
-      const buttons = accordeon.querySelectorAll('.accordeon__head');
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          buttons.forEach(otherButton => {
-            if (otherButton !== button) {
-              otherButton.parentElement.classList.remove('js-active');
-            }
-          });
-          button.parentElement.classList.toggle('js-active');
-        });
-      });
-    }
-  };
-  accordeonInit();
+  /* Шапка */
+
+  const burger = document.querySelector('.burger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('js-active');
+    document.body.classList.toggle('js-hidden');
+  });
+  const shadowBtn = document.querySelector('.mobile-menu__shadow');
+  if (shadowBtn) {
+    shadowBtn.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('js-active');
+      document.body.classList.remove('js-hidden');
+    });
+  }
 
   /* фунционал с табами для блока Дайте вашим клиентам больше причин для покупки */
 
@@ -19996,6 +19635,75 @@ window.addEventListener('load', () => {
     }
   };
   spheresMob();
+  function TabsSliders() {
+    let swiperDetails = document.querySelectorAll(".spheres-item__frames");
+    let swiperPreviews = document.querySelectorAll(".spheres__thumbs-slider");
+    swiperDetails.forEach((swiperDetail, index) => {
+      let arrowNext = swiperPreviews[index].querySelector('.swiper-button-next');
+      let arrowPrev = swiperPreviews[index].querySelector('.swiper-button-prev');
+      let scrollBarElem = swiperPreviews[index].querySelector('.swiper-scrollbar');
+      let swiperPreview = new swiper__WEBPACK_IMPORTED_MODULE_6__["default"](swiperPreviews[index], {
+        spaceBetween: 6,
+        slidesPerView: 'auto',
+        freeMode: true,
+        watchSlidesProgress: true,
+        navigation: {
+          nextEl: arrowNext,
+          prevEl: arrowPrev
+        },
+        scrollbar: {
+          el: scrollBarElem,
+          hide: false,
+          draggable: true
+        },
+        breakpoints: {
+          769: {
+            spaceBetween: 8
+          }
+        }
+      });
+      swiperDetail = new swiper__WEBPACK_IMPORTED_MODULE_6__["default"](swiperDetails[index], {
+        spaceBetween: 0,
+        // navigation: {
+        // nextEl: ".swiper-button-next",
+        // prevEl: ".swiper-button-prev",
+        // },
+        thumbs: {
+          swiper: swiperPreviews[index]
+        }
+      });
+    });
+  }
+  TabsSliders();
+  const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
+    let swiper;
+    breakpoint = window.matchMedia(breakpoint);
+    const enableSwiper = function (className, settings) {
+      swiper = new swiper__WEBPACK_IMPORTED_MODULE_6__["default"](className, settings);
+      if (callback) {
+        callback(swiper);
+      }
+    };
+    const checker = function () {
+      if (breakpoint.matches) {
+        return enableSwiper(swiperClass, swiperSettings);
+      } else {
+        if (swiper !== undefined) swiper.destroy(true, true);
+        return;
+      }
+    };
+    breakpoint.addEventListener('change', checker);
+    checker();
+  };
+  resizableSwiper('(max-width: 1250px)', '.spheres__list ', {
+    // loop: true,
+    spaceBetween: 18,
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  });
 
   // Нам доверяют, кнопка раскрытия всех логотипов
   const confidenceBtn = document.querySelector('.js-confidence__btn');
@@ -20009,23 +19717,34 @@ window.addEventListener('load', () => {
     };
     confidenceBtn.addEventListener('click', toggleVisibleItems);
   }
-  const burger = document.querySelector('.burger');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    mobileMenu.classList.toggle('js-active');
-    document.body.classList.toggle('js-hidden');
-  });
-  const shadowBtn = document.querySelector('.mobile-menu__shadow');
-  if (shadowBtn) {
-    shadowBtn.addEventListener('click', () => {
-      burger.classList.remove('open');
-      mobileMenu.classList.remove('js-active');
-      document.body.classList.remove('js-hidden');
-    });
-  }
-  // Определение ширины экрана
 
+  /* Скрипт для блока FAQ */
+  const accordeonInit = function () {
+    const accordeon = document.querySelector('.accordeon');
+    if (accordeon) {
+      const buttons = accordeon.querySelectorAll('.accordeon__head');
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          buttons.forEach(otherButton => {
+            if (otherButton !== button) {
+              otherButton.parentElement.classList.remove('js-active');
+            }
+          });
+          button.parentElement.classList.toggle('js-active');
+        });
+      });
+    }
+  };
+  accordeonInit();
+
+  // Реализация табов
+
+  if (document.querySelector('[data-tabs="tab"]')) {
+    const tabs = new graph_tabs__WEBPACK_IMPORTED_MODULE_5__["default"]('tab');
+  }
+  if (document.querySelector('[data-tabs="spheres-tab"]')) {
+    const tabsSlider = new graph_tabs__WEBPACK_IMPORTED_MODULE_5__["default"]('spheres-tab');
+  }
   const radios = document.querySelectorAll('.hero-price__radio input');
   if (radios.length > 0) {
     radios.forEach(radio => {
@@ -20089,6 +19808,7 @@ window.addEventListener('load', () => {
       }
     });
   }
+
   // считываем кнопку
   const goTopBtn = document.querySelector(".button-up--js");
 
@@ -20118,13 +19838,6 @@ window.addEventListener('load', () => {
       behavior: 'smooth'
     });
   }
-
-  // При необходимости можно добавить обработчик события клика на миниатюру для переключения
-  // swiperThumbs.on('click', function () {
-  //   // Пример: при клике на миниатюру, перейти к соответствующему слайду в основном слайдере
-  //   swiperMain.slideTo(swiperThumbs.clickedIndex);
-  //   swiperThumbs.slideTo(swiperThumbs.clickedIndex);
-  // });
 
   // Функционал модалки с тарифами. Берём все значения из карточки и загоянем значения в модалку, а также в скрытые инпуты для бека
   const tariffBtns = document.querySelectorAll('[data-micromodal-trigger="rate-modal"]');
@@ -20161,34 +19874,10 @@ window.addEventListener('load', () => {
     });
   });
 
-  // const observer = new IntersectionObserver((entries) => {
-  //   entries.forEach((entry) => {
-  //     if (entry.isIntersecting) {
-  //       document.querySelectorAll('.fixed-menu__link').forEach((link) => {
-  //         let id = link.getAttribute('href').replace('#', '');
-  //         console.log(id)
-  //         if (id === entry.target.id) {
-  //           link.classList.add('js-active');
-  //         } else {
-  //           link.classList.remove('js-active');
-  //         }
-  //       });
-  //     } else {
-  //         document.querySelectorAll('.fixed-menu__link').forEach((link) => {
-  //         link.classList.remove('js-active');
-  //       })
-  //     }
-  //   });
-  // }, {
-  //   threshold: 0.45
-  // });
-
-  // document.querySelectorAll('.scroll-section').forEach(section => { observer.observe(section)} );
+  // Фиксированное меню в ценах.
 
   const sections = document.querySelectorAll('.scroll-section');
   const navLinks = document.querySelectorAll('.fixed-menu__link');
-  // const lastSection = sections[length]
-  // console.log(lastSection)
   function activateMenuLink(id) {
     navLinks.forEach(link => {
       if (link.getAttribute('href') === '#' + id) {
@@ -20334,6 +20023,159 @@ window.addEventListener('load', () => {
 
   // };
   // dragDrop()
+
+  const rangeSliderInit = () => {
+    // создаем функцию инициализации слайдера
+    const range = document.querySelector('.slider__range'); // Ищем слайдер
+    const input = document.querySelector('.slider__input'); // Ищем input с меньшим значнием
+
+    if (!range || !input) return; // если этих элементов нет, прекращаем выполнение функции, чтобы не было ошибок
+
+    const inputs = [input]; // создаем массив из меньшего и большего значения
+
+    nouislider__WEBPACK_IMPORTED_MODULE_4__["default"].create(range, {
+      // инициализируем слайдер
+      start: [0],
+      // устанавливаем начальные значения
+
+      // tooltips: true,
+      connect: [true, false],
+      range: {
+        'min': 0,
+        '10%': 100,
+        '20%': 200,
+        '30%': 300,
+        '40%': 400,
+        '50%': 500,
+        '60%': 600,
+        '70%': 700,
+        '80%': 800,
+        '90%': 900,
+        'max': 1000
+      },
+      pips: {
+        mode: 'steps',
+        density: 10,
+        values: 10
+      }
+    });
+    range.noUiSlider.on('update', function (values, handle) {
+      // при изменений положения элементов управления слайдера изменяем соответствующие значения
+      inputs[handle].value = parseInt(values[handle]);
+      getActiveTariff();
+    });
+    input.addEventListener('change', function () {
+      // при изменении меньшего значения в input - меняем положение соответствующего элемента управления
+      range.noUiSlider.set([this.value, null]);
+      getActiveTariff();
+    });
+  };
+  const init = () => {
+    rangeSliderInit(); // запускаем функцию инициализации слайдера
+  };
+  const getActiveTariff = () => {
+    const slider = document.querySelector('.slider');
+    const inputValue = document.querySelector('.slider__input').value; // Ищем input с меньшим значнием
+    const TariffItems = document.querySelectorAll('.main-tarifs-item');
+    const TariffsBtns = document.querySelectorAll('[data-micromodal-trigger="rate-modal"]');
+    TariffItems.forEach(TariffItem => {
+      TariffItem.classList.remove('js-active');
+    });
+    if (inputValue <= 3) {
+      TariffsBtns[0].removeAttribute('disabled', '');
+      TariffItems[0].classList.add('js-active');
+      slider.className = "hero-price__slider slider slider--1";
+    } else if (inputValue > 3 && inputValue <= 50) {
+      TariffsBtns[0].setAttribute('disabled', '');
+      TariffsBtns[1].removeAttribute('disabled', '');
+      TariffItems[1].classList.add('js-active');
+      slider.className = "hero-price__slider slider slider--2";
+    } else {
+      TariffsBtns[0].setAttribute('disabled', '');
+      TariffsBtns[1].setAttribute('disabled', '');
+      TariffItems[2].classList.add('js-active');
+      slider.className = "hero-price__slider slider slider--3";
+    }
+  };
+  init();
+  const swiper = new swiper__WEBPACK_IMPORTED_MODULE_6__["default"]('.gallery__swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 8,
+    breakpoints: {
+      577: {
+        spaceBetween: 30
+      }
+    }
+  });
+  const examples = new swiper__WEBPACK_IMPORTED_MODULE_6__["default"]('.examples__swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.examples__arrow--next',
+      prevEl: '.examples__arrow--prev'
+    },
+    breakpoints: {
+      450: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      577: {
+        slidesPerView: 3,
+        spaceBetween: 22
+      },
+      769: {
+        slidesPerView: 4,
+        spaceBetween: 22
+      }
+    }
+  });
+  const otherItems = new swiper__WEBPACK_IMPORTED_MODULE_6__["default"]('.hero-other-item__slider-js', {
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.hero-other-item--next',
+      prevEl: '.hero-other-item--prev'
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    }
+  });
+
+  // Правила для валидации
+  const rules1 = [{
+    ruleSelector: '.input--phone-email',
+    tel: false,
+    telError: 'Это обязательное поле',
+    rules: [{
+      rule: 'minLength',
+      value: 3
+    }, {
+      rule: 'required',
+      value: true,
+      errorMessage: 'Это обязательное поле'
+    }]
+  }];
+  const afterForm = () => {
+    console.log('Произошла отправка, тут можно писать любые действия');
+  };
+  if (document.querySelector('.tell-project__form')) {
+    (0,_functions_validate_forms__WEBPACK_IMPORTED_MODULE_8__.validateForms)('.tell-project__form', rules1, afterForm);
+  }
+  if (document.querySelector('.photo-offer__form')) {
+    (0,_functions_validate_forms__WEBPACK_IMPORTED_MODULE_8__.validateForms)('.photo-offer__form', rules1, afterForm);
+  }
+
+  // Инициализация модалок
+  micromodal__WEBPACK_IMPORTED_MODULE_9__["default"].init({
+    disableScroll: true,
+    disableFocus: true
+  });
+
+  // Найс селект
+  if (document.getElementById("a-select")) {
+    new nice_select2__WEBPACK_IMPORTED_MODULE_10__["default"](document.getElementById("a-select"), {});
+  }
 });
 })();
 

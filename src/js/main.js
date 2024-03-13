@@ -2,8 +2,168 @@ import './_vendor';
 import './_functions';
 import './_components';
 import { isMobile, isTablet, isDesktop } from './functions/check-viewport';
+import noUiSlider from 'nouislider';
+import GraphTabs from 'graph-tabs';
+import Swiper from 'swiper';
+import { Navigation, Pagination, Thumbs, Scrollbar } from 'swiper/modules';
+Swiper.use([Navigation, Pagination, Thumbs, Scrollbar]);
+import { validateForms } from './functions/validate-forms';
+import MicroModal from 'micromodal';
+import NiceSelect from "nice-select2";
 
 window.addEventListener('load', () => {
+
+  /* Шапка */
+
+  const burger = document.querySelector('.burger');
+  const mobileMenu = document.querySelector('.mobile-menu')
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open')
+    mobileMenu.classList.toggle('js-active')
+    document.body.classList.toggle('js-hidden')
+  })
+  const shadowBtn = document.querySelector('.mobile-menu__shadow')
+  if (shadowBtn){
+    shadowBtn.addEventListener('click', () => {
+      burger.classList.remove('open')
+      mobileMenu.classList.remove('js-active')
+      document.body.classList.remove('js-hidden')
+    })
+  }
+
+
+
+
+    /* фунционал с табами для блока Дайте вашим клиентам больше причин для покупки */
+
+    const spheresMob = function(){
+      const accordeon = document.querySelector('.spheres')
+      if (accordeon){
+        const buttons = accordeon.querySelectorAll('.spheres__item--mobile')
+        buttons.forEach(button => {
+
+          button.addEventListener('click', () => {
+
+            buttons.forEach(otherButton => {
+              if (otherButton !== button) {
+                otherButton.classList.remove('tabs__nav-btn--active');
+                otherButton.nextElementSibling.classList.remove('tabs__panel--active');
+              }
+            });
+            button.classList.toggle('tabs__nav-btn--active')
+            button.nextElementSibling.classList.toggle('tabs__panel--active')
+
+
+
+
+          })
+        })
+      }
+
+    }
+    spheresMob()
+    function TabsSliders() {
+      let swiperDetails = document.querySelectorAll(".spheres-item__frames")
+      let swiperPreviews = document.querySelectorAll(".spheres__thumbs-slider")
+      swiperDetails.forEach((swiperDetail,index) => {
+          let arrowNext = swiperPreviews[index].querySelector('.swiper-button-next')
+          let arrowPrev = swiperPreviews[index].querySelector('.swiper-button-prev')
+          let scrollBarElem = swiperPreviews[index].querySelector('.swiper-scrollbar')
+          let swiperPreview = new Swiper(swiperPreviews[index], {
+              spaceBetween: 6,
+              slidesPerView: 'auto',
+              freeMode: true,
+              watchSlidesProgress: true,
+              navigation: {
+                nextEl: arrowNext,
+                prevEl: arrowPrev,
+              },
+              scrollbar: {
+                el: scrollBarElem,
+                hide: false,
+                draggable:true,
+              },
+              breakpoints: {
+
+                769: {
+                  spaceBetween: 8,
+                },
+
+              },
+          });
+          swiperDetail = new Swiper(swiperDetails[index], {
+          spaceBetween: 0,
+          // navigation: {
+          // nextEl: ".swiper-button-next",
+          // prevEl: ".swiper-button-prev",
+          // },
+          thumbs: {
+          swiper: swiperPreviews[index],
+          },
+      });
+      })
+    }
+    TabsSliders()
+
+
+    const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
+      let swiper;
+
+      breakpoint = window.matchMedia(breakpoint);
+
+      const enableSwiper = function(className, settings) {
+        swiper = new Swiper(className, settings);
+
+        if (callback) {
+          callback(swiper);
+        }
+      }
+
+      const checker = function() {
+        if (breakpoint.matches) {
+          return enableSwiper(swiperClass, swiperSettings);
+        } else {
+          if (swiper !== undefined) swiper.destroy(true, true);
+          return;
+        }
+      };
+
+      breakpoint.addEventListener('change', checker);
+      checker();
+    }
+
+
+    resizableSwiper(
+      '(max-width: 1250px)',
+      '.spheres__list ',
+      {
+        // loop: true,
+        spaceBetween: 18,
+        slidesPerView: 'auto',
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      },
+
+    );
+
+
+
+
+     // Нам доверяют, кнопка раскрытия всех логотипов
+    const confidenceBtn = document.querySelector('.js-confidence__btn');
+    if (confidenceBtn) {
+      const confidenceItems = document.querySelectorAll('.our-clients__item-container:nth-child(n +7)')
+      const toggleVisibleItems = () => {
+        confidenceItems.forEach(confidenceItem => {
+          confidenceItem.classList.toggle('our-clients__item-container--js-active')
+        })
+        confidenceBtn.classList.toggle('js-hidden')
+      }
+      confidenceBtn.addEventListener('click', toggleVisibleItems)
+    }
+
 
   /* Скрипт для блока FAQ */
   const accordeonInit = function(){
@@ -28,65 +188,21 @@ window.addEventListener('load', () => {
   }
   accordeonInit()
 
-  /* фунционал с табами для блока Дайте вашим клиентам больше причин для покупки */
 
-  const spheresMob = function(){
-    const accordeon = document.querySelector('.spheres')
-    if (accordeon){
-      const buttons = accordeon.querySelectorAll('.spheres__item--mobile')
-      buttons.forEach(button => {
+  // Реализация табов
 
-        button.addEventListener('click', () => {
-
-          buttons.forEach(otherButton => {
-            if (otherButton !== button) {
-              otherButton.classList.remove('tabs__nav-btn--active');
-              otherButton.nextElementSibling.classList.remove('tabs__panel--active');
-            }
-          });
-          button.classList.toggle('tabs__nav-btn--active')
-          button.nextElementSibling.classList.toggle('tabs__panel--active')
-
-
-
-
-        })
-      })
-    }
+  if (document.querySelector('[data-tabs="tab"]')){
+    const tabs = new GraphTabs('tab');
+  }
+  if (document.querySelector('[data-tabs="spheres-tab"]')){
+    const tabsSlider = new GraphTabs('spheres-tab');
 
   }
-  spheresMob()
 
 
 
-  // Нам доверяют, кнопка раскрытия всех логотипов
-  const confidenceBtn = document.querySelector('.js-confidence__btn');
-  if (confidenceBtn) {
-    const confidenceItems = document.querySelectorAll('.our-clients__item-container:nth-child(n +7)')
-    const toggleVisibleItems = () => {
-      confidenceItems.forEach(confidenceItem => {
-        confidenceItem.classList.toggle('our-clients__item-container--js-active')
-      })
-      confidenceBtn.classList.toggle('js-hidden')
-    }
-    confidenceBtn.addEventListener('click', toggleVisibleItems)
-  }
-  const burger = document.querySelector('.burger');
-  const mobileMenu = document.querySelector('.mobile-menu')
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('open')
-    mobileMenu.classList.toggle('js-active')
-    document.body.classList.toggle('js-hidden')
-  })
-  const shadowBtn = document.querySelector('.mobile-menu__shadow')
-  if (shadowBtn){
-    shadowBtn.addEventListener('click', () => {
-      burger.classList.remove('open')
-      mobileMenu.classList.remove('js-active')
-      document.body.classList.remove('js-hidden')
-    })
-  }
-  // Определение ширины экрана
+
+
 
   const radios = document.querySelectorAll('.hero-price__radio input')
   if(radios.length > 0){
@@ -159,6 +275,9 @@ window.addEventListener('load', () => {
       }
     })
   }
+
+
+
   // считываем кнопку
   const goTopBtn = document.querySelector(".button-up--js");
 
@@ -191,13 +310,6 @@ window.addEventListener('load', () => {
     });
   }
 
-
-  // При необходимости можно добавить обработчик события клика на миниатюру для переключения
-  // swiperThumbs.on('click', function () {
-  //   // Пример: при клике на миниатюру, перейти к соответствующему слайду в основном слайдере
-  //   swiperMain.slideTo(swiperThumbs.clickedIndex);
-  //   swiperThumbs.slideTo(swiperThumbs.clickedIndex);
-  // });
 
 
   // Функционал модалки с тарифами. Берём все значения из карточки и загоянем значения в модалку, а также в скрытые инпуты для бека
@@ -239,36 +351,13 @@ window.addEventListener('load', () => {
     })
   })
 
-  // const observer = new IntersectionObserver((entries) => {
-  //   entries.forEach((entry) => {
-  //     if (entry.isIntersecting) {
-  //       document.querySelectorAll('.fixed-menu__link').forEach((link) => {
-  //         let id = link.getAttribute('href').replace('#', '');
-  //         console.log(id)
-  //         if (id === entry.target.id) {
-  //           link.classList.add('js-active');
-  //         } else {
-  //           link.classList.remove('js-active');
-  //         }
-  //       });
-  //     } else {
-  //         document.querySelectorAll('.fixed-menu__link').forEach((link) => {
-  //         link.classList.remove('js-active');
-  //       })
-  //     }
-  //   });
-  // }, {
-  //   threshold: 0.45
-  // });
-
-  // document.querySelectorAll('.scroll-section').forEach(section => { observer.observe(section)} );
 
 
+  // Фиксированное меню в ценах.
 
   const sections = document.querySelectorAll('.scroll-section');
   const navLinks = document.querySelectorAll('.fixed-menu__link');
-  // const lastSection = sections[length]
-  // console.log(lastSection)
+
   function activateMenuLink(id) {
     navLinks.forEach(link => {
       if (link.getAttribute('href') === '#' + id) {
@@ -430,6 +519,197 @@ window.addEventListener('load', () => {
   // };
   // dragDrop()
 
+
+  const rangeSliderInit = () => { // создаем функцию инициализации слайдера
+    const range = document.querySelector('.slider__range'); // Ищем слайдер
+    const input = document.querySelector('.slider__input'); // Ищем input с меньшим значнием
+
+    if (!range || !input) return // если этих элементов нет, прекращаем выполнение функции, чтобы не было ошибок
+
+    const inputs = [input]; // создаем массив из меньшего и большего значения
+
+
+
+    noUiSlider.create(range, { // инициализируем слайдер
+        start: [0], // устанавливаем начальные значения
+
+        // tooltips: true,
+        connect: [true, false],
+        range: {
+          'min': 0,
+          '10%': 100,
+          '20%': 200,
+          '30%': 300,
+          '40%': 400,
+          '50%': 500,
+          '60%': 600,
+          '70%': 700,
+          '80%': 800,
+          '90%': 900,
+          'max': 1000
+      },
+      pips: { mode: 'steps', density: 10,  values: 10,},
+
+
+      }
+    )
+
+    range.noUiSlider.on('update', function (values, handle) { // при изменений положения элементов управления слайдера изменяем соответствующие значения
+      inputs[handle].value = parseInt(values[handle]);
+      getActiveTariff()
+    });
+
+    input.addEventListener('change', function () { // при изменении меньшего значения в input - меняем положение соответствующего элемента управления
+      range.noUiSlider.set([this.value, null]);
+      getActiveTariff()
+    });
+
+
+  }
+
+  const init = () => {
+    rangeSliderInit() // запускаем функцию инициализации слайдера
+  }
+  const getActiveTariff = () => {
+    const slider = document.querySelector('.slider')
+    const inputValue = document.querySelector('.slider__input').value; // Ищем input с меньшим значнием
+    const TariffItems = document.querySelectorAll('.main-tarifs-item')
+    const TariffsBtns = document.querySelectorAll('[data-micromodal-trigger="rate-modal"]')
+
+    TariffItems.forEach(TariffItem => {
+      TariffItem.classList.remove('js-active')
+    })
+    if (inputValue <= 3){
+      TariffsBtns[0].removeAttribute('disabled', '')
+      TariffItems[0].classList.add('js-active')
+      slider.className = "hero-price__slider slider slider--1"
+
+
+    } else if (inputValue > 3 && inputValue <= 50){
+      TariffsBtns[0].setAttribute('disabled', '')
+      TariffsBtns[1].removeAttribute('disabled', '')
+      TariffItems[1].classList.add('js-active')
+      slider.className = "hero-price__slider slider slider--2"
+    } else {
+      TariffsBtns[0].setAttribute('disabled', '')
+      TariffsBtns[1].setAttribute('disabled', '')
+      TariffItems[2].classList.add('js-active')
+      slider.className = "hero-price__slider slider slider--3"
+    }
+  }
+  init()
+
+
+  const swiper = new Swiper('.gallery__swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 8,
+    breakpoints:{
+      577: {
+
+        spaceBetween: 30,
+      },
+    }
+  });
+
+  const examples = new Swiper('.examples__swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.examples__arrow--next',
+      prevEl: '.examples__arrow--prev',
+    },
+    breakpoints: {
+      450: {
+
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      577: {
+        slidesPerView: 3,
+        spaceBetween: 22,
+
+      },
+
+      769: {
+        slidesPerView: 4,
+        spaceBetween: 22,
+
+      },
+
+
+    },
+
+  });
+
+  const otherItems = new Swiper('.hero-other-item__slider-js', {
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.hero-other-item--next',
+      prevEl: '.hero-other-item--prev',
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable:true,
+    },
+
+  });
+
+
+
+
+
+
+
+// Правила для валидации
+  const rules1 = [
+    {
+      ruleSelector: '.input--phone-email',
+      tel: false,
+      telError: 'Это обязательное поле',
+      rules: [
+        {
+          rule: 'minLength',
+          value: 3
+        },
+        {
+          rule: 'required',
+          value: true,
+          errorMessage: 'Это обязательное поле'
+        }
+      ]
+    },
+  ];
+
+
+
+
+
+  const afterForm = () => {
+    console.log('Произошла отправка, тут можно писать любые действия');
+  };
+
+
+  if (document.querySelector('.tell-project__form')){
+    validateForms('.tell-project__form', rules1, afterForm);
+  }
+
+
+  if (document.querySelector('.photo-offer__form')){
+    validateForms('.photo-offer__form', rules1, afterForm);
+  }
+
+  // Инициализация модалок
+  MicroModal.init({
+    disableScroll: true,
+    disableFocus:true,
+  });
+
+
+  // Найс селект
+  if (document.getElementById("a-select")){
+    new NiceSelect(document.getElementById("a-select"), {});
+  }
 
 
 })
