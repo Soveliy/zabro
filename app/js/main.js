@@ -19675,6 +19675,54 @@ window.addEventListener('load', () => {
     });
   }
   TabsSliders();
+  const spheresTabsInit = () => {
+    const spheresButtons = document.querySelectorAll('.tabs__nav-btn');
+    const spheresBodys = document.querySelectorAll('.tabs__panel');
+    const ajaxSuccessClass = 'ajax-success';
+    const removeAllTabs = () => {
+      spheresButtons.forEach((spheresButton, index) => {
+        spheresButton.classList.remove('tabs__nav-btn--active');
+        if (spheresBodys[index]) {
+          spheresBodys[index].classList.remove('tabs__panel--active');
+        }
+      });
+    };
+    const fetchData = (url, callback) => {
+      fetch(url).then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      }).then(callback).catch(error => console.error('Error fetching data:', error));
+    };
+    spheresButtons.forEach(spheresButton => {
+      spheresButton.addEventListener('click', () => {
+        const tabItem = document.querySelector(`.tabs__panel[data-tab-item="${spheresButton.dataset.tab}"]`);
+        if (!spheresButton.classList.contains('tabs__nav-btn--active')) {
+          removeAllTabs();
+        }
+        if (!tabItem.classList.contains(ajaxSuccessClass)) {
+          fetchData('../ajax.html', response => {
+            const tempElement = document.createElement('div');
+            tempElement.innerHTML = response;
+            const newTab = tempElement.querySelector(`.tabs__panel[data-tab-item="${spheresButton.dataset.tab}"]`);
+            if (newTab) {
+              spheresBodys[spheresButton.dataset.tab - 1].innerHTML = newTab.innerHTML;
+              spheresBodys[spheresButton.dataset.tab - 1].classList.add('tabs__panel--active', ajaxSuccessClass);
+              spheresButton.classList.add('tabs__nav-btn--active');
+              TabsSliders();
+            } else {
+              console.error('Таб не найден');
+            }
+          });
+        } else {
+          spheresButton.classList.add('tabs__nav-btn--active');
+          spheresBodys[spheresButton.dataset.tab - 1].classList.add('tabs__panel--active');
+        }
+      });
+    });
+  };
+  spheresTabsInit();
   const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
     let swiper;
     breakpoint = window.matchMedia(breakpoint);
@@ -19742,9 +19790,11 @@ window.addEventListener('load', () => {
   if (document.querySelector('[data-tabs="tab"]')) {
     const tabs = new graph_tabs__WEBPACK_IMPORTED_MODULE_5__["default"]('tab');
   }
-  if (document.querySelector('[data-tabs="spheres-tab"]')) {
-    const tabsSlider = new graph_tabs__WEBPACK_IMPORTED_MODULE_5__["default"]('spheres-tab');
-  }
+  // if (document.querySelector('[data-tabs="spheres-tab"]')){
+  //   const tabsSlider = new GraphTabs('spheres-tab');
+
+  // }
+
   const radios = document.querySelectorAll('.hero-price__radio input');
   if (radios.length > 0) {
     radios.forEach(radio => {
@@ -20181,3 +20231,4 @@ window.addEventListener('load', () => {
 
 /******/ })()
 ;
+//# sourceMappingURL=main.js.map
