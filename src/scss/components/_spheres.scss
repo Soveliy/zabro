@@ -299,7 +299,7 @@
     }
     &__row{
       display: flex;
-      align-items: flex-start;
+      // align-items: flex-start;
       @include tablet(){
         align-items: stretch;
       }
@@ -322,8 +322,14 @@
     }
     &__frames{
       line-height: 0;
-      img{
+      position: relative;
+      height: 100%;
+      img,video,iframe{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
         border-radius: 10px;
+        border: none;
       }
       @include tablet(){
         height: 100%;
@@ -529,5 +535,25 @@
       position: relative;
       margin-top: 12px;
     }
+  }
+}
+.galleryInside {
+  height: 100%;
+}
+.spheres-item__tab{
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  visibility: hidden;
+  transition: $transtion;
+  &.js-active{
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
   }
 }

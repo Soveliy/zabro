@@ -2889,9 +2889,6 @@ li.is-open > a svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
 }
 @media (max-width: 992px) {
   .spheres-item__row {
@@ -2929,9 +2926,16 @@ li.is-open > a svg {
 }
 .spheres-item__frames {
   line-height: 0;
+  position: relative;
+  height: 100%;
 }
-.spheres-item__frames img {
+.spheres-item__frames img, .spheres-item__frames video, .spheres-item__frames iframe {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
   border-radius: 10px;
+  border: none;
 }
 @media (max-width: 992px) {
   .spheres-item__frames {
@@ -3190,6 +3194,29 @@ li.is-open > a svg {
 .spheres__thumbs .swiper-scrollbar {
   position: relative;
   margin-top: 12px;
+}
+
+.galleryInside {
+  height: 100%;
+}
+
+.spheres-item__tab {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  visibility: hidden;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.spheres-item__tab.js-active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 }
 
 .offer__wrap {

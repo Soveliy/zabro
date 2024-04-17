@@ -19662,16 +19662,16 @@ window.addEventListener('load', () => {
           }
         }
       });
-      swiperDetail = new swiper__WEBPACK_IMPORTED_MODULE_6__["default"](swiperDetails[index], {
-        spaceBetween: 0,
-        // navigation: {
-        // nextEl: ".swiper-button-next",
-        // prevEl: ".swiper-button-prev",
-        // },
-        thumbs: {
-          swiper: swiperPreviews[index]
-        }
-      });
+      // swiperDetail = new Swiper(swiperDetails[index], {
+      //     spaceBetween: 0,
+      //     // navigation: {
+      //     // nextEl: ".swiper-button-next",
+      //     // prevEl: ".swiper-button-prev",
+      //     // },
+      //     thumbs: {
+      //     swiper: swiperPreviews[index],
+      //     },
+      // });
     });
   }
   TabsSliders();
@@ -19710,6 +19710,7 @@ window.addEventListener('load', () => {
               spheresBodys[spheresButton.dataset.tab - 1].innerHTML = newTab.innerHTML;
               spheresBodys[spheresButton.dataset.tab - 1].classList.add('tabs__panel--active', ajaxSuccessClass);
               spheresButton.classList.add('tabs__nav-btn--active');
+              ajaxTabs();
               TabsSliders();
             } else {
               console.error('Таб не найден');
@@ -19722,7 +19723,59 @@ window.addEventListener('load', () => {
       });
     });
   };
-  spheresTabsInit();
+  const ajaxTabs = () => {
+    const tabs = document.querySelectorAll('[data-cst-tabs]');
+    tabs.forEach(tab => {
+      const tabHeaders = tab.querySelectorAll('[data-cst-tabs-button]');
+      const tabBodies = tab.querySelectorAll('[data-cst-tabs-body]');
+      const ajaxSuccessClass = 'ajax-success';
+      const removeAllTabs = () => {
+        tabHeaders.forEach(tabHeader => {
+          tabHeader.classList.remove('js-active');
+        });
+        tabBodies.forEach(tabBody => {
+          tabBody.classList.remove('js-active');
+        });
+      };
+      const fetchData = (url, callback) => {
+        fetch(url).then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text();
+        }).then(callback).catch(error => console.error('Error fetching data:', error));
+      };
+      tabHeaders.forEach((tabHeader, index) => {
+        tabHeader.addEventListener('click', () => {
+          if (!tabHeader.classList.contains('js-active')) {
+            removeAllTabs();
+          }
+          const tabBody = tabBodies[index];
+          console.log(tabBody);
+          if (!tabBody.classList.contains(ajaxSuccessClass)) {
+            fetchData('../ajax.html', response => {
+              const tempElement = document.createElement('div');
+              tempElement.innerHTML = response;
+              const newTabBody = tempElement.querySelector(`[data-cst-tabs-body="${tabHeader.dataset.cstTabsButton}"]`);
+              if (newTabBody) {
+                tabBody.innerHTML = newTabBody.innerHTML;
+                tabBody.classList.add('js-active', ajaxSuccessClass);
+                tabHeader.classList.add('js-active');
+              } else {
+                console.error('Tab not found');
+              }
+            });
+          } else {
+            tabHeader.classList.add('js-active');
+            tabBody.classList.add('js-active');
+          }
+        });
+      });
+    });
+  };
+  ajaxTabs();
+  // spheresTabsInit()
+
   const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
     let swiper;
     breakpoint = window.matchMedia(breakpoint);

@@ -347,7 +347,7 @@
       <div class="spheres__list swiper tabs__nav">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <li class="spheres__item tabs__nav-btn" data-tab="1">
+            <li class="spheres__item tabs__nav-btn tabs__nav-btn--active" data-tab="1">
               <svg class="spheres__item-decor">
                 <use xlink:href="img/sprite.svg#left_label"></use>
               </svg>
@@ -446,29 +446,34 @@
             <use xlink:href="img/sprite.svg#sofa"></use>
           </svg>
         </div>
-        <div class="spheres-item tabs__panel" data-tab-item="1">
+        <div class="spheres-item tabs__panel tabs__panel--active ajax-success" data-tab-item="1" data-cst-tabs>
           <div class="spheres-item__title spheres-item__title--mob">
             Мебель
           </div>
           <div class="spheres-item__inner">
             <div class="spheres-item__row">
               <div class="spheres-item__left">
-                <div class="spheres-item__frames swiper">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide spheres-item__frame">
-                      <img src="img/frame.jpg" alt="">
-                    </div>
-                    <div class="swiper-slide spheres-item__frame">
-                      <img src="img/frame.jpg" alt="">
-                    </div>
-                    <div class="swiper-slide spheres-item__frame">
-                      <img src="img/frame.jpg" alt="">
-                    </div>
-                    <div class="swiper-slide spheres-item__frame">
-                      <img src="img/frame.jpg" alt="">
-                    </div>
+                <div class="spheres-item__frames">
 
-                  </div>
+                    <div class="spheres-item__tab js-active ajax-success" data-cst-tabs-body="1">
+                      <img src="img/frame.jpg" alt="">
+                    </div>
+                    <div class="spheres-item__tab" data-cst-tabs-body="2">
+                      <video src="video/about.mp4" autoplay=""  loop=""></video>
+                    </div>
+                    <div class="spheres-item__tab" data-cst-tabs-body="3">
+                      <div class="galleryInside swiper">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide"><img src="img/frame.jpg" alt=""></div>
+                          <div class="swiper-slide"><img src="img/frame.jpg" alt=""></div>
+                          <div class="swiper-slide"><img src="img/frame.jpg" alt=""></div>
+                          <div class="swiper-slide"><img src="img/frame.jpg" alt=""></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="spheres-item__tab" data-cst-tabs-body="4">
+                      <iframe loading="lazy" src="https://embed.zarbo.tech/5f59a0eb-588c-4e30-b62b-123541004455/592/"></iframe>
+                    </div>
 
                 </div>
               </div>
@@ -495,28 +500,28 @@
             <div class="spheres__thumbs">
               <div thumbsSlider="" class="swiper spheres__thumbs-slider">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide spheres-item__tabs-item">
+                  <div class="swiper-slide spheres-item__tabs-item js-active" data-cst-tabs-button="1">
                     3D-модель
                   </div>
-                  <div class="swiper-slide spheres-item__tabs-item">
+                  <div class="swiper-slide spheres-item__tabs-item" data-cst-tabs-button="2">
                     360-фото
                   </div>
-                  <div class="swiper-slide spheres-item__tabs-item">
+                  <div class="swiper-slide spheres-item__tabs-item" data-cst-tabs-button="3">
                     Видео
                   </div>
-                  <div class="swiper-slide spheres-item__tabs-item">
+                  <div class="swiper-slide spheres-item__tabs-item" data-cst-tabs-button="4">
                     Фото
                   </div>
-                  <div class="swiper-slide spheres-item__tabs-item">
+                  <div class="swiper-slide spheres-item__tabs-item" data-cst-tabs-button="5">
                     3D-модель
                   </div>
-                  <div class="swiper-slide spheres-item__tabs-item">
+                  <div class="swiper-slide spheres-item__tabs-item" data-cst-tabs-button="6">
                     360-фото
                   </div>
-                  <div class="swiper-slide spheres-item__tabs-item">
+                  <div class="swiper-slide spheres-item__tabs-item" data-cst-tabs-button="7">
                     Видео
                   </div>
-                  <div class="swiper-slide spheres-item__tabs-item">
+                  <div class="swiper-slide spheres-item__tabs-item" data-cst-tabs-button="8">
                     Фото
                   </div>
 
