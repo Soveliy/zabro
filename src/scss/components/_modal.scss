@@ -176,6 +176,38 @@
       fill: $phiolText;
     }
   }
+  &__grid{
+    display: flex;
+    @include mobile(){
+      flex-direction: column;
+    }
+    &-left{
+      width: 270px;
+      flex-shrink: 0;
+      margin-right: 14px;
+      @include mobile(){
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 16px;
+
+      }
+    }
+    &-right{
+      width: 100%;
+      min-width: 1px;
+      .modal__input {
+        height: 100%;
+      }
+      .input__textarea{
+        height: 100%;
+        @include mobile(){
+          height: 90px;
+        }
+      }
+    }
+  }
+
+
  .input__textarea:not(:placeholder-shown) ~ label, .input__textarea:focus ~ label{
     @include mobile(){
       opacity: 0;

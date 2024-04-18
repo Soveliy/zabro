@@ -11,6 +11,7 @@ import { validateForms } from './functions/validate-forms';
 import MicroModal from 'micromodal';
 import NiceSelect from "nice-select2";
 
+
 window.addEventListener('load', () => {
 
   /* Шапка */
@@ -35,7 +36,11 @@ window.addEventListener('load', () => {
 
 
     /* фунционал с табами для блока Дайте вашим клиентам больше причин для покупки */
-
+    const initGallerySlider = () => {
+      let gall = document.querySelectorAll('.gallerySlider')
+      console.log(gall)
+      let gallerySlider = new Swiper(".galleryInside", {});
+    }
     const spheresMob = function(){
       const accordeon = document.querySelector('.spheres')
       if (accordeon){
@@ -149,6 +154,7 @@ window.addEventListener('load', () => {
                           spheresBodys[spheresButton.dataset.tab - 1].innerHTML = newTab.innerHTML;
                           spheresBodys[spheresButton.dataset.tab - 1].classList.add('tabs__panel--active', ajaxSuccessClass);
                           spheresButton.classList.add('tabs__nav-btn--active');
+                          console.log('ajax')
                           ajaxTabs()
                           TabsSliders()
                       } else {
@@ -164,17 +170,24 @@ window.addEventListener('load', () => {
     };
     const ajaxTabs = () => {
       const tabs = document.querySelectorAll('[data-cst-tabs]');
+
       tabs.forEach(tab => {
+
+          const tabId = tab.dataset.cstTabs; // Получаем уникальный идентификатор набора табов
           const tabHeaders = tab.querySelectorAll('[data-cst-tabs-button]');
           const tabBodies = tab.querySelectorAll('[data-cst-tabs-body]');
           const ajaxSuccessClass = 'ajax-success';
 
           const removeAllTabs = () => {
               tabHeaders.forEach(tabHeader => {
-                  tabHeader.classList.remove('js-active');
+                  tabHeader.classList.remove('js-active'); // Заменяем 'active' на 'js-active'
               });
               tabBodies.forEach(tabBody => {
                   tabBody.classList.remove('js-active');
+                  const video = tabBody.querySelector('video'); // Получаем видео элемент
+                  if (video) {
+                      video.pause(); // Ставим видео на паузу
+                  }
               });
           };
 
@@ -197,14 +210,16 @@ window.addEventListener('load', () => {
                   }
 
                   const tabBody = tabBodies[index];
-                  console.log(tabBody)
                   if (!tabBody.classList.contains(ajaxSuccessClass)) {
-                      fetchData('../ajax.html', response => {
+                      fetchData(`../ajax.html`, response => {
                           const tempElement = document.createElement('div');
                           tempElement.innerHTML = response;
-                          const newTabBody = tempElement.querySelector(`[data-cst-tabs-body="${tabHeader.dataset.cstTabsButton}"]`);
+                          const currentTab = tempElement.querySelector(`[data-cst-tabs="${tabId}"]`)
+                          const newTabBody = currentTab.querySelector(`[data-cst-tabs-body="${tabHeader.dataset.cstTabsButton}"]`);
+
                           if (newTabBody) {
                               tabBody.innerHTML = newTabBody.innerHTML;
+                              initGallerySlider()
                               tabBody.classList.add('js-active', ajaxSuccessClass);
                               tabHeader.classList.add('js-active');
                           } else {
@@ -214,14 +229,19 @@ window.addEventListener('load', () => {
                   } else {
                       tabHeader.classList.add('js-active');
                       tabBody.classList.add('js-active');
+                      const video = tabBody.querySelector('video'); // Получаем видео элемент
+                      if (video) {
+                          video.play();
+                      }
                   }
               });
           });
       });
-  };
-    ajaxTabs()
-    // spheresTabsInit()
+  }
 
+    ajaxTabs()
+    spheresTabsInit()
+    initGallerySlider()
     const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
       let swiper;
 
@@ -515,124 +535,99 @@ window.addEventListener('load', () => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('DOMContentLoaded', handleScroll);
   }
-  // const dragDrop = () => {
+  const dragDrop = () => {
+    const jsDrags = document.querySelectorAll('.file-input');
+    if (!jsDrags?.length) return;
 
-  //   const jsDrags = document.querySelectorAll('.file-input');
-  //   if (!jsDrags?.length) return;
+    jsDrags.forEach((jsDrag) => {
+        function $class(classElem) {
+            return jsDrag.querySelector(classElem);
+        }
 
-  //   jsDrags.forEach((jsDrag) => {
+        function Output(msg) {
+            let m = $class(".file-input__name");
+            if (!m) {
+                m = document.createElement("div");
+                m.classList.add("file-input__name");
+                jsDrag.appendChild(m);
+            }
+            m.innerHTML = msg;
+        }
 
-  //         function $class(classElem) {
-  //            return jsDrag.querySelector(classElem);
-  //         }
+        if (window.File && window.FileList && window.FileReader) {
+            Init();
+        }
 
-  //         /* вывод сообщений */
-  //         function Output(msg) {
-  //            let m = $class(".file-input__name");
-  //            m.innerHTML = msg
-  //         }
+        function Init() {
+            let fileselect = $class(".file-input__elem"),
+                filedrag = $class(".file-input__wrap");
 
-  //         /* проверка поддержки API */
-  //         if (window.File && window.FileList && window.FileReader) {
-  //            Init();
-  //         }
-  //         /* инициализация */
-  //         function Init() {
-  //            let fileselect = $class(".file-input__elem"),
-  //                filedrag = $class(".file-input__wrap");
+            fileselect.addEventListener("change", FileSelectHandler, false);
 
+            let xhr = new XMLHttpRequest();
+            if (xhr.upload) {
+                jsDrag.addEventListener("dragover", FileDragHover, false);
+                jsDrag.addEventListener("dragleave", FileDragHover, false);
+                jsDrag.addEventListener("drop", FileSelectHandler, false);
+            }
+        }
 
-  //                  /* выбор файла */
-  //                  fileselect.addEventListener("change", FileSelectHandler, false);
+        function FileDragHover(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if (e.type == "dragover") {
+                e.currentTarget.closest('.file-input').classList.add("isHover");
+            } else {
+                e.currentTarget.closest('.file-input').classList.remove("isHover");
+            }
+        }
 
-  //                  /* проверка поддержки XHR2 */
-  //                  let xhr = new XMLHttpRequest();
-  //                  if (xhr.upload) {
-  //                     /* сброс файла */
-  //                     jsDrag.addEventListener("dragover", FileDragHover, false);
-  //                     jsDrag.addEventListener("dragleave", FileDragHover, false);
-  //                     jsDrag.addEventListener("drop", FileSelectHandler, false);
-  //                     // filedrag.style.display = "block";
+        function clearInputValue(e) {
+            e.target.value = null;
+            if (e.target.files) {
+                e.target.files = null;
+            }
+            if (e.dataTransfer?.files) {
+                e.dataTransfer.clearData();
+            }
+        }
 
+        function FileSelectHandler(e) {
+            FileDragHover(e);
+            let files = e.target.files || e.dataTransfer.files;
+            if (files.length > 1) {
+                const filesDataTransfer = new DataTransfer();
+                filesDataTransfer.items.add(files[0]);
+                e.target.files = filesDataTransfer.files;
+                files = e.target.files;
+            }
 
+            for (const file of files) {
+                if (file.size > 52428800) { // 50 Мб = 50 * 1024 * 1024 байт
+                    $(e.currentTarget).closest(".file-input").addClass("isError");
+                    Output("<div class='fileDrop__error'>Файл слишком большой</div>");
+                    clearInputValue(e);
+                    return;
+                }
+                ParseFile(file);
+            }
+        }
 
-  //                  }
-  //         }
-
-  //         // Файл над нужной областью
-  //         function FileDragHover(e) {
-  //            e.stopPropagation();
-  //            e.preventDefault();
-  //            // e.currentTarget.classList.add("isHover")
-  //            if (e.type == "dragover"){
-  //             console.log(e)
-  //               e.currentTarget.closest('.file-input').classList.add("isHover")
-  //            } else{
-  //               e.currentTarget.closest('.file-input').classList.remove("isHover")
-  //            }
-
-  //         }
-  //         function clearInputValue(e){
-  //            e.target.value = null;
-  //            if (e.target.files){
-  //               e.target.files = null;
-  //            }
-  //            if (e.dataTransfer?.files){
-  //               e.dataTransfer.clearData();
-  //               // e.dataTransfer.files = null;
-  //            }
-  //         }
-
-  //         // выбор файла
-  //         function FileSelectHandler(e) {
-  //             // e.closest('.filegrag').classList.remove('isError')
-  //           //  $(e.currentTarget).closest(".filedrag").removeClass("isError")
-  //            FileDragHover(e);
-  //            console.log(e.currentTarget.value)
-  //            let files = e.target.files || e.dataTransfer.files;
-  //            console.log(files)
-  //            if (files.length > 1){
-  //               const filesDataTransfer = new DataTransfer();
-  //               filesDataTransfer.items.add(files[0]);
-  //               e.target.files = filesDataTransfer.files;
-  //               files = e.target.files;
-  //            }
-
-
-  //            if (files[0].size > 10485760){
-  //               $(e.currentTarget).closest(".filedrag").addClass("isError")
-  //               Output(
-  //                  "<div class='fileDrop__error'>Файл слишком большой</div>"
-  //               )
-
-  //               clearInputValue(e);
-  //               return
-
-  //            }
-
-  //            // парсим все объекты типа File
-  //            for (const file of files) {
-
-
-  //               ParseFile(file);
-
-  //            }
-  //           // $(e.currentTarget).closest(".filedrag").addClass("isLoaded")
-  //         }
-
-  //         function ParseFile(file) {
-  //             console.log(jsDrag)
-  //            Output(
-  //               "<span class='file-input__desc'>" + file.name +"</span>"
-  //            );
-  //         }
+        function ParseFile(file) {
+          let successElem = $class(".file-input__success");
+          if (!successElem) {
+              successElem = document.createElement("div");
+              successElem.classList.add("file-input__success");
+              jsDrag.appendChild(successElem);
+          }
+          successElem.innerHTML = "<b>Файл загружен:</b> " + file.name;
+      }
+    });
+};
 
 
 
-  //   })
 
-
-  // };
   // dragDrop()
 
 
@@ -814,6 +809,10 @@ window.addEventListener('load', () => {
   if (document.querySelector('.photo-offer__form')){
     validateForms('.photo-offer__form', rules1, afterForm);
   }
+  if (document.querySelector('.modal-form')){
+    validateForms('.modal-form', rules1, afterForm);
+  }
+
 
   // Инициализация модалок
   MicroModal.init({

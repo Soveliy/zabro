@@ -14,7 +14,10 @@
     color: $zag;
     font-size: 16px;
     letter-spacing: 0.02em;
-
+    padding-top: 5px;
+    &::placeholder{
+      opacity: 0;
+    }
     &--white{
       background-color: $white;
     }
@@ -39,6 +42,7 @@
   &__label{
     pointer-events: none;
     position: absolute;
+    padding-right: 10px;
     top: 20px;
     left: 30px;
     font-size: 16px;
@@ -52,4 +56,9 @@
     }
   }
 
+}
+.form{
+  &__input + &__input{
+    margin-top: 16px;
+  }
 }

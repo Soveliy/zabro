@@ -44,8 +44,15 @@ export const validateForms = (selector, rules, afterSend) => {
     let formData = new FormData(ev.target);
 
     let xhr = new XMLHttpRequest();
-    MicroModal.close();
-    MicroModal.show('thanks-modal');
+    const modal = document.querySelector('.modal')
+    console.log(modal)
+    if (modal && modal.classList.contains('is-open')){
+      MicroModal.close();
+    }
+    if (modal){
+      MicroModal.show('thanks-modal');
+    }
+
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {

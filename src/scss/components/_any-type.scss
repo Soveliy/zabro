@@ -55,7 +55,7 @@
       }
     }
   }
-  .tabs__nav-btn{
+  .any-type__nav-btn{
     position: relative;
     padding: 16px 24px;
     font-size: 16px;
@@ -78,7 +78,7 @@
       width: 100%;
     }
 
-    &.tabs__nav-btn--active{
+    &.js-active{
       background-color: #fff;
       color: $phiolText;
       &:after{
@@ -106,12 +106,12 @@
   pointer-events: none;
   transition:opacity $transtion;
   position: absolute;
-  &:not(.tabs__panel--active){
+  &:not(.js-active){
     .any-type-item__btn{
       display: none;
     }
   }
-  &.tabs__panel--active{
+  &.js-active{
     position: static;
     opacity: 1;
     visibility: visible;

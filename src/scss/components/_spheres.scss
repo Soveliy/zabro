@@ -310,6 +310,7 @@
     }
     &__left{
       width: 63.5%;
+      flex-shrink: 0;
       @include lit-desktop(){
         width: 56.6%;
       }
@@ -330,6 +331,7 @@
         object-fit: cover;
         border-radius: 10px;
         border: none;
+        position: absolute;
       }
       @include tablet(){
         height: 100%;
@@ -473,7 +475,7 @@
         width: auto;
         cursor: pointer;
         transition: $transtion;
-        &.swiper-slide-thumb-active{
+        &.js-active{
           background-color: $lightDark;
           color: $phiolText;
           &::before{

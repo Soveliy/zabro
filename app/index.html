@@ -459,7 +459,7 @@
                       <img src="img/frame.jpg" alt="">
                     </div>
                     <div class="spheres-item__tab" data-cst-tabs-body="2">
-                      <video src="video/about.mp4" autoplay=""  loop=""></video>
+                      <video src="video/about.mp4" controls></video>
                     </div>
                     <div class="spheres-item__tab" data-cst-tabs-body="3">
                       <div class="galleryInside swiper">
@@ -1045,21 +1045,21 @@
         <section class="section any-type">
           <div class="any-type__container container">
 
-            <div class="tabs any-type__tabs" data-cst-tabs>
+            <div class="tabs any-type__tabs" data-cst-tabs="10">
               <div class="section-head section-head--medium-margin">
                 <h2 class="section-head__title section-head--medium">
                   Создание контента любого типа
                 </h2>
               </div>
               <ul class="list-reset tabs__nav" >
-                <li class="tabs__nav-item"><button class="btn-reset tabs__nav-btn" type="button" data-cst-tabs-button="1">3D-визуализация</button></li>
-                <li class="tabs__nav-item"><button class="btn-reset tabs__nav-btn" type="button" data-cst-tabs-button="2">Виртуальная примерка</button></li>
-                <li class="tabs__nav-item"><button class="btn-reset tabs__nav-btn" type="button" data-cst-tabs-button="3">360-фото</button></li>
-                <li class="tabs__nav-item"><button class="btn-reset tabs__nav-btn" type="button" data-cst-tabs-button="4">Видео</button></li>
-                <li class="tabs__nav-item"><button class="btn-reset tabs__nav-btn" type="button" data-cst-tabs-button="5">Фото-рендеры</button></li>
+                <li class="tabs__nav-item"><button class="btn-reset any-type__nav-btn js-active" type="button" data-cst-tabs-button="1">3D-визуализация</button></li>
+                <li class="tabs__nav-item"><button class="btn-reset any-type__nav-btn" type="button" data-cst-tabs-button="2">Виртуальная примерка</button></li>
+                <li class="tabs__nav-item"><button class="btn-reset any-type__nav-btn" type="button" data-cst-tabs-button="3">360-фото</button></li>
+                <li class="tabs__nav-item"><button class="btn-reset any-type__nav-btn" type="button" data-cst-tabs-button="4">Видео</button></li>
+                <li class="tabs__nav-item"><button class="btn-reset any-type__nav-btn" type="button" data-cst-tabs-button="5">Фото-рендеры</button></li>
               </ul>
               <div class="tabs__content">
-                <div class="tabs__panel any-type-item" data-cst-tabs-body="1">
+                <div class="tabs__panel any-type-item js-active ajax-succes" data-cst-tabs-body="1">
                   <div class="any-type-item__row">
                     <a class="any-type-item__image">
                       <img src="img/prod.jpg" alt="">
@@ -1768,27 +1768,39 @@
           </div>
           <form action="#" class="tell-project__form">
             <div class="tell-project__inputs">
-              <div class="tell-project__input-container">
-                <div class="tell-project__input input">
+              <div class="tell-project__inputs-item">
+                <div class="tell-project__input-container">
+                  <div class="tell-project__input input">
 
-                  <input type="text" name="name" class="input__elem input--name" placeholder=" ">
-                  <label class="input__label">Имя </label>
+                    <input type="text" name="name" class="input__elem input--name" placeholder=" ">
+                    <label class="input__label">Имя </label>
+                  </div>
+                </div>
+                <div class="tell-project__input-container">
+                  <div class="tell-project__input input">
+
+                    <input type="text" name="phone" class="input__elem input--phone-email" placeholder=" ">
+                    <label class="input__label">Email*</label>
+                  </div>
+                </div>
+                <div class="tell-project__input-container">
+                  <div class="tell-project__input input">
+
+                    <input type="tel" name="phone" class="input__elem" placeholder=" ">
+                    <label class="input__label">Телефон</label>
+                  </div>
                 </div>
               </div>
-              <div class="tell-project__input-container">
-                <div class="tell-project__input input">
+              <div class="tell-project__inputs-item tell-project__inputs-item--w66">
+                <div class="tell-project__input-container tell-project__input-container--w100">
+                  <div class="tell-project__input input">
+                    <textarea class="input__textarea" placeholder=" "></textarea>
 
-                  <input type="text" name="phone" class="input__elem input--phone-email" placeholder=" ">
-                  <label class="input__label">Телефон или эл. почта *</label>
+                    <label class="input__label">Оставьте поле пустым или напишите о вашем проекте</label>
+                  </div>
                 </div>
               </div>
-              <div class="tell-project__input-container tell-project__input-container--w100">
-                <div class="tell-project__input input">
-                  <textarea class="input__textarea" placeholder=" "></textarea>
 
-                  <label class="input__label">Оставьте поле пустым или напишите о вашем проекте</label>
-                </div>
-              </div>
             </div>
             <div class="tell-project__button-container">
               <button submit class="btn btn--big btn--gradient tell-project__button">
@@ -1985,25 +1997,28 @@
           <div class="modal__title modal__title--big">
             Связаться с нами
           </div>
-          <div class="modal__row">
-            <div class="modal__item-container modal__item-container--w50">
-              <div class="modal__input input">
+          <div class="modal__grid">
+            <div class="modal__grid-left">
+              <div class="form__input input">
                 <input type="text" name="name" class="input__elem input--name" placeholder=" ">
                 <label class="input__label">Имя </label>
               </div>
-            </div>
-            <div class="modal__item-container modal__item-container--w50">
               <div class="form__input input">
-                <input type="text" name="phone" class="input__elem input--phone-email" placeholder=" ">
-                <label class="input__label">Телефон или эл. почта *</label>
+                <input type="text" name="email" class="input__elem input--phone-email" placeholder=" ">
+                <label class="input__label">Email*</label>
+              </div>
+              <div class="form__input input">
+                <input type="tel" name="phone" class="input__elem input--phone" placeholder=" ">
+                <label class="input__label">Телефон</label>
               </div>
             </div>
-            <div class="modal__item-container modal__item-container--w100">
+            <div class="modal__grid-right">
               <div class="modal__input input">
                 <textarea class="input__textarea" placeholder=" "></textarea>
                 <label class="input__label">Оставьте поле пустым или напишите о вашем проекте</label>
               </div>
             </div>
+
           </div>
             <button class="modal__close" aria-label="Close modal" data-micromodal-close>
               <svg class="">
@@ -2066,11 +2081,17 @@
             </div>
             <div class="modal__item-container modal__item-container--w50">
               <div class="form__input input">
-                <input type="text" name="phone" class="input__elem input--phone-email" placeholder=" ">
-                <label class="input__label">Телефон или эл. почта *</label>
+                <input type="text" name="email" class="input__elem input--phone-email" placeholder=" ">
+                <label class="input__label">Email**</label>
               </div>
             </div>
-            <div class="modal__item-container modal__item-container--w100">
+            <div class="modal__item-container modal__item-container--w50">
+              <div class="modal__input input">
+                <input type="tel" name="tel" class="input__elem" placeholder=" ">
+                <label class="input__label">Телефон </label>
+              </div>
+            </div>
+            <div class="modal__item-container modal__item-container--w50">
               <div class="modal__input input">
                 <input type="text" name="company-name" class="input__elem input--company-name" placeholder=" ">
                 <label class="input__label">Название компании </label>
