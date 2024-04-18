@@ -19688,70 +19688,14 @@ window.addEventListener('load', () => {
     const spheresButtons = document.querySelectorAll('.tabs__nav-btn');
     const spheresBodys = document.querySelectorAll('.tabs__panel');
     const ajaxSuccessClass = 'ajax-success';
-    const ajaxUrl = document.querySelector('[data-ajax-spheres]').dataset.ajaxSpheres;
-    console.log(ajaxUrl);
-    const removeAllTabs = () => {
-      spheresButtons.forEach((spheresButton, index) => {
-        spheresButton.classList.remove('tabs__nav-btn--active');
-        if (spheresBodys[index]) {
-          spheresBodys[index].classList.remove('tabs__panel--active');
-        }
-      });
-    };
-    const fetchData = (url, callback) => {
-      fetch(url).then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.text();
-      }).then(callback).catch(error => console.error('Error fetching data:', error));
-    };
-    spheresButtons.forEach(spheresButton => {
-      spheresButton.addEventListener('click', () => {
-        const tabItem = document.querySelector(`.tabs__panel[data-tab-item="${spheresButton.dataset.tab}"]`);
-        if (!spheresButton.classList.contains('tabs__nav-btn--active')) {
-          removeAllTabs();
-        }
-        const ajaxId = spheresButton.dataset.tab;
-        if (!tabItem.classList.contains(ajaxSuccessClass)) {
-          fetchData(`${ajaxUrl}?id=${ajaxId}`, response => {
-            const tempElement = document.createElement('div');
-            tempElement.innerHTML = response;
-            const newTab = tempElement.querySelector(`.tabs__panel[data-tab-item="${spheresButton.dataset.tab}"]`);
-            if (newTab) {
-              spheresBodys[spheresButton.dataset.tab - 1].innerHTML = newTab.innerHTML;
-              spheresBodys[spheresButton.dataset.tab - 1].classList.add('tabs__panel--active', ajaxSuccessClass);
-              spheresButton.classList.add('tabs__nav-btn--active');
-              ajaxTabs();
-              TabsSliders();
-            } else {
-              console.error('Таб не найден');
-            }
-          });
-        } else {
-          spheresButton.classList.add('tabs__nav-btn--active');
-          spheresBodys[spheresButton.dataset.tab - 1].classList.add('tabs__panel--active');
-        }
-      });
-    });
-  };
-  const ajaxTabs = () => {
-    const tabs = document.querySelectorAll('[data-cst-tabs]');
-    tabs.forEach(tab => {
-      const tabId = tab.dataset.cstTabs; // Получаем уникальный идентификатор набора табов
-      const tabHeaders = tab.querySelectorAll('[data-cst-tabs-button]');
-      const tabBodies = tab.querySelectorAll('[data-cst-tabs-body]');
-      const ajaxUrl = tab.dataset.ajax;
-      const ajaxSuccessClass = 'ajax-success';
+    const ajaxUrlItem = document.querySelector('[data-ajax-spheres]');
+    if (spheresButtons.length > 0 && spheresBodys.length > 0 && ajaxUrlItem) {
+      const ajaxUrl = ajaxUrlItem.dataset.ajaxSpheres;
       const removeAllTabs = () => {
-        tabHeaders.forEach(tabHeader => {
-          tabHeader.classList.remove('js-active'); // Заменяем 'active' на 'js-active'
-        });
-        tabBodies.forEach(tabBody => {
-          tabBody.classList.remove('js-active');
-          const video = tabBody.querySelector('video'); // Получаем видео элемент
-          if (video) {
-            video.pause(); // Ставим видео на паузу
+        spheresButtons.forEach((spheresButton, index) => {
+          spheresButton.classList.remove('tabs__nav-btn--active');
+          if (spheresBodys[index]) {
+            spheresBodys[index].classList.remove('tabs__panel--active');
           }
         });
       };
@@ -19763,39 +19707,99 @@ window.addEventListener('load', () => {
           return response.text();
         }).then(callback).catch(error => console.error('Error fetching data:', error));
       };
-      tabHeaders.forEach((tabHeader, index) => {
-        tabHeader.addEventListener('click', () => {
-          if (!tabHeader.classList.contains('js-active')) {
+      spheresButtons.forEach(spheresButton => {
+        spheresButton.addEventListener('click', () => {
+          const tabItem = document.querySelector(`.tabs__panel[data-tab-item="${spheresButton.dataset.tab}"]`);
+          if (!spheresButton.classList.contains('tabs__nav-btn--active')) {
             removeAllTabs();
           }
-          const ajaxId = tabHeader.dataset.cstTabsButton;
-          const tabBody = tabBodies[index];
-          if (!tabBody.classList.contains(ajaxSuccessClass)) {
-            fetchData(`${ajaxUrl}?=${ajaxId}`, response => {
+          const ajaxId = spheresButton.dataset.tab;
+          if (!tabItem.classList.contains(ajaxSuccessClass)) {
+            fetchData(`${ajaxUrl}?id=${ajaxId}`, response => {
               const tempElement = document.createElement('div');
               tempElement.innerHTML = response;
-              const currentTab = tempElement.querySelector(`[data-cst-tabs="${tabId}"]`);
-              const newTabBody = currentTab.querySelector(`[data-cst-tabs-body="${tabHeader.dataset.cstTabsButton}"]`);
-              if (newTabBody) {
-                tabBody.innerHTML = newTabBody.innerHTML;
-                initGallerySlider();
-                tabBody.classList.add('js-active', ajaxSuccessClass);
-                tabHeader.classList.add('js-active');
+              const newTab = tempElement.querySelector(`.tabs__panel[data-tab-item="${spheresButton.dataset.tab}"]`);
+              if (newTab) {
+                spheresBodys[spheresButton.dataset.tab - 1].innerHTML = newTab.innerHTML;
+                spheresBodys[spheresButton.dataset.tab - 1].classList.add('tabs__panel--active', ajaxSuccessClass);
+                spheresButton.classList.add('tabs__nav-btn--active');
+                ajaxTabs();
+                TabsSliders();
               } else {
-                console.error('Tab not found');
+                console.error('Таб не найден');
               }
             });
           } else {
-            tabHeader.classList.add('js-active');
-            tabBody.classList.add('js-active');
-            const video = tabBody.querySelector('video'); // Получаем видео элемент
-            if (video) {
-              video.play();
-            }
+            spheresButton.classList.add('tabs__nav-btn--active');
+            spheresBodys[spheresButton.dataset.tab - 1].classList.add('tabs__panel--active');
           }
         });
       });
-    });
+    }
+  };
+  const ajaxTabs = () => {
+    const tabs = document.querySelectorAll('[data-cst-tabs]');
+    if (tabs.length > 0) {
+      tabs.forEach(tab => {
+        const tabId = tab.dataset.cstTabs; // Получаем уникальный идентификатор набора табов
+        const tabHeaders = tab.querySelectorAll('[data-cst-tabs-button]');
+        const tabBodies = tab.querySelectorAll('[data-cst-tabs-body]');
+        const ajaxUrl = tab.dataset.ajax;
+        const ajaxSuccessClass = 'ajax-success';
+        const removeAllTabs = () => {
+          tabHeaders.forEach(tabHeader => {
+            tabHeader.classList.remove('js-active'); // Заменяем 'active' на 'js-active'
+          });
+          tabBodies.forEach(tabBody => {
+            tabBody.classList.remove('js-active');
+            const video = tabBody.querySelector('video'); // Получаем видео элемент
+            if (video) {
+              video.pause(); // Ставим видео на паузу
+            }
+          });
+        };
+        const fetchData = (url, callback) => {
+          fetch(url).then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.text();
+          }).then(callback).catch(error => console.error('Error fetching data:', error));
+        };
+        tabHeaders.forEach((tabHeader, index) => {
+          tabHeader.addEventListener('click', () => {
+            if (!tabHeader.classList.contains('js-active')) {
+              removeAllTabs();
+            }
+            const ajaxId = tabHeader.dataset.cstTabsButton;
+            const tabBody = tabBodies[index];
+            if (!tabBody.classList.contains(ajaxSuccessClass)) {
+              fetchData(`${ajaxUrl}?=${ajaxId}`, response => {
+                const tempElement = document.createElement('div');
+                tempElement.innerHTML = response;
+                const currentTab = tempElement.querySelector(`[data-cst-tabs="${tabId}"]`);
+                const newTabBody = currentTab.querySelector(`[data-cst-tabs-body="${tabHeader.dataset.cstTabsButton}"]`);
+                if (newTabBody) {
+                  tabBody.innerHTML = newTabBody.innerHTML;
+                  initGallerySlider();
+                  tabBody.classList.add('js-active', ajaxSuccessClass);
+                  tabHeader.classList.add('js-active');
+                } else {
+                  console.error('Tab not found');
+                }
+              });
+            } else {
+              tabHeader.classList.add('js-active');
+              tabBody.classList.add('js-active');
+              const video = tabBody.querySelector('video'); // Получаем видео элемент
+              if (video) {
+                video.play();
+              }
+            }
+          });
+        });
+      });
+    }
   };
   ajaxTabs();
   spheresTabsInit();

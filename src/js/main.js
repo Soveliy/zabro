@@ -115,8 +115,11 @@ window.addEventListener('load', () => {
       const spheresButtons = document.querySelectorAll('.tabs__nav-btn');
       const spheresBodys = document.querySelectorAll('.tabs__panel');
       const ajaxSuccessClass = 'ajax-success';
-      const ajaxUrl = document.querySelector('[data-ajax-spheres]').dataset.ajaxSpheres
-      console.log(ajaxUrl)
+      const ajaxUrlItem = document.querySelector('[data-ajax-spheres]')
+      if (spheresButtons.length > 0 && spheresBodys.length > 0 && ajaxUrlItem){
+
+       const ajaxUrl = ajaxUrlItem.dataset.ajaxSpheres;
+
       const removeAllTabs = () => {
           spheresButtons.forEach((spheresButton, index) => {
               spheresButton.classList.remove('tabs__nav-btn--active');
@@ -167,11 +170,13 @@ window.addEventListener('load', () => {
               }
           });
       });
+      }
+
     };
     const ajaxTabs = () => {
       const tabs = document.querySelectorAll('[data-cst-tabs]');
-
-      tabs.forEach(tab => {
+      if (tabs.length > 0){
+        tabs.forEach(tab => {
 
           const tabId = tab.dataset.cstTabs; // Получаем уникальный идентификатор набора табов
           const tabHeaders = tab.querySelectorAll('[data-cst-tabs-button]');
@@ -238,6 +243,8 @@ window.addEventListener('load', () => {
               });
           });
       });
+      }
+
   }
 
     ajaxTabs()
