@@ -19623,7 +19623,6 @@ window.addEventListener('load', () => {
   /* фунционал с табами для блока Дайте вашим клиентам больше причин для покупки */
   const initGallerySlider = () => {
     let gall = document.querySelectorAll('.gallerySlider');
-    console.log(gall);
     let gallerySlider = new swiper__WEBPACK_IMPORTED_MODULE_6__["default"](".galleryInside", {});
   };
   const spheresMob = function () {
@@ -19689,6 +19688,8 @@ window.addEventListener('load', () => {
     const spheresButtons = document.querySelectorAll('.tabs__nav-btn');
     const spheresBodys = document.querySelectorAll('.tabs__panel');
     const ajaxSuccessClass = 'ajax-success';
+    const ajaxUrl = document.querySelector('[data-ajax-spheres]').dataset.ajaxSpheres;
+    console.log(ajaxUrl);
     const removeAllTabs = () => {
       spheresButtons.forEach((spheresButton, index) => {
         spheresButton.classList.remove('tabs__nav-btn--active');
@@ -19711,8 +19712,9 @@ window.addEventListener('load', () => {
         if (!spheresButton.classList.contains('tabs__nav-btn--active')) {
           removeAllTabs();
         }
+        const ajaxId = spheresButton.dataset.tab;
         if (!tabItem.classList.contains(ajaxSuccessClass)) {
-          fetchData('../ajax.html', response => {
+          fetchData(`${ajaxUrl}?id=${ajaxId}`, response => {
             const tempElement = document.createElement('div');
             tempElement.innerHTML = response;
             const newTab = tempElement.querySelector(`.tabs__panel[data-tab-item="${spheresButton.dataset.tab}"]`);
@@ -19720,7 +19722,6 @@ window.addEventListener('load', () => {
               spheresBodys[spheresButton.dataset.tab - 1].innerHTML = newTab.innerHTML;
               spheresBodys[spheresButton.dataset.tab - 1].classList.add('tabs__panel--active', ajaxSuccessClass);
               spheresButton.classList.add('tabs__nav-btn--active');
-              console.log('ajax');
               ajaxTabs();
               TabsSliders();
             } else {
@@ -19740,6 +19741,7 @@ window.addEventListener('load', () => {
       const tabId = tab.dataset.cstTabs; // Получаем уникальный идентификатор набора табов
       const tabHeaders = tab.querySelectorAll('[data-cst-tabs-button]');
       const tabBodies = tab.querySelectorAll('[data-cst-tabs-body]');
+      const ajaxUrl = tab.dataset.ajax;
       const ajaxSuccessClass = 'ajax-success';
       const removeAllTabs = () => {
         tabHeaders.forEach(tabHeader => {
@@ -19766,9 +19768,10 @@ window.addEventListener('load', () => {
           if (!tabHeader.classList.contains('js-active')) {
             removeAllTabs();
           }
+          const ajaxId = tabHeader.dataset.cstTabsButton;
           const tabBody = tabBodies[index];
           if (!tabBody.classList.contains(ajaxSuccessClass)) {
-            fetchData(`../ajax.html`, response => {
+            fetchData(`${ajaxUrl}?=${ajaxId}`, response => {
               const tempElement = document.createElement('div');
               tempElement.innerHTML = response;
               const currentTab = tempElement.querySelector(`[data-cst-tabs="${tabId}"]`);
