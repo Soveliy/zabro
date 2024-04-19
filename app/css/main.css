@@ -3872,32 +3872,32 @@ li.is-open > a svg {
     gap: 20px;
   }
 }
-.any-type-item__image {
+.any-type-item__frame {
   width: 52.6%;
   -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 @media (max-width: 1250px) {
-  .any-type-item__image {
+  .any-type-item__frame {
     width: 57.5%;
   }
 }
 @media (max-width: 992px) {
-  .any-type-item__image {
+  .any-type-item__frame {
     width: 52.2%;
   }
 }
 @media (max-width: 700px) {
-  .any-type-item__image {
+  .any-type-item__frame {
     width: 100%;
   }
 }
 @media (max-width: 500px) {
-  .any-type-item__image {
+  .any-type-item__frame {
     height: 350px;
   }
 }
-.any-type-item__image img {
+.any-type-item__frame img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
