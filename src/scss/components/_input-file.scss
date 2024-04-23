@@ -1,12 +1,42 @@
 .file-input{
   position: relative;
   cursor: pointer;
+
   &:hover{
     .file-input__wrap{
       &:before{
         opacity: 1;
       }
     }
+  }
+  &--success{
+    .file-input__icon{
+      background-image: url(../img/file-success.svg);
+    }
+    .file-input__right{
+      display: none;
+    }
+    .file-input__success{
+      display: block;
+    }
+
+  }
+  &--error{
+
+    .file-input__wrap{
+      border-color: #734CA5;
+      border-style: dashed;
+    }
+    .file-input__icon{
+      background-image: url(../img/file-error.svg);
+    }
+    .file-input__right{
+      display: none;
+    }
+    .file-input__error{
+      display: block;
+    }
+
   }
   input{
     position: absolute;
@@ -110,6 +140,9 @@
   &__success{
     display: none;
   }
+  &__error{
+    display: none;
+  }
   .desk{
     @include tablet(){
       display: none;
@@ -130,5 +163,25 @@
       display: block;
       margin-top: 4px;
     }
+  }
+  &__delete{
+    margin-left: 10px;
+    color: #FF5C5C;
+    border: none;
+    background: transparent;
+    outline: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    position: relative;
+    z-index: 5000;
+    cursor: pointer;
+  }
+  &__again{
+    position: relative;
+    z-index: 5000;
+    cursor: pointer;
+    color: #734CA5;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 }

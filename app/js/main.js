@@ -20086,7 +20086,15 @@ window.addEventListener('load', () => {
       }
       function Init() {
         let fileselect = $class(".file-input__elem", jsDrag),
-          filedrag = $class(".file-input__wrap", jsDrag);
+          filedrag = $class(".file-input__wrap", jsDrag),
+          removeBtn = $class('.file-input__again', jsDrag);
+
+        // Добавляем обработчик для кнопки "Очистить"
+        removeBtn.addEventListener('click', () => {
+          jsDrag.classList.remove("file-input--error");
+          jsDrag.classList.remove("isHover");
+          clearInputValue();
+        });
         fileselect.addEventListener("change", FileSelectHandler, false);
         let xhr = new XMLHttpRequest();
         if (xhr.upload) {
@@ -20119,6 +20127,8 @@ window.addEventListener('load', () => {
       function FileSelectHandler(e) {
         FileDragHover(e);
         let files = e.target.files || e.dataTransfer.files;
+
+        // Убеждаемся, что выбран только один файл, если было выбрано несколько
         if (files.length > 1) {
           const filesDataTransfer = new DataTransfer();
           filesDataTransfer.items.add(files[0]);
@@ -20127,13 +20137,13 @@ window.addEventListener('load', () => {
         }
         for (const file of files) {
           if (file.size > 52428800) {
-            jsDrag.classList.add("isError");
+            jsDrag.classList.add("file-input--error");
             Output("<div class='fileDrop__error'>Файл слишком большой</div>", jsDrag);
             clearInputValue(e);
             return;
           }
           if (!isValidFileType(file)) {
-            jsDrag.classList.add("isError");
+            jsDrag.classList.add("file-input--error");
             Output("<div class='fileDrop__error'>Неподдерживаемый тип файла</div>", jsDrag);
             clearInputValue(e);
             return;
@@ -20142,9 +20152,12 @@ window.addEventListener('load', () => {
         }
       }
       function isValidFileType(file) {
-        const acceptedTypes = $class(".file-input__elem", jsDrag).accept.split(',');
-        const fileExtension = file.name.split('.').pop();
-        return acceptedTypes.some(type => type.trim() === `.${fileExtension}`);
+        // Разделим принятые типы файлов и приведем к нижнему регистру для сравнения без учета регистра
+        const acceptedTypes = $class(".file-input__elem", jsDrag).accept.split(',').map(type => type.trim().toLowerCase());
+
+        // Получим расширение файла и проверим, есть ли оно в принятых типах
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+        return acceptedTypes.includes(`.${fileExtension}`);
       }
       function ParseFile(file) {
         let successElem = $class(".file-input__success", jsDrag);
@@ -20153,7 +20166,7 @@ window.addEventListener('load', () => {
           successElem.classList.add("file-input__success");
           jsDrag.appendChild(successElem);
         }
-        successElem.innerHTML = "<b>Файл загружен:</b> " + file.name;
+        successElem.innerHTML = "<b>Файл загружен:</b> <br>" + file.name;
 
         // Создаем кнопку удаления файла
         let deleteButton = document.createElement("button");
@@ -20162,12 +20175,13 @@ window.addEventListener('load', () => {
         deleteButton.addEventListener("click", () => {
           successElem.remove();
           deleteButton.remove();
-          jsDrag.classList.remove("file-input__success");
+          jsDrag.classList.remove("file-input--success");
           clearInputValue(e);
         });
 
         // Добавляем кнопку рядом с названием файла
-        jsDrag.appendChild(deleteButton);
+        jsDrag.classList.add('file-input--success');
+        successElem.appendChild(deleteButton);
       }
     });
   };

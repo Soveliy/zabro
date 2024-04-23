@@ -10859,6 +10859,28 @@ li.is-open > a svg {
 .file-input:hover .file-input__wrap:before {
   opacity: 1;
 }
+.file-input--success .file-input__icon {
+  background-image: url(../img/file-success.svg);
+}
+.file-input--success .file-input__right {
+  display: none;
+}
+.file-input--success .file-input__success {
+  display: block;
+}
+.file-input--error .file-input__wrap {
+  border-color: #734CA5;
+  border-style: dashed;
+}
+.file-input--error .file-input__icon {
+  background-image: url(../img/file-error.svg);
+}
+.file-input--error .file-input__right {
+  display: none;
+}
+.file-input--error .file-input__error {
+  display: block;
+}
 .file-input input {
   position: absolute;
   top: 0;
@@ -10974,6 +10996,9 @@ li.is-open > a svg {
 .file-input__success {
   display: none;
 }
+.file-input__error {
+  display: none;
+}
 @media (max-width: 992px) {
   .file-input .desk {
     display: none;
@@ -10992,6 +11017,26 @@ li.is-open > a svg {
     display: block;
     margin-top: 4px;
   }
+}
+.file-input__delete {
+  margin-left: 10px;
+  color: #FF5C5C;
+  border: none;
+  background: transparent;
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  position: relative;
+  z-index: 5000;
+  cursor: pointer;
+}
+.file-input__again {
+  position: relative;
+  z-index: 5000;
+  cursor: pointer;
+  color: #734CA5;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .catalog {
