@@ -45,7 +45,7 @@
               <div class="slider__label">
                 Количество продуктов
               </div>
-              <input type="text" class="slider__input">
+              <input type="text" class="slider__input" data-max="2000">
             </div>
             <div class="slider__range"></div>
           </div>
@@ -98,7 +98,7 @@
                         </svg>
                       </div>
 
-                      <button data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
+                      <button data-max-value="3" data-active-index="0" data-btn-index="1" data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
                         <span class="btn__text"> <span>Подключить</span></span>
                       </button>
 
@@ -179,7 +179,7 @@
                         <use xlink:href="img/sprite.svg#arrow_down"></use>
                       </svg>
                     </div>
-                    <button data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
+                    <button data-micromodal-trigger="rate-modal" data-max-value="50" data-active-index="1" data-btn-index="2" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
                       <span class="btn__text"> <span>Подключить</span></span>
                     </button>
 
@@ -277,7 +277,7 @@
                         <use xlink:href="img/sprite.svg#arrow_down"></use>
                       </svg>
                     </div>
-                    <button data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
+                    <button data-micromodal-trigger="rate-modal" data-max-value="1000" data-active-index="2" data-btn-index="3" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
                       <span class="btn__text"> <span>Подключить</span></span>
                     </button>
 
@@ -300,7 +300,7 @@
                         Свяжитесь с нами если не смогли выбрать тариф, есть вопросы, необходима скидка или пилотный проект
                       </div>
                     </div>
-                    <button data-micromodal-trigger="callback" class="btn btn--default btn--border btn--border--lignt   main-tarifs-custom-price__btn">
+                    <button data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--lignt   main-tarifs-custom-price__btn">
                       <span class="btn__text"> <span>Связаться с нами</span></span>
                     </button>
                   </div>

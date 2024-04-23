@@ -2056,17 +2056,19 @@
               <div class="rate-info__row">
                 <div class="rate-info__left">
                   Вы выбрали тариф <span data-rate>«Бизнес»</span> <br>
-                  <span data-rate-value>140</span> продуктов
+                  <span class="rate-info__bot">
+                    <span data-rate-value>140</span> продуктов
 
-                 <span class="rate-info__select rate-info__select--mounth">
-                  <span class="rate-info__label">Подписка на</span> <select  id="a-select">
-                    <option value="">1 месяц</option>
-                    <option value="">3 месяца</option>
-                    <option value="">6 месяцев</option>
-                  </select>
+                    <span class="rate-info__select rate-info__select--mounth">
+                     <span class="rate-info__label">Подписка на</span> <select  id="a-select">
+                       <option value="">1 месяц</option>
+                       <option value="">3 месяца</option>
+                       <option value="">6 месяцев</option>
+                     </select>
 
-                 </span>
-                 <span class="rate-info__label rate-info__select--year">Годовая подписка</span>
+                    </span>
+                    <span class="rate-info__label rate-info__select--year">Годовая подписка</span>
+                  </span>
                 </div>
                 <div class="rate-info__price">
                   5 400 ₽
@@ -2160,6 +2162,9 @@
                 Нажимая на кнопку «Отправить», Вы даете согласие на обработку своих персональных данных
               </div>
             </div>
+            <input data-tariff-name-hid type="hidden">
+            <input data-tariff-counter-hid type="hidden">
+            <input data-tariff-time-hid type="hidden">
           </form>
         </div>
     </div>

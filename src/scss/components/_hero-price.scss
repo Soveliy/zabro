@@ -624,7 +624,7 @@
     &__btn{
       margin-top: auto;
       width: 100%;
-      &:disabled,&.js-active:disabled{
+      &[disabled],&.js-active[disabled]{
         opacity: .5;
         pointer-events: none;
 

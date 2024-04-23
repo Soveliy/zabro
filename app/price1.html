@@ -277,7 +277,7 @@
               <div class="slider__label">
                 Количество продуктов
               </div>
-              <input type="text" class="slider__input">
+              <input type="text" class="slider__input" data-max="2000">
             </div>
             <div class="slider__range"></div>
           </div>
@@ -328,7 +328,7 @@
                         </svg>
                       </div>
 
-                      <button data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
+                      <button data-max-value="3" data-active-index="0" data-btn-index="1" data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
                         <span class="btn__text"> <span>Подключить</span></span>
                       </button>
 
@@ -407,7 +407,7 @@
                         <use xlink:href="img/sprite.svg#arrow_down"></use>
                       </svg>
                     </div>
-                    <button data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
+                    <button data-micromodal-trigger="rate-modal" data-max-value="50" data-active-index="1" data-btn-index="2" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
                       <span class="btn__text"> <span>Подключить</span></span>
                     </button>
 
@@ -502,7 +502,7 @@
                         <use xlink:href="img/sprite.svg#arrow_down"></use>
                       </svg>
                     </div>
-                    <button data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
+                    <button data-micromodal-trigger="rate-modal" data-max-value="1000" data-active-index="2" data-btn-index="3" class="btn btn--default btn--border btn--border--white  main-tarifs-item__btn">
                       <span class="btn__text"> <span>Подключить</span></span>
                     </button>
 
@@ -524,7 +524,7 @@
                         Свяжитесь с нами если не смогли выбрать тариф, есть вопросы, необходима скидка или пилотный проект
                       </div>
                     </div>
-                    <button data-micromodal-trigger="callback" class="btn btn--default btn--border btn--border--lignt   main-tarifs-custom-price__btn">
+                    <button data-micromodal-trigger="rate-modal" class="btn btn--default btn--border btn--border--lignt   main-tarifs-custom-price__btn">
                       <span class="btn__text"> <span>Связаться с нами</span></span>
                     </button>
                   </div>
@@ -1388,17 +1388,19 @@
               <div class="rate-info__row">
                 <div class="rate-info__left">
                   Вы выбрали тариф <span data-rate>«Бизнес»</span> <br>
-                  <span data-rate-value>140</span> продуктов
+                  <span class="rate-info__bot">
+                    <span data-rate-value>140</span> продуктов
 
-                 <span class="rate-info__select rate-info__select--mounth">
-                  <span class="rate-info__label">Подписка на</span> <select  id="a-select">
-                    <option value="">1 месяц</option>
-                    <option value="">3 месяца</option>
-                    <option value="">6 месяцев</option>
-                  </select>
+                    <span class="rate-info__select rate-info__select--mounth">
+                     <span class="rate-info__label">Подписка на</span> <select  id="a-select">
+                       <option value="">1 месяц</option>
+                       <option value="">3 месяца</option>
+                       <option value="">6 месяцев</option>
+                     </select>
 
-                 </span>
-                 <span class="rate-info__label rate-info__select--year">Годовая подписка</span>
+                    </span>
+                    <span class="rate-info__label rate-info__select--year">Годовая подписка</span>
+                  </span>
                 </div>
                 <div class="rate-info__price">
                   5 400 ₽
@@ -1492,6 +1494,9 @@
                 Нажимая на кнопку «Отправить», Вы даете согласие на обработку своих персональных данных
               </div>
             </div>
+            <input data-tariff-name-hid type="hidden">
+            <input data-tariff-counter-hid type="hidden">
+            <input data-tariff-time-hid type="hidden">
           </form>
         </div>
     </div>

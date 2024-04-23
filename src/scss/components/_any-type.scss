@@ -134,6 +134,19 @@
   &__frame{
     width: 52.6%;
     flex-shrink: 0;
+      line-height: 0;
+      position: relative;
+    @media (min-width:1024px){
+      min-height: 400px;
+    }
+      img,video,iframe{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        border: none;
+        position: absolute;
+      }
     @include lit-desktop(){
       width: 57.5%;
     }

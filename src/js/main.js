@@ -458,44 +458,77 @@ window.addEventListener('load', () => {
 
   // Функционал модалки с тарифами. Берём все значения из карточки и загоянем значения в модалку, а также в скрытые инпуты для бека
   const tariffBtns = document.querySelectorAll('[data-micromodal-trigger="rate-modal"]')
-  tariffBtns.forEach(tariffBtn => {
+  tariffBtns.forEach(tariffBtn =>{
     tariffBtn.addEventListener('click', () => {
-      const tariffItem =  tariffBtn.closest('.main-tarifs-item');
-      tariffBtn.closest('.main-tarifs-item')
-      const radioBtn = document.querySelector('[data-year]')
-      let price;
-      const countItems = document.querySelector('.slider__input').value
-      const name = tariffItem.querySelector('.main-tarifs-item__title')
-      const modal = document.querySelector('#rate-modal')
-      const modalPrice = modal.querySelector('.rate-info__price')
-      const modalTariffName =  modal.querySelector('[data-rate]')
-      const modalTariffCount =  modal.querySelector('[data-rate-value]')
-
-      const modalSelect = modal.querySelector('.rate-info__select--mounth')
-      const modalYear = modal.querySelector('.rate-info__select--year')
-      if (radioBtn.checked){
-        price = tariffItem.querySelector('.main-tarifs-item__price-year')
-        modalSelect.classList.add('is-hidden')
-        modalYear.classList.remove('is-hidden')
-      } else {
-        price = tariffItem.querySelector('.main-tarifs-item__price')
-        modalSelect.classList.remove('is-hidden')
-        modalYear.classList.add('is-hidden')
-      }
-
-
-      modalTariffName.innerHTML = `«${name.dataset.tariffName}»`;
-      if (price) {
-        modalPrice.innerHTML = `${price.dataset.tariffPrice}`;
-      } else {
-        modalPrice.innerHTML = '0 ₽'
-      }
-
-      modalTariffCount.innerHTML = `${countItems}`;
+      tariffModal(tariffBtn)
     })
   })
 
 
+
+function tariffModal(tariffBtn){
+
+  if (document.getElementById("a-select") && document.querySelectorAll('.nice-select').length == 0){
+    new NiceSelect(document.getElementById("a-select"), {});
+  }
+  const modal = document.querySelector('#rate-modal')
+  const modalPrice = modal.querySelector('.rate-info__price')
+  const modalTariffName =  modal.querySelector('[data-rate]')
+  const modalTariffCount =  modal.querySelector('[data-rate-value]')
+  const modalSelect = modal.querySelector('.rate-info__select--mounth')
+  const modalYear = modal.querySelector('.rate-info__select--year')
+  const radioBtn = document.querySelector('[data-year]')
+  const countItems = document.querySelector('.slider__input').value
+
+  // Скрытые инпуты
+  const tariffNameInput = document.querySelector('[data-tariff-name-hid]');
+  const tariffCounterInput = document.querySelector('[data-tariff-counter-hid]');
+
+
+  if (tariffBtn.classList.contains('main-tarifs-custom-price__btn')){
+    modal.classList.add('isCustomTariff');
+    const tariffCstTitle = document.querySelector('.main-tarifs-custom-price__pretitle');
+    modalTariffName.innerHTML = `«${tariffCstTitle.innerText}»`;
+    tariffNameInput.value = tariffCstTitle.innerText
+  } else {
+        // Найс селект
+
+
+    modal.classList.remove('isCustomTariff')
+    const tariffItem =  tariffBtn.closest('.main-tarifs-item');
+    tariffBtn.closest('.main-tarifs-item')
+
+    let price;
+
+    const name = tariffItem.querySelector('.main-tarifs-item__title');
+
+
+
+    if (radioBtn.checked){
+      price = tariffItem.querySelector('.main-tarifs-item__price-year')
+      modalSelect.classList.add('is-hidden')
+      modalYear.classList.remove('is-hidden')
+    } else {
+      price = tariffItem.querySelector('.main-tarifs-item__price')
+      modalSelect.classList.remove('is-hidden')
+      modalYear.classList.add('is-hidden')
+    }
+
+
+    modalTariffName.innerHTML = `«${name.dataset.tariffName}»`;
+    tariffNameInput.value = name.dataset.tariffName;
+    if (price) {
+      modalPrice.innerHTML = `${price.dataset.tariffPrice}`;
+    } else {
+      modalPrice.innerHTML = '0 ₽'
+    }
+
+    modalTariffCount.innerHTML = `${countItems}`;
+    tariffCounterInput.value = `${countItems}`;
+
+  }
+
+}
 
   // Фиксированное меню в ценах.
 
@@ -547,55 +580,58 @@ window.addEventListener('load', () => {
     const jsDrags = document.querySelectorAll('.file-input');
     if (!jsDrags?.length) return;
 
+    function $class(classElem, context) {
+        return (context || document).querySelector(classElem);
+    }
+
+    function Output(msg, context) {
+        let m = $class(".file-input__name", context);
+        if (!m) {
+            m = document.createElement("div");
+            m.classList.add("file-input__name");
+            context.appendChild(m);
+        }
+        m.innerHTML = msg;
+    }
+
     jsDrags.forEach((jsDrag) => {
-        function $class(classElem) {
-            return jsDrag.querySelector(classElem);
-        }
-
-        function Output(msg) {
-            let m = $class(".file-input__name");
-            if (!m) {
-                m = document.createElement("div");
-                m.classList.add("file-input__name");
-                jsDrag.appendChild(m);
-            }
-            m.innerHTML = msg;
-        }
-
         if (window.File && window.FileList && window.FileReader) {
             Init();
         }
 
         function Init() {
-            let fileselect = $class(".file-input__elem"),
-                filedrag = $class(".file-input__wrap");
+            let fileselect = $class(".file-input__elem", jsDrag),
+                filedrag = $class(".file-input__wrap", jsDrag);
 
             fileselect.addEventListener("change", FileSelectHandler, false);
 
             let xhr = new XMLHttpRequest();
             if (xhr.upload) {
-                jsDrag.addEventListener("dragover", FileDragHover, false);
-                jsDrag.addEventListener("dragleave", FileDragHover, false);
-                jsDrag.addEventListener("drop", FileSelectHandler, false);
+                filedrag.addEventListener("dragover", FileDragHover, false);
+                filedrag.addEventListener("dragleave", FileDragHover, false);
+                filedrag.addEventListener("drop", FileSelectHandler, false);
             }
+
+            // Добавим обработчики для нативного drag and drop
+            filedrag.addEventListener("dragover", FileDragHover, false);
+            filedrag.addEventListener("dragleave", FileDragHover, false);
+            filedrag.addEventListener("drop", FileSelectHandler, false);
         }
 
         function FileDragHover(e) {
             e.stopPropagation();
             e.preventDefault();
             if (e.type == "dragover") {
-                e.currentTarget.closest('.file-input').classList.add("isHover");
+                jsDrag.classList.add("isHover");
             } else {
-                e.currentTarget.closest('.file-input').classList.remove("isHover");
+                jsDrag.classList.remove("isHover");
             }
         }
 
         function clearInputValue(e) {
             e.target.value = null;
-            if (e.target.files) {
-                e.target.files = null;
-            }
-            if (e.dataTransfer?.files) {
+            e.target.files = null;
+            if (e.dataTransfer) {
                 e.dataTransfer.clearData();
             }
         }
@@ -611,9 +647,15 @@ window.addEventListener('load', () => {
             }
 
             for (const file of files) {
-                if (file.size > 52428800) { // 50 Мб = 50 * 1024 * 1024 байт
-                    $(e.currentTarget).closest(".file-input").addClass("isError");
-                    Output("<div class='fileDrop__error'>Файл слишком большой</div>");
+                if (file.size > 52428800) {
+                    jsDrag.classList.add("isError");
+                    Output("<div class='fileDrop__error'>Файл слишком большой</div>", jsDrag);
+                    clearInputValue(e);
+                    return;
+                }
+                if (!isValidFileType(file)) {
+                    jsDrag.classList.add("isError");
+                    Output("<div class='fileDrop__error'>Неподдерживаемый тип файла</div>", jsDrag);
                     clearInputValue(e);
                     return;
                 }
@@ -621,28 +663,47 @@ window.addEventListener('load', () => {
             }
         }
 
+        function isValidFileType(file) {
+            const acceptedTypes = $class(".file-input__elem", jsDrag).accept.split(',');
+            const fileExtension = file.name.split('.').pop();
+            return acceptedTypes.some(type => type.trim() === `.${fileExtension}`);
+        }
+
         function ParseFile(file) {
-          let successElem = $class(".file-input__success");
-          if (!successElem) {
-              successElem = document.createElement("div");
-              successElem.classList.add("file-input__success");
-              jsDrag.appendChild(successElem);
-          }
-          successElem.innerHTML = "<b>Файл загружен:</b> " + file.name;
-      }
+            let successElem = $class(".file-input__success", jsDrag);
+            if (!successElem) {
+                successElem = document.createElement("div");
+                successElem.classList.add("file-input__success");
+                jsDrag.appendChild(successElem);
+            }
+            successElem.innerHTML = "<b>Файл загружен:</b> " + file.name;
+
+            // Создаем кнопку удаления файла
+            let deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "Удалить";
+            deleteButton.classList.add("file-input__delete");
+            deleteButton.addEventListener("click", () => {
+                successElem.remove();
+                deleteButton.remove();
+                jsDrag.classList.remove("file-input__success");
+                clearInputValue(e);
+            });
+
+            // Добавляем кнопку рядом с названием файла
+            jsDrag.appendChild(deleteButton);
+        }
     });
 };
 
-
-
-
-  // dragDrop()
+// Где-то в вашем скрипте вызовите функцию
+dragDrop();
 
 
   const rangeSliderInit = () => { // создаем функцию инициализации слайдера
     const range = document.querySelector('.slider__range'); // Ищем слайдер
     const input = document.querySelector('.slider__input'); // Ищем input с меньшим значнием
-
+    const maxValue = +input.dataset.max;
+    console.log(maxValue)
     if (!range || !input) return // если этих элементов нет, прекращаем выполнение функции, чтобы не было ошибок
 
     const inputs = [input]; // создаем массив из меньшего и большего значения
@@ -656,16 +717,16 @@ window.addEventListener('load', () => {
         connect: [true, false],
         range: {
           'min': 0,
-          '10%': 100,
-          '20%': 200,
-          '30%': 300,
-          '40%': 400,
-          '50%': 500,
-          '60%': 600,
-          '70%': 700,
-          '80%': 800,
-          '90%': 900,
-          'max': 1000
+          '10%': maxValue * 0.1,
+          '20%': maxValue * 0.2,
+          '30%': maxValue * 0.3,
+          '40%': maxValue * 0.4,
+          '50%': maxValue * 0.5,
+          '60%': maxValue * 0.6,
+          '70%': maxValue * 0.7,
+          '80%': maxValue * 0.8,
+          '90%': maxValue * 0.9,
+          'max': maxValue
       },
       pips: { mode: 'steps', density: 10,  values: 10,},
 
@@ -690,32 +751,60 @@ window.addEventListener('load', () => {
     rangeSliderInit() // запускаем функцию инициализации слайдера
   }
   const getActiveTariff = () => {
-    const slider = document.querySelector('.slider')
-    const inputValue = document.querySelector('.slider__input').value; // Ищем input с меньшим значнием
-    const TariffItems = document.querySelectorAll('.main-tarifs-item')
-    const TariffsBtns = document.querySelectorAll('[data-micromodal-trigger="rate-modal"]')
+    const slider = document.querySelector('.slider');
+    const inputValue = parseInt(document.querySelector('.slider__input').value);
+    const TariffItems = document.querySelectorAll('.main-tarifs-item');
+    const TariffsBtns = document.querySelectorAll('.main-tarifs-item__btn');
 
-    TariffItems.forEach(TariffItem => {
-      TariffItem.classList.remove('js-active')
-    })
-    if (inputValue <= 3){
-      TariffsBtns[0].removeAttribute('disabled', '')
-      TariffItems[0].classList.add('js-active')
-      slider.className = "hero-price__slider slider slider--1"
+    TariffItems.forEach((TariffItem, index) => {
+        TariffItem.classList.remove('js-active');
+    });
 
+    TariffsBtns.forEach((btn, index) => {
+        btn.removeAttribute('disabled');
+    });
 
-    } else if (inputValue > 3 && inputValue <= 50){
-      TariffsBtns[0].setAttribute('disabled', '')
-      TariffsBtns[1].removeAttribute('disabled', '')
-      TariffItems[1].classList.add('js-active')
-      slider.className = "hero-price__slider slider slider--2"
-    } else {
-      TariffsBtns[0].setAttribute('disabled', '')
-      TariffsBtns[1].setAttribute('disabled', '')
-      TariffItems[2].classList.add('js-active')
-      slider.className = "hero-price__slider slider slider--3"
+    const tariffRules = Array.from(TariffsBtns).map(item => {
+        return {
+            max: item.getAttribute('data-max-value'),
+            activeIndex: item.getAttribute('data-active-index'),
+            btnIndex: item.getAttribute('data-btn-index')
+        };
+    });
+
+    for (let rule of tariffRules) {
+       if (inputValue > 0 && inputValue <= rule.max){
+
+            activateTariff(rule.activeIndex, rule.btnIndex);
+            break;
+
+       } else {
+            TariffItems.forEach((TariffItem, index) => {
+              TariffItem.classList.remove('js-active');
+            });
+
+       }
     }
+
+    function activateTariff(activeIndex, btnIndex) {
+      TariffItems[activeIndex].classList.add('js-active');
+      slider.className = `hero-price__slider slider slider--${btnIndex}`;
+
+      // Устанавливаем disabled для всех кнопок
+      TariffsBtns.forEach(btn => {
+          btn.setAttribute('disabled', '');
+      });
+
+      // Убираем disabled для текущей кнопки и всех следующих
+      for (let i = btnIndex - 1; i < TariffsBtns.length; i++) {
+          TariffsBtns[i].removeAttribute('disabled');
+      }
   }
+
+  };
+
+// Вызовем функцию при изменении значения input
+
   init()
 
 
@@ -829,10 +918,6 @@ window.addEventListener('load', () => {
   });
 
 
-  // Найс селект
-  if (document.getElementById("a-select")){
-    new NiceSelect(document.getElementById("a-select"), {});
-  }
 
 
 })

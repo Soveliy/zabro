@@ -3876,6 +3876,22 @@ li.is-open > a svg {
   width: 52.6%;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  line-height: 0;
+  position: relative;
+}
+@media (min-width: 1024px) {
+  .any-type-item__frame {
+    min-height: 400px;
+  }
+}
+.any-type-item__frame img, .any-type-item__frame video, .any-type-item__frame iframe {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 10px;
+  border: none;
+  position: absolute;
 }
 @media (max-width: 1250px) {
   .any-type-item__frame {
@@ -9081,7 +9097,7 @@ li.is-open > a svg {
   margin-top: auto;
   width: 100%;
 }
-.main-tarifs-item__btn:disabled, .main-tarifs-item__btn.js-active:disabled {
+.main-tarifs-item__btn[disabled], .main-tarifs-item__btn.js-active[disabled] {
   opacity: 0.5;
   pointer-events: none;
 }
@@ -12437,3 +12453,8 @@ body.js-hidden {
     padding-top: 0;
   }
 }
+
+.isCustomTariff .rate-info__bot, .isCustomTariff .rate-info__price {
+  display: none;
+}
+/*# sourceMappingURL=main.css.map */
