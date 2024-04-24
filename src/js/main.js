@@ -657,20 +657,21 @@ function tariffModal(tariffBtn){
           }
 
           for (const file of files) {
-              if (file.size > 52428800) {
-                  jsDrag.classList.add("file-input--error");
-                  Output("<div class='fileDrop__error'>Файл слишком большой</div>", jsDrag);
-                  clearInputValue(e);
-                  return;
-              }
-              if (!isValidFileType(file)) {
-                  jsDrag.classList.add("file-input--error");
-                  Output("<div class='fileDrop__error'>Неподдерживаемый тип файла</div>", jsDrag);
-                  clearInputValue(e);
-                  return;
-              }
-              ParseFile(file);
-          }
+            const maxFileSize = parseInt(jsDrag.getAttribute("data-max-filesize"), 10); // Получаем максимальный размер из атрибута
+            if (file.size > maxFileSize) {
+                jsDrag.classList.add("file-input--error");
+                Output("<div class='fileDrop__error'>Файл слишком большой</div>", jsDrag);
+                clearInputValue(e);
+                return;
+            }
+            if (!isValidFileType(file)) {
+                jsDrag.classList.add("file-input--error");
+                Output("<div class='fileDrop__error'>Неподдерживаемый тип файла</div>", jsDrag);
+                clearInputValue(e);
+                return;
+            }
+            ParseFile(file);
+        }
       }
 
 
