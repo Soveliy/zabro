@@ -164,7 +164,7 @@
 
                         <div class="file-input">
                           <label class="file-input__label" for="file">  </label>
-                          <input class="file-input__elem" type="file" name="file" id="file"   accept=".jpg,.jpeg,.png,.zip">
+                          <input class="file-input__elem" type="file" name="file" id="file"  data-max-filesize="52428800"  accept=".jpg,.jpeg,.png,.zip">
 
 
                           <div class="file-input__wrap">
@@ -181,10 +181,15 @@
                                    <span class="file-input__max-size"> Максимум 50 Мб</span>
                                   </span>
                                 </span>
-                                <span class="file-input__success">
-                                  <b>Файл загружен</b>
-                                  <span class="file-input__name"></span>
-                                </span>
+
+                              </span>
+                              <span class="file-input__success">
+                                <b>Файл загружен</b> <br>
+                                <span class="file-input__name"></span>
+                              </span>
+                              <span class="file-input__error">
+                                <b>Файл не загружен.</b> Что-то пошло не так, повторите попытку<br>
+                                <span class="file-input__again">Попробовать снова</span>
                               </span>
                             </div>
                             <div class="file-input__desc file-input__desc--tablet">

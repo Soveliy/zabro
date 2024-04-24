@@ -2091,7 +2091,7 @@
 
               <div class="file-input">
                 <label class="file-input__label" for="file"> </label>
-                <input class="file-input__elem" type="file" name="file" id="file"  accept=".pdf,.docx,.xlsx">
+                <input class="file-input__elem" type="file" name="file" id="file"  data-max-filesize="5242880"  accept=".pdf,.docx,.xlsx">
 
                 <div class="file-input__wrap">
                   <div class="file-input__row">
@@ -2101,16 +2101,21 @@
                     <span class="file-input__right">
                       <span class="file-input__desc file-input__desc--default file-input__desc--desk">
                         <b>Карточка предприятия (реквизиты компании)</b>
-                        <br>
+                       <span class="file-input__desk-and-tablet"> Перетащите в эту область или нажмите на нее</span> <br>
                         <span class="file-input__desk-and-mob">
                           PDF, DOCX, XLSX.
                          <span class="file-input__max-size"> Максимум 5 Мб</span>
                         </span>
                       </span>
-                      <span class="file-input__success">
-                        <b>Файл загружен</b>
-                        <span class="file-input__name"></span>
-                      </span>
+
+                    </span>
+                    <span class="file-input__success">
+                      <b>Файл загружен</b> <br>
+                      <span class="file-input__name"></span>
+                    </span>
+                    <span class="file-input__error">
+                      <b>Файл не загружен.</b> Что-то пошло не так, повторите попытку<br>
+                      <span class="file-input__again">Попробовать снова</span>
                     </span>
                   </div>
                   <div class="file-input__desc file-input__desc--tablet">
