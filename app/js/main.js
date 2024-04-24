@@ -20093,7 +20093,7 @@ window.addEventListener('load', () => {
         removeBtn.addEventListener('click', () => {
           jsDrag.classList.remove("file-input--error");
           jsDrag.classList.remove("isHover");
-          clearInputValue();
+          clearInputValue(fileselect);
         });
         fileselect.addEventListener("change", FileSelectHandler, false);
         let xhr = new XMLHttpRequest();
@@ -20139,14 +20139,14 @@ window.addEventListener('load', () => {
           const maxFileSize = parseInt(jsDrag.getAttribute("data-max-filesize"), 10); // Получаем максимальный размер из атрибута
           if (file.size > maxFileSize) {
             jsDrag.classList.add("file-input--error");
-            Output("<div class='fileDrop__error'>Файл слишком большой</div>", jsDrag);
-            clearInputValue(e);
+            jsDrag.classList.remove("file-input--success");
+            clearInputValue(fileselect);
             return;
           }
           if (!isValidFileType(file)) {
             jsDrag.classList.add("file-input--error");
-            Output("<div class='fileDrop__error'>Неподдерживаемый тип файла</div>", jsDrag);
-            clearInputValue(e);
+            jsDrag.classList.remove("file-input--success");
+            clearInputValue(fileselect);
             return;
           }
           ParseFile(file);
@@ -20173,14 +20173,15 @@ window.addEventListener('load', () => {
         let deleteButton = document.createElement("button");
         deleteButton.innerHTML = "Удалить";
         deleteButton.classList.add("file-input__delete");
-        deleteButton.addEventListener("click", () => {
-          successElem.remove();
+        deleteButton.addEventListener("click", e => {
+          // successElem.remove();
           deleteButton.remove();
           jsDrag.classList.remove("file-input--success");
-          clearInputValue(e);
+          clearInputValue(fileselect);
         });
 
         // Добавляем кнопку рядом с названием файла
+        jsDrag.classList.remove("file-input--error");
         jsDrag.classList.add('file-input--success');
         successElem.appendChild(deleteButton);
       }
