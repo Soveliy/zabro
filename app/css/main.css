@@ -2709,7 +2709,10 @@ li.is-open > a svg {
 .spheres__item.tabs__nav-btn--active {
   text-shadow: 0px 0px 1px #464547;
 }
-.spheres__item.tabs__nav-btn--active .spheres__item-icon, .spheres__item.tabs__nav-btn--active .spheres__item-decor {
+.spheres__item.tabs__nav-btn--active .spheres__item-decor {
+  fill: url(#tabs-active);
+}
+.spheres__item.tabs__nav-btn--active .spheres__item-icon svg path {
   fill: url(#tabs-active);
 }
 .spheres__item.tabs__nav-btn--active:after {
@@ -2752,14 +2755,18 @@ li.is-open > a svg {
 .spheres__item-icon {
   height: 70px;
   width: 70px;
-  fill: #E1D8FC;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
   margin-left: 10px;
   -ms-flex-negative: 0;
   flex-shrink: 0;
 }
-.spheres__item-icon path {
+.spheres__item-icon svg {
+  height: 100%;
+  width: 100%;
+  fill: #E1D8FC;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.spheres__item-icon svg path {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
