@@ -1,40 +1,63 @@
-.spheres{
+.spheres {
   position: relative;
   overflow: hidden;
   padding: 107px 0 60px;
-  @include lit-desktop(){
-    padding: 102px 0 60px
+  &__full-container {
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    @include tablet {
+      overflow: visible;
+      width: auto;
+      position: static;
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
-  @include tablet(){
+  @include lit-desktop() {
+    padding: 102px 0 60px;
+  }
+  @include tablet() {
     padding: 91px 0 60px;
   }
-  @include mobile(){
+  @include mobile() {
     padding: 141px 0 40px;
   }
-  @include lit-mobile(){
+  @include lit-mobile() {
     padding: 50px 0;
   }
-  &__section-head{
+  &__section-head {
     max-width: 64%;
-    @include tablet(){
+    @include tablet() {
       max-width: 53%;
     }
-    @include mobile(){
+    @include mobile() {
       max-width: 63%;
     }
-    @include lit-mobile(){
+    @include lit-mobile() {
       max-width: 100%;
     }
   }
-  &__row{
+  &__row {
     display: flex;
     align-items: flex-start;
-    @include lit-desktop(){
+    padding-left: calc(((100vw - 1272px) / 2) + 15px);
+    @include lit-desktop() {
       flex-direction: column;
+    }
+    @include tablet {
+      padding: 0;
     }
   }
 
-  &__list{
+  &__list {
+    height: 672px;
+    position: relative;
+    overflow: hidden;
     width: 288px;
     flex-shrink: 0;
     list-style: none;
@@ -42,43 +65,62 @@
     padding: 0;
     overflow: visible;
     flex-direction: column;
-    .swiper-wrapper{
+    .spheres__arrow--next {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 0;
+      top: auto;
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+    .spheres__arrow--prev {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 0;
+      svg {
+        transform: rotate(-90deg);
+      }
+    }
+    .swiper-wrapper {
       flex-direction: column;
-      @include lit-desktop(){
+      @include lit-desktop() {
         flex-direction: row;
       }
     }
-    .swiper-slide{
-      @include lit-desktop(){
+    .swiper-slide {
+      min-height: 102px;
+      height: auto;
+      @include lit-desktop() {
         width: 140px;
       }
     }
-    .swiper-slide + .swiper-slide{
-      margin-top: 13px;
-      @include lit-desktop(){
-        margin-top: 0;
-      }
-    }
-    .swiper-slide{
-      @include lit-desktop(){
+    .swiper-slide {
+      @include lit-desktop() {
         height: auto;
       }
     }
-    @include lit-desktop(){
+    @include lit-desktop() {
+      height: auto;
       width: 100%;
       display: flex;
       justify-content: space-between;
       margin-right: 0;
       margin-bottom: 30px;
     }
-    @include mobile(){
+    @include tablet {
+      overflow: visible;
+    }
+    @include mobile() {
       margin-bottom: 20px;
     }
-    @include lit-mobile(){
+    @include lit-mobile() {
       display: none;
     }
   }
-  &__item{
+  &__item {
     position: relative;
     display: flex;
     align-items: center;
@@ -93,14 +135,13 @@
     box-sizing: border-box;
     cursor: pointer;
     transition: $transtion;
-    &--mobile{
+    &--mobile {
       display: none;
-      @include lit-mobile(){
+      @include lit-mobile() {
         display: flex;
-
       }
     }
-    @include lit-desktop(){
+    @include lit-desktop() {
       // width: 16.6%;
       height: 100%;
 
@@ -112,7 +153,7 @@
       justify-content: flex-end;
       hyphens: auto;
     }
-    @include lit-mobile(){
+    @include lit-mobile() {
       flex-direction: row;
       align-items: center;
       padding: 5px 16px 5px 36px;
@@ -120,8 +161,8 @@
 
       margin-bottom: 8px;
     }
-    &::after{
-      content: '';
+    &::after {
+      content: "";
       position: absolute;
       left: 100%;
       top: 50%;
@@ -132,31 +173,35 @@
       opacity: 0;
       transition: $transtion;
 
-      @include lit-desktop(){
+      @include lit-desktop() {
         top: 100%;
         left: 50%;
         transform: translateX(-50%) rotate(90deg);
-
+      }
+      @include mobile {
+        background-size: contain;
+        background-position: center;
+        height: 20px;
       }
     }
-    &:hover{
-      .spheres__item-decor{
+    &:hover {
+      .spheres__item-decor {
         fill: url(#tabs-active);
       }
     }
-    &.tabs__nav-btn--active{
-      text-shadow: 0px 0px 1px  $mainColor;
-     .spheres__item-decor{
+    &.tabs__nav-btn--active {
+      text-shadow: 0px 0px 1px $mainColor;
+      .spheres__item-decor {
         fill: url(#tabs-active);
       }
-      .spheres__item-icon svg path{
+      .spheres__item-icon svg path {
         fill: url(#tabs-active);
       }
-      &:after{
+      &:after {
         opacity: 1;
       }
     }
-    &-decor{
+    &-decor {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -165,92 +210,99 @@
       height: 45px;
       fill: $lightDark;
       transition: $transtion;
-      path{
+      path {
         transition: $transtion;
       }
-      @include lit-desktop(){
+      @include lit-desktop() {
         bottom: 10px;
         transform: none;
         top: auto;
       }
-      @include lit-mobile(){
+      @include lit-mobile() {
         top: 50%;
         transform: translateY(-50%);
       }
     }
-    &-icon{
+    &-icon {
       height: 70px;
       width: 70px;
 
       margin-left: 10px;
       flex-shrink: 0;
-      svg{
+      svg {
         height: 100%;
         width: 100%;
         fill: $lightDark;
         transition: $transtion;
-        path{
+        path {
           transition: $transtion;
         }
       }
 
-      @include lit-desktop(){
+      @include lit-desktop() {
         margin-left: 6px;
         margin-bottom: 7px;
       }
-      @include lit-mobile(){
+      @include lit-mobile() {
         margin-bottom: 0;
       }
     }
-    &-name{
-      @include lit-desktop(){
+    &-name {
+      @include lit-desktop() {
         min-height: 33px;
         display: flex;
         align-items: center;
       }
-      @include lit-mobile(){
+      @include lit-mobile() {
         font-size: 16px;
         line-height: 135%;
-
       }
     }
-    & + &{
+    & + & {
       margin-top: 13px;
     }
   }
-  &__body{
+  &__body {
     position: relative;
     width: 100%;
     min-width: 1px;
-    @include tablet(){
+    border-radius: 10px 0px 0 62px;
+    background-color: #f1ecff;
+    height: 672px;
+    @include tablet() {
       width: calc(100% + 78px);
       margin: 0 -39px;
+      height: 512px;
     }
-    @include mobile(){
+    @include mobile() {
       width: calc(100% + 66px);
       margin: 0 -33px;
+      height: 873px;
+      border-radius: 0;
     }
-    @include lit-mobile(){
+    @include lit-mobile() {
       margin: 0;
       width: 100%;
+      height: auto;
+      background-color: transparent;
     }
-    &:after{
-      content: '';
-      background-color:  $lightBlock;
+    &:after {
+      content: "";
+      background-color: $lightBlock;
       position: absolute;
       left: 100%;
       height: 100%;
       top: 0;
       width: 100em;
-      @include lit-desktop(){
+      @include lit-desktop() {
         display: none;
       }
     }
   }
-  &-item{
+  &-item {
     border-radius: 10px 0px 0 62px;
     background-color: $lightBlock;
-    padding: 52px 0 52px 52px;
+    padding: 52px 0 30px 52px;
     position: absolute;
     top: 0;
     right: 0;
@@ -258,83 +310,85 @@
     transition: opacity $transtion;
     pointer-events: none;
     visibility: hidden;
+    padding-right: calc(((100vw - 1272px) / 2) + 15px);
 
-    &.tabs__panel--active{
-     position: relative;
-     opacity: 1;
-     visibility: visible;
-     pointer-events: all;
-      @include lit-mobile(){
+    &.tabs__panel--active {
+      position: relative;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+      @include lit-mobile() {
         margin-top: 20px;
         margin-bottom: 8px;
       }
-
     }
-    @include lit-desktop(){
+    @include lit-desktop() {
       padding: 28px 28px 28px 28px;
       border-radius: 10px 10px 62px 10px;
     }
-    @include tablet(){
+    @include tablet() {
       border-radius: 0;
       padding: 26px 39px 38px;
     }
-    @include mobile(){
+    @include mobile() {
       padding: 12px 33px 40px;
     }
-    @include lit-mobile(){
+    @include lit-mobile() {
       border-radius: 10px;
       padding: 16px 16px 20px;
     }
-    &__title{
+    &__title {
       margin-bottom: 12px;
       font-weight: 700;
       font-size: 24px;
       line-height: 150%;
       color: $zag;
-      &--mob{
+      &--mob {
         display: none;
-        @include tablet(){
+        @include tablet() {
           display: block;
         }
       }
-      @include mobile(){
+      @include mobile() {
         font-size: 20px;
         line-height: 180%;
         padding-left: 6px;
       }
-      @include lit-mobile(){
+      @include lit-mobile() {
         display: none;
       }
     }
-    &__row{
+    &__row {
       display: flex;
       // align-items: flex-start;
-      @include tablet(){
+      @include tablet() {
         align-items: stretch;
       }
-      @include mobile(){
+      @include mobile() {
         position: relative;
         flex-direction: column;
       }
     }
-    &__left{
+    &__left {
       width: 63.5%;
       flex-shrink: 0;
-      @include lit-desktop(){
+      @include lit-desktop() {
         width: 56.6%;
       }
-      @include tablet(){
+      @include tablet() {
         width: 48.6%;
       }
-      @include mobile(){
+      @include mobile() {
         width: 100%;
       }
     }
-    &__frames{
+    &__frames {
       line-height: 0;
       position: relative;
       height: 100%;
-      img,video,iframe{
+      img,
+      video,
+      iframe {
         height: 100%;
         width: 100%;
         object-fit: cover;
@@ -342,93 +396,94 @@
         border: none;
         position: absolute;
       }
-      @include tablet(){
+      @include tablet() {
         height: 100%;
-        img{
+        img {
           height: 100%;
         }
       }
-      @include mobile(){
+      @include mobile() {
         height: 368px;
         background-color: $white;
         border-radius: 10px;
         border: 1px solid #f0f0f0;
         margin-bottom: 88px;
-        .swiper-slide{
+        .swiper-slide {
           width: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
-
-
         }
       }
     }
-    &__content{
+    &__content {
       padding-left: 30px;
-      @include lit-desktop(){
+      padding-right: 30px;
+      max-height: 500px;
+      overflow-y: auto;
+      margin-right: -30px;
+      @include lit-desktop() {
         padding-left: 32px;
       }
-      @include tablet(){
+      @include tablet() {
         padding-left: 20px;
       }
-      @include mobile(){
+      @include mobile() {
         padding-left: 0;
       }
-      > *:first-child{
+      > *:first-child {
         margin-top: 0;
       }
-      > *:last-child{
+      > *:last-child {
         margin-bottom: 0;
       }
-      h3{
+      h3 {
         font-size: 36px;
         font-weight: 700;
         line-height: 42px; /* 116.667% */
         margin-bottom: 20px;
-        @include lit-desktop(){
+        @include lit-desktop() {
           font-size: 28px;
           line-height: 129%;
         }
-        @include tablet(){
+        @include tablet() {
           display: none;
         }
       }
-      p{
+      p {
         font-size: 20px;
         font-weight: 600;
         line-height: 135%;
         margin: 0 0 20px 0;
-        @include lit-desktop(){
-
+        @include lit-desktop() {
         }
-        @include tablet(){
+        @include tablet() {
           font-size: 18px;
           line-height: 135%;
           margin: 0 0 12px 0;
         }
-        @include lit-mobile(){
+        @include lit-mobile() {
           margin: 0 0 16px 0;
         }
       }
-      ul{
+      ul {
         padding: 0;
         margin: 0 0 20px 0;
         list-style: none;
-        @include tablet(){
+        @include tablet() {
           margin-bottom: 0;
         }
-        li{
+        li {
           position: relative;
           padding-left: 20px;
           font-size: 16px;
           font-weight: 400;
           line-height: 135%;
-          @include tablet(){
+          @include tablet() {
             font-size: 15px;
           }
-          &:before{
-            content: '';
+          &:before {
+            content: "";
             position: absolute;
             left: 0;
             top: 5px;
@@ -439,41 +494,41 @@
             transform: rotate(58deg);
           }
         }
-        li + li{
+        li + li {
           margin-top: 18px;
-          @include tablet(){
+          @include tablet() {
             margin-top: 12px;
           }
-          @include mobile(){
+          @include mobile() {
             margin-top: 15px;
           }
         }
       }
     }
-    &__btn{
+    &__btn {
       margin-top: 18px;
       width: 100%;
-      @include lit-desktop(){
+      @include lit-desktop() {
         max-width: 290px;
       }
-      @include tablet(){
+      @include tablet() {
         margin-top: 36px;
         max-width: 304px;
       }
-      @include mobile(){
+      @include mobile() {
         margin-top: 24px;
         max-width: 298px;
       }
-      @include lit-mobile(){
+      @include lit-mobile() {
         margin-top: 18px;
       }
     }
-    &__tabs{
+    &__tabs {
       list-style: none;
       padding: 0;
       margin: 20px 0 0 0;
       display: flex;
-      &-item{
+      &-item {
         padding: 16px 33px;
         box-sizing: border-box;
         border-radius: 10px;
@@ -484,11 +539,11 @@
         width: auto;
         cursor: pointer;
         transition: $transtion;
-        &.js-active{
+        &.js-active {
           background-color: $lightDark;
           color: $phiolText;
-          &::before{
-            content: '';
+          &::before {
+            content: "";
             position: absolute;
             bottom: 100%;
             left: 50%;
@@ -498,51 +553,49 @@
             background: url(../img/top-tab.svg);
           }
         }
-        @include lit-desktop(){
+        @include lit-desktop() {
           padding: 16px 25px;
         }
-        @include tablet(){
+        @include tablet() {
           padding: 12px 6px;
         }
-        @include mobile(){
+        @include mobile() {
           padding: 12px 28px;
         }
-        @include lit-mobile(){
+        @include lit-mobile() {
           padding: 12px 4px;
         }
-
       }
     }
-    &__inner{
-      @include mobile(){
+    &__inner {
+      @include mobile() {
         position: relative;
       }
     }
-
   }
-  &__thumbs{
+  &__thumbs {
     margin-top: 10px;
-    @include tablet(){
+    @include tablet() {
       margin-top: 5px;
     }
-    @include mobile(){
+    @include mobile() {
       position: absolute;
       top: 367px;
       left: 0;
       width: 100%;
     }
-    @include lit-mobile(){
+    @include lit-mobile() {
       margin-top: 8px;
     }
-    &-slider{
+    &-slider {
       padding-top: 10px;
     }
-    .swiper-arrow{
-      @include mobile(){
+    .swiper-arrow {
+      @include mobile() {
         display: none;
       }
     }
-    .swiper-scrollbar{
+    .swiper-scrollbar {
       position: relative;
       margin-top: 12px;
     }
@@ -551,7 +604,7 @@
 .galleryInside {
   height: 100%;
 }
-.spheres-item__tab{
+.spheres-item__tab {
   opacity: 0;
   position: absolute;
   left: 0;
@@ -561,7 +614,7 @@
   pointer-events: none;
   visibility: hidden;
   transition: $transtion;
-  &.js-active{
+  &.js-active {
     position: relative;
     opacity: 1;
     visibility: visible;

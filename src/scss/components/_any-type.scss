@@ -1,61 +1,61 @@
-.any-type{
-
-  &__tabs{
+.any-type {
+  position: relative;
+  overflow: hidden;
+  &__tabs {
     padding: 80px 60px 85px;
     background-color: $lightDark;
     border-radius: 10px 10px 100px 10px;
-    @include lit-desktop(){
+    @include lit-desktop() {
       padding: 50px 30px;
     }
-    @include tablet(){
-      padding:220px 39px 60px;
+    @include tablet() {
+      padding: 220px 39px 60px;
       border-radius: 0;
     }
-    @include mobile(){
+    @include mobile() {
       padding: 135px 33px 40px;
     }
-    @include lit-mobile(){
+    @include lit-mobile() {
       padding: 130px 15px 40px;
     }
-
   }
-  &__container{
-    @include tablet(){
+  &__container {
+    @include tablet() {
       padding: 0;
     }
   }
-  .tabs__nav{
+  .tabs__nav {
     display: flex;
     flex-wrap: wrap;
     margin: -8px -8px 24px;
-    @include lit-desktop(){
+    @include lit-desktop() {
       margin: -4px -4px 16px;
     }
-    @include tablet(){
+    @include tablet() {
       margin: -4px -4px 22px;
     }
-    @include mobile(){
+    @include mobile() {
       margin: -4px -4px 14px;
     }
-    @include lit-mobile(){
+    @include lit-mobile() {
       margin: -4px -4px 20px;
     }
   }
-  .tabs__nav-item{
+  .tabs__nav-item {
     padding: 8px;
-    @include lit-desktop(){
+    @include lit-desktop() {
       padding: 4px;
     }
-    @include lit-mobile(){
-      &:not(.tabs__nav-item--lit){
+    @include lit-mobile() {
+      &:not(.tabs__nav-item--lit) {
         width: 100%;
       }
-      &.tabs__nav-item--lit{
+      &.tabs__nav-item--lit {
         width: 50%;
       }
     }
   }
-  .any-type__nav-btn{
+  .any-type__nav-btn {
     position: relative;
     padding: 16px 24px;
     font-size: 16px;
@@ -63,26 +63,26 @@
     border: 1px solid $white;
     transition: $transtion;
     border-radius: 10px;
-    &:hover{
-      @include for-desktop(){
+    &:hover {
+      @include for-desktop() {
         background-color: $white;
       }
     }
-    @include lit-desktop(){
+    @include lit-desktop() {
       padding: 16px 23px;
     }
-    @include mobile(){
+    @include mobile() {
       padding: 16px 34px;
     }
-    @include lit-mobile(){
+    @include lit-mobile() {
       width: 100%;
     }
 
-    &.js-active{
+    &.js-active {
       background-color: #fff;
       color: $phiolText;
-      &:after{
-        content: '';
+      &:after {
+        content: "";
         position: absolute;
         width: 18px;
         height: 10px;
@@ -90,105 +90,100 @@
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        @include tablet(){
+        @include tablet() {
           display: none;
         }
       }
     }
-
   }
-
 }
 
-.any-type-item{
+.any-type-item {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition:opacity $transtion;
+  transition: opacity $transtion;
   position: absolute;
-  &:not(.js-active){
-    .any-type-item__btn{
+  &:not(.js-active) {
+    .any-type-item__btn {
       display: none;
     }
   }
-  &.js-active{
+  &.js-active {
     position: static;
     opacity: 1;
     visibility: visible;
     pointer-events: all;
   }
-  &__row{
+  &__row {
     display: flex;
     gap: 44px;
-    @include lit-desktop(){
+    @include lit-desktop() {
       gap: 28px;
     }
-    @include tablet(){
+    @include tablet() {
       gap: 24px;
     }
-    @include mobile(){
+    @include mobile() {
       flex-direction: column;
       gap: 20px;
     }
   }
-  &__frame{
+  &__frame {
     width: 52.6%;
     flex-shrink: 0;
-      line-height: 0;
-      position: relative;
-    @media (min-width:1024px){
+    line-height: 0;
+    position: relative;
+    @media (min-width: 1024px) {
       min-height: 400px;
     }
-      img,video,iframe{
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-        border: none;
-        position: absolute;
-      }
-    @include lit-desktop(){
+    img,
+    video,
+    iframe {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      border: none;
+      position: absolute;
+    }
+    @include lit-desktop() {
       width: 57.5%;
     }
-    @include tablet(){
+    @include tablet() {
       width: 52.2%;
     }
-    @include mobile(){
+    @include mobile() {
       width: 100%;
-
     }
-    @include lit-mobile(){
+    @include lit-mobile() {
       height: 350px;
     }
-    img{
+    img {
       height: 100%;
       width: 100%;
       object-fit: cover;
       border-radius: 10px;
     }
   }
-  &__content-block{
-
+  &__content-block {
   }
-  &__btn{
+  &__btn {
     margin-top: 26px;
-    @include tablet(){
+    @include tablet() {
       margin-top: 8px;
     }
-    @include mobile(){
+    @include mobile() {
       &.btn--border.btn--border--lignt {
-        > span{
+        > span {
           padding-left: 36px;
           padding-right: 36px;
         }
       }
-
     }
-    @include lit-mobile(){
+    @include lit-mobile() {
       margin-top: 12px;
       width: 100%;
     }
   }
 }
-
-

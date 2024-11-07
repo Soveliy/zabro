@@ -2486,6 +2486,24 @@ li.is-open > a svg {
   overflow: hidden;
   padding: 107px 0 60px;
 }
+.spheres__full-container {
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+@media (max-width: 992px) {
+  .spheres__full-container {
+    overflow: visible;
+    width: auto;
+    position: static;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 @media (max-width: 1250px) {
   .spheres {
     padding: 102px 0 60px;
@@ -2531,6 +2549,7 @@ li.is-open > a svg {
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;
+  padding-left: calc((100vw - 1272px) / 2 + 15px);
 }
 @media (max-width: 1250px) {
   .spheres__row {
@@ -2540,7 +2559,15 @@ li.is-open > a svg {
     flex-direction: column;
   }
 }
+@media (max-width: 992px) {
+  .spheres__row {
+    padding: 0;
+  }
+}
 .spheres__list {
+  height: 672px;
+  position: relative;
+  overflow: hidden;
   width: 288px;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -2552,6 +2579,33 @@ li.is-open > a svg {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+.spheres__list .spheres__arrow--next {
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  margin-top: 0;
+  top: auto;
+}
+.spheres__list .spheres__arrow--next svg {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.spheres__list .spheres__arrow--prev {
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  margin-top: 0;
+}
+.spheres__list .spheres__arrow--prev svg {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 .spheres__list .swiper-wrapper {
   -webkit-box-orient: vertical;
@@ -2567,17 +2621,13 @@ li.is-open > a svg {
     flex-direction: row;
   }
 }
+.spheres__list .swiper-slide {
+  min-height: 102px;
+  height: auto;
+}
 @media (max-width: 1250px) {
   .spheres__list .swiper-slide {
     width: 140px;
-  }
-}
-.spheres__list .swiper-slide + .swiper-slide {
-  margin-top: 13px;
-}
-@media (max-width: 1250px) {
-  .spheres__list .swiper-slide + .swiper-slide {
-    margin-top: 0;
   }
 }
 @media (max-width: 1250px) {
@@ -2587,6 +2637,7 @@ li.is-open > a svg {
 }
 @media (max-width: 1250px) {
   .spheres__list {
+    height: auto;
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2596,6 +2647,11 @@ li.is-open > a svg {
     justify-content: space-between;
     margin-right: 0;
     margin-bottom: 30px;
+  }
+}
+@media (max-width: 992px) {
+  .spheres__list {
+    overflow: visible;
   }
 }
 @media (max-width: 700px) {
@@ -2703,6 +2759,13 @@ li.is-open > a svg {
     transform: translateX(-50%) rotate(90deg);
   }
 }
+@media (max-width: 700px) {
+  .spheres__item::after {
+    background-size: contain;
+    background-position: center;
+    height: 20px;
+  }
+}
 .spheres__item:hover .spheres__item-decor {
   fill: url(#tabs-active);
 }
@@ -2805,23 +2868,31 @@ li.is-open > a svg {
   position: relative;
   width: 100%;
   min-width: 1px;
+  border-radius: 10px 0px 0 62px;
+  background-color: #f1ecff;
+  height: 672px;
 }
 @media (max-width: 992px) {
   .spheres__body {
     width: calc(100% + 78px);
     margin: 0 -39px;
+    height: 512px;
   }
 }
 @media (max-width: 700px) {
   .spheres__body {
     width: calc(100% + 66px);
     margin: 0 -33px;
+    height: 873px;
+    border-radius: 0;
   }
 }
 @media (max-width: 500px) {
   .spheres__body {
     margin: 0;
     width: 100%;
+    height: auto;
+    background-color: transparent;
   }
 }
 .spheres__body:after {
@@ -2841,7 +2912,7 @@ li.is-open > a svg {
 .spheres-item {
   border-radius: 10px 0px 0 62px;
   background-color: #F1ECFF;
-  padding: 52px 0 52px 52px;
+  padding: 52px 0 30px 52px;
   position: absolute;
   top: 0;
   right: 0;
@@ -2850,6 +2921,7 @@ li.is-open > a svg {
   transition: opacity 0.4s;
   pointer-events: none;
   visibility: hidden;
+  padding-right: calc((100vw - 1272px) / 2 + 15px);
 }
 .spheres-item.tabs__panel--active {
   position: relative;
@@ -2959,7 +3031,9 @@ li.is-open > a svg {
   position: relative;
   height: 100%;
 }
-.spheres-item__frames img, .spheres-item__frames video, .spheres-item__frames iframe {
+.spheres-item__frames img,
+.spheres-item__frames video,
+.spheres-item__frames iframe {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
@@ -2999,6 +3073,10 @@ li.is-open > a svg {
 }
 .spheres-item__content {
   padding-left: 30px;
+  padding-right: 30px;
+  max-height: 500px;
+  overflow-y: auto;
+  margin-right: -30px;
 }
 @media (max-width: 1250px) {
   .spheres-item__content {
@@ -3710,6 +3788,10 @@ li.is-open > a svg {
   }
 }
 
+.any-type {
+  position: relative;
+  overflow: hidden;
+}
 .any-type__tabs {
   padding: 80px 60px 85px;
   background-color: #E1D8FC;
@@ -3891,7 +3973,9 @@ li.is-open > a svg {
     min-height: 400px;
   }
 }
-.any-type-item__frame img, .any-type-item__frame video, .any-type-item__frame iframe {
+.any-type-item__frame img,
+.any-type-item__frame video,
+.any-type-item__frame iframe {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
@@ -5173,6 +5257,7 @@ li.is-open > a svg {
 
 .gallery {
   padding: 30px 0 60px;
+  overflow-x: auto;
 }
 @media (max-width: 1250px) {
   .gallery {
@@ -5192,6 +5277,9 @@ li.is-open > a svg {
 .gallery a {
   display: block;
   line-height: 0;
+}
+.gallery__swiper {
+  overflow: visible;
 }
 @media (max-width: 500px) {
   .gallery__swiper--desktop {
@@ -5258,6 +5346,9 @@ li.is-open > a svg {
   .gallery__swiper + .gallery__swiper .swiper-slide {
     max-height: 220px;
   }
+}
+.gallery .swiper-wrapper {
+  overflow: visible;
 }
 .gallery .swiper-slide {
   width: 25%;
@@ -5333,6 +5424,17 @@ li.is-open > a svg {
   .gallery-image__item--border-bot-left {
     border-bottom-left-radius: 84px;
   }
+}
+
+.gallery::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  margin: 0 20px;
+}
+
+.gallery::-webkit-scrollbar-thumb {
+  background-color: #f1ecff;
+  cursor: pointer;
 }
 
 .examples {
@@ -8644,7 +8746,7 @@ li.is-open > a svg {
   flex-direction: column;
   padding: 28px 36px 36px 36px;
   background-color: #FFF;
-  border: 2px solid #F1ECFF;
+  border: 2px solid #f1ecff;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 10px;
@@ -8703,6 +8805,9 @@ li.is-open > a svg {
   position: absolute;
   height: auto;
   z-index: 5000;
+}
+.main-tarifs-item__price-value {
+  display: inline;
 }
 @media (max-width: 500px) {
   .main-tarifs-item {
